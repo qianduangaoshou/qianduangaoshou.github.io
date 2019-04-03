@@ -17,7 +17,7 @@ after_script:
   - git config user.email "250621458@qq.com"
   - git add .
   - git commit -m "update blog"
-  - git push --force --quiet "https://${GL_TOKEN}@${GH_REF}" master:master
+  - git push "https://${GL_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 
 branches:
