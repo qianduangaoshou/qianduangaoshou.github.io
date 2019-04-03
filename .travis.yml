@@ -1,0 +1,29 @@
+language: node_js
+node_js: stable
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+#before_script:
+ # - npm install -g gulp
+
+script:
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "newpromise"
+  - git config user.email "250621458@qq.com"
+  - git add .
+  - git commit -m "update blog"
+  - git push --force --quiet "https://${GL_TOKEN}@${GH_REF}" master:master
+# E: Build LifeCycle
+
+branches:
+  only:
+    - orign
+env:
+ global:
+   - GH_REF: github.com/newPromise/newPromise.github.io.git
