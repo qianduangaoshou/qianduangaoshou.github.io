@@ -113,7 +113,7 @@ theme: next
 deploy: 
   type: git
   # repo: git@github.com:newPromise/newPromise.github.io.git
-  repo: https://gh_token@github.com/newPromise/newPromise.github.io.git
+  repo: https://gl_token@github.com/newPromise/newPromise.github.io.git
   branch: master
 
 # algolia:
