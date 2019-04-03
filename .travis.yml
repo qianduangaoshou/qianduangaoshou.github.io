@@ -22,7 +22,7 @@ after_script:
 
 branches:
   only:
-    - orign
+    - origin
 env:
  global:
    - GH_REF: github.com/newPromise/newPromise.github.io.git
