@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="underscore.js源码,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="underscore.js 源码解析( 十五 )clone  tap  has  matcher  property  propertyOf  isEqual clone_.clone(object)   创建一个浅拷贝的 object   使用  _.clone 的源码如下: 12345_.clone = function (obj) &amp;#123;  if (!.isObject(obj)) r">
+<meta name="keywords" content="underscore.js源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="underscore.js 源码分析(十五)">
+<meta property="og:url" content="https://newpromise.github.io/2017/12/14/underscore-js-源码分析-十五/index.html">
+<meta property="og:site_name" content="上善若水">
+<meta property="og:description" content="underscore.js 源码解析( 十五 )clone  tap  has  matcher  property  propertyOf  isEqual clone_.clone(object)   创建一个浅拷贝的 object   使用  _.clone 的源码如下: 12345_.clone = function (obj) &amp;#123;  if (!.isObject(obj)) r">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-16T04:13:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="underscore.js 源码分析(十五)">
+<meta name="twitter:description" content="underscore.js 源码解析( 十五 )clone  tap  has  matcher  property  propertyOf  isEqual clone_.clone(object)   创建一个浅拷贝的 object   使用  _.clone 的源码如下: 12345_.clone = function (obj) &amp;#123;  if (!.isObject(obj)) r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://newpromise.github.io/2017/12/14/underscore-js-源码分析-十五/">
+
+
+
+
+
+  <title>underscore.js 源码分析(十五) | 上善若水</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">上善若水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2017/12/14/underscore-js-源码分析-十五/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="上善若水">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="上善若水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">underscore.js 源码分析(十五)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T22:40:13+08:00">
+                2017-12-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-16T12:13:30+08:00">
+                2017-12-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/underscore-js-源码分析/" itemprop="url" rel="index">
+                    <span itemprop="name">underscore.js 源码分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/14/underscore-js-源码分析-十五/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/14/underscore-js-源码分析-十五/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/14/underscore-js-源码分析-十五/" class="leancloud_visitors" data-flag-title="underscore.js 源码分析(十五)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.7k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="underscore-js-源码解析-十五"><a href="#underscore-js-源码解析-十五" class="headerlink" title="underscore.js 源码解析( 十五 )"></a>underscore.js 源码解析( 十五 )</h3><p><code>clone</code>  <code>tap</code>  <code>has</code>  <code>matcher</code>  <code>property</code>  <code>propertyOf</code>  <code>isEqual</code></p>
+<h4 id="clone"><a href="#clone" class="headerlink" title="clone"></a><code>clone</code></h4><p><code>_.clone(object)</code>  </p>
+<p>创建一个浅拷贝的 <code>object</code>  </p>
+<p>使用  <code>_.clone</code> 的源码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_.clone = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!.isObject(obj)) <span class="keyword">return</span> obj;</span><br><span class="line">  <span class="comment">// 对于 obj 是对象的, 分为数组和对象两种形式</span></span><br><span class="line">  <span class="keyword">return</span> isArray(obj) ? obj.slice() : _.extend(&#123;&#125;, obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="tap"><a href="#tap" class="headerlink" title="tap"></a><code>tap</code></h4><p><code>_.tap(object, interceptor)</code></p>
+<blockquote>
+<p><code>interceptor</code> 拦截器</p>
+</blockquote>
+<p>使用 <code>interceptor</code> 的作用是用于对于传入的对象 <code>object</code> 进行 <code>interceptor</code> 操作, 并且操作完成之后返回 <code>object</code> 本身。</p>
+<p>用于链式调用: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_.tap = <span class="function"><span class="keyword">function</span> (<span class="params">obj, interceptor</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 对于对象应用 interceptor 函数作用</span></span><br><span class="line">  interceptor(obj);</span><br><span class="line">  <span class="comment">// 返回这个对象</span></span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="has"><a href="#has" class="headerlink" title="　has"></a>　<code>has</code></h4><p><code>_.has(object, key)</code></p>
+<p>用于判断对象是否包含有特定的属性 <code>key</code>  , 在源码中有这样一句话, </p>
+<blockquote>
+<p>等同于<code>object.hasOwnProperty(key)</code>，但是使用<code>hasOwnProperty</code> 函数的一个安全引用，以防<a href="http://www.devthought.com/2012/01/18/an-object-is-not-a-hash/" target="_blank" rel="noopener">意外覆盖</a>。</p>
+<p>什么是意外覆盖?</p>
+</blockquote>
+<p>源码分析如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.has = <span class="function"><span class="keyword">function</span>(<span class="params">obj, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> obj != <span class="literal">null</span> &amp;&amp; hasOwnProperty.call(obj, key);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="matcher"><a href="#matcher" class="headerlink" title="matcher"></a><code>matcher</code></h4><p><code>matcher(attrs)</code></p>
+<p>使用 <code>matcher</code> 函数是一个断言函数, 返回一个 <code>true</code> or <code>false</code> 来判断给定的对象中是否含有 <code>attrs</code> 中指定的键值对儿</p>
+<p>示例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = &#123;</span><br><span class="line">  selected: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> hasSelected = _.matcher(&#123;<span class="attr">selected</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">hasSelected(list); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h5 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h5><p>源码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_.matcher = _.matches = <span class="function"><span class="keyword">function</span>(<span class="params">attrs</span>) </span>&#123;</span><br><span class="line">  attrs = _.extendOwn(&#123;&#125;, attrs);</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> _.isMatch(obj, attrs);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>_.isMatch</code> 源码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">_.isMatch = <span class="function"><span class="keyword">function</span> (<span class="params">object, attrs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> keys = _.keys(attrs), length = keys.length;</span><br><span class="line">  <span class="keyword">if</span> (object === <span class="literal">null</span>) <span class="keyword">return</span> !length;</span><br><span class="line">  <span class="keyword">let</span> obj = <span class="built_in">Object</span>(object);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> key = keys[i];</span><br><span class="line">    <span class="comment">//如果 attrs 中的值和 obj 中的值不相等， 或者 key 不属于 obj 中</span></span><br><span class="line">    <span class="comment">// 返回 false</span></span><br><span class="line">    <span class="keyword">if</span> (attrs[key] !== obj[key] || !(key <span class="keyword">in</span> obj)) <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 返回 true</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="property"><a href="#property" class="headerlink" title="property"></a><code>property</code></h4><p><code>property(key)</code>  </p>
+<p>该方法返回一个函数，返回传入该函数的任何对象的 <code>key</code> 属性。  </p>
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> property = <span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> obj === <span class="literal">null</span> ? <span class="keyword">void</span> <span class="number">0</span> : obj[key];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="propertyOf"><a href="#propertyOf" class="headerlink" title="propertyOf"></a><code>propertyOf</code></h4><p>使用 <code>propertyOf</code> 与使用  <code>property</code> 相反。  </p>
+<p><code>propertyOf(object)</code>  传入一个对象， 返回一个函数，这个函数接收一个属性，返回对象对应属性的值。</p>
+<p>使用 <code>propertyOf</code>   </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_.propertyOf = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> obj == <span class="literal">null</span> ? <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125; : <span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="isEqual"><a href="#isEqual" class="headerlink" title="isEqual"></a><code>isEqual</code></h4><p><code>isEqual(object, other)</code> </p>
+<p>使用  <code>isEqual</code> 用来判断两个对象是否相等。 </p>
+<p>因为不同的对象被放在了不同的内存空间中, 因此， 即使是属性和值均相等的对象也是不相同的, 如果对象的属性和值都是相同的，使用 <code>isEqual</code> 返回的是 <code>true</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125; == &#123;&#125; <span class="comment">// false</span></span><br><span class="line">_.isEqual(&#123;&#125;, &#123;&#125;); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>在源码中使用 <code>equal</code> 进行判断:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.equal = <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> eq(a, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>eq</code> 进行判断的源码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eq = <span class="function"><span class="keyword">function</span>(<span class="params">a, b, aStack, bStack</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Identical objects are equal. `0 === -0`, but they aren't identical.</span></span><br><span class="line">    <span class="comment">// See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).</span></span><br><span class="line">    <span class="keyword">if</span> (a === b) <span class="keyword">return</span> a !== <span class="number">0</span> || <span class="number">1</span> / a === <span class="number">1</span> / b;</span><br><span class="line">    <span class="comment">// A strict comparison is necessary because `null == undefined`.</span></span><br><span class="line">    <span class="comment">// 如果 a 或者 b === undefined 返回 a === b</span></span><br><span class="line">    <span class="keyword">if</span> (a == <span class="literal">null</span> || b == <span class="literal">null</span>) <span class="keyword">return</span> a === b;</span><br><span class="line">    <span class="comment">// Unwrap any wrapped objects.</span></span><br><span class="line">    <span class="keyword">if</span> (a <span class="keyword">instanceof</span> _) a = a._wrapped;</span><br><span class="line">    <span class="keyword">if</span> (b <span class="keyword">instanceof</span> _) b = b._wrapped;</span><br><span class="line">    <span class="comment">// Compare `[[Class]]` names.</span></span><br><span class="line">    <span class="keyword">var</span> className = toString.call(a);</span><br><span class="line">   <span class="comment">// 如果 a 的对象的类型不同于 b 的对象的类型， 返回的是 false</span></span><br><span class="line">    <span class="keyword">if</span> (className !== toString.call(b)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">switch</span> (className) &#123;</span><br><span class="line">      <span class="comment">// Strings, numbers, regular expressions, dates, and booleans are compared by value.</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'[object RegExp]'</span>:</span><br><span class="line">      <span class="comment">// RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'[object String]'</span>:</span><br><span class="line">        <span class="comment">// Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is</span></span><br><span class="line">        <span class="comment">// equivalent to `new String("5")`.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span> + a === <span class="string">''</span> + b;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'[object Number]'</span>:</span><br><span class="line">        <span class="comment">// `NaN`s are equivalent, but non-reflexive.</span></span><br><span class="line">        <span class="comment">// Object(NaN) is equivalent to NaN</span></span><br><span class="line">        <span class="comment">// 当 a 是 NaN 的时候, 如果 b 也是 NaN 那么 !b !== b // false</span></span><br><span class="line">        <span class="keyword">if</span> (+a !== +a) <span class="keyword">return</span> +b !== +b;</span><br><span class="line">        <span class="comment">// An `egal` comparison is performed for other numeric values.</span></span><br><span class="line">        <span class="comment">// 判断 +a === 0 ? </span></span><br><span class="line">        <span class="keyword">return</span> +a === <span class="number">0</span> ? <span class="number">1</span> / +a === <span class="number">1</span> / b : +a === +b;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'[object Date]'</span>:</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'[object Boolean]'</span>:</span><br><span class="line">        <span class="comment">// Coerce dates and booleans to numeric primitive values. Dates are compared by their</span></span><br><span class="line">        <span class="comment">// millisecond representations. Note that invalid dates with millisecond representations</span></span><br><span class="line">        <span class="comment">// of `NaN` are not equivalent.</span></span><br><span class="line">        <span class="keyword">return</span> +a === +b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> areArrays = className === <span class="string">'[object Array]'</span>;</span><br><span class="line">    <span class="comment">// 如果不是一个数组</span></span><br><span class="line">    <span class="keyword">if</span> (!areArrays) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> a != <span class="string">'object'</span> || <span class="keyword">typeof</span> b != <span class="string">'object'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      <span class="comment">// Objects with different constructors are not equivalent, but `Object`s or `Array`s</span></span><br><span class="line">      <span class="comment">// from different frames are.</span></span><br><span class="line">      <span class="keyword">var</span> aCtor = a.constructor, bCtor = b.constructor;</span><br><span class="line">      <span class="keyword">if</span> (aCtor !== bCtor &amp;&amp; !(_.isFunction(aCtor) &amp;&amp; aCtor <span class="keyword">instanceof</span> aCtor &amp;&amp;</span><br><span class="line">        _.isFunction(bCtor) &amp;&amp; bCtor <span class="keyword">instanceof</span> bCtor) &amp;&amp; (<span class="string">'constructor'</span> <span class="keyword">in</span> a &amp;&amp; <span class="string">'constructor'</span> <span class="keyword">in</span> b)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Assume equality for cyclic structures. The algorithm for detecting cyclic</span></span><br><span class="line">    <span class="comment">// structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Initializing stack of traversed objects.</span></span><br><span class="line">    <span class="comment">// It's done here since we only need them for objects and arrays comparison.</span></span><br><span class="line">    aStack = aStack || [];</span><br><span class="line">    bStack = bStack || [];</span><br><span class="line">    <span class="keyword">var</span> length = aStack.length;</span><br><span class="line">    <span class="keyword">while</span> (length--) &#123;</span><br><span class="line">      <span class="comment">// Linear search. Performance is inversely proportional to the number of</span></span><br><span class="line">      <span class="comment">// unique nested structures.</span></span><br><span class="line">      <span class="keyword">if</span> (aStack[length] === a) <span class="keyword">return</span> bStack[length] === b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Add the first object to the stack of traversed objects.</span></span><br><span class="line">    aStack.push(a);</span><br><span class="line">    bStack.push(b);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Recursively compare objects and arrays.</span></span><br><span class="line">    <span class="keyword">if</span> (areArrays) &#123;</span><br><span class="line">      <span class="comment">// Compare array lengths to determine if a deep comparison is necessary.</span></span><br><span class="line">      length = a.length;</span><br><span class="line">      <span class="keyword">if</span> (length !== b.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      <span class="comment">// Deep compare the contents, ignoring non-numeric properties.</span></span><br><span class="line">      <span class="keyword">while</span> (length--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!eq(a[length], b[length], aStack, bStack)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Deep compare objects.</span></span><br><span class="line">      <span class="keyword">var</span> keys = _.keys(a), key;</span><br><span class="line">      length = keys.length;</span><br><span class="line">      <span class="comment">// Ensure that both objects contain the same number of properties before comparing deep equality.</span></span><br><span class="line">      <span class="keyword">if</span> (_.keys(b).length !== length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">while</span> (length--) &#123;</span><br><span class="line">        <span class="comment">// Deep compare each member</span></span><br><span class="line">        key = keys[length];</span><br><span class="line">        <span class="keyword">if</span> (!(_.has(b, key) &amp;&amp; eq(a[key], b[key], aStack, bStack))) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Remove the first object from the stack of traversed objects.</span></span><br><span class="line">    aStack.pop();</span><br><span class="line">    bStack.pop();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="eq-函数"><a href="#eq-函数" class="headerlink" title="eq 函数"></a><code>eq</code> 函数</h5><p>使用 <code>eq</code> 函数进行比较的时候，进行比较的值有下面几种情况:</p>
+<ol>
+<li><p>处理传递进比较的数值出现 <code>0 === -0</code> 的情况。这种情况用于单个数值的比较</p>
+<p>因为 <code>a === -0</code> 但是他们是不相同的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当 a !== 0  || 1/a === 1 / b</span></span><br><span class="line"><span class="comment">// 因为 1 / a === 1 / b (Infinity === -Infinity) // false</span></span><br><span class="line"><span class="keyword">if</span> (a === b) <span class="keyword">return</span> a !== <span class="number">0</span> || <span class="number">1</span> / a === <span class="number">1</span> / b;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>处理 <code>null == undefined</code> 的情况  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 当 a == null 或者 b == null 的时候， 返回 a === b</span><br><span class="line">if (a == null || b == null) return a === b;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>Object.toString</code> 进行判断属于 <code>Object</code> 的哪一种类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> className = toString.call(a);</span><br><span class="line"><span class="comment">// 类型不同, 返回 false</span></span><br><span class="line"><span class="keyword">if</span> (className !== toString.call(b)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">switch</span> (className) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'[object RegExp]'</span>:</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'[object String]'</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span> + a === <span class="string">''</span> +b;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'[object Number]'</span>:</span><br><span class="line">    <span class="comment">// 使用  NaN 进行比较</span></span><br><span class="line">    <span class="keyword">if</span> (+a !== +a) <span class="keyword">return</span> +b !== +b;</span><br><span class="line">    <span class="keyword">return</span> +a === <span class="number">0</span> ? <span class="number">1</span> / +a === <span class="number">1</span> / b : +a === +b;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'[object Date]'</span>:</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'[object Boolean]'</span>:</span><br><span class="line">    <span class="keyword">return</span> +a === +b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="4">
+<li><p>对于数组和对象的之间进行比较，需要深度比较</p>
+<p>当不是数组， 对象的情况:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> areArrays = className === <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="keyword">if</span> (!areArray) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> a !== <span class="string">'object'</span> || <span class="keyword">typeof</span> b !== <span class="string">'object'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">var</span> aCtor = a.constructor, bCtor = b.constructor;</span><br><span class="line">  <span class="comment">// 如果 aCtor !== bCtor</span></span><br><span class="line">  <span class="keyword">if</span> (aCtor !== bCtor &amp;&amp; !(_.isFunction(aCtor) &amp;&amp; aCtor <span class="keyword">instanceof</span> aCtor &amp;&amp; _.isFunction(bCtor) &amp;&amp; bCtor isntanceof bCtor) &amp;&amp; (<span class="string">'constructor'</span> <span class="keyword">in</span> a &amp;&amp; <span class="string">'constructor'</span> <span class="keyword">in</span> b)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> length = aStack.length;</span><br><span class="line"><span class="keyword">while</span>(length--) &#123;</span><br><span class="line">  <span class="keyword">if</span> (aStack[length] === a) <span class="keyword">return</span> bStack[length] === b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将 a 压入到 aStack 数组中</span></span><br><span class="line"><span class="comment">// 将 b 压入到 bStack 数组中</span></span><br><span class="line"><span class="comment">// aStack bStack 主要用于多重数组的情况</span></span><br><span class="line">aStack.push(a);</span><br><span class="line">bStack.push(b);</span><br></pre></td></tr></table></figure>
+<p>进行比较对象或者数组:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 比较数组</span></span><br><span class="line"><span class="keyword">if</span> (areArrays) &#123;</span><br><span class="line">  length = a.length;</span><br><span class="line">  <span class="keyword">if</span> (length !== b.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">while</span> (length--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!eq(a[length], b[length], aStack, bStack)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 比较对象  </span></span><br><span class="line">  <span class="keyword">let</span> keys = _.keys(a), key;</span><br><span class="line">  length = keys.length;</span><br><span class="line">  <span class="comment">// 如果两个对象的属性数目不相同 返回 false 不用进行深度遍历</span></span><br><span class="line">  <span class="keyword">if</span> (_.keys(b).length !== length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">while</span> (length--) &#123;</span><br><span class="line">    key = keys[length];</span><br><span class="line">    <span class="keyword">if</span> (!(_.has(b, key) &amp;&amp; eq(a[key], b[key], aStack, bStack))) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将存入的元素进行弹出</span></span><br><span class="line">aStack.pop();</span><br><span class="line">bStack.pop();</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/underscore-js源码/" rel="tag"># underscore.js源码</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/12/underscore-js源码分析-十四/" rel="next" title="underscore.js源码分析(十四)">
+                <i class="fa fa-chevron-left"></i> underscore.js源码分析(十四)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/16/underscore-js-源码分析-十六/" rel="prev" title="underscore.js 源码分析(十六)">
+                underscore.js 源码分析(十六) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="上善若水">
+            
+              <p class="site-author-name" itemprop="name">上善若水</p>
+              <p class="site-description motion-element" itemprop="description">饮冰十年 难凉热血</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/newPromise" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:newpromisenn@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhang-zhu-37-97/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#underscore-js-源码解析-十五"><span class="nav-number">1.</span> <span class="nav-text">underscore.js 源码解析( 十五 )</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#clone"><span class="nav-number">1.1.</span> <span class="nav-text">clone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tap"><span class="nav-number">1.2.</span> <span class="nav-text">tap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#has"><span class="nav-number">1.3.</span> <span class="nav-text">　has</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#matcher"><span class="nav-number">1.4.</span> <span class="nav-text">matcher</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析"><span class="nav-number">1.4.1.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#property"><span class="nav-number">1.5.</span> <span class="nav-text">property</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码"><span class="nav-number">1.6.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#propertyOf"><span class="nav-number">1.7.</span> <span class="nav-text">propertyOf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isEqual"><span class="nav-number">1.8.</span> <span class="nav-text">isEqual</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#eq-函数"><span class="nav-number">1.8.1.</span> <span class="nav-text">eq 函数</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">上善若水</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tQcr2ncCywuXB53jtS10kRVA-gzGzoHsz',
+        appKey: 'WGjYtwKr2VClCa7g1kgaRH0a',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("tQcr2ncCywuXB53jtS10kRVA-gzGzoHsz", "WGjYtwKr2VClCa7g1kgaRH0a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
