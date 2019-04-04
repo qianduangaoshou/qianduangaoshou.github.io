@@ -13,11 +13,22 @@ branches:
     - origin
 
 before_install:
+  - npm install -g hexo
   - npm install -g hexo-cli
 
 install:
-  - npm install
+  - npm install -g
   - npm install hexo-deployer-git --save
+  - npm install hexo-generator-archive --save
+  - npm install hexo-generator-category --save
+  - npm install hexo-generator-index --save
+  - npm install hexo-generator-searchdb --save
+  - npm install hexo-generator-tag --save
+  - npm install hexo-renderer-ejs --save
+  - npm install hexo-renderer-marked --save
+  - npm install hexo-renderer-stylus --save
+  - npm install hexo-server --save
+  - npm install hexo-wordcount --save
 
 before_script:
  # - npm install -g gulp
