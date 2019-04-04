@@ -52,9 +52,8 @@ after_script:
   - git config user.email "250621458@qq.com"
   - git add .
   - git commit -m "update blog"
-  # - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
+  - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
   # - git push --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
-  - git push --force --quiet https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
   - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
 
 # env:
