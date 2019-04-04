@@ -42,6 +42,7 @@ after_script:
   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
   - cat ./_config.yml
   - hexo deploy
+  - cat ./public
 # E: Build LifeCycle
 
 
