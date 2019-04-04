@@ -34,11 +34,12 @@ before_script:
   - git config user.name "newpromise"
   - git config user.email "250621458@qq.com"
   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
+  - hexo clean
+  - hexo g
  # - npm install -g gulp
 
 
 script: 
-  - hexo g
   - hexo d
 # after_script:
 #   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
