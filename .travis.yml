@@ -4,19 +4,19 @@ sudo: required
 node_js: 
   - 7.9.0
 # 指定缓存模块，可选。缓存可加快编译速度。
-cache:
-  directories:
+cache: 
+  directories: 
     - node_modules
 
-branches:
-  only:
+branches: 
+  only: 
     - origin
 
 before_install:
   - npm install -g hexo
   - npm install -g hexo-cli
 
-install:
+install: 
   - npm install -g
   - npm install hexo-deployer-git --save
   - npm install hexo-generator-archive --save
@@ -30,7 +30,7 @@ install:
   - npm install hexo-server --save
   - npm install hexo-wordcount --save
 
-before_script:
+before_script: 
   - git config user.name "newpromise"
   - git config user.email "250621458@qq.com"
   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
