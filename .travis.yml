@@ -33,15 +33,11 @@ install:
 before_script:
  # - npm install -g gulp
 
-script:
-  - hexo generate
-
 after_script:
   - git config user.name "newpromise"
   - git config user.email "250621458@qq.com"
   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
-  - cat ./_config.yml
-  - hexo deploy
+  - hexo deploy - g
   - cat ./public
 # E: Build LifeCycle
 
