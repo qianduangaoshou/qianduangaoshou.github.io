@@ -23,16 +23,15 @@ install:
  # - npm install -g gulp
 
 script:
-  - hexo clean
   - hexo generate
 
 after_script:
-  # - cd ./public
-  # - git init
+  - cd ./public
+  - git init
   - git config user.name "newpromise"
   - git config user.email "250621458@qq.com"
-  # - git add .
-  # - git commit -m "update blog"
+  - git add .
+  - git commit -m "update blog"
   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
   - cat ./_config.yml
   - hexo deploy
