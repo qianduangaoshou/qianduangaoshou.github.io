@@ -48,6 +48,7 @@ script:
 
 after_script: 
   - cd ./deploy_git
+  - git init
   - git add .
   - git commit -m "update blog"
   - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
