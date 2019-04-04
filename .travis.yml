@@ -55,9 +55,9 @@ after_script:
   # - git remote -v
   # - git fetch https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
   # - git merge https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
-  - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
+  - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
   # - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
-  - git push --force --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
+  - git push --force --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
   # - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
 
 # env:
