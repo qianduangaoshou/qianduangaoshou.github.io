@@ -53,6 +53,8 @@ after_script:
   - git add .
   - git commit -m "update blog"
   - git remote -v
+  - get fetch https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
+  - get merge https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
   - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
   # - git push --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
   - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
