@@ -19,7 +19,7 @@ install:
   - npm install
   - npm install hexo-deployer-git --save
 
-#before_script:
+before_script:
  # - npm install -g gulp
 
 script:
