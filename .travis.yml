@@ -47,7 +47,7 @@ script:
 
 after_script: 
   - cd ./public
-  - git init
+  # - git init
   - git config user.name "newpromise"
   - git config user.email "250621458@qq.com"
   - git add .
