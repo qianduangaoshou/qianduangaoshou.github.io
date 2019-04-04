@@ -39,7 +39,6 @@ before_script:
 
 script: 
   - hexo g
-  - cat ./public/2017/09/02/css居中效果/index.html
   - hexo d
 # after_script:
 #   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
