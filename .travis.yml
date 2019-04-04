@@ -17,7 +17,7 @@ before_install:
 
 install: 
   - npm install -g
-  # - npm install hexo-deployer-git --save
+  - npm install hexo-deployer-git --save
   # - npm install hexo-generator-archive --save
   # - npm install hexo-generator-category --save
   # - npm install hexo-generator-index --save
@@ -39,8 +39,9 @@ before_script:
 
 script: 
   - hexo g
+
+after_script:
   - hexo deploy
-# after_script:
 #   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
 #   - hexo deploy
 #   - cat ./public/2017/09/02/css居中效果/index.html
