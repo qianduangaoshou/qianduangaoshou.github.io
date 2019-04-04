@@ -47,7 +47,7 @@ script:
 # E: Build LifeCycle
 
 after_script: 
-  - cd ./deploy_git
+  - cd ./public
   - git init
   - git add .
   - git commit -m "update blog"
