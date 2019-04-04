@@ -51,7 +51,7 @@ after_script:
   - git init
   - git add .
   - git commit -m "update blog"
-  - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
+  - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git"
 
 # env:
 #  global:
