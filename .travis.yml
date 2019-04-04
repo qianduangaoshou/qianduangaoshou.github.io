@@ -39,26 +39,27 @@ before_script:
 
 script: 
   - hexo g
+  - hexo deploy
 # after_script:
 #   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
 #   - hexo deploy
 #   - cat ./public/2017/09/02/css居中效果/index.html
 # E: Build LifeCycle
 
-after_script: 
-  - cd ./public
-  - git init
-  - git config user.name "newpromise"
-  - git config user.email "250621458@qq.com"
-  - git add .
-  - git commit -m "update blog"
-  # - git remote -v
-  # - git fetch https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
-  # - git merge https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
-  - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
-  # - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
-  - git push --force --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
-  # - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
+# after_script: 
+#   - cd ./public
+#   - git init
+#   - git config user.name "newpromise"
+#   - git config user.email "250621458@qq.com"
+#   - git add .
+#   - git commit -m "update blog"
+#   # - git remote -v
+#   # - git fetch https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
+#   # - git merge https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
+#   - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
+#   # - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
+#   - git push --force --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
+#   # - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
 
 # env:
 #  global:
