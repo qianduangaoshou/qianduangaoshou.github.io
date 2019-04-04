@@ -52,7 +52,7 @@ after_script:
   - git config user.email "250621458@qq.com"
   - git add .
   - git commit -m "update blog"
-  - git push --set-upstream https://[secure]@github.com/newPromise/newPromise.github.io.git master
+  - git push --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
 
 # env:
 #  global:
