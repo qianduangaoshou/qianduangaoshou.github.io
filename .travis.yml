@@ -54,6 +54,7 @@ after_script:
   - git commit -m "update blog"
   # - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
   # - git push --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
+  - git push --force --quiet https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
   - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
 
 # env:
