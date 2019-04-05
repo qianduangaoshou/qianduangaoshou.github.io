@@ -1,7 +1,7 @@
 ---
-title: 实现mechine函数
+title: 实现machine函数
 date: 2019-04-01 17:54:06
-tags: mechine 函数
+tags: machine 函数
 categories: 代码集
 ---
 
@@ -9,7 +9,7 @@ categories: 代码集
 
 {% asset_img 图片 mechine.png %}
 
-实现一个类似于 `mechine` 的函数：
+实现一个类似于 `machine` 的函数：
 
 ```js
 /**
