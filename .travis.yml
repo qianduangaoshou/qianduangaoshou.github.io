@@ -11,13 +11,12 @@ branches:
   only: 
     - origin
 
-before_install:
-  - npm install -g hexo
-  - npm install -g hexo-cli
+# before_install:
+#   - npm install -g hexo-cli
 
 install: 
   - npm install -g
-  - npm install hexo-deployer-git --save
+  # - npm install hexo-deployer-git --save
   # - npm install hexo-generator-archive --save
   # - npm install hexo-generator-category --save
   # - npm install hexo-generator-index --save
@@ -30,9 +29,10 @@ install:
   # - npm install hexo-wordcount --save
 
 before_script: 
-  - git config user.name "newpromise"
-  - git config user.email "250621458@qq.com"
-  - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
+  - hexo clean
+  # - git config user.name "newpromise"
+  # - git config user.email "250621458@qq.com"
+  # - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
   # - hexo clean
  # - npm install -g gulp
 
