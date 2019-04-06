@@ -175,4 +175,5 @@ function camelize(str) {
 camelize('my-component'); // myComponent
 ```
 
-注意： 关于 `replace` 的第二个参数,  可以阅读  [正则表达式（二）：基础方法](<https://newpromise.github.io/2019/01/20/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/>) ， 中关于 `replace` 的相关知识。
+注意： 关于 `replace` 的第二个参数,  可以阅读  [正则表达式（二）：基础方法](<https://newpromise.github.io/2019/01/20/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/>)   中关于<a href="/2019/01/20/正则表达式（二）：基础方法/#replaceFn">replace</a>的相关知识。
+
