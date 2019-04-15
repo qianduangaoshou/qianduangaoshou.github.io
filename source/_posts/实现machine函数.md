@@ -9,6 +9,8 @@ categories: 代码集
 
 ![](实现machine函数/mechine.png)
 
+{% asset_img  mechine.png%}
+
 实现一个类似于 `machine` 的函数：
 
 ```js
@@ -106,6 +108,8 @@ function machine(machineName) {
 ```
 
 执行结果：
+
+{% asset_img  imageconsole.png%}
 
 ![](实现machine函数/imageconsole.png)
 

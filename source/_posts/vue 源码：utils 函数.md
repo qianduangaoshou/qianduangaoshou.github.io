@@ -1,5 +1,5 @@
 ---
-title: vue 源码：utils 函数
+title: vue源码：utils 函数
 date: 2019-04-05 16:39:34
 tags: vue 源码
 categories: 源码阅读
@@ -75,7 +75,7 @@ function makeMap(str) {
 
 例如：
 
-![](vue 源码：utils 函数/code.png)
+{% asset_img code.png%}
 
 在上面中 使用 `create` 创建的空对象， 原型上面没有任何的属性
 
