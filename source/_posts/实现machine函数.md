@@ -7,7 +7,7 @@ categories: 代码集
 
 机器可以按照一定的顺序对于零件进行加工， 在程序中， 我们也可以实现一个机器函数， 这个函数可以按照我们调用函数的顺序进行执行。
 
-{% asset_img 图片 mechine.png %}
+![](实现machine函数/mechine.png)
 
 实现一个类似于 `machine` 的函数：
 
@@ -107,7 +107,7 @@ function machine(machineName) {
 
 执行结果：
 
-{% asset_img 图片 imageconsole.png %}
+![](实现machine函数/imageconsole.png)
 
 上面代码的主要思路是， 通过使用 `proxy` 获取到每一次的动作， 将每一次的函数存放到一个函数list 数组中， 当执行 `execute` 的时候， 依次执行数组中的函数， 在执行过程中进行判断， 当判断为 `wait`或者 `waitFirst` 函数的时候， 等待 `wait` 或者 `waitFirst` 函数执行完毕之后执行：
 
