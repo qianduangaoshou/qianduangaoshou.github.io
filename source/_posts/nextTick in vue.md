@@ -150,6 +150,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
 
 ```js
 function flushCallbacks () {
+  // 在执行前， 将 pending 置为 false
   pending = false
   const copies = callbacks.slice(0)
   callbacks.length = 0
