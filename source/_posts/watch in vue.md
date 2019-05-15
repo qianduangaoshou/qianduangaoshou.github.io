@@ -463,4 +463,73 @@ new Vue({
 
    `this.cb.call(this.vm, value, oldValue);`
 
-   执行当监听的数据发生变化时候的回调函数。
+   执行当监听的数据发生变化时候的回调函数， 调用的时候传入两个参数： value && oldValue, 表示当前的值和变化之前的值。
+
+补充： deep 方法是如何起作用的：
+
+当我们设定 `deep` 为 true 的时候， 这个时候， 当对象中的某个属性发生变化的时候， 也会被监听到变动， 关于  `deep` 为 true 的代码在下面：
+
+```js
+ Watcher.prototype.get = function get () {
+    pushTarget(this);
+    var value;
+    var vm = this.vm;
+    try {
+      // 调用 getter, 搜集依赖
+      value = this.getter.call(vm, vm);
+      // console.log('this.value', value);
+    } catch (e) {
+      if (this.user) {
+        handleError(e, vm, ("getter for watcher \"" + (this.expression) + "\""));
+      } else {
+        throw e
+      }
+    } finally {
+      // "touch" every property so they are all tracked as
+      // dependencies for deep watching
+      if (this.deep) {
+        traverse(value);
+      }
+      popTarget();
+      this.cleanupDeps();
+    }
+    return value
+  };
+```
+
+正如上面注释写明的一样， 当  `deep` 为 true 的时候， 调用 `traverse `   方法， 这个方法的作用是出发对象中每一个属性的  `get` 方法， 从而让他们的依赖得以收集：
+
+traverse. 方法：
+
+```js
+// 递归调用对象中的属性， 通过 val[i]  或者  val[key[i]] 触发 get 方法  
+function traverse (val) {
+    _traverse(val, seenObjects);
+    seenObjects.clear();
+  }
+
+  function _traverse (val, seen) {
+    var i, keys;
+    var isA = Array.isArray(val);
+    if ((!isA && !isObject(val)) || Object.isFrozen(val) || val instanceof VNode) {
+      return
+    }
+    if (val.__ob__) {
+      var depId = val.__ob__.dep.id;
+      if (seen.has(depId)) {
+        return
+      }
+      seen.add(depId);
+    }
+    if (isA) {
+      i = val.length;
+      while (i--) { _traverse(val[i], seen); }
+    } else {
+      keys = Object.keys(val);
+      i = keys.length;
+      // val[key[i]] 这里是关键
+      while (i--) { _traverse(val[keys[i]], seen); }
+    }
+  }
+```
+
