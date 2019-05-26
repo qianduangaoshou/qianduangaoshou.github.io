@@ -1,18 +1,18 @@
 language: node_js
 
 node_js: 
-  - 7.9.0
+  - v10.14.2
 # 指定缓存模块，可选。缓存可加快编译速度。
-# cache: 
-#   directories: 
-#     - node_modules
+cache: 
+  directories: 
+    - node_modules
 
 branches: 
   only: 
     - origin
 
-# before_install:
-#   - npm install -g hexo-cli
+before_install:
+  - npm install -g hexo-cli
 
 install: 
   - npm install -g
