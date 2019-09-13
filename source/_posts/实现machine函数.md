@@ -7,8 +7,6 @@ categories: 代码集
 
 机器可以按照一定的顺序对于零件进行加工， 在程序中， 我们也可以实现一个机器函数， 这个函数可以按照我们调用函数的顺序进行执行。
 
-![](实现machine函数/mechine.png)
-
 {% asset_img  mechine.png%}
 
 实现一个类似于 `machine` 的函数：
