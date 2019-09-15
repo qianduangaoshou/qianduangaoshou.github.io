@@ -16,25 +16,12 @@ before_install:
 
 install: 
   - npm install -g
-  # - npm install hexo-deployer-git --save
-  # - npm install hexo-generator-archive --save
-  # - npm install hexo-generator-category --save
-  # - npm install hexo-generator-index --save
-  # - npm install hexo-generator-searchdb --save
-  # - npm install hexo-generator-tag --save
-  # - npm install hexo-renderer-ejs --save
-  # - npm install hexo-renderer-marked --save
-  # - npm install hexo-renderer-stylus --save
-  # - npm install hexo-server --save
-  # - npm install hexo-wordcount --save
 
 before_script: 
-  - hexo clean
+  # - hexo clean
   - git config user.name "newpromise"
   - git config user.email "250621458@qq.com"
   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
-  # - hexo clean
- # - npm install -g gulp
 
 
 script: 
@@ -42,26 +29,3 @@ script:
 
 after_script:
   - hexo deploy
-#   - sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
-#   - hexo deploy
-#   - cat ./public/2017/09/02/css居中效果/index.html
-# E: Build LifeCycle
-
-# after_script: 
-#   - cd ./public
-#   - git init
-#   - git config user.name "newpromise"
-#   - git config user.email "250621458@qq.com"
-#   - git add .
-#   - git commit -m "update blog"
-#   # - git remote -v
-#   # - git fetch https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
-#   # - git merge https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master
-#   - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
-#   # - git pull --rebase https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
-#   - git push --force --set-upstream https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git master:master
-#   # - git push --force --quiet "https://${GL_TOKEN}@github.com/newPromise/newPromise.github.io.git" master:master
-
-# env:
-#  global:
-#    - GH_REF: github.com/newPromise/newPromise.github.io.git
