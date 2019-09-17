@@ -109,9 +109,84 @@ a.replace(/\S{1,4}/g, cb_decode);
   String(a).replace(/[^A-Za-z0-9\+\/]/g, '')
   ```
 
-### 位操作符相关
+### 按位操作符相关
 
 在 js 中， 包含下面几种操作符号， 它们用来在js 中操作二进制数据的位数
 
-### 二进制与十进制的转换
+各种操作符号的作用如下图：
+
+{% asset_img 操作符.jpg%}
+
+示例：
+
+对于十进制数 10 和 20:
+
+```js
+let s1 = 10;
+let s2 = 20;
+s1 & s2; //  十进制 0 二进制 0
+s1 | s2; //  30  11110
+s1 ^ s2; //  30  11110
+~s1; // -11 -1011
+s1 << 2 // 40 101000
+s1 >> 2; // 2 10
+s1 >>> 2; // 2 10
+```
+
+位操作符在上面 base64 转换中的使用：
+
+* 使用 `|`来增加二进制字符串
+
+  使用  `|` 可以用来存储信息，比如我们对于一组数据定义其存放位置， 将这组二进制数存入到一段二进制值中：
+
+  ```js
+  let s1 = 10;
+  let s2 = 20;
+  let s3 = 30;
+  let str = s1 | s2 << 8 | s3 << 16;
+  // s1: 1010, s2: 10100, s3: 11110 str: 111100001010000001010
+  ```
+
+* 使用 `&` 来保留相应位数
+
+  如：
+
+  我们想要保留8位二进制的高四位：
+
+  `let str = s & 0xf0` 
+
+  `0xf0`: 11110000
+
+  ```js
+  let s5 = 0xf0;
+  let s2 = 20;
+  let s4 = s2 & s5;
+  console.log(s5.toString(2), s2.toString(2), s4.toString(2));
+  // 11110000 10100 10000
+  ```
+
+### 进制间的转换
+
+在 js 中进制之间的相互转化方法如下：
+
+十进制转二进制：
+
+`numObj.toString(radix)`
+
+```js
+let num = 2;
+num.toString(2); // '10'
+```
+
+二进制十进制：
+
+`parseInt(string, radix)`
+
+> The `parseInt()` function parses a string argument and returns an integer of the specified [radix](https://en.wikipedia.org/wiki/Radix) (the base in mathematical numeral systems).
+
+```
+parseInt('10', 2);
+```
+
+
 
