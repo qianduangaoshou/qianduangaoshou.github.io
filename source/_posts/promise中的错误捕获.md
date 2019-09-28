@@ -86,3 +86,10 @@ promise();
 // 的 `promise`
 ```
 
+#### 总结
+
+防止出现 `unhandledRejection` 问题的解决方法是：
+
+1. 在 `async` 函数内部使用 `try catch` 捕获异步错误
+2.  `promise` 内部使用 `.catch` 方法来捕获 `promise` 内部代码错误
+
