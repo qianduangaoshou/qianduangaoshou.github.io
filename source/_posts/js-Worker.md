@@ -5,7 +5,7 @@ tags: Worker
 categories: js
 ---
 
-## what is the worker
+## What is the worker
 
 浏览器是多线程的， 在浏览器中，存在下面几个线程：
 
@@ -15,7 +15,7 @@ categories: js
 * 定时触发器线程
 * http 请求线程
 
-js 语言的一个重要特征是单线程，因为在js 中会设计到一些页面交互的逻辑， 比如操作 dom 熟， css 样式树等， 单线程的设计避免了复杂的同步问题。
+js 语言的一个重要特征是单线程，因为在js 中会设计到一些页面交互的逻辑， 比如操作 dom 树， css 样式树等， 单线程的设计避免了复杂的同步问题。
 
 因为在 js 中我们是可以进行 dom 操作的， 因此 UI 渲染线程和 js 引擎线程是互斥的，如果我们在页面上要进行一些耗时较大的 js 逻辑计算的时候， 页面可能会出现卡顿现象。
 
@@ -25,7 +25,7 @@ js 语言的一个重要特征是单线程，因为在js 中会设计到一些�
 
 * 工作线程内不能操作 dom，或者使用 window 对象下的一些属性和方法
 
-* 工作线程和主线程之间通过消息传递系统实现：
+* 工作线程和主线程之间通过消息传递系统实现，消息之间传递的数据是复制而不是共享一个存储空间（深复制和浅复制）
 
   > both sides send their messages using the `postMessage()` method, and respond to messages via the `onmessage` event handler (the message is contained within the `Message` event's `data` property). The data is copied rather than shared.
 
@@ -73,7 +73,7 @@ worker('send message').then(msg => {
 });
 ```
 
-上面代码实现了在不额外创建文件的情况下，实现 worker 代码的过程
+上面代码实现了在不额外创建文件的情况下，实现创建 worker 代码的过程
 
 如下是上面代码普通函数到 worker 的四种转换过程：
 
@@ -117,7 +117,7 @@ URL.createObjectURL(new Blob([`(${workerFn.toString ()})()`]));
 
 ## Worker-loader
 
-Worker-loader 是用来在 webpack 中实现 worker 的，核心代码如下：
+[worker-loader](<https://github.com/webpack-contrib/worker-loader>) 是用来在 webpack 中实现 worker 的，核心代码如下：
 
 ``` js
 var URL = window.URL || window.webkitURL;
@@ -161,5 +161,6 @@ module.exports = function (content, url) {
 
 使用多种不同的 api 主要是为了不同浏览器的兼容性问题，
 
-[how-to-create-a-web-worker-from-a-string](https://stackoverflow.com/questions/10343913/how-to-create-a-web-worker-from-a-string)
+## **参考链接**
 
+1. [how-to-create-a-web-worker-from-a-string](https://stackoverflow.com/questions/10343913/how-to-create-a-web-worker-from-a-string)
