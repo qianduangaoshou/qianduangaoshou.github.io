@@ -60,8 +60,6 @@ fs.readFile('./.gitignore', 'utf-8', function (err, data) {
 `pify` 模块的核心代码不多,  下面是全部的代码：
 
 ```js
-'use strict';
-
 // 核心处理方法
 // fn：将要被 promise 化的函数
 // options: 相关配置选项
@@ -69,85 +67,144 @@ fs.readFile('./.gitignore', 'utf-8', function (err, data) {
 // 实际执行的时候， 执行这个方法返回的方法， 其中 args 为传入的参数
 // 这里 args 是一个数组， 通过 push 回调的方法
 const processFn = (fn, options) => function (...args) {
-	const P = options.promiseModule;
-
-	return new P((resolve, reject) => {
+  const P = options.promiseModule;
+  return new P((resolve, reject) => {
     // multiArgs： 是否传入多个参数
-		if (options.multiArgs) {
+    if (options.multiArgs) {
       // push 一个方法函数， 这个函数就是我们在原函数中手动
       // 调用的回调函数 cb， 参数是我们手动写入回调函数中的参数
-			args.push((...result) => {
+      args.push((...result) => {
         // errorFirst: 是否包含错误， 适配 node 如 fs.exists() 类的方法
-				if (options.errorFirst) {
-					if (result[0]) {
-						reject(result);
-					} else {
-						result.shift();
-						resolve(result);
-					}
-				} else {
-					resolve(result);
-				}
-			});
-		} else if (options.errorFirst) {
-			args.push((error, result) => {
-				if (error) {
-					reject(error);
-				} else {
-					resolve(result);
-				}
-			});
-		} else {
-			args.push(resolve);
-		}
+        if (options.errorFirst) {
+          if (result[0]) {
+            reject(result);
+          } else {
+            result.shift();
+            resolve(result);
+          }
+        } else {
+          resolve(result);
+        }
+      });
+    } else if (options.errorFirst) {
+      args.push((error, result) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result);
+        }
+      });
+    } else {
+      args.push(resolve);
+    }
     // 这个时候， args 中传入了相关的回调方法
-		fn.apply(this, args);
-	});
+    fn.apply(this, args);
+  });
 };
 
 module.exports = (input, options) => {
-	options = Object.assign({
-		exclude: [/.+(Sync|Stream)$/],
+  options = Object.assign({
+    exclude: [/.+(Sync|Stream)$/],
     // errorFirst: 回调函数中是否第一个参数为 error
-		errorFirst: true,
-		promiseModule: Promise
-	}, options);
+    errorFirst: true,
+    promiseModule: Promise
+  }, options);
 
-	const objType = typeof input;
-	if (!(input !== null && (objType === 'object' || objType === 'function'))) {
-		throw new TypeError(`Expected \`input\` to be a \`Function\` or \`Object\`, got \`${input === null ? 'null' : objType}\``);
-	}
+  const objType = typeof input;
+  if (!(input !== null && (objType === 'object' || objType === 'function'))) {
+    throw new TypeError(`Expected \`input\` to be a \`Function\` or \`Object\`, got \`${input === null ? 'null' : objType}\``);
+  }
 
-	const filter = key => {
-		const match = pattern => typeof pattern === 'string' ? key === pattern : pattern.test(key);
+  const filter = key => {
+    const match = pattern => typeof pattern === 'string' ? key === pattern : pattern.test(key);
     // options 中的 include 和 exclude 属性分别表示
     // 模块中可以被序列化的方法
-		return options.include ? options.include.some(match) : !options.exclude.some(match);
-	};
+    return options.include ? options.include.some(match) : !options.exclude.some(match);
+  };
 
-	let ret;
+  let ret;
   // 当传入的 input 为函数的时候
-	if (objType === 'function') {
-		ret = function (...args) {
+  if (objType === 'function') {
+    ret = function (...args) {
       // excludeMain：是否对于一些 module 内部方法 做 promise 化
-			return options.excludeMain ? input(...args) : processFn(input, options).apply(this, args);
-		};
-  // 否则 ret 为包含有 input 上面的属性的对象
-	} else {
-		ret = Object.create(Object.getPrototypeOf(input));
-	}
+      return options.excludeMain ? input(...args) : processFn(input, options).apply(this, args);
+    };
+    // 否则 ret 为包含有 input 上面的属性的对象
+  } else {
+    ret = Object.create(Object.getPrototypeOf(input));
+  }
 
   // 对于 input 参数对象或者函数上面的每一个方法都做 promise 化
-	for (const key in input) { // eslint-disable-line guard-for-in
-		const property = input[key];
-		ret[key] = typeof property === 'function' && filter(key) ? processFn(property, options) : property;
-	}
+  for (const key in input) { // eslint-disable-line guard-for-in
+    const property = input[key];
+    ret[key] = typeof property === 'function' && filter(key) ? processFn(property, options) : property;
+  }
 
-	return ret;
+  return ret;
 };
-
 ```
 
 `utils.promisify` 方法
 
 `promisify` 方法是 node 内置的 `promise` 化回调函数的工具方法
+
+```js
+const promisify = function promisify(original) {
+  var kCustomPromisifiedSymbol = typeof Symbol !== 'undefined' ? Symbol('util.promisify.custom') : undefined;
+  if (typeof original !== 'function')
+    throw new TypeError('The "original" argument must be of type Function');
+   // 在 original 方法上面存在有 `kCustomPromisifyedSymbol 这个属性
+  // 这个属性上面存储的是被 promise 化的方法
+  if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
+    var fn = original[kCustomPromisifiedSymbol];
+    if (typeof fn !== 'function') {
+      throw new TypeError('The "util.promisify.custom" argument must be of type Function');
+    }
+    Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+      value: fn, enumerable: false, writable: false, configurable: true
+    });
+    return fn;
+  }
+
+  function fn() {
+    var promiseResolve, promiseReject;
+    var promise = new Promise(function (resolve, reject) {
+      promiseResolve = resolve;
+      promiseReject = reject;
+    });
+
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+    args.push(function (err, value) {
+      if (err) {
+        promiseReject(err);
+      } else {
+        promiseResolve(value);
+      }
+    });
+
+    try {
+      original.apply(this, args);
+    } catch (err) {
+      promiseReject(err);
+    }
+
+    return promise;
+  }
+
+  Object.setPrototypeOf(fn, Object.getPrototypeOf(original));
+
+  if (kCustomPromisifiedSymbol) Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+    value: fn, enumerable: false, writable: false, configurable: true
+	});
+	// 为什么需要使用 defineProperties 来定义 fn 上面的属性变量呢 ？
+  return Object.defineProperties(
+    fn,
+    getOwnPropertyDescriptors(original)
+  );
+}
+
+```
+
