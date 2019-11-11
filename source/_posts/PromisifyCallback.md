@@ -192,14 +192,14 @@ const promisify = function promisify(original) {
     }
 
     return promise;
-  }
-
+	}
+	// 将 fn 上的原型设置为 original 上的原型
   Object.setPrototypeOf(fn, Object.getPrototypeOf(original));
 
   if (kCustomPromisifiedSymbol) Object.defineProperty(fn, kCustomPromisifiedSymbol, {
     value: fn, enumerable: false, writable: false, configurable: true
 	});
-	// 为什么需要使用 defineProperties 来定义 fn 上面的属性变量呢 ？
+	// 设置 fn 上的属性为 original 方法上面的属性
   return Object.defineProperties(
     fn,
     getOwnPropertyDescriptors(original)

@@ -79,3 +79,43 @@ Base64 在前端应用比较常见的是将图片的二进制数据转为 Base64
 {% asset_img  image-20190914095537734.png%}
 
 使用这种方式的优点是可以减少外部资源请求， 加快页面加载时间， 缺点是对于色彩丰富的图片， 二进制数据编码之后的 Base64 字符串会比较大， 会影响页面的加载速度
+
+## 其他：Data URLs
+
+Data URLs 是以 `data:` 协议为前缀的一种 url，使用 data url 实现了可以将一些小的文件嵌入到文档中的一种方法
+
+data url 的组成结构如下：
+
+ `data:[<mediatype>][;base64],<data>`
+
+ data url 由下面三种结构组成:
+
+ `mediatype` 表示当前文件的 `MIME type`, 例如： `image/jpeg`, `text/plain` 等
+
+当数据 `data` 为非文本的格式的时候， 使用一个 `base64` 标志表示当前的数据为使用 `base64` 编码之后的数据，对于文字格式， 也是可以使用 `base64` 进行编码操作
+
+`data`: 数据本身
+
+我们经常会遇到的是经过 `base64` 编码过后的图片，除了图片之外， 我们还可以对于文字进行转为 `data url` 的形式：
+
+`data:,Hello%2C%20World!`
+
+`data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%3D%3D`
+// 经过 base64 编码过的上面的文本： Hello World!
+
+`data:text/html,%3Ch1%3EHello%2C%20World!%3C%2Fh1%3E`
+// html 文本： `<h1>Hello World!<h1>`
+
+注意：在 data url 中数据本身是 `data`,当我们需要对于数据进行操作的时候， 我们需要获取到 `data urls` 中的数据：
+
+```js
+// 在 node 中下载 data urls 形式的图片
+const fs = require('fs');
+function downloadImage(dataUrl) {
+  dataUrl = dataUrl.replace(/^data:image\/png;base64,/, "");
+  fs.writeSync('image.jpg', dataUrl, { encoding: 'base64' });
+}
+
+```
+
+参考链接：[data urls](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
