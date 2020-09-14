@@ -9,7 +9,7 @@ categories: 源码阅读
 
 node 中的 events 模块是 node 中使用较多的模块，比如在 node 中的流（stream），其内部使用 `events` 模块作为父类：
 
-![image-20200803102619367](node中的 events 模块/image-20200803102619367.png)
+{% asset_img image-20200803102619367.png %}
 
 作为一个使用广泛的基础模块，其代码中是有些东西值得我们学习和借鉴的。
 
@@ -19,9 +19,9 @@ node 中的 events 模块是 node 中使用较多的模块，比如在 node 中�
 
 图示如下：
 
-![img](node中的 events 模块/eventsPic.jpg)
+ {% asset_img eventsPic.jpg %}
 
- *上图中左边为观察者模式， 右边为 发布/订阅 模式， 可以看出它们之间的区别是发布/订阅模式通过事件调度中心（Event Channel）来对于事件进行统一管理*
+*上图中左边为观察者模式， 右边为 发布/订阅 模式， 可以看出它们之间的区别是发布/订阅模式通过事件调度中心（Event Channel）来对于事件进行统一管理*
 
 观察上图可知，发布/订阅这种设计模式的组成特点：
 
