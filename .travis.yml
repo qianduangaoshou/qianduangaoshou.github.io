@@ -28,4 +28,5 @@ script:
   - hexo g
 
 after_script:
+  - git clone https://github.com/newPromise/newPromise.github.io .deploy_git
   - hexo deploy
