@@ -80,10 +80,8 @@ class Collector {
       }
       this.remove(key)
     } else {
-      for (let i = 0; i < this.cancelList.length; i++) {
-        const handlerList = this.getAllHandlers()
-        handlerList.forEach(handler => handler())
-      }
+      const handlerList = this.getAllHandlers()
+      handlerList.forEach(handler => handler())
       this.cancelList = []
     }
   }
