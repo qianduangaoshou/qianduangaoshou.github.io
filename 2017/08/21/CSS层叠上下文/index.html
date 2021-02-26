@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS层叠,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="上善若水" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。 层叠上下文普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。 在上面的">
+<meta name="keywords" content="CSS层叠">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS层叠上下文">
+<meta property="og:url" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/index.html">
+<meta property="og:site_name" content="上善若水">
+<meta property="og:description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。 层叠上下文普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。 在上面的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ov3b9jngp.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99.png">
+<meta property="og:image" content="http://ov3b9jngp.bkt.clouddn.com/Snipaste_2017-08-22_23-40-52.png">
+<meta property="og:image" content="http://ov3b9jngp.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%EF%BC%881%EF%BC%89_2017-08-24_00-08-06.png">
+<meta property="og:image" content="http://ov3b9jngp.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%EF%BC%882%EF%BC%89_2017-08-24_00-10-54.png">
+<meta property="og:image" content="http://ov3b9jngp.bkt.clouddn.com/flex-z-index%20%20magic%20%202017-08-24_22-33-25.png">
+<meta property="og:image" content="http://ov3b9jngp.bkt.clouddn.com/opacityCENGDIE%202017-08-25_23-16-27.png">
+<meta property="og:image" content="http://ov3b9jngp.bkt.clouddn.com/opacity%20Mag%202017-08-25_23-27-13.png">
+<meta property="og:image" content="http://ov3b9jngp.bkt.clouddn.com/Snipaste_2017-08-26_00-24-17.png">
+<meta property="og:updated_time" content="2020-09-14T06:36:25.964Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS层叠上下文">
+<meta name="twitter:description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。 层叠上下文普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。 在上面的">
+<meta name="twitter:image" content="http://ov3b9jngp.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://newpromise.github.io/2017/08/21/CSS层叠上下文/">
+
+
+
+
+
+  <title>CSS层叠上下文 | 上善若水</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">上善若水</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2017/08/21/CSS层叠上下文/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="上善若水">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="上善若水">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS层叠上下文</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T16:19:29+00:00">
+                2017-08-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
+                2020-09-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/21/CSS层叠上下文/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/08/21/CSS层叠上下文/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/08/21/CSS层叠上下文/" class="leancloud_visitors" data-flag-title="CSS层叠上下文">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.6k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。</p>
+<h3 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h3><p>普通元素使用css的特殊属性可以创建层叠上下文，<del>创建层叠上下文的元素的层级会高于普通的元素</del> ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。</p>
+<p>在上面的这段话中，自己的理解是不正确的，创建了层叠上下文的元素只是有了层次，但是，并不能说，层叠上下文元素就一定到天然高于普通的元素。关于比较，还是要看 层叠顺序来的。</p>
+<h3 id="层叠水平"><a href="#层叠水平" class="headerlink" title="层叠水平"></a>层叠水平</h3><p>层叠水平类似 ‘level’ , 层叠水平的大小决定了同一层叠上下文元素下元素在 z 轴上的显示顺序，所有的元素都有层叠水平都有层叠水平，但是对于普通元素，讨论其层叠水平是没有意义的。</p>
+<p>普通元素的层叠水平优先由层叠上下文来决定，层叠水平的比较仅在层叠上下文中比较才有意义。</p>
+<h3 id="层叠顺序"><a href="#层叠顺序" class="headerlink" title="层叠顺序"></a>层叠顺序</h3><p>层叠顺序定义的是在相同的层叠上下文中  <strong>元素发生层叠的时候</strong> ，特定的显示顺序, 层叠顺序图表引入顺序如下:</p>
+<p><img src="http://ov3b9jngp.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99.png" alt=" "> </p>
+<blockquote>
+<p>注意: 上面有句话 “当元素发生层叠的时候‘ ，如果元素没有创建层叠上下文，没有发生层叠的现象，下面的层叠顺序是不起作用的，但是，使用 <code>dispplay: inline-block</code> 是个例外，我想是因为在 CSS 中 <code>内容主要，样式次之</code>的原因吧， <code>inline-block</code>  会被认为是内容 ， <code>block</code> 会被认为属于布局的样式</p>
+</blockquote>
+<p>如下代码所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;con&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;block2&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;block1&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">   .block1 &#123;</span><br><span class="line">       width: 200px;</span><br><span class="line">       height: 200px;</span><br><span class="line">       background-color: blue;</span><br><span class="line">   &#125;</span><br><span class="line">    .block2 &#123;</span><br><span class="line">        display: inline-block;</span><br><span class="line">        margin-bottom: -100px;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下:</p>
+<p><img src="http://ov3b9jngp.bkt.clouddn.com/Snipaste_2017-08-22_23-40-52.png" alt="&#39;&#39;"></p>
+<p>如果正常情况下，因为在 DOM 文档中，block1 元素位于 block2 元素下面，因此block 1 应该遮挡住 block2 才是，但是为什么会出现这种情况呢？</p>
+<p>因为我们给 block2元素添加了 <code>display: inline-block</code> 属性，根据上面的层叠规则图我们可以知道，应用到的 inline-block元素层叠水平上要高于 block 元素，因此 block2 元素会覆盖掉 block1 元素，这就是 使用层叠顺序的作用，用于比较同一层叠水平下的元素顺序。</p>
+<blockquote>
+<p>下面是两条非常重要的层叠准则如下 :</p>
+<p>1.谁大谁上，当两个元素位于同一层叠上下文中的时候，按照层叠顺序，层叠水平大的要覆盖掉层叠水平小的元素。（要注意这里面当元素位于同一个层叠上下文的时候，才会按照层叠顺序来创建）</p>
+<p>2.后来居上，当两个元素的层叠水平一致的时候，并且层叠顺序一致的时候，在DOM流中 后面的元素会覆盖掉前面的元素</p>
+</blockquote>
+<h3 id="创建层叠上下文"><a href="#创建层叠上下文" class="headerlink" title="创建层叠上下文"></a>创建层叠上下文</h3><p>如何创建层叠上下文呢？这里有三种途径：</p>
+<p>1.页面的根元素( html )本身带有层叠上下文</p>
+<p>对于页面的根元素 <code>html</code> 本身具有层叠上下文的</p>
+<p>2.对于包含有 <code>position: absolute</code>  <code>position: relative</code> 的定位元素，当 z-index 不是auto 的时候，会创建层叠上下文。(注意这里，z-index 不能是 auto, 否则不能创建层叠上下文)</p>
+<p>例如代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;con&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;block1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;block2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">   .block1 &#123;</span><br><span class="line">       width: 200px;</span><br><span class="line">       height: 200px;</span><br><span class="line">       background-color: blue;</span><br><span class="line">   &#125;</span><br><span class="line">   .block2 &#123;</span><br><span class="line">        margin-top: -100px;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: red;</span><br><span class="line">   &#125;</span><br><span class="line">   // 第一种情况</span><br><span class="line">   .block1 &#123;</span><br><span class="line">      z-index: 2;</span><br><span class="line">   &#125; </span><br><span class="line">   .blcok2 &#123;</span><br><span class="line">      z-index: 1;</span><br><span class="line">   &#125;</span><br><span class="line">   // 第二种情况</span><br><span class="line">   .block1 &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      z-index: 0;</span><br><span class="line">   &#125; </span><br><span class="line">   .blcok2 &#123;</span><br><span class="line">      z-index: 1000;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>我们通过对于css样式的改变出现下面的这几种情况：</p>
+<p>第一种情况:</p>
+<p>这种情况下，实际上 z-index 没有起作用，因为这里面的两个元素都是普通元素，没有创建层叠上下文的元素因此 这里使用 <code>z-index</code> 进行比较没有起作用   <strong>使用 <code>z-index</code>只对于层叠上下文的元素起作用</strong></p>
+<p><img src="http://ov3b9jngp.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%EF%BC%881%EF%BC%89_2017-08-24_00-08-06.png" alt></p>
+<p>第二种情况：</p>
+<p>使用 <code>position: relative</code>  和 <code>z-index</code> 创建了层叠上下文， <del>在层次上，层叠上下文的要高于普通元素</del>，因为使用 <code>z-index: 0</code> 的层叠水平会高于 display:block  元素，因此会出现下面的效果</p>
+<p><img src="http://ov3b9jngp.bkt.clouddn.com/%E5%B1%82%E5%8F%A0%EF%BC%882%EF%BC%89_2017-08-24_00-10-54.png" alt></p>
+<p>3.使用其他特殊的 css3  属性创建的层叠上下文。</p>
+<p>使用一些特殊的层叠CSS3属性也会创建层叠上下文：有这么几个:</p>
+<p>1.当一个元素的 <strong>父元素</strong> 声明 <code>display: flex | display: inline-flex</code> 的时候，并且该元素的 <code>z-index</code> 不是 <code>auto</code> 而是数数值的时候，该元素变为层叠上下文元素；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;con&quot;&gt;</span><br><span class="line">   &lt;div class=&quot;block1&quot;&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;block2&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .con &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">    &#125;</span><br><span class="line">    .block1 &#123;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: blue;</span><br><span class="line">    &#125;</span><br><span class="line">    .block2 &#123;</span><br><span class="line">        margin-left: -100px;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">     .block2 &#123;</span><br><span class="line">       &#125;</span><br><span class="line">     .block1 &#123;</span><br><span class="line">         z-index: 1;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>正常情况下，block2 元素 应该在block元素上面，因为dom流中 block元素位于 后面</p>
+<p>但是，当我们给 block1 添加了一个 <code>z-index</code>  不为 auto的值的时候，情况发生变化了, Magic !</p>
+<p>如下：</p>
+<p><img src="http://ov3b9jngp.bkt.clouddn.com/flex-z-index%20%20magic%20%202017-08-24_22-33-25.png" alt></p>
+<p>这是因为添加了 <code>z-index</code> 元素就变成了层叠上下文了，在层叠顺序表中， z-index 大于 0 的层叠上下文在 层次上要高于 <code>display: block</code> 的普通元素，如果 <code>z-index</code> 为 -1 的时候，其实情况又不一样了。因为 z-index 为负值的时候是会小于 <code>display: block</code> 元素的。</p>
+<ol start="2">
+<li><p>使用 CSS 中的 <code>opacity</code> 创建的层叠上下文元素:</p>
+<p>我们有时候会出现想让 不透明元素内的元素显示正常，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&apos;con&apos;&gt;</span><br><span class="line">	&lt;div class= &apos;text&apos;&gt;我是一段文字&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;sytle&gt;</span><br><span class="line">.con&#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background-color: blue;</span><br><span class="line">  opacity: 0.5;</span><br><span class="line">&#125;</span><br><span class="line">.text &#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background-color: red;</span><br><span class="line">  position: relative;</span><br><span class="line">  z-index: -1;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>在实际上，元素内的文字也会被透明度影响，这被认为是 使用 <code>opacity</code> 创建了层叠上下文元素</p>
+<p>因为，在没有使用 <code>opacity</code> 的时候， 没有创建层叠上下文， 这时候 .text 元素是创建了层叠上下文的，因为 <code>z-index</code> 小于零，在层叠规则上小于 <code>block</code> 元素，所以会被遮盖掉。当我们对于 <code>class=&#39;con&#39;</code> 的元素没有设置 <code>opacity</code>的时候，效果如下：</p>
+<p><img src="http://ov3b9jngp.bkt.clouddn.com/opacityCENGDIE%202017-08-25_23-16-27.png" alt></p>
+<p>这样效果的原因是因为：使用了 <code>position: relative</code> 和 <code>z-index: -1</code> 形成的层叠上下文，在层叠规则上要低于 其他的<code>block</code> 元素，因此图片中的红色方块就被遮挡住了；</p>
+<p>然而，当我们对元素应用 <code>opacity</code> 当 <code>opacity</code> 是不为 1 的数字的时候，我们发现层叠顺序发生了改变：  </p>
+<p><img src="http://ov3b9jngp.bkt.clouddn.com/opacity%20Mag%202017-08-25_23-27-13.png" alt></p>
+<p>Magic!</p>
+<p>如上,</p>
+<p>因为我们对于 <code>class = &#39;con&#39;</code> 设置了 <code>opacity: 0.7</code> 创建了层叠上下文，其子元素 <code>class =&#39;text&#39;</code> 虽然也是创建了层叠上下文，但是根据层叠上下文的规则，如果父元素也是创建了层叠上下文，那么子元素创建的层叠上下文要受到父元素的层叠上下文的制约；</p>
+<blockquote>
+<p>上面对于使用 <code>opacity</code> 创建的层叠上下文，来解释子元素会受到父元素 <code>opacity</code> 的影响，实际上，我们也可以认为属性 <code>opacity</code> 具有继承性，子元素会继承父元素的 <code>opacity</code> 属性</p>
+</blockquote>
+<p>对于使用  <code>opacity</code> 会影响到子元素的效果，如果我们想让子元素不受到父元素  <code>opacity</code> 的影响， 解决办法有下面的几种方法：</p>
+<blockquote>
+<p>借用 <code>background: rgba()</code> 了来实现</p>
+</blockquote>
+<p>使用 这个属性可以避免 后代子元素使用 <code>opacity</code> 造成的干扰效果，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(R,G,B,A)</span><br><span class="line">// R: 代表红色取值</span><br><span class="line">// G: 代表绿色取值</span><br><span class="line">// B: 代表蓝色取值</span><br><span class="line">// A: 代表透明度</span><br><span class="line">// R G B 代表 三原色, 数值为 0 - 255 使用这三种颜色的组合可以实现任何其他的颜色</span><br></pre></td></tr></table></figure>
+<p>因此，上面的问题，我们使用 <code>rgba</code> 来解决：</p>
+<p><code>background: rgba(0,0,255,0.5)</code> </p>
+<blockquote>
+<p>还有一种方法，是让被 <code>opacity</code> 不作用在父元素上</p>
+</blockquote>
+<p>html: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&apos;con&apos;&gt;</span><br><span class="line">	&lt;div class=&apos;text&apos;&gt;</span><br><span class="line">		&lt;p&gt;我是要进行显示的元素&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div class=&apos;back&apos;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>CSS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.blo &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 100px;</span><br><span class="line">    &#125;</span><br><span class="line">.back &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top: 0;</span><br><span class="line">        left: 0;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 100%;</span><br><span class="line">        background-color: blue;</span><br><span class="line">        opacity: 0.2;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p> 效果如下:</p>
+<p><img src="http://ov3b9jngp.bkt.clouddn.com/Snipaste_2017-08-26_00-24-17.png" alt></p>
+<h4 id="层叠上下文的特性："><a href="#层叠上下文的特性：" class="headerlink" title="层叠上下文的特性："></a>层叠上下文的特性：</h4><p>层叠上下文元素有如下特性：</p>
+<ul>
+<li>层叠上下文的层叠水平要比普通元素高；</li>
+<li>层叠上下文可以阻断元素的混合模式；</li>
+<li>层叠上下文可以嵌套，内部层叠上下文及其所有子元素均受制于外部的层叠上下文。</li>
+<li>每个层叠上下文和兄弟元素独立，也就是当进行层叠变化或渲染的时候，只需要考虑后代元素。</li>
+<li>每个层叠上下文是自成体系的，当元素发生层叠的时候，整个元素被认为是在父层叠上下文的层叠顺序中。 </li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS层叠/" rel="tag"># CSS层叠</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/20/作用域：函数作用域和块作用域/" rel="next" title="作用域：函数作用域和块作用域">
+                <i class="fa fa-chevron-left"></i> 作用域：函数作用域和块作用域
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/26/函数节流/" rel="prev" title="函数节流">
+                函数节流 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="上善若水">
+            
+              <p class="site-author-name" itemprop="name">上善若水</p>
+              <p class="site-description motion-element" itemprop="description">饮冰十年 难凉热血</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/newPromise" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:newpromisenn@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/zhang-zhu-37-97/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠上下文"><span class="nav-number">1.</span> <span class="nav-text">层叠上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠水平"><span class="nav-number">2.</span> <span class="nav-text">层叠水平</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠顺序"><span class="nav-number">3.</span> <span class="nav-text">层叠顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建层叠上下文"><span class="nav-number">4.</span> <span class="nav-text">创建层叠上下文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#层叠上下文的特性："><span class="nav-number">4.1.</span> <span class="nav-text">层叠上下文的特性：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">上善若水</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'tQcr2ncCywuXB53jtS10kRVA-gzGzoHsz',
+        appKey: 'WGjYtwKr2VClCa7g1kgaRH0a',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("tQcr2ncCywuXB53jtS10kRVA-gzGzoHsz", "WGjYtwKr2VClCa7g1kgaRH0a");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
