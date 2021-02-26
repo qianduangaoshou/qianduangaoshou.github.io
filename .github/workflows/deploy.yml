@@ -29,15 +29,8 @@ jobs:
       run: |
         npm install -g
         npm install -g hexo-cli
-    - name: set github account
-      run: |
-        git config user.name "newpromise"
-        git config user.email "250621458@qq.com"
-        sed -i "s/gl_token/${GL_TOKEN}/g" ./_config.yml
     - name: hexo g
       run: hexo g
-    - name: clone generate site data
-      run: git clone https://github.com/newPromise/newPromise.github.io .deploy_git
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
