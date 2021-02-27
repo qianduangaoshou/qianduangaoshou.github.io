@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: blog deploy
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
         npm install -g hexo-cli
     - name: hexo g
       run: hexo g
-    - name: Deploy
+    - name: deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
