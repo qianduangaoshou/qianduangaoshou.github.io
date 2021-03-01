@@ -39,7 +39,7 @@ jobs:
           ${{ runner.os }}-
     - name: npm install
       run: |
-        npm install -g
+        npm install
         npm install -g hexo-cli
     - name: hexo g
       run: hexo g
