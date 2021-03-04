@@ -6,7 +6,7 @@ function replaceSrc(str) {
     str.match(/src="(.*\.png)"/)
     const rawPath = RegExp.$1
     const rightPath = rawPath.split('/').pop()
-    return str.replace(rawPath, `${rightPath}`)
+    return str.replace(`src="${rawPath}"`, `src="${rightPath}"  loading="lazy"`)
 }
 
 const markedRenderer = {
@@ -16,7 +16,7 @@ const markedRenderer = {
     },
     image(href, title, text) {
       const imgName = href.split('/').pop()
-      return `<img src="${imgName}" >`
+      return `<img src="${imgName}"  loading="lazy">`
     }
 };
 
