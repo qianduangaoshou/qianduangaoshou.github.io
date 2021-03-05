@@ -3,7 +3,7 @@ const htmlImgExp = /<img src=".*\/source\/_posts.*/
 
 
 function replaceSrc(str) {
-    str.match(/src="(.*\.png)"/)
+    str.match(/src="(.*\.(png|jpg))"/)
     const rawPath = RegExp.$1
     const rightPath = rawPath.split('/').pop()
     return str.replace(`src="${rawPath}"`, `src="${rightPath}"  loading="lazy"`)
