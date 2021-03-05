@@ -12,11 +12,20 @@ function replaceSrc(str) {
 const markedRenderer = {
     html(text){
       if (!htmlImgExp.test(text)) return text;
-      return replaceSrc(text)
+      let replaceS = replaceSrc(text)
+      return replaceS
     },
     image(href, title, text) {
       const imgName = href.split('/').pop()
       return `<img src="${imgName}"  loading="lazy">`
+    },
+    paragraph(text) {
+      const markdownImage = /^!\[(.*?)\]\((.*?)\)$/;
+      const isMatch = text.match(markdownImage)
+      if (isMatch) {
+        return this.image(RegExp.$2, RegExp.$1)
+      }
+      return text
     }
 };
 
@@ -24,6 +33,11 @@ marked.use({ renderer: markedRenderer });
 
 function renderer(text) {
     const mdText = text.text
+    // const tokens = marked.lexer(mdText)
+    // console.log('mdText', tokens)
+
+    // return marked.par
+    // console.log('tokens', JSON.stringify(tokens))
     return marked(mdText)
 }
 
