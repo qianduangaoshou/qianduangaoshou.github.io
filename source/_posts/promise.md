@@ -287,7 +287,7 @@ function isObject(obj) {
 function isPromise() {
   return p instanceof Promise;
 }
-
+// 判断是否含有 then 方法
 function isThenable(obj) {
   return obj && isFunction(obj.then);
 }
