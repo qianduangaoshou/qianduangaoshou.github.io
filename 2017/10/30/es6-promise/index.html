@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="resove and reject使用 es6 回调函数的例子 1234567let promise = new Promise(function (resolve, reject) &amp;#123;  if (/* 如果异步操作成功 */) &amp;#123;      resolve(value);  &amp;#125; else &amp;#123;      reject(error)  &amp;#125;&amp;#125;">
+<meta name="description" content="resove and reject 使用 es6 回调函数的例子1234567let promise = new Promise(function (resolve, reject) &amp;#123;  if (/* 如果异步操作成功 */) &amp;#123;      resolve(value);  &amp;#125; else &amp;#123;      reject(error)  &amp;#125;&amp;#125;">
 <meta name="keywords" content="promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6-promise">
 <meta property="og:url" content="https://newpromise.github.io/2017/10/30/es6-promise/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="resove and reject使用 es6 回调函数的例子 1234567let promise = new Promise(function (resolve, reject) &amp;#123;  if (/* 如果异步操作成功 */) &amp;#123;      resolve(value);  &amp;#125; else &amp;#123;      reject(error)  &amp;#125;&amp;#125;">
+<meta property="og:description" content="resove and reject 使用 es6 回调函数的例子1234567let promise = new Promise(function (resolve, reject) &amp;#123;  if (/* 如果异步操作成功 */) &amp;#123;      resolve(value);  &amp;#125; else &amp;#123;      reject(error)  &amp;#125;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.973Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6-promise">
-<meta name="twitter:description" content="resove and reject使用 es6 回调函数的例子 1234567let promise = new Promise(function (resolve, reject) &amp;#123;  if (/* 如果异步操作成功 */) &amp;#123;      resolve(value);  &amp;#125; else &amp;#123;      reject(error)  &amp;#125;&amp;#125;">
+<meta name="twitter:description" content="resove and reject 使用 es6 回调函数的例子1234567let promise = new Promise(function (resolve, reject) &amp;#123;  if (/* 如果异步操作成功 */) &amp;#123;      resolve(value);  &amp;#125; else &amp;#123;      reject(error)  &amp;#125;&amp;#125;">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  945字
+                  947字
                 </span>
               
 
@@ -450,41 +450,35 @@
       
 
       
-        <h4 id="resove-and-reject"><a href="#resove-and-reject" class="headerlink" title="resove and reject"></a>resove and reject</h4><p>使用 <code>es6</code> 回调函数的例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let promise = new Promise(function (resolve, reject) &#123;</span><br><span class="line">  if (/* 如果异步操作成功 */) &#123;</span><br><span class="line">      resolve(value);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">      reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>在上面的函数中，调用promise 构造函数创建了一个 promise 对象, 这个构造函数接收一个函数作为参数, 在函数中存在两个参数 <code>resolve</code> 和 <code>reject</code> , 这两个参数是两个函数, 用来执行回调的作用</p>
-<blockquote>
-<p>resolve<br>resove 是作为异步回调成功之后需要执行的函数<br>reject<br>reject 是作为异步回调失败之后需要进行执行的函数</p>
-<p>在 promise 的对象中, 可以通过进行判断来选择执行 resolve 或者 reject 函数  </p>
-</blockquote>
-<p>使用 <code>promise</code> 进行 <code>ajax</code> 请求的函数如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* @description promise 的 ajax 请求</span><br><span class="line">* @param url &#123;String&#125; ajax 请求的地址</span><br><span class="line">* @param method &#123;String&#125; ajax 请求的方法 &apos;get&apos; or &apos;method&apos;</span><br><span class="line">* @return promise 新的 promise 请求对象</span><br><span class="line">**/</span><br><span class="line">let ajax = function (url, method) &#123;</span><br><span class="line">  let promise = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    let xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(method, url);</span><br><span class="line">    xhr.onreadystatechange = handler;</span><br><span class="line">    xhr.responseType = &apos;json&apos;;</span><br><span class="line">    xhr.setRequestHeader(&apos;Accept&apos;, &apos;application/json&apos;);</span><br><span class="line">    xhr.send();</span><br><span class="line">    function handler() &#123;</span><br><span class="line">      if (this.readystate !== 4) &#123;</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      if (this.status === 200) &#123;</span><br><span class="line">        resolve(this.response);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        reject(new Error(this.statuText));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">  return promise;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ajax(url, &apos;get&apos;).then((json) =&gt; &#123;</span><br><span class="line">  console.log(&apos;请求成功之后返回的数据&apos;, json);</span><br><span class="line">&#125;, (error) =&gt; &#123;</span><br><span class="line">  console.error(&apos;出现的错误&apos; + error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="promise-then"><a href="#promise-then" class="headerlink" title="promise.then()"></a>promise.then()</h4><p>在创建完成 promise 实例之后, 可以调用 promise.then() 中指定具体的回调成功或者失败的具体函数</p>
-<blockquote>
-<p>promise.then() 用于接收两个回调函数作为参数, 第一个回调函数是当 Promise 对象状态变为 resolve 的时候执行的函数,表示上面的 resolve 函数, 第二个回调函数是当 Promise 对象状态变为reject 的时候执行的函数, 也就是表示上面的 reject 函数,这两个函数都可以接收 promise 传入的值作为函数参数</p>
-</blockquote>
+        <h4 id="resove-and-reject">resove and reject</h4>
+使用 <code>es6</code> 回调函数的例子<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let promise = new Promise(function (resolve, reject) &#123;</span><br><span class="line">  if (/* 如果异步操作成功 */) &#123;</span><br><span class="line">      resolve(value);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">      reject(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+在上面的函数中，调用promise 构造函数创建了一个 promise 对象, 这个构造函数接收一个函数作为参数, 在函数中存在两个参数 <code>resolve</code> 和 <code>reject</code> , 这两个参数是两个函数, 用来执行回调的作用<blockquote>
+resolve
+resove 是作为异步回调成功之后需要执行的函数
+reject
+reject 是作为异步回调失败之后需要进行执行的函数在 promise 的对象中, 可以通过进行判断来选择执行 resolve 或者 reject 函数  </blockquote>
+使用 <code>promise</code> 进行 <code>ajax</code> 请求的函数如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* @description promise 的 ajax 请求</span><br><span class="line">* @param url &#123;String&#125; ajax 请求的地址</span><br><span class="line">* @param method &#123;String&#125; ajax 请求的方法 &apos;get&apos; or &apos;method&apos;</span><br><span class="line">* @return promise 新的 promise 请求对象</span><br><span class="line">**/</span><br><span class="line">let ajax = function (url, method) &#123;</span><br><span class="line">  let promise = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    let xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(method, url);</span><br><span class="line">    xhr.onreadystatechange = handler;</span><br><span class="line">    xhr.responseType = &apos;json&apos;;</span><br><span class="line">    xhr.setRequestHeader(&apos;Accept&apos;, &apos;application/json&apos;);</span><br><span class="line">    xhr.send();</span><br><span class="line">    function handler() &#123;</span><br><span class="line">      if (this.readystate !== 4) &#123;</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      if (this.status === 200) &#123;</span><br><span class="line">        resolve(this.response);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        reject(new Error(this.statuText));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">  return promise;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ajax(url, &apos;get&apos;).then((json) =&gt; &#123;</span><br><span class="line">  console.log(&apos;请求成功之后返回的数据&apos;, json);</span><br><span class="line">&#125;, (error) =&gt; &#123;</span><br><span class="line">  console.error(&apos;出现的错误&apos; + error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="promisethen">promise.then()</h4>
+在创建完成 promise 实例之后, 可以调用 promise.then() 中指定具体的回调成功或者失败的具体函数<blockquote>
+promise.then() 用于接收两个回调函数作为参数, 第一个回调函数是当 Promise 对象状态变为 resolve 的时候执行的函数,表示上面的 resolve 函数, 第二个回调函数是当 Promise 对象状态变为reject 的时候执行的函数, 也就是表示上面的 reject 函数,这两个函数都可以接收 promise 传入的值作为函数参数</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">promise.then(function(value) &#123;</span><br><span class="line">  // when promise success do something</span><br><span class="line">&#125;, function(error) &#123;</span><br><span class="line">  // when promise failed do something</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="promise-all"><a href="#promise-all" class="headerlink" title="promise.all()"></a>promise.all()</h4><p>使用 promise.all() 方法用于将多个 <code>promise</code> 实例, 包装为一个 <code>promise</code> 实例</p>
-<p><code>Promise.all([promise1, promise2, promise3])</code></p>
-<p>使用 <code>Promise.all</code> 接收的是一个数组作为参数， 其中 <code>promise1</code> <code>promise2</code> <code>promise3</code> 分别是 <code>Promise</code> 的实例</p>
-<p>关于使用 <code>Promise.all</code> 的状态:</p>
-<ol>
+
+<h4 id="promiseall">promise.all()</h4>
+使用 promise.all() 方法用于将多个 <code>promise</code> 实例, 包装为一个 <code>promise</code> 实例<code>Promise.all([promise1, promise2, promise3])</code>使用 <code>Promise.all</code> 接收的是一个数组作为参数， 其中 <code>promise1</code> <code>promise2</code> <code>promise3</code> 分别是 <code>Promise</code> 的实例关于使用 <code>Promise.all</code> 的状态:<ol>
 <li>只有 <code>promise1 promise2 promise3</code> 的状态都变成了 <code>fullfilled</code> 的状态,  <code>Promise.all</code> 的状态才会变成 <code>fullfilled</code> 并且三个 <code>promise</code> 的返回值组成一个数组, 传递给 <code>Promise.all</code> 的回调函数。 </li>
 <li>当三个 <code>promise</code> 中存在一个为 <code>reject</code> 的时候, <code>Promise.all</code> 的状态就会变成 <code>reject</code> , 这个时候 ,  被  <code>reject</code>    实例 的返回值被传递给<code>Promise.all</code> 的回调函数.</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const firstNamePromise = namePromise.then(getFirstName);</span><br><span class="line">const lastNamePromise = namePromise.then(getLastName);</span><br><span class="line">Promise.all([firstNamePromise, lastNamePromise]).then(([firstName, lastName]) =&gt; nextAction(firstName, lastName));</span><br></pre></td></tr></table></figure>
-<p>注意: 上面使用到了对于对象的解构赋值操作, 在上面的函数中 </p>
-<p>firstNamePromise 的返回值被赋给 firstName,  lastNamePromise 的返回值被赋给 lastName</p>
-<p>++++</p>
-<p>对于对象的解构赋值而言,我们可以这样赋值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a = 2;</span><br><span class="line">let b = 3;</span><br><span class="line">// 这样</span><br><span class="line">let [a, b] = [2, 3];</span><br></pre></td></tr></table></figure>
-<p>++++</p>
-<h4 id="promise-race"><a href="#promise-race" class="headerlink" title="promise .race()"></a>promise .race()</h4><p>使用 <code>promise.race()</code> 类似于 <code>promise.all</code> 方法, 将多个 <code>promise</code> 实例包装为一个 <code>promise</code> 方法</p>
-<p><code>let p = promise.race([p1, p2, p3])</code>  </p>
-<p>只要上面的 <code>p1, p2, p3</code> 中有一个的实例率先发生变化, 那么 <code>p</code> 的状态就会发生变化, 率先发生变化的返回值就会传递给 <code>p</code> 函数。</p>
-<h4 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h4><h5 id="promise-finally"><a href="#promise-finally" class="headerlink" title="promise.finally"></a><code>promise.finally</code></h5><p>使用 <code>promise.finally</code> 的方法的作用在于: 不管 <code>promise</code> 的最后的状态是什么, 使用 <code>promise.finally</code> 内的回调函数始终会被执行;</p>
-<p>例如: 请求之前的指示器打开或者关闭：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">this.indicator.show();</span><br><span class="line">let promise = new Promise();</span><br><span class="line">promise.then(</span><br><span class="line">// callback success fn</span><br><span class="line">).catch(e =&gt; &#123;</span><br><span class="line">  this.toast(e.message)</span><br><span class="line">&#125;).finally(() =&gt; &#123;</span><br><span class="line">  this.indicator.hide()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+注意: 上面使用到了对于对象的解构赋值操作, 在上面的函数中 firstNamePromise 的返回值被赋给 firstName,  lastNamePromise 的返回值被赋给 lastName++++对于对象的解构赋值而言,我们可以这样赋值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a = 2;</span><br><span class="line">let b = 3;</span><br><span class="line">// 这样</span><br><span class="line">let [a, b] = [2, 3];</span><br></pre></td></tr></table></figure>
+
+++++<h4 id="promise-race">promise .race()</h4>
+使用 <code>promise.race()</code> 类似于 <code>promise.all</code> 方法, 将多个 <code>promise</code> 实例包装为一个 <code>promise</code> 方法<code>let p = promise.race([p1, p2, p3])</code>  只要上面的 <code>p1, p2, p3</code> 中有一个的实例率先发生变化, 那么 <code>p</code> 的状态就会发生变化, 率先发生变化的返回值就会传递给 <code>p</code> 函数。<h4 id="其他方法">其他方法</h4>
+<h5 id="promisefinally"><code>promise.finally</code></h5>
+使用 <code>promise.finally</code> 的方法的作用在于: 不管 <code>promise</code> 的最后的状态是什么, 使用 <code>promise.finally</code> 内的回调函数始终会被执行;例如: 请求之前的指示器打开或者关闭：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">this.indicator.show();</span><br><span class="line">let promise = new Promise();</span><br><span class="line">promise.then(</span><br><span class="line">// callback success fn</span><br><span class="line">).catch(e =&gt; &#123;</span><br><span class="line">  this.toast(e.message)</span><br><span class="line">&#125;).finally(() =&gt; &#123;</span><br><span class="line">  this.indicator.hide()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -693,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#resove-and-reject"><span class="nav-number">1.</span> <span class="nav-text">resove and reject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-then"><span class="nav-number">2.</span> <span class="nav-text">promise.then()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-all"><span class="nav-number">3.</span> <span class="nav-text">promise.all()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-race"><span class="nav-number">4.</span> <span class="nav-text">promise .race()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他方法"><span class="nav-number">5.</span> <span class="nav-text">其他方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#promise-finally"><span class="nav-number">5.1.</span> <span class="nav-text">promise.finally</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#resove-and-reject"><span class="nav-number">1.</span> <span class="nav-text">resove and reject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promisethen"><span class="nav-number">2.</span> <span class="nav-text">promise.then()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promiseall"><span class="nav-number">3.</span> <span class="nav-text">promise.all()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-race"><span class="nav-number">4.</span> <span class="nav-text">promise .race()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他方法"><span class="nav-number">5.</span> <span class="nav-text">其他方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#promisefinally"><span class="nav-number">5.1.</span> <span class="nav-text">promise.finally</span></a></li></ol></li></ol></div>
             
 
           </div>

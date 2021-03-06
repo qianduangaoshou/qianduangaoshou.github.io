@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="es6 中对象扩展的用法1.简洁属性名函数的属性可以是一个变量： 12345let foo = &amp;apos;good&amp;apos;;let bar = &amp;#123;    foo: foo&amp;#125;;console.log(bar.foo); // &amp;apos;good&amp;apos;  es6 中我们可以直接传入一个变量到对象中 123456let foo = &amp;apos;good&amp;apos;;le">
+<meta name="description" content="es6 中对象扩展的用法 1.简洁属性名 函数的属性可以是一个变量：12345let foo = &amp;apos;good&amp;apos;;let bar = &amp;#123;    foo: foo&amp;#125;;console.log(bar.foo); // &amp;apos;good&amp;apos;   es6 中我们可以直接传入一个变量到对象中123456let foo = &amp;apos;good&amp;apos;;l">
 <meta name="keywords" content="对象扩展">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6: 对象的扩展">
 <meta property="og:url" content="https://newpromise.github.io/2017/09/17/es6-对象的扩展/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="es6 中对象扩展的用法1.简洁属性名函数的属性可以是一个变量： 12345let foo = &amp;apos;good&amp;apos;;let bar = &amp;#123;    foo: foo&amp;#125;;console.log(bar.foo); // &amp;apos;good&amp;apos;  es6 中我们可以直接传入一个变量到对象中 123456let foo = &amp;apos;good&amp;apos;;le">
+<meta property="og:description" content="es6 中对象扩展的用法 1.简洁属性名 函数的属性可以是一个变量：12345let foo = &amp;apos;good&amp;apos;;let bar = &amp;#123;    foo: foo&amp;#125;;console.log(bar.foo); // &amp;apos;good&amp;apos;   es6 中我们可以直接传入一个变量到对象中123456let foo = &amp;apos;good&amp;apos;;l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.974Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6: 对象的扩展">
-<meta name="twitter:description" content="es6 中对象扩展的用法1.简洁属性名函数的属性可以是一个变量： 12345let foo = &amp;apos;good&amp;apos;;let bar = &amp;#123;    foo: foo&amp;#125;;console.log(bar.foo); // &amp;apos;good&amp;apos;  es6 中我们可以直接传入一个变量到对象中 123456let foo = &amp;apos;good&amp;apos;;le">
+<meta name="twitter:description" content="es6 中对象扩展的用法 1.简洁属性名 函数的属性可以是一个变量：12345let foo = &amp;apos;good&amp;apos;;let bar = &amp;#123;    foo: foo&amp;#125;;console.log(bar.foo); // &amp;apos;good&amp;apos;   es6 中我们可以直接传入一个变量到对象中123456let foo = &amp;apos;good&amp;apos;;l">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,54 +450,43 @@
       
 
       
-        <h3 id="es6-中对象扩展的用法"><a href="#es6-中对象扩展的用法" class="headerlink" title="es6 中对象扩展的用法"></a>es6 中对象扩展的用法</h3><h4 id="1-简洁属性名"><a href="#1-简洁属性名" class="headerlink" title="1.简洁属性名"></a>1.简洁属性名</h4><p>函数的属性可以是一个变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let foo = &apos;good&apos;;</span><br><span class="line">let bar = &#123;</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line">console.log(bar.foo); // &apos;good&apos;</span><br></pre></td></tr></table></figure>
+        <h3 id="es6-中对象扩展的用法">es6 中对象扩展的用法</h3>
+<h4 id="1简洁属性名">1.简洁属性名</h4>
+函数的属性可以是一个变量：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let foo = &apos;good&apos;;</span><br><span class="line">let bar = &#123;</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line">console.log(bar.foo); // &apos;good&apos;</span><br></pre></td></tr></table></figure>
+
 <ol>
-<li><p>es6 中我们可以直接传入一个变量到对象中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let foo = &apos;good&apos;;</span><br><span class="line">let bar = &#123;</span><br><span class="line">    foo</span><br><span class="line">&#125;;</span><br><span class="line">console.log(bar.foo); // &apos;good&apos; </span><br><span class="line">//传入的变量名会被作为对象的属性名，变量的值会被作为对象属性的值</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用在函数中返回一个对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) &#123;</span><br><span class="line">  let age = 22;</span><br><span class="line">  return &#123;name, age&#125;;</span><br><span class="line">&#125;</span><br><span class="line">person(&apos;张宁宁&apos;)// &#123;name: &apos;张宁宁&apos;, age: 22&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>es6 中我们可以直接传入一个变量到对象中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let foo = &apos;good&apos;;</span><br><span class="line">let bar = &#123;</span><br><span class="line">    foo</span><br><span class="line">&#125;;</span><br><span class="line">console.log(bar.foo); // &apos;good&apos; </span><br><span class="line">//传入的变量名会被作为对象的属性名，变量的值会被作为对象属性的值</span><br></pre></td></tr></table></figure></li>
+<li>用在函数中返回一个对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Person(name) &#123;</span><br><span class="line">  let age = 22;</span><br><span class="line">  return &#123;name, age&#125;;</span><br><span class="line">&#125;</span><br><span class="line">person(&apos;张宁宁&apos;)// &#123;name: &apos;张宁宁&apos;, age: 22&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h4 id="2-Object-is-判断相等"><a href="#2-Object-is-判断相等" class="headerlink" title="2.  Object.is( ) 判断相等"></a>2.  Object.is( ) 判断相等</h4><p>对于比较两个值是否相等，使用 全等 <code>===</code> 运算符进行判断, 因为使用 <code>==</code> 会自动转换数据类型</p>
-<p>使用 <code>===</code> 有缺点： NAN === NAN  flase  以及  +0 === -0 false</p>
-<p>使用 <code>object.is</code> 可以解决这个缺点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">object.is(1,1) // true</span><br><span class="line">object.is(1,&apos;1&apos;) // false</span><br><span class="line">object.is(NaN, NaN) // true</span><br><span class="line">Object.is(+0, -0) //  true</span><br></pre></td></tr></table></figure>
+<h4 id="2--objectis--判断相等">2.  Object.is( ) 判断相等</h4>
+对于比较两个值是否相等，使用 全等 <code>===</code> 运算符进行判断, 因为使用 <code>==</code> 会自动转换数据类型使用 <code>===</code> 有缺点： NAN === NAN  flase  以及  +0 === -0 false使用 <code>object.is</code> 可以解决这个缺点<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">object.is(1,1) // true</span><br><span class="line">object.is(1,&apos;1&apos;) // false</span><br><span class="line">object.is(NaN, NaN) // true</span><br><span class="line">Object.is(+0, -0) //  true</span><br></pre></td></tr></table></figure>
+
 <hr>
-<p>使用<code>==</code> 或者 <code>===</code> 进行相等比较的时候，实际上，是无法进行比较对象的，因为对象是一个指针，指向存储对象数据的内存地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object.is(&#123;&#125; , &#123;&#125;); // false</span><br></pre></td></tr></table></figure>
+使用<code> ==</code> 或者 <code>===</code> 进行相等比较的时候，实际上，是无法进行比较对象的，因为对象是一个指针，指向存储对象数据的内存地址<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object.is(&#123;&#125; , &#123;&#125;); // false</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h4 id="3-Object-assign-合并对象"><a href="#3-Object-assign-合并对象" class="headerlink" title="3. Object.assign () 合并对象"></a>3. Object.assign () 合并对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let t = &#123;&#125;;</span><br><span class="line">let s1 = &#123; a: 1 &#125;;</span><br><span class="line">let s2 = &#123; b: 2 &#125;;</span><br><span class="line">Object.assign(t, s1, s2);</span><br><span class="line">// &#123;a: 1, b: 2&#125;</span><br></pre></td></tr></table></figure>
-<p>上面中将对象 s1, s2,  合并入 t 中；</p>
-<p>传入值的情况:</p>
-<ul>
+<h4 id="3-objectassign--合并对象">3. Object.assign () 合并对象</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let t = &#123;&#125;;</span><br><span class="line">let s1 = &#123; a: 1 &#125;;</span><br><span class="line">let s2 = &#123; b: 2 &#125;;</span><br><span class="line">Object.assign(t, s1, s2);</span><br><span class="line">// &#123;a: 1, b: 2&#125;</span><br></pre></td></tr></table></figure>
+
+上面中将对象 s1, s2,  合并入 t 中；传入值的情况:<ul>
 <li>如果只有一个参数，使用这种方法会返回这个参数</li>
 <li>如果传入的一个参数是 Null 或者 undefined 机会报错</li>
 <li>要进行合并的参数是字符串的情况下，会返回该字符串的对象,传入非对象，非字符串的其他值，无效</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.assign(&#123;&#125;, &apos;string&apos;);</span><br><span class="line">// &#123;0: &quot;s&quot;, 1: &quot;t&quot;, 2: &quot;r&quot;, 3: &quot;i&quot;, 4: &quot;n&quot;, 5: &quot;g&quot;&#125;</span><br></pre></td></tr></table></figure>
-<p>使用 Object.assign () 返回的是对象的形式</p>
-<p>使用 Object.assign() 实现浅拷贝</p>
-<h4 id="4-Object-keys-Object-values-Object-entires"><a href="#4-Object-keys-Object-values-Object-entires" class="headerlink" title="4. Object.keys()   Object.values()   Object.entires()"></a>4. Object.keys()   Object.values()   Object.entires()</h4><ol>
-<li><p><code>Object.keys()</code></p>
-<p>使用这种方法得到的是对象中所有可遍历的属性名组成的数组</p>
-</li>
-<li><p><code>Object.values()</code></p>
-<p>使用这种方法得到的是对象自身所有可以遍历到的属性的值</p>
-</li>
-<li><p><code>Object.entires()</code></p>
-<p>使用这种方法得到的数组，数组中包括对象自身所有可遍历得到的属性的键值对儿数组</p>
-</li>
+
+使用 Object.assign () 返回的是对象的形式使用 Object.assign() 实现浅拷贝<h4 id="4-objectkeys---objectvalues---objectentires">4. Object.keys()   Object.values()   Object.entires()</h4>
+<ol>
+<li><code>Object.keys() </code>使用这种方法得到的是对象中所有可遍历的属性名组成的数组</li>
+<li><code>Object.values() </code>使用这种方法得到的是对象自身所有可以遍历到的属性的值</li>
+<li><code>Object.entires()</code>使用这种方法得到的数组，数组中包括对象自身所有可遍历得到的属性的键值对儿数组</li>
 </ol>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ol>
-<li><p>判断对象内是否是空对象的方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isEmpty = <span class="function"><span class="params">obj</span> =&gt;</span> <span class="keyword">return</span> <span class="built_in">Object</span>.keys(obj) === <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 <code>Object.assign</code> 实现自定义配置覆盖默认配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toConfig</span>(<span class="params">defaultConfig, config</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.assign(defaultConfig, config);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
+<h3 id="应用">应用</h3>
+<ol>
+<li>判断对象内是否是空对象的方法：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isEmpty = <span class="function"><span class="params">obj</span> =&gt;</span> <span class="keyword">return</span> <span class="built_in">Object</span>.keys(obj) === <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
+<li>使用 <code>Object.assign</code> 实现自定义配置覆盖默认配置<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toConfig</span>(<span class="params">defaultConfig, config</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.assign(defaultConfig, config);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+​</li>
 </ol>
 
       
@@ -707,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#es6-中对象扩展的用法"><span class="nav-number">1.</span> <span class="nav-text">es6 中对象扩展的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简洁属性名"><span class="nav-number">1.1.</span> <span class="nav-text">1.简洁属性名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Object-is-判断相等"><span class="nav-number">1.2.</span> <span class="nav-text">2.  Object.is( ) 判断相等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Object-assign-合并对象"><span class="nav-number">1.3.</span> <span class="nav-text">3. Object.assign () 合并对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Object-keys-Object-values-Object-entires"><span class="nav-number">1.4.</span> <span class="nav-text">4. Object.keys()   Object.values()   Object.entires()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">2.</span> <span class="nav-text">应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#es6-中对象扩展的用法"><span class="nav-number">1.</span> <span class="nav-text">es6 中对象扩展的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1简洁属性名"><span class="nav-number">1.1.</span> <span class="nav-text">1.简洁属性名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2--objectis--判断相等"><span class="nav-number">1.2.</span> <span class="nav-text">2.  Object.is( ) 判断相等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-objectassign--合并对象"><span class="nav-number">1.3.</span> <span class="nav-text">3. Object.assign () 合并对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-objectkeys---objectvalues---objectentires"><span class="nav-number">1.4.</span> <span class="nav-text">4. Object.keys()   Object.values()   Object.entires()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">2.</span> <span class="nav-text">应用</span></a></li></ol></div>
             
 
           </div>

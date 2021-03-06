@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="underscore.js 源码解析(六)first initial  last rest compact first实例_.first(array, [n]) n 是可选的, 表示选择数组中的前 n 个元素， 当我们没有传递 n 的时候，我们获得的是数组的第一个元素 array[0]。 使用 first 用来获取到数组中的第一个元素。 12let list = [1, 2, 3, 4];_.fi">
+<meta name="description" content="underscore.js 源码解析(六) first initial  last rest compactfirst 实例 _.first(array, [n])n 是可选的, 表示选择数组中的前 n 个元素， 当我们没有传递 n 的时候，我们获得的是数组的第一个元素 array[0]。使用 first 用来获取到数组中的第一个元素。12let list = [1, 2, 3, 4];_.fir">
 <meta name="keywords" content="underscore.js源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="underscore.js 源码解析(六)">
 <meta property="og:url" content="https://newpromise.github.io/2017/11/27/underscore-js-源码解析-六/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="underscore.js 源码解析(六)first initial  last rest compact first实例_.first(array, [n]) n 是可选的, 表示选择数组中的前 n 个元素， 当我们没有传递 n 的时候，我们获得的是数组的第一个元素 array[0]。 使用 first 用来获取到数组中的第一个元素。 12let list = [1, 2, 3, 4];_.fi">
+<meta property="og:description" content="underscore.js 源码解析(六) first initial  last rest compactfirst 实例 _.first(array, [n])n 是可选的, 表示选择数组中的前 n 个元素， 当我们没有传递 n 的时候，我们获得的是数组的第一个元素 array[0]。使用 first 用来获取到数组中的第一个元素。12let list = [1, 2, 3, 4];_.fir">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.984Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="underscore.js 源码解析(六)">
-<meta name="twitter:description" content="underscore.js 源码解析(六)first initial  last rest compact first实例_.first(array, [n]) n 是可选的, 表示选择数组中的前 n 个元素， 当我们没有传递 n 的时候，我们获得的是数组的第一个元素 array[0]。 使用 first 用来获取到数组中的第一个元素。 12let list = [1, 2, 3, 4];_.fi">
+<meta name="twitter:description" content="underscore.js 源码解析(六) first initial  last rest compactfirst 实例 _.first(array, [n])n 是可选的, 表示选择数组中的前 n 个元素， 当我们没有传递 n 的时候，我们获得的是数组的第一个元素 array[0]。使用 first 用来获取到数组中的第一个元素。12let list = [1, 2, 3, 4];_.fir">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,41 +450,41 @@
       
 
       
-        <h3 id="underscore-js-源码解析-六"><a href="#underscore-js-源码解析-六" class="headerlink" title="underscore.js 源码解析(六)"></a>underscore.js 源码解析(六)</h3><p><code>first</code> <code>initial</code>  <code>last</code> <code>rest</code> <code>compact</code></p>
-<h4 id="first"><a href="#first" class="headerlink" title="first"></a><code>first</code></h4><h5 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h5><p><code>_.first(array, [n])</code></p>
-<p><code>n</code> 是可选的, 表示选择数组中的前 <code>n</code> 个元素， 当我们没有传递 <code>n</code> 的时候，我们获得的是数组的第一个元素 <code>array[0]</code>。</p>
-<p>使用 <code>first</code> 用来获取到数组中的第一个元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">_.first(list) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-<h5 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h5><p>使用 <code>_.first</code> 实现的源码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">_.first = _.head = _.take = function(array, n, guard) &#123;</span><br><span class="line">    // 如果 array 为null 返回 undefined</span><br><span class="line">    if (array == null) return void 0;</span><br><span class="line">    // 如果没有明确传入的 参数 n 返回数组的第一项 array[0]</span><br><span class="line">    if (n == null || guard) return array[0];</span><br><span class="line">    // 使用 _.initial 用于返回数组的前 n 个元素</span><br><span class="line">    return _.initial(array, array.length - n);</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<p>注意:</p>
-<ol>
-<li><p>如何判断 <code>null</code>? </p>
-<p>如果使用 <code>typeof</code> 判断 <code>null</code> 会返回 <code>object</code> , 实现判断是否为 <code>null</code> 的简单方法是进行判断:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (obj == null) &#123;</span><br><span class="line">  // isnull</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这里使用了一个 <code>_.initial</code> 用于获取到数组的相关值:</p>
-<h4 id="initial"><a href="#initial" class="headerlink" title="_.initial"></a><code>_.initial</code></h4><p>使用 <code>_.initial</code> 的目的在于返回数组中前 <code>n</code> 个元素，不包括第 <code>n</code> 个元素</p>
-<h5 id="源码如下"><a href="#源码如下" class="headerlink" title="源码如下:"></a>源码如下:</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.initial = <span class="function"><span class="keyword">function</span>(<span class="params">array, n, guard</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> slice.call(array, <span class="number">0</span>, <span class="built_in">Math</span>.max(<span class="number">0</span>, array.length - (n == <span class="literal">null</span> || guard ? <span class="number">1</span> : n)));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="last"><a href="#last" class="headerlink" title="_.last"></a><code>_.last</code></h4><p>使用 <code>_.last</code> 用于返回数组中的最后一个元素。</p>
-<h5 id="源码分析-1"><a href="#源码分析-1" class="headerlink" title="源码分析"></a>源码分析</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_.last = <span class="function"><span class="keyword">function</span>(<span class="params">array, n, guard</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (array == <span class="literal">null</span>) <span class="keyword">return</span> <span class="keyword">void</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="literal">null</span> || guard) <span class="keyword">return</span> array[array.length - <span class="number">1</span>];</span><br><span class="line">    <span class="comment">// 调用 rest函数， 当 n !== null 的时候</span></span><br><span class="line">    <span class="keyword">return</span> _.rest(array, <span class="built_in">Math</span>.max(<span class="number">0</span>, array.length - n));</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="rest"><a href="#rest" class="headerlink" title="_.rest"></a><code>_.rest</code></h4><p>使用 <code>_.rest</code> 函数用于返回数组中剩下的元素。</p>
-<h5 id="源码分析-2"><a href="#源码分析-2" class="headerlink" title="源码分析"></a>源码分析</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.rest = _.tail = _.drop = <span class="function"><span class="keyword">function</span>(<span class="params">array, n, guard</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> slice.call(array, n == <span class="literal">null</span> || guard ? <span class="number">1</span> : n); </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用 <code>slice.call</code> 其实是 <code>Array.prototype.slice.call()</code> 的方法</p>
-<p><code>Array.slice(start, end)</code> // 用于裁剪数组，裁剪的数组包括 <code>start</code> 不包括 <code>end</code>  </p>
-</blockquote>
-<h4 id="compact"><a href="#compact" class="headerlink" title="compact"></a><code>compact</code></h4><p>使用 <code>compact</code> 用于去除所有为 <code>假值</code> 的数组成员</p>
-<blockquote>
-<p>关于假值:  <code>false</code>, <code>undefined</code> <code>null</code>  <code>0</code> 以及 <code>&quot;&quot;</code> 被称为假值, 因为强制类型转换会被转换为 <code>false</code>。</p>
-</blockquote>
-<p>源码如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_.compact = <span class="function"><span class="keyword">function</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 在 filter 的函数中</span></span><br><span class="line">   <span class="keyword">return</span> _.filter(array, _.identity);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>因为在上面的代码中，函数 <code>_.filter</code> 中存在一个判断:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (someFn) &#123;</span><br><span class="line">  <span class="comment">// doSomething</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里会对位于 <code>if</code> 框内的元素<code>someFn</code>进行强制类型转换。</p>
+        <h3 id="underscorejs-源码解析六">underscore.js 源码解析(六)</h3>
+<code>first</code> <code>initial</code>  <code>last</code> <code>rest</code> <code>compact</code><h4 id="first"><code>first</code></h4>
+<h5 id="实例">实例</h5>
+<code>_.first(array, [n])</code><code>n</code> 是可选的, 表示选择数组中的前 <code>n</code> 个元素， 当我们没有传递 <code>n</code> 的时候，我们获得的是数组的第一个元素 <code>array[0]</code>。使用 <code>first</code> 用来获取到数组中的第一个元素。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">_.first(list) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 
+<h5 id="源码分析">源码分析</h5>
+使用 <code>_.first</code> 实现的源码如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">_.first = _.head = _.take = function(array, n, guard) &#123;</span><br><span class="line">    // 如果 array 为null 返回 undefined</span><br><span class="line">    if (array == null) return void 0;</span><br><span class="line">    // 如果没有明确传入的 参数 n 返回数组的第一项 array[0]</span><br><span class="line">    if (n == null || guard) return array[0];</span><br><span class="line">    // 使用 _.initial 用于返回数组的前 n 个元素</span><br><span class="line">    return _.initial(array, array.length - n);</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+
+注意:<ol>
+<li> 如何判断 <code>null</code>? </li>
+</ol>
+   如果使用 <code>typeof</code> 判断 <code>null</code> 会返回 <code>object</code> , 实现判断是否为 <code>null</code> 的简单方法是进行判断:   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (obj == null) &#123;</span><br><span class="line">  // isnull</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+这里使用了一个 <code>_.initial</code> 用于获取到数组的相关值:<h4 id="_initial"><code>_.initial</code></h4>
+使用 <code>_.initial</code> 的目的在于返回数组中前 <code>n</code> 个元素，不包括第 <code>n</code> 个元素<h5 id="源码如下">源码如下:</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.initial = <span class="function"><span class="keyword">function</span>(<span class="params">array, n, guard</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> slice.call(array, <span class="number">0</span>, <span class="built_in">Math</span>.max(<span class="number">0</span>, array.length - (n == <span class="literal">null</span> || guard ? <span class="number">1</span> : n)));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="_last"><code>_.last</code></h4>
+使用 <code>_.last</code> 用于返回数组中的最后一个元素。<h5 id="源码分析-1">源码分析</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_.last = <span class="function"><span class="keyword">function</span>(<span class="params">array, n, guard</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (array == <span class="literal">null</span>) <span class="keyword">return</span> <span class="keyword">void</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="literal">null</span> || guard) <span class="keyword">return</span> array[array.length - <span class="number">1</span>];</span><br><span class="line">    <span class="comment">// 调用 rest函数， 当 n !== null 的时候</span></span><br><span class="line">    <span class="keyword">return</span> _.rest(array, <span class="built_in">Math</span>.max(<span class="number">0</span>, array.length - n));</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="_rest"><code>_.rest</code></h4>
+使用 <code>_.rest</code> 函数用于返回数组中剩下的元素。<h5 id="源码分析-2">源码分析</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_.rest = _.tail = _.drop = <span class="function"><span class="keyword">function</span>(<span class="params">array, n, guard</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> slice.call(array, n == <span class="literal">null</span> || guard ? <span class="number">1</span> : n); </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+使用 <code>slice.call</code> 其实是 <code>Array.prototype.slice.call()</code> 的方法<code>Array.slice(start, end)</code> // 用于裁剪数组，裁剪的数组包括 <code>start</code> 不包括 <code>end</code>  </blockquote>
+<h4 id="compact"><code>compact</code></h4>
+使用 <code>compact</code> 用于去除所有为 <code>假值</code> 的数组成员<blockquote>
+关于假值:  <code>false</code>, <code>undefined</code> <code>null</code>  <code>0</code> 以及 <code>&quot;&quot;</code> 被称为假值, 因为强制类型转换会被转换为 <code>false</code>。</blockquote>
+源码如下:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_.compact = <span class="function"><span class="keyword">function</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 在 filter 的函数中</span></span><br><span class="line">   <span class="keyword">return</span> _.filter(array, _.identity);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+因为在上面的代码中，函数 <code>_.filter</code> 中存在一个判断:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (someFn) &#123;</span><br><span class="line">  <span class="comment">// doSomething</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+这里会对位于 <code>if</code> 框内的元素<code>someFn</code>进行强制类型转换。
       
     </div>
     
@@ -692,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#underscore-js-源码解析-六"><span class="nav-number">1.</span> <span class="nav-text">underscore.js 源码解析(六)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#first"><span class="nav-number">1.1.</span> <span class="nav-text">first</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例"><span class="nav-number">1.1.1.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initial"><span class="nav-number">1.2.</span> <span class="nav-text">_.initial</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码如下"><span class="nav-number">1.2.1.</span> <span class="nav-text">源码如下:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#last"><span class="nav-number">1.3.</span> <span class="nav-text">_.last</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rest"><span class="nav-number">1.4.</span> <span class="nav-text">_.rest</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compact"><span class="nav-number">1.5.</span> <span class="nav-text">compact</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#underscorejs-源码解析六"><span class="nav-number">1.</span> <span class="nav-text">underscore.js 源码解析(六)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#first"><span class="nav-number">1.1.</span> <span class="nav-text">first</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例"><span class="nav-number">1.1.1.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#_initial"><span class="nav-number">1.2.</span> <span class="nav-text">_.initial</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码如下"><span class="nav-number">1.2.1.</span> <span class="nav-text">源码如下:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#_last"><span class="nav-number">1.3.</span> <span class="nav-text">_.last</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#_rest"><span class="nav-number">1.4.</span> <span class="nav-text">_.rest</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compact"><span class="nav-number">1.5.</span> <span class="nav-text">compact</span></a></li></ol></li></ol></div>
             
 
           </div>

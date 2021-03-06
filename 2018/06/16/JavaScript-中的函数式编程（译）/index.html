@@ -81,21 +81,21 @@
 
 
 
-<meta name="description" content="在这篇文章中，我们将会学习到声明式， 纯函数， 不变性以及副作用。 什么是函数式编程？ 在计算机科学中，函数是编程是一种编程范例或者模式（一种构建计算机程序结构和元素的样式） 函数式编程将计算机运算视为数学概念中函数的计算。 函数式编程避免改变状态以及使用可变的数据。  上面的这些定义来自于维基百科， 在这篇文章中，我们尝试理解FP(函数式编程)的价值和意义。 其他主要的编程规范或模式： 过程式编">
+<meta name="description" content="在这篇文章中，我们将会学习到声明式， 纯函数， 不变性以及副作用。什么是函数式编程？  在计算机科学中，函数是编程是一种编程范例或者模式（一种构建计算机程序结构和元素的样式） 函数式编程将计算机运算视为数学概念中函数的计算。 函数式编程避免改变状态以及使用可变的数据。  上面的这些定义来自于维基百科， 在这篇文章中，我们尝试理解FP(函数式编程)的价值和意义。其他主要的编程规范或模式：  过程式编">
 <meta name="keywords" content="函数式编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 中的函数式编程（译）">
 <meta property="og:url" content="https://newpromise.github.io/2018/06/16/JavaScript-中的函数式编程（译）/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="在这篇文章中，我们将会学习到声明式， 纯函数， 不变性以及副作用。 什么是函数式编程？ 在计算机科学中，函数是编程是一种编程范例或者模式（一种构建计算机程序结构和元素的样式） 函数式编程将计算机运算视为数学概念中函数的计算。 函数式编程避免改变状态以及使用可变的数据。  上面的这些定义来自于维基百科， 在这篇文章中，我们尝试理解FP(函数式编程)的价值和意义。 其他主要的编程规范或模式： 过程式编">
+<meta property="og:description" content="在这篇文章中，我们将会学习到声明式， 纯函数， 不变性以及副作用。什么是函数式编程？  在计算机科学中，函数是编程是一种编程范例或者模式（一种构建计算机程序结构和元素的样式） 函数式编程将计算机运算视为数学概念中函数的计算。 函数式编程避免改变状态以及使用可变的数据。  上面的这些定义来自于维基百科， 在这篇文章中，我们尝试理解FP(函数式编程)的价值和意义。其他主要的编程规范或模式：  过程式编">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://pic1.zhimg.com/v2-e66d6b1b5b60c7e36e852e8dc0779212_b.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/v2-99715077ff8316e0a8e88a315c9bf560_b.jpg">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.964Z">
+<meta property="og:image" content="https://newpromise.github.io/2018/06/16/JavaScript-中的函数式编程（译）/v2-e66d6b1b5b60c7e36e852e8dc0779212_b.jpg">
+<meta property="og:image" content="https://newpromise.github.io/2018/06/16/JavaScript-中的函数式编程（译）/v2-99715077ff8316e0a8e88a315c9bf560_b.jpg">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 中的函数式编程（译）">
-<meta name="twitter:description" content="在这篇文章中，我们将会学习到声明式， 纯函数， 不变性以及副作用。 什么是函数式编程？ 在计算机科学中，函数是编程是一种编程范例或者模式（一种构建计算机程序结构和元素的样式） 函数式编程将计算机运算视为数学概念中函数的计算。 函数式编程避免改变状态以及使用可变的数据。  上面的这些定义来自于维基百科， 在这篇文章中，我们尝试理解FP(函数式编程)的价值和意义。 其他主要的编程规范或模式： 过程式编">
-<meta name="twitter:image" content="https://pic1.zhimg.com/v2-e66d6b1b5b60c7e36e852e8dc0779212_b.jpg">
+<meta name="twitter:description" content="在这篇文章中，我们将会学习到声明式， 纯函数， 不变性以及副作用。什么是函数式编程？  在计算机科学中，函数是编程是一种编程范例或者模式（一种构建计算机程序结构和元素的样式） 函数式编程将计算机运算视为数学概念中函数的计算。 函数式编程避免改变状态以及使用可变的数据。  上面的这些定义来自于维基百科， 在这篇文章中，我们尝试理解FP(函数式编程)的价值和意义。其他主要的编程规范或模式：  过程式编">
+<meta name="twitter:image" content="https://newpromise.github.io/2018/06/16/JavaScript-中的函数式编程（译）/v2-e66d6b1b5b60c7e36e852e8dc0779212_b.jpg">
 
 
 
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -453,81 +453,67 @@
       
 
       
-        <p>在这篇文章中，我们将会学习到声明式， 纯函数， 不变性以及副作用。</p>
-<h2 id="什么是函数式编程？"><a href="#什么是函数式编程？" class="headerlink" title="什么是函数式编程？"></a>什么是函数式编程？</h2><ul>
+        在这篇文章中，我们将会学习到声明式， 纯函数， 不变性以及副作用。<h2 id="什么是函数式编程？">什么是函数式编程？</h2>
+<ul>
 <li>在计算机科学中，函数是编程是一种编程范例或者模式（一种构建计算机程序结构和元素的样式）</li>
 <li>函数式编程将计算机运算视为数学概念中函数的计算。</li>
 <li>函数式编程避免改变状态以及使用可变的数据。</li>
 </ul>
-<p>上面的这些定义来自于维基百科， 在这篇文章中，我们尝试理解FP(函数式编程)的价值和意义。</p>
-<h2 id="其他主要的编程规范或模式："><a href="#其他主要的编程规范或模式：" class="headerlink" title="其他主要的编程规范或模式："></a>其他主要的编程规范或模式：</h2><ul>
+上面的这些定义来自于维基百科， 在这篇文章中，我们尝试理解FP(函数式编程)的价值和意义。<h2 id="其他主要的编程规范或模式：">其他主要的编程规范或模式：</h2>
+<ul>
 <li>过程式编程</li>
 <li>面向对象的编程</li>
 <li>元编程</li>
 <li>命令式编程</li>
 <li>声明式编程</li>
 </ul>
-<p>过程式编程 基于程序调用的概念，简单包括计算机将要执行的一系列的计算过程， 在程序执行期间的任何时候，任何被设定的程序都有可能被调用，包括被其他的程序被调用或者自身调用，主要的过程式编程语言有COBOL, BASIC, C, ADA 和 GO</p>
-<p>面向对象编程 基于对象的概念，对象中包含数据（属性）和程序（方法），这种模式更接近于函数式编程，一些重要的面向对象的语言包括：C++, Java, PHP, C#, Python, Ruby, Swift 等等。</p>
-<p>元编程 具备将程序视为数据的能力，这意味着程序能够被设计成能够阅读，复制， 分析或者转换为其他程序，甚至在运行的时候修改自身。</p>
-<p>命令模式 vs 声明模式</p>
-<ul>
+过程式编程 基于程序调用的概念，简单包括计算机将要执行的一系列的计算过程， 在程序执行期间的任何时候，任何被设定的程序都有可能被调用，包括被其他的程序被调用或者自身调用，主要的过程式编程语言有COBOL, BASIC, C, ADA 和 GO面向对象编程 基于对象的概念，对象中包含数据（属性）和程序（方法），这种模式更接近于函数式编程，一些重要的面向对象的语言包括：C++, Java, PHP, C#, Python, Ruby, Swift 等等。元编程 具备将程序视为数据的能力，这意味着程序能够被设计成能够阅读，复制， 分析或者转换为其他程序，甚至在运行的时候修改自身。命令模式 vs 声明模式<ul>
 <li>命令模式关心描述程序如何运行, 由计算机执行的命令组成</li>
 <li>声明模式关心程序能够做什么而无需确定程序应该如何完成。</li>
 <li>函数式编程遵循声明模式。</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> books = [</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'JavaScript'</span>, <span class="attr">pages</span>:<span class="number">450</span>&#125;, </span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'Angular'</span>, <span class="attr">pages</span>:<span class="number">902</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>:<span class="string">'Node'</span>, <span class="attr">pages</span>:<span class="number">732</span>&#125;</span><br><span class="line">];</span><br><span class="line"><span class="comment">/* Imperative Pattern */</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; books.length; i++) &#123;</span><br><span class="line">  books[i].lastRead =  <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Declarative Pattern */</span></span><br><span class="line">books.map(<span class="function">(<span class="params">book</span>)=&gt;</span> &#123;</span><br><span class="line">  book.lastReadBy = <span class="string">'me'</span>;</span><br><span class="line">  <span class="keyword">return</span> book;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(books);</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>在上面的这一段代码中， 我们对于书籍数组中的每一本书添加了一个新的属性，这个过程通过两种不同的方法执行。</li>
 <li>第一段中借用 <code>for 循环</code>，依据数组的长度进行迭代,接着将数组的指针计数器和数组的长度进行核对并且在每一次迭代中增加指针计数器，因此， 这更像程序/代码正在关心为了得到想要的输出结果如何进行运行操作。</li>
 <li>第二段中的代码借助于原生Js数组中的 map  这个 map  方法将函数作为参数，这个函数获取到每一个元素，因此在这种情况下代码不是在描述程序如何运行，而是讨论需要达成什么 ，在这种情况后的 map 方法 关心实际的程序执行。</li>
 </ul>
-<h2 id="数学意义上的函数或者纯函数"><a href="#数学意义上的函数或者纯函数" class="headerlink" title="数学意义上的函数或者纯函数"></a>数学意义上的函数或者纯函数</h2><p>在数学中，函数是一系列输入值和合法的输出值之间的关系，这种特性反映了每一个输入组合都关联着一个确定的输出。</p>
-<p>这函数式编程中，这种函数被称作纯函数，函数的输出结果仅仅取决于函数接收到的输入数据， 除了返回值之外， 函数不会改变输入的数据。</p>
-<p>Math.random() 不是纯函数，因为每次调用的时候总会返回一个新的值。</p>
-<p>Math.min(1, 2) 是纯函数的一个例子，对于相同的一组输入值总会返回新的值。</p>
-<h2 id="为什么要使用函数式编程"><a href="#为什么要使用函数式编程" class="headerlink" title="为什么要使用函数式编程"></a>为什么要使用函数式编程</h2><ul>
+<h2 id="数学意义上的函数或者纯函数">数学意义上的函数或者纯函数</h2>
+在数学中，函数是一系列输入值和合法的输出值之间的关系，这种特性反映了每一个输入组合都关联着一个确定的输出。这函数式编程中，这种函数被称作纯函数，函数的输出结果仅仅取决于函数接收到的输入数据， 除了返回值之外， 函数不会改变输入的数据。Math.random() 不是纯函数，因为每次调用的时候总会返回一个新的值。Math.min(1, 2) 是纯函数的一个例子，对于相同的一组输入值总会返回新的值。<h2 id="为什么要使用函数式编程">为什么要使用函数式编程</h2>
+<ul>
 <li>函数式编程中的纯函数确保了不会改变在其范围之外的数据。</li>
 <li>其减少了复杂程度， 我们不需要关心程序如何怎样做， 而只需要关心程序做了什么。</li>
 <li>易于测试，因为其不会取决于应用的状态，对于结果的验证也将会变得简单。</li>
 <li>让代码更具有易读性。</li>
 <li>函数式编程让代码更易于理解。</li>
 </ul>
-<h2 id="函数式编程的例子"><a href="#函数式编程的例子" class="headerlink" title="函数式编程的例子"></a>函数式编程的例子</h2><p>数组函数</p>
-<p><img src="https://pic1.zhimg.com/v2-e66d6b1b5b60c7e36e852e8dc0779212_b.jpg" alt="img"></p>
-<p>在上面的代码中， 我们试图过滤出只有活跃的 meet-ups, 我们可以看到这个功能可以使用两种不同的方法实现，在这里， 第二种方法是函数式编程，其中的 filter() 方法关心”程序如何运行”，程序只关心输入也就是 meetups数组以及输出activeMeetupsFP 但是在第一种方法中程序也关心 for 循环如何运行代码。</p>
-<p>相似的，下面的这些数组方法有助于实现函数式编程，减少代码的复杂度。</p>
-<ul>
+<h2 id="函数式编程的例子">函数式编程的例子</h2>
+数组函数<img src="v2-e66d6b1b5b60c7e36e852e8dc0779212_b.jpg" loading="lazy">在上面的代码中， 我们试图过滤出只有活跃的 meet-ups, 我们可以看到这个功能可以使用两种不同的方法实现，在这里， 第二种方法是函数式编程，其中的 filter() 方法关心&quot;程序如何运行&quot;，程序只关心输入也就是 meetups数组以及输出activeMeetupsFP 但是在第一种方法中程序也关心 for 循环如何运行代码。相似的，下面的这些数组方法有助于实现函数式编程，减少代码的复杂度。<ul>
 <li>find</li>
 <li>reduce</li>
 <li>map</li>
 <li>some</li>
 <li>every</li>
 </ul>
-<h2 id="函数链"><a href="#函数链" class="headerlink" title="函数链"></a>函数链</h2><p>函数链是用于调用多种方法的机制， 每一个方法返回一个对象， 允许在一个声明中调用链接在一起而无需变量来储存中间结果。</p>
-<p><img src="https://pic4.zhimg.com/v2-99715077ff8316e0a8e88a315c9bf560_b.jpg" alt="img"></p>
-<p>在上面的代码片段中， 我们想要打印出所有的活跃的 meetup 用户的总人数， 考虑到可能有10%的用户重复。</p>
-<h2 id="支持-FP-的库"><a href="#支持-FP-的库" class="headerlink" title="支持 FP 的库"></a>支持 FP 的库</h2><p>下面这些库中提供了一些让代码看起来更加声明式的有用函数。</p>
-<ul>
+<h2 id="函数链">函数链</h2>
+函数链是用于调用多种方法的机制， 每一个方法返回一个对象， 允许在一个声明中调用链接在一起而无需变量来储存中间结果。<img src="v2-99715077ff8316e0a8e88a315c9bf560_b.jpg" loading="lazy">在上面的代码片段中， 我们想要打印出所有的活跃的 meetup 用户的总人数， 考虑到可能有10%的用户重复。<h2 id="支持-fp-的库">支持 FP 的库</h2>
+下面这些库中提供了一些让代码看起来更加声明式的有用函数。<ul>
 <li>RamadaJS</li>
 <li>UnderscoreJS</li>
 <li>lodash</li>
 </ul>
-<h2 id="副作用"><a href="#副作用" class="headerlink" title="副作用"></a>副作用</h2><p>函数或者表达式除了返回一个值之外，在下面的几种情况下被认为产生了副作用： 如果其改变了其自身范围之外的程序状态， 或者与其调用的函数或者外部的程序有一个可以观察到的交互。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> meetup = &#123;<span class="attr">name</span>:<span class="string">'JS'</span>,<span class="attr">isActive</span>:<span class="literal">true</span>,<span class="attr">members</span>:<span class="number">49</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> scheduleMeetup = <span class="function">(<span class="params">date, place</span>) =&gt;</span> &#123;</span><br><span class="line">  meetup.date = date;</span><br><span class="line">  meetup.place = place;</span><br><span class="line">  <span class="keyword">if</span> (meetup.members &lt; <span class="number">50</span>)</span><br><span class="line">    meetup.isActive = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> publishMeetup = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (meetup.isActive) &#123;</span><br><span class="line">    meetup.publish = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">scheduleMeetup(<span class="string">'today'</span>,<span class="string">'Bnagalore'</span>);</span><br><span class="line">publishMeetup();</span><br><span class="line"><span class="built_in">console</span>.log(meetup);</span><br></pre></td></tr></table></figure>
-<p>上面的这段代码产生了副作用，因为函数 scheduleMeetup 的本来的作用是给 meetup 添加 date 和 place, 但是这个函数改变了 isActive 的值， 而这个 isActive 正是函数 publishMeetup 所依赖的。具有副作用的 publishMeetup 函数将不会得到理想的输出， 因为其输入的值在这个过程中被改变了。 在大型的程序中（真实的程序情况下）， 很难去 debug 副作用。</p>
-<p>副作用不总是产生坏的影响，但是如果其产生的时候我们应该小心对待。</p>
-<h2 id="不变性"><a href="#不变性" class="headerlink" title="不变性"></a>不变性</h2><p>在函数运行之后，不变性是十分重要的对于确保一个函数确实没有改变原来的数据而不是返回数据的新的副本。</p>
-<p>例如， 如果数组以及对象在经历过多个函数之后， 如果我们不能保持不变性， 那么函数可能不会得到数组或者对象的原始值。</p>
-<p>在可变的对象和数组的情况下，如果发生了一些错误对于我们来说是非常困难排除bug的。</p>
-<h2 id="支持不变性的库"><a href="#支持不变性的库" class="headerlink" title="支持不变性的库"></a>支持不变性的库</h2><p>JavaScript默认没有对于使得对象或者数组不变提供任何的工具， 下面是一些可能帮助我们实现不变性的库:</p>
-<ul>
+<h2 id="副作用">副作用</h2>
+函数或者表达式除了返回一个值之外，在下面的几种情况下被认为产生了副作用： 如果其改变了其自身范围之外的程序状态， 或者与其调用的函数或者外部的程序有一个可以观察到的交互。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> meetup = &#123;<span class="attr">name</span>:<span class="string">'JS'</span>,<span class="attr">isActive</span>:<span class="literal">true</span>,<span class="attr">members</span>:<span class="number">49</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> scheduleMeetup = <span class="function">(<span class="params">date, place</span>) =&gt;</span> &#123;</span><br><span class="line">  meetup.date = date;</span><br><span class="line">  meetup.place = place;</span><br><span class="line">  <span class="keyword">if</span> (meetup.members &lt; <span class="number">50</span>)</span><br><span class="line">    meetup.isActive = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> publishMeetup = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (meetup.isActive) &#123;</span><br><span class="line">    meetup.publish = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">scheduleMeetup(<span class="string">'today'</span>,<span class="string">'Bnagalore'</span>);</span><br><span class="line">publishMeetup();</span><br><span class="line"><span class="built_in">console</span>.log(meetup);</span><br></pre></td></tr></table></figure>
+
+上面的这段代码产生了副作用，因为函数 scheduleMeetup 的本来的作用是给 meetup 添加 date 和 place, 但是这个函数改变了 isActive 的值， 而这个 isActive 正是函数 publishMeetup 所依赖的。具有副作用的 publishMeetup 函数将不会得到理想的输出， 因为其输入的值在这个过程中被改变了。 在大型的程序中（真实的程序情况下）， 很难去 debug 副作用。副作用不总是产生坏的影响，但是如果其产生的时候我们应该小心对待。<h2 id="不变性">不变性</h2>
+在函数运行之后，不变性是十分重要的对于确保一个函数确实没有改变原来的数据而不是返回数据的新的副本。例如， 如果数组以及对象在经历过多个函数之后， 如果我们不能保持不变性， 那么函数可能不会得到数组或者对象的原始值。在可变的对象和数组的情况下，如果发生了一些错误对于我们来说是非常困难排除bug的。<h2 id="支持不变性的库">支持不变性的库</h2>
+JavaScript默认没有对于使得对象或者数组不变提供任何的工具， 下面是一些可能帮助我们实现不变性的库:<ul>
 <li>Seamless-immutable</li>
 <li>Immutable JS</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>函数式编程中主要的方面是纯函数和更小的功能， 函数不变性以及更少的副作用。</p>
-<p>本文翻译至<a href="https://codeburst.io/functional-programming-in-javascript-e57e7e28c0e5" target="_blank" rel="noopener">Functional Programming in JavaScript</a>，实际上翻译之后才发现这里只是一些函数式编程基础知识，对于其他的函数式编程的更多特性并没有涉及，本文仅仅作为函数式编程的基本入门知识， 如果能帮到读者，那就再好不过了。</p>
-
+<h2 id="总结">总结</h2>
+函数式编程中主要的方面是纯函数和更小的功能， 函数不变性以及更少的副作用。本文翻译至<a href="https://codeburst.io/functional-programming-in-javascript-e57e7e28c0e5" target="_blank" rel="noopener">Functional Programming in JavaScript</a>，实际上翻译之后才发现这里只是一些函数式编程基础知识，对于其他的函数式编程的更多特性并没有涉及，本文仅仅作为函数式编程的基本入门知识， 如果能帮到读者，那就再好不过了。
       
     </div>
     
@@ -735,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是函数式编程？"><span class="nav-number">1.</span> <span class="nav-text">什么是函数式编程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他主要的编程规范或模式："><span class="nav-number">2.</span> <span class="nav-text">其他主要的编程规范或模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学意义上的函数或者纯函数"><span class="nav-number">3.</span> <span class="nav-text">数学意义上的函数或者纯函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用函数式编程"><span class="nav-number">4.</span> <span class="nav-text">为什么要使用函数式编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程的例子"><span class="nav-number">5.</span> <span class="nav-text">函数式编程的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数链"><span class="nav-number">6.</span> <span class="nav-text">函数链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持-FP-的库"><span class="nav-number">7.</span> <span class="nav-text">支持 FP 的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#副作用"><span class="nav-number">8.</span> <span class="nav-text">副作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不变性"><span class="nav-number">9.</span> <span class="nav-text">不变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持不变性的库"><span class="nav-number">10.</span> <span class="nav-text">支持不变性的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">11.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是函数式编程？"><span class="nav-number">1.</span> <span class="nav-text">什么是函数式编程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他主要的编程规范或模式："><span class="nav-number">2.</span> <span class="nav-text">其他主要的编程规范或模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学意义上的函数或者纯函数"><span class="nav-number">3.</span> <span class="nav-text">数学意义上的函数或者纯函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用函数式编程"><span class="nav-number">4.</span> <span class="nav-text">为什么要使用函数式编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式编程的例子"><span class="nav-number">5.</span> <span class="nav-text">函数式编程的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数链"><span class="nav-number">6.</span> <span class="nav-text">函数链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持-fp-的库"><span class="nav-number">7.</span> <span class="nav-text">支持 FP 的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#副作用"><span class="nav-number">8.</span> <span class="nav-text">副作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不变性"><span class="nav-number">9.</span> <span class="nav-text">不变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持不变性的库"><span class="nav-number">10.</span> <span class="nav-text">支持不变性的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">11.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。 词法作用域对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。 代码如下: 123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo()">
+<meta name="description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。词法作用域 对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。代码如下:123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo();&amp;">
 <meta name="keywords" content="作用域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="作用域 与 this 值">
 <meta property="og:url" content="https://newpromise.github.io/2017/11/12/作用域/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。 词法作用域对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。 代码如下: 123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo()">
+<meta property="og:description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。词法作用域 对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。代码如下:123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo();&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.991Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作用域 与 this 值">
-<meta name="twitter:description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。 词法作用域对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。 代码如下: 123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo()">
+<meta name="twitter:description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。词法作用域 对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。代码如下:123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo();&amp;">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,16 +450,11 @@
       
 
       
-        <p>对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。</p>
-<h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><p>对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。</p>
-<p>代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  console.log(a) // 2</span><br><span class="line">&#125;</span><br><span class="line">function bar() &#123;</span><br><span class="line">  var a = 3;</span><br><span class="line">  foo();</span><br><span class="line">&#125;</span><br><span class="line">var a = 2;</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
-<p>因为这里面的 <code>foo</code> 函数书写在全局的作用域中，因此会被输出 <code>2</code></p>
-<h3 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h3><p>动态作用域关心的是函数是在哪里被调用的。</p>
-<p>上面的函数中使用动态作用域的时候 最终输出应该是 <code>3</code>,因为从 <code>foo</code> 函数被调用的地方寻在变量 <code>a</code> 最后找到了 <code>var a = 3</code>.</p>
-<p>词法作用域关心的是函数在那里被声明, 动态作用域关心的是函数在哪里被调用。</p>
-<p>使用js 中的 <code>this</code> 的时候， <code>this</code> 的效果是类似于使用动态作用域的。</p>
+        对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。<h3 id="词法作用域">词法作用域</h3>
+对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。代码如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  console.log(a) // 2</span><br><span class="line">&#125;</span><br><span class="line">function bar() &#123;</span><br><span class="line">  var a = 3;</span><br><span class="line">  foo();</span><br><span class="line">&#125;</span><br><span class="line">var a = 2;</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
 
+因为这里面的 <code>foo</code> 函数书写在全局的作用域中，因此会被输出 <code>2</code><h3 id="动态作用域">动态作用域</h3>
+动态作用域关心的是函数是在哪里被调用的。上面的函数中使用动态作用域的时候 最终输出应该是 <code>3</code>,因为从 <code>foo</code> 函数被调用的地方寻在变量 <code>a</code> 最后找到了 <code>var a = 3</code>.词法作用域关心的是函数在那里被声明, 动态作用域关心的是函数在哪里被调用。使用js 中的 <code>this</code> 的时候， <code>this</code> 的效果是类似于使用动态作用域的。
       
     </div>
     

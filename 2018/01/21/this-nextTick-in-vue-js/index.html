@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="this.nextTick 的作用在 Vue.js 的官方文档中是这样描述 this.nextTick 的:  为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用.  在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
+<meta name="description" content="this.nextTick 的作用 在 Vue.js 的官方文档中是这样描述 this.nextTick 的: 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用. 在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
 <meta name="keywords" content="this.nextTick">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this.nextTick in vue.js">
 <meta property="og:url" content="https://newpromise.github.io/2018/01/21/this-nextTick-in-vue-js/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="this.nextTick 的作用在 Vue.js 的官方文档中是这样描述 this.nextTick 的:  为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用.  在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
+<meta property="og:description" content="this.nextTick 的作用 在 Vue.js 的官方文档中是这样描述 this.nextTick 的: 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用. 在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cn.vuejs.org/images/lifecycle.png">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.982Z">
+<meta property="og:image" content="https://newpromise.github.io/2018/01/21/this-nextTick-in-vue-js/lifecycle.png">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this.nextTick in vue.js">
-<meta name="twitter:description" content="this.nextTick 的作用在 Vue.js 的官方文档中是这样描述 this.nextTick 的:  为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用.  在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
-<meta name="twitter:image" content="https://cn.vuejs.org/images/lifecycle.png">
+<meta name="twitter:description" content="this.nextTick 的作用 在 Vue.js 的官方文档中是这样描述 this.nextTick 的: 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用. 在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
+<meta name="twitter:image" content="https://newpromise.github.io/2018/01/21/this-nextTick-in-vue-js/lifecycle.png">
 
 
 
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -452,25 +452,17 @@
       
 
       
-        <h3 id="this-nextTick-的作用"><a href="#this-nextTick-的作用" class="headerlink" title="this.nextTick 的作用"></a><code>this.nextTick</code> 的作用</h3><p>在 <code>Vue.js</code> 的官方文档中是这样描述 <code>this.nextTick</code> 的:</p>
+        <h3 id="thisnexttick-的作用"><code>this.nextTick</code> 的作用</h3>
+在 <code>Vue.js</code> 的官方文档中是这样描述 <code>this.nextTick</code> 的:<blockquote>
+为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 <code>Vue.nextTick(callback)</code> 。这样回调函数在 DOM 更新完成后就会调用.</blockquote>
+在 <code>vue.js</code> 中, 使用 <code>this.nextTick</code> 的作用是更新 <code>dom</code> , 在 涉及关于在 <code>vue.js</code> 中 <code>Dom</code> 的操作中, 当我们想要操作被更新后的 <code>DOM</code>的时候，可以使用 <code>this.nextTick</code> 进行操作。<h3 id="为什么采用---thisnexttick">为什么采用   <code>this.nextTick</code></h3>
 <blockquote>
-<p>为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 <code>Vue.nextTick(callback)</code> 。这样回调函数在 DOM 更新完成后就会调用.</p>
-</blockquote>
-<p>在 <code>vue.js</code> 中, 使用 <code>this.nextTick</code> 的作用是更新 <code>dom</code> , 在 涉及关于在 <code>vue.js</code> 中 <code>Dom</code> 的操作中, 当我们想要操作被更新后的 <code>DOM</code>的时候，可以使用 <code>this.nextTick</code> 进行操作。</p>
-<h3 id="为什么采用-this-nextTick"><a href="#为什么采用-this-nextTick" class="headerlink" title="为什么采用   this.nextTick"></a>为什么采用   <code>this.nextTick</code></h3><blockquote>
-<p>Vue <strong>异步</strong>执行 DOM 更新。只要观察到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据改变。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作上非常重要。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。Vue 在内部尝试对异步队列使用原生的 <code>Promise.then</code> 和 <code>MessageChannel</code>，如果执行环境不支持，会采用 <code>setTimeout(fn, 0)</code> 代替。</p>
-</blockquote>
-<p>使用 <code>this.nextTick</code> 的两种情况:</p>
-<ol>
-<li><p>在 <code>created</code> 阶段的时候， 这个时候 <code>DOM</code> 元素尚未挂载, 在这个钩子函数内操作 <code>DOM</code> 是无法找到 <code>DOM</code> 元素的， 这个时候使用 <code>this.nextTick</code> 类似于使用 <code>mounted</code> 的钩子函数， 这个时候所有的 <code>DOM</code> 元素挂载和渲染均已经完成，这个时候可以执行对于 <code>DOM</code> 元素的操作。</p>
-</li>
-<li><p>当我们想要对于数据发生变化之后的 <code>DOM</code> 元素之后执行一些操作的时候， 我们可以使用 <code>this.nextTick(callback)</code> 那么 <code>callback</code> 回调函数就会当 <code>DOM</code> 元素被更新之后被触发。</p>
-<p>​</p>
-<p><img src="https://cn.vuejs.org/images/lifecycle.png" alt="https://cn.vuejs.org/images/lifecycle.png"> </p>
-</li>
+Vue <strong>异步</strong>执行 DOM 更新。只要观察到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据改变。如果同一个 watcher 被多次触发，只会被推入到队列中一次。这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作上非常重要。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际 (已去重的) 工作。Vue 在内部尝试对异步队列使用原生的 <code>Promise.then</code> 和 <code>MessageChannel</code>，如果执行环境不支持，会采用 <code>setTimeout(fn, 0)</code> 代替。</blockquote>
+使用 <code>this.nextTick</code> 的两种情况:<ol>
+<li> 在 <code>created</code> 阶段的时候， 这个时候 <code>DOM</code> 元素尚未挂载, 在这个钩子函数内操作 <code>DOM</code> 是无法找到 <code>DOM</code> 元素的， 这个时候使用 <code>this.nextTick</code> 类似于使用 <code>mounted</code> 的钩子函数， 这个时候所有的 <code>DOM</code> 元素挂载和渲染均已经完成，这个时候可以执行对于 <code>DOM</code> 元素的操作。</li>
+<li> 当我们想要对于数据发生变化之后的 <code>DOM</code> 元素之后执行一些操作的时候， 我们可以使用 <code>this.nextTick(callback)</code> 那么 <code>callback</code> 回调函数就会当 <code>DOM</code> 元素被更新之后被触发。</li>
 </ol>
-<p>上图是 <code>vue</code> 实例的生命周期图。</p>
-
+   ​   <img src="lifecycle.png" loading="lazy"> 上图是 <code>vue</code> 实例的生命周期图。
       
     </div>
     
@@ -678,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#this-nextTick-的作用"><span class="nav-number">1.</span> <span class="nav-text">this.nextTick 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么采用-this-nextTick"><span class="nav-number">2.</span> <span class="nav-text">为什么采用   this.nextTick</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#thisnexttick-的作用"><span class="nav-number">1.</span> <span class="nav-text">this.nextTick 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么采用---thisnexttick"><span class="nav-number">2.</span> <span class="nav-text">为什么采用   this.nextTick</span></a></li></ol></div>
             
 
           </div>

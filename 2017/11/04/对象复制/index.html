@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="复制对象对于变量进行复制的代码如下: 123456789101112131415function clone(obj) &amp;#123;  if (obj &amp;amp;&amp;amp; typeof obj === &apos;object&apos;) &amp;#123;    let cloneObj = Object.prototype.toString.call(obj).slice(8, -1) === &apos;Array&apos; ?">
+<meta name="description" content="复制对象 对于变量进行复制的代码如下:123456789101112131415function clone(obj) &amp;#123;  if (obj &amp;amp;&amp;amp; typeof obj === &apos;object&apos;) &amp;#123;    let cloneObj = Object.prototype.toString.call(obj).slice(8, -1) === &apos;Array&apos; ?">
 <meta name="keywords" content="对象复制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对象复制">
 <meta property="og:url" content="https://newpromise.github.io/2017/11/04/对象复制/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="复制对象对于变量进行复制的代码如下: 123456789101112131415function clone(obj) &amp;#123;  if (obj &amp;amp;&amp;amp; typeof obj === &apos;object&apos;) &amp;#123;    let cloneObj = Object.prototype.toString.call(obj).slice(8, -1) === &apos;Array&apos; ?">
+<meta property="og:description" content="复制对象 对于变量进行复制的代码如下:123456789101112131415function clone(obj) &amp;#123;  if (obj &amp;amp;&amp;amp; typeof obj === &apos;object&apos;) &amp;#123;    let cloneObj = Object.prototype.toString.call(obj).slice(8, -1) === &apos;Array&apos; ?">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.994Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对象复制">
-<meta name="twitter:description" content="复制对象对于变量进行复制的代码如下: 123456789101112131415function clone(obj) &amp;#123;  if (obj &amp;amp;&amp;amp; typeof obj === &apos;object&apos;) &amp;#123;    let cloneObj = Object.prototype.toString.call(obj).slice(8, -1) === &apos;Array&apos; ?">
+<meta name="twitter:description" content="复制对象 对于变量进行复制的代码如下:123456789101112131415function clone(obj) &amp;#123;  if (obj &amp;amp;&amp;amp; typeof obj === &apos;object&apos;) &amp;#123;    let cloneObj = Object.prototype.toString.call(obj).slice(8, -1) === &apos;Array&apos; ?">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  288字
+                  287字
                 </span>
               
 
@@ -450,21 +450,18 @@
       
 
       
-        <h4 id="复制对象"><a href="#复制对象" class="headerlink" title="复制对象"></a>复制对象</h4><p>对于变量进行复制的代码如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (obj &amp;&amp; <span class="keyword">typeof</span> obj === <span class="string">'object'</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> cloneObj = <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Array'</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj[prop] &amp;&amp; <span class="keyword">typeof</span> obj[prop] === <span class="string">'object'</span>) &#123;</span><br><span class="line">        cloneObj[prop] = clone(obj[prop]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cloneObj[prop] = obj[prop];    </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cloneObj;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h4><ol>
-<li><p>使用 <code>Object.prototype.toString.call()</code> 来判断数据是属于对象的哪一种子类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a = [];</span><br><span class="line">typeof a; // object</span><br><span class="line">Object.prototype.toString.call(a) // &quot;[object, Array]&quot;</span><br><span class="line">Object.prototype.toString.call(a).slice(8, -1) // &quot;Array&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在 js 中 <code>null</code> 代表假值, 并且 <code>typeof null</code> 为 <code>object</code></p>
-<p>检测类型为不为 <code>null</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> obj === <span class="string">'object'</span> &amp;&amp; obj) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 对于如果检查到的类型为 null 的时候</span></span><br><span class="line"><span class="keyword">if</span> (obj === <span class="literal">null</span>) &#123;</span><br><span class="line"><span class="comment">// do something      </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>null</code> 表示类型尚未定义，表示未定义的类型， <code>undefined</code> 表示值没有被声明</p>
-</li>
+        <h4 id="复制对象">复制对象</h4>
+对于变量进行复制的代码如下:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (obj &amp;&amp; <span class="keyword">typeof</span> obj === <span class="string">'object'</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> cloneObj = <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Array'</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj[prop] &amp;&amp; <span class="keyword">typeof</span> obj[prop] === <span class="string">'object'</span>) &#123;</span><br><span class="line">        cloneObj[prop] = clone(obj[prop]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cloneObj[prop] = obj[prop];    </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cloneObj;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="要点">要点</h4>
+<ol>
+<li>使用 <code>Object.prototype.toString.call()</code> 来判断数据是属于对象的哪一种子类型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a = [];</span><br><span class="line">typeof a; // object</span><br><span class="line">Object.prototype.toString.call(a) // &quot;[object, Array]&quot;</span><br><span class="line">Object.prototype.toString.call(a).slice(8, -1) // &quot;Array&quot;</span><br></pre></td></tr></table></figure></li>
+<li>在 js 中 <code>null</code> 代表假值, 并且 <code>typeof null</code> 为 <code>object</code>检测类型为不为 <code>null</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> obj === <span class="string">'object'</span> &amp;&amp; obj) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 对于如果检查到的类型为 null 的时候</span></span><br><span class="line"><span class="keyword">if</span> (obj === <span class="literal">null</span>) &#123;</span><br><span class="line"><span class="comment">// do something      </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li> <code>null</code> 表示类型尚未定义，表示未定义的类型， <code>undefined</code> 表示值没有被声明</li>
 </ol>
-<h4 id="获取class"><a href="#获取class" class="headerlink" title="获取class"></a>获取class</h4><p>使用原生的方法获取到 <code>class</code> 值的方法如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClass</span>(<span class="params">parent, sClass</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> elements = parent.getElementsByTagName(<span class="string">'*'</span>);</span><br><span class="line">  <span class="keyword">let</span> eleResult = [];</span><br><span class="line">  <span class="comment">// 使用 '\\b' 进行匹配一个单词的边界</span></span><br><span class="line">  <span class="keyword">let</span> classReg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\b'</span> + sClass + <span class="string">'\\b'</span>, i);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; elements.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (classReg.test(elements[i].className)) &#123;</span><br><span class="line">      eleResult.push(elements[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> eleResult;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="获取class">获取class</h4>
+使用原生的方法获取到 <code>class</code> 值的方法如下:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClass</span>(<span class="params">parent, sClass</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> elements = parent.getElementsByTagName(<span class="string">'*'</span>);</span><br><span class="line">  <span class="keyword">let</span> eleResult = [];</span><br><span class="line">  <span class="comment">// 使用 '\\b' 进行匹配一个单词的边界</span></span><br><span class="line">  <span class="keyword">let</span> classReg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\b'</span> + sClass + <span class="string">'\\b'</span>, i);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; elements.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (classReg.test(elements[i].className)) &#123;</span><br><span class="line">      eleResult.push(elements[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> eleResult;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>

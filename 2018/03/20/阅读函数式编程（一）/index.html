@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="函数式编程的定义在 javascript 中， 函数被作为一等公民， 属于内置对象, 函数是对象中的一个子类型， 因此， 函数可以当作参数传递， 可以放到数组之中，本质上和普通的对象是一样的， 只不过相对于普通的对象而言， 函数可以被调用， 因此可以被称作可调用的对象。  在 js 中， 存在下面几种内置对象：  String  Number Boolean Object Function Arr">
+<meta name="description" content="函数式编程的定义 在 javascript 中， 函数被作为一等公民， 属于内置对象, 函数是对象中的一个子类型， 因此， 函数可以当作参数传递， 可以放到数组之中，本质上和普通的对象是一样的， 只不过相对于普通的对象而言， 函数可以被调用， 因此可以被称作可调用的对象。 在 js 中， 存在下面几种内置对象： String  Number Boolean Object Function Arra">
 <meta name="keywords" content="函数式编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阅读函数式编程（一）">
 <meta property="og:url" content="https://newpromise.github.io/2018/03/20/阅读函数式编程（一）/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="函数式编程的定义在 javascript 中， 函数被作为一等公民， 属于内置对象, 函数是对象中的一个子类型， 因此， 函数可以当作参数传递， 可以放到数组之中，本质上和普通的对象是一样的， 只不过相对于普通的对象而言， 函数可以被调用， 因此可以被称作可调用的对象。  在 js 中， 存在下面几种内置对象：  String  Number Boolean Object Function Arr">
+<meta property="og:description" content="函数式编程的定义 在 javascript 中， 函数被作为一等公民， 属于内置对象, 函数是对象中的一个子类型， 因此， 函数可以当作参数传递， 可以放到数组之中，本质上和普通的对象是一样的， 只不过相对于普通的对象而言， 函数可以被调用， 因此可以被称作可调用的对象。 在 js 中， 存在下面几种内置对象： String  Number Boolean Object Function Arra">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:26.021Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阅读函数式编程（一）">
-<meta name="twitter:description" content="函数式编程的定义在 javascript 中， 函数被作为一等公民， 属于内置对象, 函数是对象中的一个子类型， 因此， 函数可以当作参数传递， 可以放到数组之中，本质上和普通的对象是一样的， 只不过相对于普通的对象而言， 函数可以被调用， 因此可以被称作可调用的对象。  在 js 中， 存在下面几种内置对象：  String  Number Boolean Object Function Arr">
+<meta name="twitter:description" content="函数式编程的定义 在 javascript 中， 函数被作为一等公民， 属于内置对象, 函数是对象中的一个子类型， 因此， 函数可以当作参数传递， 可以放到数组之中，本质上和普通的对象是一样的， 只不过相对于普通的对象而言， 函数可以被调用， 因此可以被称作可调用的对象。 在 js 中， 存在下面几种内置对象： String  Number Boolean Object Function Arra">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:26+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,10 +450,9 @@
       
 
       
-        <h3 id="函数式编程的定义"><a href="#函数式编程的定义" class="headerlink" title="函数式编程的定义"></a>函数式编程的定义</h3><p>在 <code>javascript</code> 中， 函数被作为一等公民， 属于内置对象, 函数是对象中的一个子类型， 因此， 函数可以当作参数传递， 可以放到数组之中，本质上和普通的对象是一样的， 只不过相对于普通的对象而言， 函数可以被调用， 因此可以被称作可调用的对象。</p>
-<blockquote>
-<p>在 js 中， 存在下面几种内置对象：</p>
-<ol>
+        <h3 id="函数式编程的定义">函数式编程的定义</h3>
+在 <code>javascript</code> 中， 函数被作为一等公民， 属于内置对象, 函数是对象中的一个子类型， 因此， 函数可以当作参数传递， 可以放到数组之中，本质上和普通的对象是一样的， 只不过相对于普通的对象而言， 函数可以被调用， 因此可以被称作可调用的对象。<blockquote>
+在 js 中， 存在下面几种内置对象：<ol>
 <li><code>String</code> </li>
 <li><code>Number</code></li>
 <li><code>Boolean</code></li>
@@ -464,49 +463,35 @@
 <li><code>Regexp</code></li>
 <li><code>Error</code></li>
 </ol>
-<p>这几种内置对象相当于语言中的类，可以通过使用 <code>new</code> 操作符进行调用。</p>
-</blockquote>
-<p>使用函数式编程的目的在于：</p>
-<blockquote>
-<p>我们希望去践行每一部分都能完美接合的理论，希望能以一种通用的、可组合的组<br>件来表示我们的特定问题，然后利用这些组件的特性来解决这些问题。</p>
-</blockquote>
-<h3 id="使用纯函数"><a href="#使用纯函数" class="headerlink" title="使用纯函数"></a>使用纯函数</h3><p>什么是纯函数， 在介绍纯函数之前， 我们先看下关于纯函数的概念：</p>
-<blockquote>
-<p>纯函数是这样一种函数，即相同的输入， 永远只能得到相同的输出，而且没有任何可以观察到的副作用。</p>
-</blockquote>
-<p>对于有些函数而言，在函数执行的过程中发生了一些可能会影响外部状态的副作用， 包括下面几种：</p>
-<ol>
+这几种内置对象相当于语言中的类，可以通过使用 <code>new</code> 操作符进行调用。</blockquote>
+使用函数式编程的目的在于：<blockquote>
+我们希望去践行每一部分都能完美接合的理论，希望能以一种通用的、可组合的组
+件来表示我们的特定问题，然后利用这些组件的特性来解决这些问题。</blockquote>
+<h3 id="使用纯函数">使用纯函数</h3>
+什么是纯函数， 在介绍纯函数之前， 我们先看下关于纯函数的概念：<blockquote>
+纯函数是这样一种函数，即相同的输入， 永远只能得到相同的输出，而且没有任何可以观察到的副作用。</blockquote>
+对于有些函数而言，在函数执行的过程中发生了一些可能会影响外部状态的副作用， 包括下面几种：<ol>
 <li>外部状态发生了改变</li>
 <li>读取文件</li>
 <li>console.log 数据</li>
 <li>发送请求</li>
 </ol>
-<p>总而言之， 在函数执行的过程中， 函数与外部环境发生了交互的过程，代表这个函数存在副作用， 存在副作用的不纯函数容易产生 bug, 数据状态难以追踪， 并且增加我们的认知负荷， 因此， 在函数编写的过程中要尽量较少函数执行的时候对于外部环境的影响。</p>
-<hr>
-<p>这里对于纯函数而言， 相同的输入总会得到相同的输出， 这里类似于数学中的函数的概念， 在数学中的函数的概念中， 存在一个映射的改变：</p>
-<blockquote>
-<p>函数只是两种数值之间的关系， 尽管相同的输入只能得到相同的输出， 但是不同的输入也可以得到相同的输出</p>
-</blockquote>
-<p>因为在纯函数中，相同的输入只能得到相同的输出， 因此对于输入值是一定的情况下，对于输出的值则是一定的， 这样的情况下， 我们所要关心的只是这个函数做了什么，而不同尽力了解函数实现的具体细节， 这样能够增强我们调试代码的便利性。</p>
-<h3 id="使用纯函数的好处"><a href="#使用纯函数的好处" class="headerlink" title="使用纯函数的好处"></a>使用纯函数的好处</h3><ol>
-<li><p>可缓存性</p>
-<p>简单的一段代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> squareNumber = memorize(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) <span class="title">return</span> </span>&#123; x*x &#125;);</span><br><span class="line">squareNumber(<span class="number">4</span>) =&gt; <span class="number">16</span>;</span><br><span class="line">squareNumber(<span class="number">4</span>) =&gt; <span class="number">16</span>; <span class="comment">// 从缓存中获取到的值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// memorize 函数如下</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memorize</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> cacheData = &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> arg = <span class="built_in">JSON</span>.stringify(<span class="built_in">arguments</span>);</span><br><span class="line">        cacheData[arg] = cacheData[arg] || f.apply(f, <span class="built_in">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> cacheData[arg];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的这种纯函数的可缓存性类似于在 <code>js</code> 中的闭包的效果， 可以将值保存在函数内部。</p>
-</li>
-<li><p>依赖明确， 易于调试</p>
-<p>对于纯函数而言， 函数的依赖都是写在函数参数之中的， 更便于我们理解与调试， 对于纯函数而言， 与外部函数发生作用的仅仅是定义中传入的参数，函数内部则不会涉及到关于外部环境的变量。</p>
-</li>
-<li><p>引用透明性</p>
-<blockquote>
-<p>如果一段代码可以替换成它执行之后得到的结果， 而且是在不改变整个程序行为的情况下被替换的， 那么， 我们说这段函数具有引用透明性。</p>
-</blockquote>
+总而言之， 在函数执行的过程中， 函数与外部环境发生了交互的过程，代表这个函数存在副作用， 存在副作用的不纯函数容易产生 bug, 数据状态难以追踪， 并且增加我们的认知负荷， 因此， 在函数编写的过程中要尽量较少函数执行的时候对于外部环境的影响。<hr>
+这里对于纯函数而言， 相同的输入总会得到相同的输出， 这里类似于数学中的函数的概念， 在数学中的函数的概念中， 存在一个映射的改变：<blockquote>
+函数只是两种数值之间的关系， 尽管相同的输入只能得到相同的输出， 但是不同的输入也可以得到相同的输出</blockquote>
+因为在纯函数中，相同的输入只能得到相同的输出， 因此对于输入值是一定的情况下，对于输出的值则是一定的， 这样的情况下， 我们所要关心的只是这个函数做了什么，而不同尽力了解函数实现的具体细节， 这样能够增强我们调试代码的便利性。<h3 id="使用纯函数的好处">使用纯函数的好处</h3>
+<ol>
+<li>可缓存性简单的一段代码如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> squareNumber = memorize(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) <span class="title">return</span> </span>&#123; x*x &#125;);</span><br><span class="line">squareNumber(<span class="number">4</span>) =&gt; <span class="number">16</span>;</span><br><span class="line">squareNumber(<span class="number">4</span>) =&gt; <span class="number">16</span>; <span class="comment">// 从缓存中获取到的值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// memorize 函数如下</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">memorize</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> cacheData = &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> arg = <span class="built_in">JSON</span>.stringify(<span class="built_in">arguments</span>);</span><br><span class="line">        cacheData[arg] = cacheData[arg] || f.apply(f, <span class="built_in">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> cacheData[arg];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+上面的这种纯函数的可缓存性类似于在 <code>js</code> 中的闭包的效果， 可以将值保存在函数内部。</li>
+<li>依赖明确， 易于调试对于纯函数而言， 函数的依赖都是写在函数参数之中的， 更便于我们理解与调试， 对于纯函数而言， 与外部函数发生作用的仅仅是定义中传入的参数，函数内部则不会涉及到关于外部环境的变量。</li>
+<li>引用透明性<blockquote>
+如果一段代码可以替换成它执行之后得到的结果， 而且是在不改变整个程序行为的情况下被替换的， 那么， 我们说这段函数具有引用透明性。</blockquote>
 </li>
 </ol>
-<p>例如对于类似下面这类的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNewUser</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 判断是否是新用户</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loginIn</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 用户登录</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 注册新用户</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isNewUser(user)) &#123;</span><br><span class="line">       register(user);</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    loginIn(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在上面的代码中， 三个行为， 判断是否是新用户， 登录， 注册， 三个部分的逻辑封装在三个函数中， 从而更容易理解。</p>
+例如对于类似下面这类的代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNewUser</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 判断是否是新用户</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loginIn</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 用户登录</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 注册新用户</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isNewUser(user)) &#123;</span><br><span class="line">       register(user);</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    loginIn(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+在上面的代码中， 三个行为， 判断是否是新用户， 登录， 注册， 三个部分的逻辑封装在三个函数中， 从而更容易理解。
       
     </div>
     

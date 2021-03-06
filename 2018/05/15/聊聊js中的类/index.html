@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="对于js 中类的使用，自己平常工作的时候也有用到， 但是只是一些浅显的知识，实际上， 在 js 中如何使用类， 对于类的更深一步的理解，还是有很多的东西需要进行了解, 纸上得来终觉浅， 绝知此事要躬行，作为一名程序员更重要的还是要多写， 多练， 在练习中不断成长。 实现类的机制在 js 中有两种方法： prototype 以及   es6 中class 关键字， 下面分别就这两种探讨一下 js 中">
+<meta name="description" content="对于js 中类的使用，自己平常工作的时候也有用到， 但是只是一些浅显的知识，实际上， 在 js 中如何使用类， 对于类的更深一步的理解，还是有很多的东西需要进行了解, 纸上得来终觉浅， 绝知此事要躬行，作为一名程序员更重要的还是要多写， 多练， 在练习中不断成长。实现类的机制在 js 中有两种方法： prototype 以及   es6 中class 关键字， 下面分别就这两种探讨一下 js 中类">
 <meta name="keywords" content="js 类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="聊聊js中的类">
 <meta property="og:url" content="https://newpromise.github.io/2018/05/15/聊聊js中的类/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="对于js 中类的使用，自己平常工作的时候也有用到， 但是只是一些浅显的知识，实际上， 在 js 中如何使用类， 对于类的更深一步的理解，还是有很多的东西需要进行了解, 纸上得来终觉浅， 绝知此事要躬行，作为一名程序员更重要的还是要多写， 多练， 在练习中不断成长。 实现类的机制在 js 中有两种方法： prototype 以及   es6 中class 关键字， 下面分别就这两种探讨一下 js 中">
+<meta property="og:description" content="对于js 中类的使用，自己平常工作的时候也有用到， 但是只是一些浅显的知识，实际上， 在 js 中如何使用类， 对于类的更深一步的理解，还是有很多的东西需要进行了解, 纸上得来终觉浅， 绝知此事要躬行，作为一名程序员更重要的还是要多写， 多练， 在练习中不断成长。实现类的机制在 js 中有两种方法： prototype 以及   es6 中class 关键字， 下面分别就这两种探讨一下 js 中类">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:26.018Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="聊聊js中的类">
-<meta name="twitter:description" content="对于js 中类的使用，自己平常工作的时候也有用到， 但是只是一些浅显的知识，实际上， 在 js 中如何使用类， 对于类的更深一步的理解，还是有很多的东西需要进行了解, 纸上得来终觉浅， 绝知此事要躬行，作为一名程序员更重要的还是要多写， 多练， 在练习中不断成长。 实现类的机制在 js 中有两种方法： prototype 以及   es6 中class 关键字， 下面分别就这两种探讨一下 js 中">
+<meta name="twitter:description" content="对于js 中类的使用，自己平常工作的时候也有用到， 但是只是一些浅显的知识，实际上， 在 js 中如何使用类， 对于类的更深一步的理解，还是有很多的东西需要进行了解, 纸上得来终觉浅， 绝知此事要躬行，作为一名程序员更重要的还是要多写， 多练， 在练习中不断成长。实现类的机制在 js 中有两种方法： prototype 以及   es6 中class 关键字， 下面分别就这两种探讨一下 js 中类">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:26+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,46 +450,34 @@
       
 
       
-        <p>对于js 中类的使用，自己平常工作的时候也有用到， 但是只是一些浅显的知识，实际上， 在 js 中如何使用类， 对于类的更深一步的理解，还是有很多的东西需要进行了解, 纸上得来终觉浅， 绝知此事要躬行，作为一名程序员更重要的还是要多写， 多练， 在练习中不断成长。</p>
-<p>实现类的机制在 js 中有两种方法： <code>prototype</code> 以及   es6 中<code>class</code> 关键字， 下面分别就这两种探讨一下 <code>js</code> 中类的形成：</p>
-<h3 id="使用-prototype-实现类"><a href="#使用-prototype-实现类" class="headerlink" title="使用 prototype 实现类"></a>使用 <code>prototype</code> 实现类</h3><h4 id="什么是-prototype"><a href="#什么是-prototype" class="headerlink" title="什么是 prototype"></a>什么是 <code>prototype</code></h4><p>在 <code>js</code> 中创建对象的时候，对象中默认存在一个 <code>prototype</code>（在 Chrome,  Safari, Firefox 中的对象上这个属性被称作 <code>_proto_</code>） 属性，这个属性是一个 <code>指针</code>，指向一个对象， 这个对象被称作原型对象， 原型对象上的属性是可以通过对象访问到的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">obj._proto_ = &#123; <span class="attr">name</span>: <span class="string">"张宁宁"</span> &#125;;</span><br><span class="line">obj.name <span class="comment">// 张宁宁</span></span><br></pre></td></tr></table></figure>
-<p>想要了解这个过程，我们需要知道当我们在使用 <code>.</code> 或者 <code>[]</code> 查找元素属性的时候，元素属性是如何被查找到的。</p>
-<p><strong>当在对象中查找某一个元素属性的时候， 会首先在对象本身上进行属性查找， 如果对象本身上没有查找到对象属性， 那么就会在对象的原型上进行查找。如果在对象本身上已经查找到了， 那么返回这个属性的值</strong></p>
-<p>上面的例子中， 虽然我们没有在 <code>obj</code> 上面定义一个 <code>name</code> 属性，但是我们在 <code>obj</code> 对象的原型上定义了一个 <code>name</code> 属性，因此还是可以查找到的。同样， 对于定义在 <code>prototype</code> 上的属性，使用 <code>for in</code> 操作符也是可以访问到的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// name*</span></span><br></pre></td></tr></table></figure>
-<p>使用<code>hasOwnProperty</code> 方法可以判断定义的属性是在对象本身上面还是在原型上面。</p>
-<p>注意： 使用 <code>Object.keys</code> 是不能获得到定义在对象原型上面的属性的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys(obj); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
-<h4 id="了解原型链"><a href="#了解原型链" class="headerlink" title="了解原型链"></a>了解原型链</h4><h5 id="原型链的实现方式"><a href="#原型链的实现方式" class="headerlink" title="原型链的实现方式"></a>原型链的实现方式</h5><p>在 <code>javascript</code> 中，原型链是被用来实现继承的主要方法， 基本的原理如下：</p>
-<blockquote>
-<p>使用原型链实现在 <code>js</code> 中继承的方式是让一个构造函数的原型对象等于另外一个构造函数的实例</p>
-</blockquote>
-<p>我们知道，对于一个构造函数而言，存在一个原型对象， 该构造函数形成的实例包含一个指向原型对象的指针， 如果我们将这个原型对象变为另外一个构造函数的实例，那个同样在这个原型对象中包含一个指向另外一个构造函数的原型对象的指针，这样层层递进，从而形成了一条原型链。</p>
-<p>代码实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.value = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">func2.prototype.getValue = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">&#125;</span><br><span class="line">func1.prototype = <span class="keyword">new</span> func2()</span><br><span class="line"><span class="keyword">const</span> instance = <span class="keyword">new</span> func1();</span><br><span class="line"><span class="comment">// 或者 const instance = Object.create(func1.prototype);</span></span><br><span class="line"><span class="comment">// 使用 Object.create(obj) 会创建一个新对象， 并且对象内部的 prototype 指向 obj</span></span><br><span class="line">instance.getValue(); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>上面的这个过程其实也可以说是我们重写了构造函数的原型;</p>
-<h5 id="原型链的终点"><a href="#原型链的终点" class="headerlink" title="原型链的终点"></a>原型链的终点</h5><p>对于一个原型链而言，是否原型链存在终点呢？实际上， 原型链的终点是存在的。</p>
-<p>我们知道在 <code>javascript</code> 中， 存在下面几种基本类型：</p>
-<p><code>undefined</code>, <code>null</code> , <code>Boolean</code> , <code>Number</code>, <code>String</code> 这五种基本类型和一种复杂的数据类型： <code>Object</code>.</p>
-<p>实际上， 例如我们创建一个新的对象的时候， 创建的这个新的对象实际上是 <code>Object</code> 的实例。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newObj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
-<p>这个时候， 这个对象的原型指向的是对象的原型； 例如我们在对象上经常使用的一些对象方法例如： <code>Object.keys</code>, <code>Object.values</code> 这些方法实际上是定义在对象的原型上面的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">obj._proto_  <span class="comment">// Object.prototype</span></span><br></pre></td></tr></table></figure>
-<p>而对于 <code>Object.prototype</code> 上面，实际上也是存在一个 <code>prototype</code> 属性， 只不过这个属性指向的是 <code>null</code>;</p>
-<h3 id="new-操作符"><a href="#new-操作符" class="headerlink" title="new 操作符"></a><code>new</code> 操作符</h3><p>我们使用 <code>new</code> 操作符用来创造一个构造函数， 或者可以说， 我们通过使用 <code>new</code> 标识符号将一个普通函数转变为一个构造函数:</p>
-<p>使用 <code>new</code> 操作符创造构造函数的实例的时候发生的过程如下：</p>
-<ol>
+        对于js 中类的使用，自己平常工作的时候也有用到， 但是只是一些浅显的知识，实际上， 在 js 中如何使用类， 对于类的更深一步的理解，还是有很多的东西需要进行了解, 纸上得来终觉浅， 绝知此事要躬行，作为一名程序员更重要的还是要多写， 多练， 在练习中不断成长。实现类的机制在 js 中有两种方法： <code>prototype</code> 以及   es6 中<code>class</code> 关键字， 下面分别就这两种探讨一下 <code>js</code> 中类的形成：<h3 id="使用-prototype-实现类">使用 <code>prototype</code> 实现类</h3>
+<h4 id="什么是-prototype">什么是 <code>prototype</code></h4>
+在 <code>js</code> 中创建对象的时候，对象中默认存在一个 <code>prototype</code>（在 Chrome,  Safari, Firefox 中的对象上这个属性被称作 <code>_proto_</code>） 属性，这个属性是一个 <code>指针</code>，指向一个对象， 这个对象被称作原型对象， 原型对象上的属性是可以通过对象访问到的：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">obj._proto_ = &#123; <span class="attr">name</span>: <span class="string">"张宁宁"</span> &#125;;</span><br><span class="line">obj.name <span class="comment">// 张宁宁</span></span><br></pre></td></tr></table></figure>
+
+想要了解这个过程，我们需要知道当我们在使用 <code>.</code> 或者 <code>[]</code> 查找元素属性的时候，元素属性是如何被查找到的。<strong>当在对象中查找某一个元素属性的时候， 会首先在对象本身上进行属性查找， 如果对象本身上没有查找到对象属性， 那么就会在对象的原型上进行查找。如果在对象本身上已经查找到了， 那么返回这个属性的值</strong>上面的例子中， 虽然我们没有在 <code>obj</code> 上面定义一个 <code>name</code> 属性，但是我们在 <code>obj</code> 对象的原型上定义了一个 <code>name</code> 属性，因此还是可以查找到的。同样， 对于定义在 <code>prototype</code> 上的属性，使用 <code>for in</code> 操作符也是可以访问到的。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// name*</span></span><br></pre></td></tr></table></figure>
+
+使用<code>hasOwnProperty</code> 方法可以判断定义的属性是在对象本身上面还是在原型上面。注意： 使用 <code>Object.keys</code> 是不能获得到定义在对象原型上面的属性的。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys(obj); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="了解原型链">了解原型链</h4>
+<h5 id="原型链的实现方式">原型链的实现方式</h5>
+在 <code>javascript</code> 中，原型链是被用来实现继承的主要方法， 基本的原理如下：<blockquote>
+使用原型链实现在 <code>js</code> 中继承的方式是让一个构造函数的原型对象等于另外一个构造函数的实例</blockquote>
+我们知道，对于一个构造函数而言，存在一个原型对象， 该构造函数形成的实例包含一个指向原型对象的指针， 如果我们将这个原型对象变为另外一个构造函数的实例，那个同样在这个原型对象中包含一个指向另外一个构造函数的原型对象的指针，这样层层递进，从而形成了一条原型链。代码实现：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.value = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">func2.prototype.getValue = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">&#125;</span><br><span class="line">func1.prototype = <span class="keyword">new</span> func2()</span><br><span class="line"><span class="keyword">const</span> instance = <span class="keyword">new</span> func1();</span><br><span class="line"><span class="comment">// 或者 const instance = Object.create(func1.prototype);</span></span><br><span class="line"><span class="comment">// 使用 Object.create(obj) 会创建一个新对象， 并且对象内部的 prototype 指向 obj</span></span><br><span class="line">instance.getValue(); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+上面的这个过程其实也可以说是我们重写了构造函数的原型;<h5 id="原型链的终点">原型链的终点</h5>
+对于一个原型链而言，是否原型链存在终点呢？实际上， 原型链的终点是存在的。我们知道在 <code>javascript</code> 中， 存在下面几种基本类型：<code>undefined</code>, <code>null</code> , <code>Boolean</code> , <code>Number</code>, <code>String</code> 这五种基本类型和一种复杂的数据类型： <code>Object</code>.实际上， 例如我们创建一个新的对象的时候， 创建的这个新的对象实际上是 <code>Object</code> 的实例。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newObj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
+
+这个时候， 这个对象的原型指向的是对象的原型； 例如我们在对象上经常使用的一些对象方法例如： <code>Object.keys</code>, <code>Object.values</code> 这些方法实际上是定义在对象的原型上面的。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">obj._proto_  <span class="comment">// Object.prototype</span></span><br></pre></td></tr></table></figure>
+
+而对于 <code>Object.prototype</code> 上面，实际上也是存在一个 <code>prototype</code> 属性， 只不过这个属性指向的是 <code>null</code>;<h3 id="new-操作符"><code>new</code> 操作符</h3>
+我们使用 <code>new</code> 操作符用来创造一个构造函数， 或者可以说， 我们通过使用 <code>new</code> 标识符号将一个普通函数转变为一个构造函数:使用 <code>new</code> 操作符创造构造函数的实例的时候发生的过程如下：<ol>
 <li>创建一个新对象。</li>
 <li>将这个新对象的原型对象指向构造函数的原型</li>
 <li>返回这个新对象。</li>
 </ol>
-<p>在 <code>高级程序设计</code> 这本书中有这样一句话：</p>
-<blockquote>
-<p>这两个对象( <code>person</code> 的实例)都有一个<code>constructor(构造函数)</code>属性，这个属性指向 <code>person</code>.</p>
-</blockquote>
-<p>上面这句话第一次读的时候不好理解，看起来感觉像是 <code>constructor</code> 属性是定义在实例上面的，实际上， 这里在实例上能够获得 <code>constructor</code> 属性，其实这里是继承来自于构造函数的原型上面的，因为构造函数的原型上面有个 <code>constructor</code> 属性，这个属性指向构造函数。 </p>
-
+在 <code>高级程序设计</code> 这本书中有这样一句话：<blockquote>
+这两个对象( <code>person</code> 的实例)都有一个<code>constructor(构造函数)</code>属性，这个属性指向 <code>person</code>.</blockquote>
+上面这句话第一次读的时候不好理解，看起来感觉像是 <code>constructor</code> 属性是定义在实例上面的，实际上， 这里在实例上能够获得 <code>constructor</code> 属性，其实这里是继承来自于构造函数的原型上面的，因为构造函数的原型上面有个 <code>constructor</code> 属性，这个属性指向构造函数。 
       
     </div>
     

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="在 js 中，利用正则表达式进行验证是我们经常会遇到的功能需求， 今天就讲解一些正则表达式的理论基础； 正则表达式是用来判断一段字符串是否匹配某一个规则， 通过正则表达式我们可以匹配到我们想要匹配的字符， 判断匹配字符是否存在， 一段字符串是否符合我们的匹配规则等等。 创建正则表达式的两种方式：创建两种正则表达式有两种方法：  let reg = new RegExp(pattern[, flag">
+<meta name="description" content="在 js 中，利用正则表达式进行验证是我们经常会遇到的功能需求， 今天就讲解一些正则表达式的理论基础；正则表达式是用来判断一段字符串是否匹配某一个规则， 通过正则表达式我们可以匹配到我们想要匹配的字符， 判断匹配字符是否存在， 一段字符串是否符合我们的匹配规则等等。创建正则表达式的两种方式： 创建两种正则表达式有两种方法： let reg = new RegExp(pattern[, flags]">
 <meta name="keywords" content="正则表达式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式（一）：理论基础部分">
 <meta property="og:url" content="https://newpromise.github.io/2018/12/15/正则表达式（一）：理论基础部分/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="在 js 中，利用正则表达式进行验证是我们经常会遇到的功能需求， 今天就讲解一些正则表达式的理论基础； 正则表达式是用来判断一段字符串是否匹配某一个规则， 通过正则表达式我们可以匹配到我们想要匹配的字符， 判断匹配字符是否存在， 一段字符串是否符合我们的匹配规则等等。 创建正则表达式的两种方式：创建两种正则表达式有两种方法：  let reg = new RegExp(pattern[, flag">
+<meta property="og:description" content="在 js 中，利用正则表达式进行验证是我们经常会遇到的功能需求， 今天就讲解一些正则表达式的理论基础；正则表达式是用来判断一段字符串是否匹配某一个规则， 通过正则表达式我们可以匹配到我们想要匹配的字符， 判断匹配字符是否存在， 一段字符串是否符合我们的匹配规则等等。创建正则表达式的两种方式： 创建两种正则表达式有两种方法： let reg = new RegExp(pattern[, flags]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:26.015Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式（一）：理论基础部分">
-<meta name="twitter:description" content="在 js 中，利用正则表达式进行验证是我们经常会遇到的功能需求， 今天就讲解一些正则表达式的理论基础； 正则表达式是用来判断一段字符串是否匹配某一个规则， 通过正则表达式我们可以匹配到我们想要匹配的字符， 判断匹配字符是否存在， 一段字符串是否符合我们的匹配规则等等。 创建正则表达式的两种方式：创建两种正则表达式有两种方法：  let reg = new RegExp(pattern[, flag">
+<meta name="twitter:description" content="在 js 中，利用正则表达式进行验证是我们经常会遇到的功能需求， 今天就讲解一些正则表达式的理论基础；正则表达式是用来判断一段字符串是否匹配某一个规则， 通过正则表达式我们可以匹配到我们想要匹配的字符， 判断匹配字符是否存在， 一段字符串是否符合我们的匹配规则等等。创建正则表达式的两种方式： 创建两种正则表达式有两种方法： let reg = new RegExp(pattern[, flags]">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:26+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,31 +450,25 @@
       
 
       
-        <p>在 js 中，利用正则表达式进行验证是我们经常会遇到的功能需求， 今天就讲解一些正则表达式的理论基础；</p>
-<p>正则表达式是用来判断一段字符串是否匹配某一个规则， 通过正则表达式我们可以匹配到我们想要匹配的字符， 判断匹配字符是否存在， 一段字符串是否符合我们的匹配规则等等。</p>
-<h3 id="创建正则表达式的两种方式："><a href="#创建正则表达式的两种方式：" class="headerlink" title="创建正则表达式的两种方式："></a>创建正则表达式的两种方式：</h3><p>创建两种正则表达式有两种方法：</p>
-<ol>
+        在 js 中，利用正则表达式进行验证是我们经常会遇到的功能需求， 今天就讲解一些正则表达式的理论基础；正则表达式是用来判断一段字符串是否匹配某一个规则， 通过正则表达式我们可以匹配到我们想要匹配的字符， 判断匹配字符是否存在， 一段字符串是否符合我们的匹配规则等等。<h3 id="创建正则表达式的两种方式：">创建正则表达式的两种方式：</h3>
+创建两种正则表达式有两种方法：<ol>
 <li><code>let reg = new RegExp(pattern[, flags])</code></li>
 <li><code>let reg = /pattern/flags</code></li>
 </ol>
-<p>上面两种方法创建正则除了包含有一个表达式 <code>pattern</code> 之外， 还包括一个可选的 <code>flags</code>  字段， 这个字段包含有几种字段：</p>
-<ul>
+上面两种方法创建正则除了包含有一个表达式 <code>pattern</code> 之外， 还包括一个可选的 <code>flags</code>  字段， 这个字段包含有几种字段：<ul>
 <li>g： 全局匹配正则表达式</li>
 <li>i： 表示不区分大小写， 匹配的时候忽略大小写的匹配。</li>
 <li>m: 表示多行匹配， 即到达某一行文本结束的时候还会继续查找下一行中是否包含有与模式匹配的值</li>
 </ul>
-<p>通过上面两种方法创建的正则表达式返回的都是一个正则对象， 这个正则对象中包含有正则表达式中的一些方法例如： <code>exec</code>, <code>match</code> <code>test</code> 等方法。</p>
-<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>正则表达式中的元字符是用来匹配<strong>一个位置</strong>或者<strong>字符集合</strong>中的一个字符， 元字符可以分为两种类型， 匹配位置的元字符和匹配字符的元字符；</p>
-<p>匹配位置的元字符：</p>
-<table>
+通过上面两种方法创建的正则表达式返回的都是一个正则对象， 这个正则对象中包含有正则表达式中的一些方法例如： <code>exec</code>, <code>match</code> <code>test</code> 等方法。<h3 id="元字符">元字符</h3>
+正则表达式中的元字符是用来匹配<strong>一个位置</strong>或者<strong>字符集合</strong>中的一个字符， 元字符可以分为两种类型， 匹配位置的元字符和匹配字符的元字符；匹配位置的元字符：<table>
 <thead>
 <tr>
 <th>元字符</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>^</code></td>
 <td>匹配行的开始位置</td>
 </tr>
@@ -486,18 +480,15 @@
 <td><code>\b</code></td>
 <td>可以用来匹配单词的开始或者结尾位置， 也就是单词的分界处</td>
 </tr>
-</tbody>
-</table>
-<p>匹配字符的元字符：</p>
-<table>
+</tbody></table>
+匹配字符的元字符：<table>
 <thead>
 <tr>
 <th>元字符</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>.</code></td>
 <td>匹配除换行符之外的任意字符</td>
 </tr>
@@ -525,34 +516,23 @@
 <td><code>\D</code></td>
 <td>用于匹配任意的非数字字符</td>
 </tr>
-</tbody>
-</table>
-<h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><p>字符类是一个字符集合， 使用方括号 <code>[]</code> 定义， 表示匹配到方括号中的任意一个：</p>
-<p><em>注意： 除了 <code>-</code> 以及 <code>^</code> (只能用在开头， 表示否定) 这两个特殊字符之外， 其他的的特殊字符没有任何特殊的含义</em></p>
-<p>例如：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&lt;<span class="type">H</span>[<span class="number">123456</span>]&gt;/</span><br></pre></td></tr></table></figure>
-<p>表示匹配 <code>H1</code> <code>H2</code> … <code>H6</code>  中的任意一个标签</p>
-<p>在方括号中可以使用 <code>-</code> 用作连接符表示字符的范围：</p>
-<p><code>[0-9]</code> 表示匹配 0 到 9  范围类的数字</p>
-<p><code>[a-z]</code> 表示匹配 a 到 z 范围内的小写字母</p>
-<p><code>[a-zA-Z]</code> 表示匹配 a到 z 或者 A 到 Z 范围内的英文字母</p>
-<p>在方括号中当 <code>^</code> 符号位于开头的时候， 表示对于当前字符集表示否定， 匹配的是排除在当前字符集中的字符：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/[^<span class="number">0</span><span class="number">-8</span>]/.test(<span class="number">9</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>要匹配上面的两个特殊符号， 那么需要我们使用反引号进行转义：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/[a\-c]/.test(<span class="string">'-'</span>);</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<h3 id="限定符"><a href="#限定符" class="headerlink" title="限定符"></a>限定符</h3><p>使用字符类方括号 <code>[]</code> 或者 元字符只能表示匹配单个字符， 如果我们想要匹配多个字符的时候， 我们可以使用限定符进行范围的限定：</p>
-<p>限定符紧跟在单个字符后面，表示这个字符或者字符集重复的次数。 </p>
-<p>对于限定符有下面几种情况 ：</p>
-<p>对于限定符也可分为贪婪匹配以及懒惰匹配， 下面的六种限定符为贪婪匹配， 懒惰匹配为在贪婪匹配后面添加 <code>?</code> 表示懒惰匹配；</p>
-<table>
+</tbody></table>
+<h3 id="字符类">字符类</h3>
+字符类是一个字符集合， 使用方括号 <code>[]</code> 定义， 表示匹配到方括号中的任意一个：<em>注意： 除了 <code>-</code> 以及 <code>^</code> (只能用在开头， 表示否定) 这两个特殊字符之外， 其他的的特殊字符没有任何特殊的含义</em>例如：<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&lt;<span class="type">H</span>[<span class="number">123456</span>]&gt;/</span><br></pre></td></tr></table></figure>
+
+表示匹配 <code>H1</code> <code>H2</code> ... <code>H6</code>  中的任意一个标签在方括号中可以使用 <code>-</code> 用作连接符表示字符的范围：<code>[0-9]</code> 表示匹配 0 到 9  范围类的数字<code>[a-z]</code> 表示匹配 a 到 z 范围内的小写字母<code>[a-zA-Z]</code> 表示匹配 a到 z 或者 A 到 Z 范围内的英文字母在方括号中当 <code>^</code> 符号位于开头的时候， 表示对于当前字符集表示否定， 匹配的是排除在当前字符集中的字符：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/[^<span class="number">0</span><span class="number">-8</span>]/.test(<span class="number">9</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+要匹配上面的两个特殊符号， 那么需要我们使用反引号进行转义：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/[a\-c]/.test(<span class="string">'-'</span>);</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="限定符">限定符</h3>
+使用字符类方括号 <code>[]</code> 或者 元字符只能表示匹配单个字符， 如果我们想要匹配多个字符的时候， 我们可以使用限定符进行范围的限定：限定符紧跟在单个字符后面，表示这个字符或者字符集重复的次数。 对于限定符有下面几种情况 ：对于限定符也可分为贪婪匹配以及懒惰匹配， 下面的六种限定符为贪婪匹配， 懒惰匹配为在贪婪匹配后面添加 <code>?</code> 表示懒惰匹配；<table>
 <thead>
 <tr>
 <th>字符或者表达式</th>
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>{n}</code></td>
 <td>重复 n 次</td>
 </tr>
@@ -576,25 +556,22 @@
 <td><code>?</code></td>
 <td>重复 0 次 或者 1</td>
 </tr>
-</tbody>
-</table>
-<p>例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/a.*b/</span>;</span><br><span class="line"><span class="string">"aabab"</span>.match(reg); <span class="comment">// aabab</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/a.&#123;0,1&#125;b/</span>;</span><br><span class="line"><span class="string">"aabab"</span>.match(reg); <span class="comment">// aab</span></span><br></pre></td></tr></table></figure>
-<p>使用贪婪匹配与懒惰匹配的区别在于， 使用贪婪匹配会尽可能多的匹配字符， 使用懒惰匹配则是查找到满足匹配条件的字符串中字符较少的字符。</p>
-<p>例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg1 = <span class="regexp">/a.+b/</span>;</span><br><span class="line"><span class="keyword">const</span> reg2 = <span class="regexp">/a.+?b/</span>;</span><br><span class="line"><span class="keyword">const</span> str = <span class="string">"avbaab"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 贪婪匹配</span></span><br><span class="line">str.match(reg1);  <span class="comment">// avbaab</span></span><br><span class="line"><span class="comment">// 懒惰匹配</span></span><br><span class="line">str.match(reg2); <span class="comment">// avb</span></span><br></pre></td></tr></table></figure>
-<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p>在正则表达式中 <code>|</code> 用于表示当字符串匹配了 <code>|</code> 左边或者右边的规则的时候， 表示这个字符串匹配了当前的正则表达式，</p>
-<p>类似于 js 中的 <code>||</code> 操作符， 当 <code>|</code> 左边的正则不匹配， 那么进行右边的正则匹配。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg1 = \d&#123;<span class="number">5</span>&#125; - \d&#123;<span class="number">3</span>&#125; | d&#123;<span class="number">5</span>&#125;; <span class="comment">// 同时可以匹配 12345-678 或者 12345</span></span><br></pre></td></tr></table></figure>
+</tbody></table>
+例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/a.*b/</span>;</span><br><span class="line"><span class="string">"aabab"</span>.match(reg); <span class="comment">// aabab</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/a.&#123;0,1&#125;b/</span>;</span><br><span class="line"><span class="string">"aabab"</span>.match(reg); <span class="comment">// aab</span></span><br></pre></td></tr></table></figure>
+
+使用贪婪匹配与懒惰匹配的区别在于， 使用贪婪匹配会尽可能多的匹配字符， 使用懒惰匹配则是查找到满足匹配条件的字符串中字符较少的字符。例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg1 = <span class="regexp">/a.+b/</span>;</span><br><span class="line"><span class="keyword">const</span> reg2 = <span class="regexp">/a.+?b/</span>;</span><br><span class="line"><span class="keyword">const</span> str = <span class="string">"avbaab"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 贪婪匹配</span></span><br><span class="line">str.match(reg1);  <span class="comment">// avbaab</span></span><br><span class="line"><span class="comment">// 懒惰匹配</span></span><br><span class="line">str.match(reg2); <span class="comment">// avb</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="替换">替换</h3>
+在正则表达式中 <code>|</code> 用于表示当字符串匹配了 <code>|</code> 左边或者右边的规则的时候， 表示这个字符串匹配了当前的正则表达式，类似于 js 中的 <code>||</code> 操作符， 当 <code>|</code> 左边的正则不匹配， 那么进行右边的正则匹配。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg1 = \d&#123;<span class="number">5</span>&#125; - \d&#123;<span class="number">3</span>&#125; | d&#123;<span class="number">5</span>&#125;; <span class="comment">// 同时可以匹配 12345-678 或者 12345</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>注意： 使用 <code>|</code> 进行匹配的时候， 如果当左边的元素被匹配到的时候， 右边的元素将不会进行匹配。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">let</span> str = <span class="string">'goodbye'</span>;</span><br><span class="line">&gt; <span class="comment">// | 两边不能有空格</span></span><br><span class="line">&gt; <span class="keyword">let</span> regex = <span class="regexp">/goodbye|good/g</span>;</span><br><span class="line">&gt; str.match(regex); <span class="comment">// ['goodbye']</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+注意： 使用 <code>|</code> 进行匹配的时候， 如果当左边的元素被匹配到的时候， 右边的元素将不会进行匹配。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">let</span> str = <span class="string">'goodbye'</span>;</span><br><span class="line">&gt; <span class="comment">// | 两边不能有空格</span></span><br><span class="line">&gt; <span class="keyword">let</span> regex = <span class="regexp">/goodbye|good/g</span>;</span><br><span class="line">&gt; str.match(regex); <span class="comment">// ['goodbye']</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>使用 <code>()</code> 包裹起来的表达式在正则表达式中表示一个整体， 我们可以对这个整体进行限定符限制， 重复匹配</p>
-<p>例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配一个 ip 地址</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/(\d&#123;1,3&#125;\.)&#123;3&#125;/</span>d&#123;<span class="number">1</span>,<span class="number">3</span>&#125;/;</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在正则中使用 <code>[]</code> 以及 <code>|</code> 都有 “或者” 的意思， 这两者可以根据不同的请求可以选择使用， 具体的对比如下：</p>
-<table>
+<h3 id="分组">分组</h3>
+使用 <code>()</code> 包裹起来的表达式在正则表达式中表示一个整体， 我们可以对这个整体进行限定符限制， 重复匹配例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配一个 ip 地址</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/(\d&#123;1,3&#125;\.)&#123;3&#125;/</span>d&#123;<span class="number">1</span>,<span class="number">3</span>&#125;/;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结">总结</h3>
+在正则中使用 <code>[]</code> 以及 <code>|</code> 都有 “或者” 的意思， 这两者可以根据不同的请求可以选择使用， 具体的对比如下：<table>
 <thead>
 <tr>
 <th>描述符</th>
@@ -602,8 +579,7 @@
 <th>缺点</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>[]</code></td>
 <td>适合单个字符之间的匹配， 需要转义的特殊字符比较少（<code>^</code>  和 <code>-</code>）</td>
 <td>不能匹配多个字符结合的字符串，相对表达意思比较少， 只能表示匹配或者不匹配（使用<code>^</code>） 两种逻辑</td>
@@ -613,8 +589,7 @@
 <td>可以匹配多个字符的字符串</td>
 <td>当匹配正则中的特殊字符的时候需要进行转义</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
       
     </div>

@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="版本控制系统 代码版本控制系统大致可以分为三代： 本地版本控制系统 代码存储在本地，无法实现多人协作的需求 集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码 分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支 Git 中文件夹 .g">
+<meta name="description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git 中的数据存储">
 <meta property="og:url" content="https://newpromise.github.io/2021/03/04/git 中的数据存储/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="版本控制系统 代码版本控制系统大致可以分为三代： 本地版本控制系统 代码存储在本地，无法实现多人协作的需求 集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码 分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支 Git 中文件夹 .g">
+<meta property="og:description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303164432105.png">
 <meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303164241534.png">
@@ -103,7 +103,7 @@
 <meta property="og:updated_time" content="2021-03-04T09:42:33.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git 中的数据存储">
-<meta name="twitter:description" content="版本控制系统 代码版本控制系统大致可以分为三代： 本地版本控制系统 代码存储在本地，无法实现多人协作的需求 集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码 分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支 Git 中文件夹 .g">
+<meta name="twitter:description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
 <meta name="twitter:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303164432105.png">
 
 
@@ -463,41 +463,31 @@
 
       
         <h3 id="版本控制系统">版本控制系统</h3>
-<p>代码版本控制系统大致可以分为三代：</p>
-<h4 id="本地版本控制系统">本地版本控制系统</h4>
-<p>代码存储在本地，无法实现多人协作的需求</p>
-<h4 id="集中化的版本控制系统">集中化的版本控制系统</h4>
-<p>解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码</p>
-<h4 id="分布式的版本控制系统">分布式的版本控制系统</h4>
-<p>这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支</p>
-<h3 id="git-中文件夹-git">Git 中文件夹 .git</h3>
-<p>当我们使用 <code>git init </code> 初始化<code>git</code> 仓库的时候，当前文件夹下出生成一个 <code>.git</code>  的隐藏文件夹，这个文件夹内存储着我们进行 git 操作的一些数据：</p>
-<ul>
+代码版本控制系统大致可以分为三代：<h4 id="本地版本控制系统">本地版本控制系统</h4>
+代码存储在本地，无法实现多人协作的需求<h4 id="集中化的版本控制系统">集中化的版本控制系统</h4>
+解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码<h4 id="分布式的版本控制系统">分布式的版本控制系统</h4>
+这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支<h3 id="git-中文件夹-git">Git 中文件夹 .git</h3>
+当我们使用 <code>git init </code> 初始化<code>git</code> 仓库的时候，当前文件夹下出生成一个 <code>.git</code>  的隐藏文件夹，这个文件夹内存储着我们进行 git 操作的一些数据：<ul>
 <li>存储当前的分支（<code>HEAD</code>）</li>
 <li>存储当前所有的分支信息（<code>config</code>）</li>
 <li>存储提交的文件快照数据（<code>objects</code>）</li>
 <li>....</li>
 </ul>
 <h3 id="三种基本文件">三种基本文件</h3>
-<p>当我们输入一些git命令的时候，git 根据的输入的命令会生成一些文件，有的文件用来存储当前提交的文件内容，有的文件用来存储我们当前提交的信息，这些文件都被存储在 <code>objects</code> 这个文件夹之内，有三种基本文件在我们使用 git 进行数据存储时是息息相关的：</p>
-<ul>
+当我们输入一些git命令的时候，git 根据的输入的命令会生成一些文件，有的文件用来存储当前提交的文件内容，有的文件用来存储我们当前提交的信息，这些文件都被存储在 <code>objects</code> 这个文件夹之内，有三种基本文件在我们使用 git 进行数据存储时是息息相关的：<ul>
 <li><code>blob</code> 文件</li>
 <li><code>tree</code> 文件</li>
 <li><code>commit</code> 文件</li>
 </ul>
 <h4 id="blob-文件"><code>blob</code> 文件</h4>
-<p>blob 文件用来存储我们提交代码的文件快照，这种文件存储的是压缩后的文件内容</p>
-<p>代码实践下 blob 文件是如何生成的：</p>
-<ol>
+blob 文件用来存储我们提交代码的文件快照，这种文件存储的是压缩后的文件内容代码实践下 blob 文件是如何生成的：<ol>
 <li>git 初始化：</li>
 </ol>
 <img src="image-20210303164432105.png" loading="lazy" alt="image-20210303164432105" style="zoom:50%;">
 
 <ol start="2">
-<li><p>初始化的 git 仓库内创建两个文件: <code>1.txt</code> 与 <code>2.txt</code>, 内容分别是 1 和 2</p>
-</li>
-<li><p>执行 <code>git add</code>：</p>
-</li>
+<li>初始化的 git 仓库内创建两个文件: <code>1.txt</code> 与 <code>2.txt</code>, 内容分别是 1 和 2</li>
+<li>执行 <code>git add</code>：</li>
 </ol>
 <img src="image-20210303164241534.png" loading="lazy" alt="image-20210303164241534" style="zoom:50%;">
 
@@ -506,42 +496,27 @@
 </ol>
 <img src="image-20210303164846117.png" loading="lazy" alt="image-20210303164846117" style="zoom:50%;">
 
-<p>​     如图，发现是乱码的形式，这是因为 Git 将信息压缩成了二进制，对于这种文件，使用 <code>git cat-file [-t][-p]</code> 来查看文件类型或者    文件内容</p>
-<img src="image-20210303165312098.png" loading="lazy" alt="image-20210303165312098" style="zoom:50%;">
+​     如图，发现是乱码的形式，这是因为 Git 将信息压缩成了二进制，对于这种文件，使用 <code>git cat-file [-t][-p]</code> 来查看文件类型或者    文件内容<img src="image-20210303165312098.png" loading="lazy" alt="image-20210303165312098" style="zoom:50%;">
 
-<p>​    </p>
-<img src="image-20210303165323101.png" loading="lazy" alt="image-20210303165323101" style="zoom:50%;">
+​    <img src="image-20210303165323101.png" loading="lazy" alt="image-20210303165323101" style="zoom:50%;">
 
-<p>可以看到，使用 <code>git add</code> 命令生成的 <code>56</code> 和 <code>d8</code> 文件都是 <code>blob</code> 类型文件，并且存储的是文件的内容</p>
-<h4 id="tree-文件"><code>tree</code> 文件</h4>
-<p>继续上面的操作，这次执行 <code>git commit </code> 命令：</p>
-<img src="image-20210303170500072.png" loading="lazy" alt="image-20210303170500072" style="zoom:50%;">
+可以看到，使用 <code>git add</code> 命令生成的 <code>56</code> 和 <code>d8</code> 文件都是 <code>blob</code> 类型文件，并且存储的是文件的内容<h4 id="tree-文件"><code>tree</code> 文件</h4>
+继续上面的操作，这次执行 <code>git commit </code> 命令：<img src="image-20210303170500072.png" loading="lazy" alt="image-20210303170500072" style="zoom:50%;">
 
-<p>查看 <code>objects</code> 文件：</p>
-<img src="image-20210303170606368.png" loading="lazy" alt="image-20210303170606368" style="zoom:50%;">
+查看 <code>objects</code> 文件：<img src="image-20210303170606368.png" loading="lazy" alt="image-20210303170606368" style="zoom:50%;">
 
-<p>相比之前多出了两个文件夹：<code>3c</code> 和 <code>96</code></p>
-<p> 查看 <code>3c</code> 文件夹</p>
-<p>​                                                        <img src="image-20210303170851619.png" loading="lazy" alt="image-20210303170851619" style="zoom:50%;">
-​    </p>
-<p>可以看到， 3c 文件夹下的文件存储的内容为我们这次 commit 修改的两个文件 1.txt 和 2.txt ，除了文件名之外，还保存有此次修改的blob文件的文件名以及文件类型</p>
-<p>3c文件夹下的文件类型为 tree, 这种文件存储的信息是当前提交的文件目录</p>
-<h4 id="commit-文件"><code>commit</code> 文件</h4>
-<p>查看生成的 <code>96</code> 文件夹，我们可以看到如下内容：</p>
-<img src="image-20210303171533671.png" loading="lazy" alt="image-20210303171533671" style="zoom:50%;">
+相比之前多出了两个文件夹：<code>3c</code> 和 <code>96</code> 查看 <code>3c</code> 文件夹​                                                        <img src="image-20210303170851619.png" loading="lazy" alt="image-20210303170851619" style="zoom:50%;">
+​    可以看到， 3c 文件夹下的文件存储的内容为我们这次 commit 修改的两个文件 1.txt 和 2.txt ，除了文件名之外，还保存有此次修改的blob文件的文件名以及文件类型3c文件夹下的文件类型为 tree, 这种文件存储的信息是当前提交的文件目录<h4 id="commit-文件"><code>commit</code> 文件</h4>
+查看生成的 <code>96</code> 文件夹，我们可以看到如下内容：<img src="image-20210303171533671.png" loading="lazy" alt="image-20210303171533671" style="zoom:50%;">
 
 
 
 <img src="image-20210303171612008.png" loading="lazy" alt="image-20210303171612008" style="zoom:50%;">
 
-<p>96 文件夹下的文件类型为 commit 文件， 存储的内容是本次 commit 的信息: 提交人，提交信息（git test）等，其中还存储了 tree 文件的文件名，除了这些信息之外， 还存储有上一次提交的 commit 文件（父点），因为我们这里是初次提交，没有上一次提交，因此没有父节点</p>
-<h4 id="三种文件之间的关系">三种文件之间的关系</h4>
-<p>综上所述，三种类型的文件的主要作用是：</p>
-<p>blob：存储提交文件的快照
+96 文件夹下的文件类型为 commit 文件， 存储的内容是本次 commit 的信息: 提交人，提交信息（git test）等，其中还存储了 tree 文件的文件名，除了这些信息之外， 还存储有上一次提交的 commit 文件（父点），因为我们这里是初次提交，没有上一次提交，因此没有父节点<h4 id="三种文件之间的关系">三种文件之间的关系</h4>
+综上所述，三种类型的文件的主要作用是：blob：存储提交文件的快照
 tree：存储提交文件的文件目录以及文件名，blob 文件地址等信息
-commit： 存储提交信息，提交生成的 tree 文件</p>
-<p>用一张图可以说明三种类型文件之间的关系：</p>
-<img src="image-20210303171943546.png" loading="lazy" alt="image-20210303171943546" style="zoom:33%;">
+commit： 存储提交信息，提交生成的 tree 文件用一张图可以说明三种类型文件之间的关系：<img src="image-20210303171943546.png" loading="lazy" alt="image-20210303171943546" style="zoom:33%;">
 
 <h4 id="总结">总结</h4>
 <ul>
@@ -579,7 +554,7 @@ commit： 存储提交信息，提交生成的 tree 文件</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/02/27/深拷贝/" rel="next" title="深拷贝">
+              <a href="/2021/03/03/深拷贝/" rel="next" title="深拷贝">
                 <i class="fa fa-chevron-left"></i> 深拷贝
               </a>
             

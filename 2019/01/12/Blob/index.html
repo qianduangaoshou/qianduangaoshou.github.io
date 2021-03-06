@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="js 中的 blob 数据类型： Blob什么是 blob ？blob 代表了一个存放文d件数据的字节包， 使用 blob 可以代替 file， 我们可以在使用 file 的地方使用 blob 作为代替。同样， blob也有和 文件 file 类似的 size 和 MIME 属性。 在 blob 中可以存放二进制数据， 同时我们可以使用 arrayBuffer 进行读取数据。 创建 blob：12">
+<meta name="description" content="js 中的 blob 数据类型：Blob 什么是 blob ？ blob 代表了一个存放文d件数据的字节包， 使用 blob 可以代替 file， 我们可以在使用 file 的地方使用 blob 作为代替。同样， blob也有和 文件 file 类似的 size 和 MIME 属性。在 blob 中可以存放二进制数据， 同时我们可以使用 arrayBuffer 进行读取数据。创建 blob： 12">
 <meta name="keywords" content="blob">
 <meta property="og:type" content="article">
 <meta property="og:title" content="blob 对象">
 <meta property="og:url" content="https://newpromise.github.io/2019/01/12/Blob/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="js 中的 blob 数据类型： Blob什么是 blob ？blob 代表了一个存放文d件数据的字节包， 使用 blob 可以代替 file， 我们可以在使用 file 的地方使用 blob 作为代替。同样， blob也有和 文件 file 类似的 size 和 MIME 属性。 在 blob 中可以存放二进制数据， 同时我们可以使用 arrayBuffer 进行读取数据。 创建 blob：12">
+<meta property="og:description" content="js 中的 blob 数据类型：Blob 什么是 blob ？ blob 代表了一个存放文d件数据的字节包， 使用 blob 可以代替 file， 我们可以在使用 file 的地方使用 blob 作为代替。同样， blob也有和 文件 file 类似的 size 和 MIME 属性。在 blob 中可以存放二进制数据， 同时我们可以使用 arrayBuffer 进行读取数据。创建 blob： 12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.963Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="blob 对象">
-<meta name="twitter:description" content="js 中的 blob 数据类型： Blob什么是 blob ？blob 代表了一个存放文d件数据的字节包， 使用 blob 可以代替 file， 我们可以在使用 file 的地方使用 blob 作为代替。同样， blob也有和 文件 file 类似的 size 和 MIME 属性。 在 blob 中可以存放二进制数据， 同时我们可以使用 arrayBuffer 进行读取数据。 创建 blob：12">
+<meta name="twitter:description" content="js 中的 blob 数据类型：Blob 什么是 blob ？ blob 代表了一个存放文d件数据的字节包， 使用 blob 可以代替 file， 我们可以在使用 file 的地方使用 blob 作为代替。同样， blob也有和 文件 file 类似的 size 和 MIME 属性。在 blob 中可以存放二进制数据， 同时我们可以使用 arrayBuffer 进行读取数据。创建 blob： 12">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,21 +450,22 @@
       
 
       
-        <p>js 中的 blob 数据类型：</p>
-<h3 id="Blob"><a href="#Blob" class="headerlink" title="Blob"></a>Blob</h3><h6 id="什么是-blob-？"><a href="#什么是-blob-？" class="headerlink" title="什么是 blob ？"></a>什么是 blob ？</h6><p>blob 代表了一个存放文d件数据的字节包， 使用 blob 可以代替 file， 我们可以在使用 file 的地方使用 blob 作为代替。同样， blob也有和 文件 file 类似的 size 和 MIME 属性。</p>
-<p>在 blob 中可以存放二进制数据， 同时我们可以使用 arrayBuffer 进行读取数据。</p>
-<h6 id="创建-blob："><a href="#创建-blob：" class="headerlink" title="创建 blob："></a>创建 blob：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Blob(array, [,options]);</span><br><span class="line"><span class="comment">// array is an Array of ArrayBuffer, ArrayBufferView, Blob, DOMString objects, or a mix // of any of such objects, that will be put inside the Blob. DOMStrings are encoded as // UTF-8.</span></span><br><span class="line"><span class="comment">// options 是可选的额外参数， 比如， 可以传递一个 type， 表示放入 blob 中的数据的 MIME 类型</span></span><br></pre></td></tr></table></figure>
-<p>如下， 将字符串保存到 blob 中， type 为 “text／plain”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const blob = new Blob([&quot;hello world&quot;], &#123; type: &apos;text/plain&apos; &#125;);</span><br></pre></td></tr></table></figure>
-<h6 id="读取blob"><a href="#读取blob" class="headerlink" title="读取blob"></a>读取blob</h6><p>如果我们直接打印出 blob 是不能打印出来的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blob(<span class="number">11</span>) &#123;<span class="attr">size</span>: <span class="number">11</span>, <span class="attr">type</span>: <span class="string">"text/plain"</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>我们可以通过使用 FileReader 读取 blob 中的数据：</p>
-<blockquote>
-<p>FileReader 是 web 用来异步读取电脑上的文件或者blob数据的对象， 其对于从web端操作文件提供了一系列的方法， 具体内容查看 <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader" target="_blank" rel="noopener">FileReader</a></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line">reader.readAsText(blob);</span><br><span class="line">rader.onloadend = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"result"</span>, reader.result);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// result "hello world"</span></span><br></pre></td></tr></table></figure>
-<h6 id="我们可以使用-blob来做什么？"><a href="#我们可以使用-blob来做什么？" class="headerlink" title="我们可以使用 blob来做什么？"></a>我们可以使用 blob来做什么？</h6><p>blob 提供了用于操作二进制数据的一些接口， 一些可以用来操作二进制数据的api 比如 file 对象， 都是建立在blob的对象基础之上的， 继承了blob 的一些属性和方法。</p>
+        js 中的 blob 数据类型：<h3 id="blob">Blob</h3>
+<h6 id="什么是-blob-？">什么是 blob ？</h6>
+blob 代表了一个存放文d件数据的字节包， 使用 blob 可以代替 file， 我们可以在使用 file 的地方使用 blob 作为代替。同样， blob也有和 文件 file 类似的 size 和 MIME 属性。在 blob 中可以存放二进制数据， 同时我们可以使用 arrayBuffer 进行读取数据。<h6 id="创建-blob：">创建 blob：</h6>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Blob(array, [,options]);</span><br><span class="line"><span class="comment">// array is an Array of ArrayBuffer, ArrayBufferView, Blob, DOMString objects, or a mix // of any of such objects, that will be put inside the Blob. DOMStrings are encoded as // UTF-8.</span></span><br><span class="line"><span class="comment">// options 是可选的额外参数， 比如， 可以传递一个 type， 表示放入 blob 中的数据的 MIME 类型</span></span><br></pre></td></tr></table></figure>
 
+如下， 将字符串保存到 blob 中， type 为 “text／plain”<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const blob = new Blob([&quot;hello world&quot;], &#123; type: &apos;text/plain&apos; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h6 id="读取blob">读取blob</h6>
+如果我们直接打印出 blob 是不能打印出来的<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blob(<span class="number">11</span>) &#123;<span class="attr">size</span>: <span class="number">11</span>, <span class="attr">type</span>: <span class="string">"text/plain"</span>&#125;</span><br></pre></td></tr></table></figure>
+
+我们可以通过使用 FileReader 读取 blob 中的数据：<blockquote>
+FileReader 是 web 用来异步读取电脑上的文件或者blob数据的对象， 其对于从web端操作文件提供了一系列的方法， 具体内容查看 <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader" target="_blank" rel="noopener">FileReader</a></blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line">reader.readAsText(blob);</span><br><span class="line">rader.onloadend = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"result"</span>, reader.result);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// result "hello world"</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="我们可以使用-blob来做什么？">我们可以使用 blob来做什么？</h6>
+blob 提供了用于操作二进制数据的一些接口， 一些可以用来操作二进制数据的api 比如 file 对象， 都是建立在blob的对象基础之上的， 继承了blob 的一些属性和方法。
       
     </div>
     
@@ -672,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Blob"><span class="nav-number">1.</span> <span class="nav-text">Blob</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#什么是-blob-？"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">什么是 blob ？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#创建-blob："><span class="nav-number">1.0.0.2.</span> <span class="nav-text">创建 blob：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#读取blob"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">读取blob</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#我们可以使用-blob来做什么？"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">我们可以使用 blob来做什么？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#blob"><span class="nav-number">1.</span> <span class="nav-text">Blob</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#什么是-blob-？"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">什么是 blob ？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#创建-blob："><span class="nav-number">1.0.0.2.</span> <span class="nav-text">创建 blob：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#读取blob"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">读取blob</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#我们可以使用-blob来做什么？"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">我们可以使用 blob来做什么？</span></a></li></ol></li></ol></div>
             
 
           </div>

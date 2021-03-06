@@ -81,54 +81,54 @@
 
 
 
-<meta name="description" content="树树是这样的一种结构： 对于树的定义如下：  树是 n (n &amp;gt;= 0) 个结点的有限集，n = 0 时称为空树，在任意一棵非空树中，  有且仅用一个特定的称为 根（root）的节点 当 n &amp;gt; 1 时，其余结点可分为 m（m &amp;gt; 0）个互不相交的有限集 T1, T2, …Tn, 其中每一个集合本身也是一棵树， 并且称为 根的子树，    对于树的存储方式， 可以使用三种表示法来">
+<meta name="description" content="树 树是这样的一种结构： 对于树的定义如下： 树是 n (n &amp;gt;= 0) 个结点的有限集，n = 0 时称为空树，在任意一棵非空树中， 有且仅用一个特定的称为 根（root）的节点 当 n &amp;gt; 1 时，其余结点可分为 m（m &amp;gt; 0）个互不相交的有限集 T1, T2, ...Tn, 其中每一个集合本身也是一棵树， 并且称为 根的子树，    对于树的存储方式， 可以使用三种表示法">
 <meta name="keywords" content="树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构：树">
 <meta property="og:url" content="https://newpromise.github.io/2019/10/03/数据结构：树/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="树树是这样的一种结构： 对于树的定义如下：  树是 n (n &amp;gt;= 0) 个结点的有限集，n = 0 时称为空树，在任意一棵非空树中，  有且仅用一个特定的称为 根（root）的节点 当 n &amp;gt; 1 时，其余结点可分为 m（m &amp;gt; 0）个互不相交的有限集 T1, T2, …Tn, 其中每一个集合本身也是一棵树， 并且称为 根的子树，    对于树的存储方式， 可以使用三种表示法来">
+<meta property="og:description" content="树 树是这样的一种结构： 对于树的定义如下： 树是 n (n &amp;gt;= 0) 个结点的有限集，n = 0 时称为空树，在任意一棵非空树中， 有且仅用一个特定的称为 根（root）的节点 当 n &amp;gt; 1 时，其余结点可分为 m（m &amp;gt; 0）个互不相交的有限集 T1, T2, ...Tn, 其中每一个集合本身也是一棵树， 并且称为 根的子树，    对于树的存储方式， 可以使用三种表示法">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003112501951.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003112501951.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003112501951.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003120639803.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003120639803.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003120639803.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003120919003.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003120919003.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003120919003.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003131535048.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003131535048.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003131535048.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003131750956.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003131750956.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003131750956.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003131943353.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003131943353.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003131943353.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003132343485.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003132343485.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003132343485.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003132738591.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003132738591.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003132738591.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003190231702.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003190231702.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003190231702.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003190415734.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003190415734.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003190415734.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003190805122.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003190805122.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003190805122.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003190824306.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003190824306.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003190824306.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003191127941.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003191127941.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003191127941.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003191435274.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003191435274.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003191435274.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003191659327.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191003191659327.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003191659327.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191012122817189.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191012122817189-0854497.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191012122817189-0854497.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191014162511259.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191014162511259-1041511.png">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191014162511259-1041511.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191014163237408.png">
-<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/数据结构：树/image-20191014163237408-1041957.png">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.998Z">
+<meta property="og:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191014163237408-1041957.png">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构：树">
-<meta name="twitter:description" content="树树是这样的一种结构： 对于树的定义如下：  树是 n (n &amp;gt;= 0) 个结点的有限集，n = 0 时称为空树，在任意一棵非空树中，  有且仅用一个特定的称为 根（root）的节点 当 n &amp;gt; 1 时，其余结点可分为 m（m &amp;gt; 0）个互不相交的有限集 T1, T2, …Tn, 其中每一个集合本身也是一棵树， 并且称为 根的子树，    对于树的存储方式， 可以使用三种表示法来">
+<meta name="twitter:description" content="树 树是这样的一种结构： 对于树的定义如下： 树是 n (n &amp;gt;= 0) 个结点的有限集，n = 0 时称为空树，在任意一棵非空树中， 有且仅用一个特定的称为 根（root）的节点 当 n &amp;gt; 1 时，其余结点可分为 m（m &amp;gt; 0）个互不相交的有限集 T1, T2, ...Tn, 其中每一个集合本身也是一棵树， 并且称为 根的子树，    对于树的存储方式， 可以使用三种表示法">
 <meta name="twitter:image" content="https://newpromise.github.io/2019/10/03/数据结构：树/image-20191003112501951.png">
 
 
@@ -379,8 +379,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -487,100 +487,65 @@
       
 
       
-        <h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树是这样的一种结构：<br><img src="/2019/10/03/数据结构：树/image-20191003112501951.png"><br><img src="数据结构：树/image-20191003112501951.png" alt="image-20191003112501951"></p>
-<p>对于树的定义如下：</p>
-<blockquote>
-<p>树是 n (n &gt;= 0) 个结点的有限集，n = 0 时称为空树，在任意一棵非空树中，</p>
-<ol>
+        <h1 id="树">树</h1>
+树是这样的一种结构：<img src="/2019/10/03/数据结构：树/image-20191003112501951.png">
+<img src="image-20191003112501951.png" loading="lazy">对于树的定义如下：<blockquote>
+树是 n (n &gt;= 0) 个结点的有限集，n = 0 时称为空树，在任意一棵非空树中，<ol>
 <li>有且仅用一个特定的称为 根（root）的节点</li>
-<li>当 n &gt; 1 时，其余结点可分为 m（m &gt; 0）个互不相交的有限集 T1, T2, …Tn, 其中每一个集合本身也是一棵树， 并且称为 根的子树， </li>
+<li>当 n &gt; 1 时，其余结点可分为 m（m &gt; 0）个互不相交的有限集 T1, T2, ...Tn, 其中每一个集合本身也是一棵树， 并且称为 根的子树， </li>
 </ol>
 </blockquote>
-<p>对于树的存储方式， 可以使用三种表示法来存储树之间结点之间的相互关系：</p>
-<p>双亲表示法， 孩子表示法， 孩子兄弟表示法</p>
-<p>双亲表示法：</p>
-<p>以一段连续的空间存储树的结点， 在每一个结点中，存储当前结点其双亲结点的存储位置：<br><img src="/2019/10/03/数据结构：树/image-20191003120639803.png"><br><img src="数据结构：树/image-20191003120639803.png" alt="image-20191003120639803"></p>
-<p>data为数据域， 存储当前结点的相关数据， parent 为指针域， 存储当前节点的双亲结点在数组中的下标</p>
-<p>比如下面的树使用双亲表示法表示：<br><img src="/2019/10/03/数据结构：树/image-20191003120919003.png"><br><img src="数据结构：树/image-20191003120919003.png" alt="image-20191003120919003"></p>
-<p>根结点的双亲位置为 -1；</p>
-<p>上面的表示法表示的树用于查找结点的双亲元素比较方便， 但是，如果这个结点下面包含有多个的子结点， 我们可以需要设置多个的指针域， 比如， 长子域， 右兄弟域等等。</p>
-<p>孩子表示法：</p>
-<p>孩子表示法的方式是：</p>
-<p>将每个结点的孩子结点排列起来，以单链表作为存储结构，则 n 个结点有 n 个孩子链表，如果是叶子结点， 那么这个单链表为空，然后 n 个头指针又组成一个线性表，存放在一个一维数组中。</p>
-<p>使用孩子表示法表示上面的树形结构：<br><img src="/2019/10/03/数据结构：树/image-20191003131535048.png"><br><img src="数据结构：树/image-20191003131535048.png" alt="image-20191003131535048"></p>
-<p>在上面的孩子表示法中，设计有两种结构：</p>
-<ol>
-<li><p>孩子链表</p>
-<img src="/2019/10/03/数据结构：树/image-20191003131750956.png">
-<p><img src="数据结构：树/image-20191003131750956.png" alt="image-20191003131750956"></p>
-<p>child 为数据域， 用来存储当前的子结点在表头数组中的下标， next 为指针域，存放的是下一个孩子的这个结构指针地址。</p>
-</li>
-<li><p>表头结点</p>
-<img src="/2019/10/03/数据结构：树/image-20191003131943353.png">
-<p><img src="数据结构：树/image-20191003131943353.png" alt="image-20191003131943353"></p>
-<p>表头结点存储每个结点， 用于树形结点的遍历使用，另外， 存储长子结点的指针域；</p>
-</li>
+对于树的存储方式， 可以使用三种表示法来存储树之间结点之间的相互关系：双亲表示法， 孩子表示法， 孩子兄弟表示法双亲表示法：以一段连续的空间存储树的结点， 在每一个结点中，存储当前结点其双亲结点的存储位置：<img src="/2019/10/03/数据结构：树/image-20191003120639803.png">
+<img src="image-20191003120639803.png" loading="lazy">data为数据域， 存储当前结点的相关数据， parent 为指针域， 存储当前节点的双亲结点在数组中的下标比如下面的树使用双亲表示法表示：<img src="/2019/10/03/数据结构：树/image-20191003120919003.png">
+<img src="image-20191003120919003.png" loading="lazy">根结点的双亲位置为 -1；上面的表示法表示的树用于查找结点的双亲元素比较方便， 但是，如果这个结点下面包含有多个的子结点， 我们可以需要设置多个的指针域， 比如， 长子域， 右兄弟域等等。孩子表示法：孩子表示法的方式是：将每个结点的孩子结点排列起来，以单链表作为存储结构，则 n 个结点有 n 个孩子链表，如果是叶子结点， 那么这个单链表为空，然后 n 个头指针又组成一个线性表，存放在一个一维数组中。使用孩子表示法表示上面的树形结构：<img src="/2019/10/03/数据结构：树/image-20191003131535048.png">
+<img src="image-20191003131535048.png" loading="lazy">在上面的孩子表示法中，设计有两种结构：<ol>
+<li>孩子链表<img src="/2019/10/03/数据结构：树/image-20191003131750956.png">
+<img src="image-20191003131750956.png" loading="lazy">child 为数据域， 用来存储当前的子结点在表头数组中的下标， next 为指针域，存放的是下一个孩子的这个结构指针地址。</li>
+<li>表头结点<img src="/2019/10/03/数据结构：树/image-20191003131943353.png">
+<img src="image-20191003131943353.png" loading="lazy">表头结点存储每个结点， 用于树形结点的遍历使用，另外， 存储长子结点的指针域；</li>
 </ol>
-<p>孩子兄弟表示法：</p>
-<p>孩子兄弟表示法的数据结构如下：<br><img src="/2019/10/03/数据结构：树/image-20191003132343485.png"><br><img src="数据结构：树/image-20191003132343485.png" alt="image-20191003132343485"></p>
-<p>data 为数据域</p>
-<p>firstchild 为该结点第一个孩子结点的指针域</p>
-<p>rightsib 为该结点的兄弟结点指针域</p>
-<p>使用 孩子兄弟表示法组织后的数据结构如下：<br><img src="/2019/10/03/数据结构：树/image-20191003132738591.png"><br><img src="数据结构：树/image-20191003132738591.png" alt="image-20191003132738591"></p>
-<p>上面的重新组织后的结构将一棵树转换为了一棵二叉树</p>
-<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树的定义"><a href="#二叉树的定义" class="headerlink" title="二叉树的定义"></a>二叉树的定义</h3><blockquote>
-<p>二叉树是 n 个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的，分别称为 根结点的左子树和右子树的二叉树组成 </p>
-</blockquote>
-<p>二叉树的特点：</p>
-<ol>
+孩子兄弟表示法：孩子兄弟表示法的数据结构如下：<img src="/2019/10/03/数据结构：树/image-20191003132343485.png">
+<img src="image-20191003132343485.png" loading="lazy">data 为数据域firstchild 为该结点第一个孩子结点的指针域rightsib 为该结点的兄弟结点指针域使用 孩子兄弟表示法组织后的数据结构如下：<img src="/2019/10/03/数据结构：树/image-20191003132738591.png">
+<img src="image-20191003132738591.png" loading="lazy">上面的重新组织后的结构将一棵树转换为了一棵二叉树<h2 id="二叉树">二叉树</h2>
+<h3 id="二叉树的定义">二叉树的定义</h3>
+<blockquote>
+二叉树是 n 个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的，分别称为 根结点的左子树和右子树的二叉树组成 </blockquote>
+二叉树的特点：<ol>
 <li>每个结点最多有两棵子树</li>
 <li>左子树和右子树是有顺序的， 并且不能颠倒</li>
 <li>即使树中某结点只有一棵子树，也要区分顺序</li>
 </ol>
-<p>如下图， 是一棵二叉树的示意图：<br><img src="/2019/10/03/数据结构：树/image-20191003190231702.png"><br><img src="数据结构：树/image-20191003190231702.png" alt="image-20191003190231702"></p>
-<p>根据二叉树的结构显示， 可以将二叉树分为：满二叉树， 斜树 和 完全二叉树；</p>
-<p>如下， 是满二叉树的图示：<br><img src="/2019/10/03/数据结构：树/image-20191003190415734.png"><br><img src="数据结构：树/image-20191003190415734.png" alt="image-20191003190415734"></p>
-<p>树的每个结点都有左右两个结点， 故称为满二叉树。</p>
-<h3 id="二叉树的存储"><a href="#二叉树的存储" class="headerlink" title="二叉树的存储"></a>二叉树的存储</h3><h4 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h4><p>按照顺序存储二叉树， 主要是使用一维数组来顺序存储树中的各个结点，比如， 存储如下树结构：<br><img src="/2019/10/03/数据结构：树/image-20191003190805122.png"><br><img src="数据结构：树/image-20191003190805122.png" alt="image-20191003190805122"></p>
-<p>使用顺序存储如下：<br><img src="/2019/10/03/数据结构：树/image-20191003190824306.png"><br><img src="数据结构：树/image-20191003190824306.png" alt="image-20191003190824306"></p>
-<p>对于不存在的结点， 我们将不存在的结点设为 <code>^</code> 即可。</p>
-<p>使用顺序存储存在的问题在于， 我们需要对于不存在的结点分配存储空间，比如，对于下面这个右斜树而言：<br><img src="/2019/10/03/数据结构：树/image-20191003191127941.png"><br><img src="数据结构：树/image-20191003191127941.png" alt="image-20191003191127941"></p>
-<p>这样造成了存储空间的浪费。</p>
-<h4 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h4><p>对于二叉树结点的存储， 我们使用一种被称为 “二叉链表” 的链式存储结构来存储，</p>
-<p>二叉链表是下面的这种结构：<br><img src="/2019/10/03/数据结构：树/image-20191003191435274.png"><br><img src="数据结构：树/image-20191003191435274.png" alt="image-20191003191435274"></p>
-<p>这个结构中包含有一个数据域和两个指针域， 数据域表明当前结点的数据，指针域分别为二叉树左右两个结点的地址指针。</p>
-<p>使用链式存储后的最终的存储链表结构如下：<br><img src="/2019/10/03/数据结构：树/image-20191003191659327.png"><br><img src="数据结构：树/image-20191003191659327.png" alt="image-20191003191659327"></p>
-<h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><p>二叉树的遍历是指从根结点出发， 依次访问到二叉树中的每一个结点，使得每个结点被访问到并且仅被访问到一次。</p>
-<p>二叉树的遍历方法， 按照访问次序的不同， 可以分为 前序遍历， 中序遍历 以及 后序遍历</p>
-<h4 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h4><p>前序遍历的遍历顺序是先访问二叉树的左子树， 然后访问二叉树的右子树</p>
-<img src="/2019/10/03/数据结构：树/image-20191012122817189.png">
-<p><img src="数据结构：树/image-20191012122817189-0854497.png" alt="image-20191012122817189"></p>
-<p>如， 上图， 二叉树的访问顺序是：</p>
-<p>ABDGHCEIF</p>
-<h4 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h4><p>中序遍历根结点的左子树，然后是访问根结点，最后中序遍历右子树</p>
-<img src="/2019/10/03/数据结构：树/image-20191014162511259.png">
-<p><img src="数据结构：树/image-20191014162511259-1041511.png" alt="image-20191014162511259"></p>
-<p>如上图， 那么 二叉树的访问顺序是：</p>
-<p>GDHBAEICF</p>
-<h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><p>判断二叉树是否为空， 如果是空， 那么空操作返回，否则的话， 从左到 右通过先叶子后结点的方式遍历访问左右子树</p>
-<img src="/2019/10/03/数据结构：树/image-20191014163237408.png">
-<p><img src="数据结构：树/image-20191014163237408-1041957.png" alt="image-20191014163237408"></p>
-<p>使用后序遍历的方法来访问二叉树的顺序是：</p>
-<p>GHDBIEFCA</p>
-<h3 id="二叉树的创建"><a href="#二叉树的创建" class="headerlink" title="二叉树的创建"></a>二叉树的创建</h3><p>二叉树的创建可以像二叉树创建方法中传入一串树来实现，通过一定的二叉树的遍历顺序来依次创建结点， 对于空结点， 二叉树中的字符串可以为 ‘#’</p>
-<p>按照前序遍历创建的二叉树的方法如下:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建二叉树</span></span><br><span class="line"><span class="comment">// treeStr: 树的字符串， 空结点 ‘#’</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createTree</span>(<span class="params">treeStr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> tree = &#123;&#125;;</span><br><span class="line">  <span class="comment">// 创建树节点</span></span><br><span class="line">  <span class="keyword">let</span> treeStack = treeStr.split(<span class="string">''</span>);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">createNode</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> nodeData = treeStack.shift();</span><br><span class="line">    <span class="keyword">if</span> (!nodeData) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (nodeData !== <span class="string">'#'</span>) &#123;</span><br><span class="line">      node.data = nodeData;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当父节点没有左结点的时候， 创建左结点</span></span><br><span class="line">    <span class="keyword">if</span> (!node.lChild || !node.lChild.hasOwnProperty(<span class="string">'data'</span>)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (treeStack.length &gt;= <span class="number">1</span>) node.lChild = &#123;&#125;;</span><br><span class="line">      <span class="keyword">if</span> (createNode(node.lChild)) <span class="keyword">delete</span> node.lChild;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!node.rChild || !node.rChild.hasOwnProperty(<span class="string">'data'</span>)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (treeStack.length &gt;= <span class="number">1</span>) node.rChild = &#123;&#125;;</span><br><span class="line">      <span class="keyword">if</span> (createNode(node.rChild)) <span class="keyword">delete</span> node.rChild;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  createNode(tree);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于树的创建和访问一样， 也是进行依次遍历， 使用递归进行遍历访问， 需要注意的是：</p>
-<p>要存在相应的条件， 使得能够跳出递归。</p>
-<p>对于递归而言， 注意递归循环的跳出是比较重要的。</p>
-<p>同样，也可以按照中序遍历和后序遍历的次序来创建树， 只是递归的顺序不同而已。</p>
-<p>另外， 判断对象中某个属性是否存在， 最好不要用直接访问属性的方式进行判断， 因为不知道这个属性的值可能是 <code>undefined</code>,  或者 <code>0</code> 等导致属性访问后为 <code>false</code> 的值。</p>
-<p>可以使用 <code>hasOwnProperty</code> 的方式来判断属性是否在对象上面:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.hasOwnPropery(prop);</span><br></pre></td></tr></table></figure>
-<p>注意： 这个方法只能够获取到该对象上面的自身属性， 不能获取到该对象原型上面的属性</p>
-<p>（for in 是可以获取到继承的属性的， 并且继承的属性是可枚举的）</p>
-<p>为了防止对象上面有 <code>hasOwnProperty</code> 属性覆盖掉从对象上面继承的， 我们需要通过 <code>Object</code> 来调用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.hasOwnProperty.call(obj, &apos;property&apos;);</span><br></pre></td></tr></table></figure>
+如下图， 是一棵二叉树的示意图：<img src="/2019/10/03/数据结构：树/image-20191003190231702.png">
+<img src="image-20191003190231702.png" loading="lazy">根据二叉树的结构显示， 可以将二叉树分为：满二叉树， 斜树 和 完全二叉树；如下， 是满二叉树的图示：<img src="/2019/10/03/数据结构：树/image-20191003190415734.png">
+<img src="image-20191003190415734.png" loading="lazy">树的每个结点都有左右两个结点， 故称为满二叉树。<h3 id="二叉树的存储">二叉树的存储</h3>
+<h4 id="顺序存储">顺序存储</h4>
+按照顺序存储二叉树， 主要是使用一维数组来顺序存储树中的各个结点，比如， 存储如下树结构：<img src="/2019/10/03/数据结构：树/image-20191003190805122.png">
+<img src="image-20191003190805122.png" loading="lazy">使用顺序存储如下：<img src="/2019/10/03/数据结构：树/image-20191003190824306.png">
+<img src="image-20191003190824306.png" loading="lazy">对于不存在的结点， 我们将不存在的结点设为 <code>^</code> 即可。使用顺序存储存在的问题在于， 我们需要对于不存在的结点分配存储空间，比如，对于下面这个右斜树而言：<img src="/2019/10/03/数据结构：树/image-20191003191127941.png">
+<img src="image-20191003191127941.png" loading="lazy">这样造成了存储空间的浪费。<h4 id="链式存储">链式存储</h4>
+对于二叉树结点的存储， 我们使用一种被称为 “二叉链表” 的链式存储结构来存储，二叉链表是下面的这种结构：<img src="/2019/10/03/数据结构：树/image-20191003191435274.png">
+<img src="image-20191003191435274.png" loading="lazy">这个结构中包含有一个数据域和两个指针域， 数据域表明当前结点的数据，指针域分别为二叉树左右两个结点的地址指针。使用链式存储后的最终的存储链表结构如下：<img src="/2019/10/03/数据结构：树/image-20191003191659327.png">
+<img src="image-20191003191659327.png" loading="lazy"><h3 id="二叉树的遍历">二叉树的遍历</h3>
+二叉树的遍历是指从根结点出发， 依次访问到二叉树中的每一个结点，使得每个结点被访问到并且仅被访问到一次。二叉树的遍历方法， 按照访问次序的不同， 可以分为 前序遍历， 中序遍历 以及 后序遍历<h4 id="前序遍历">前序遍历</h4>
+前序遍历的遍历顺序是先访问二叉树的左子树， 然后访问二叉树的右子树<img src="/2019/10/03/数据结构：树/image-20191012122817189.png">
+
+<img src="image-20191012122817189-0854497.png" loading="lazy">如， 上图， 二叉树的访问顺序是：ABDGHCEIF<h4 id="中序遍历">中序遍历</h4>
+中序遍历根结点的左子树，然后是访问根结点，最后中序遍历右子树<img src="/2019/10/03/数据结构：树/image-20191014162511259.png">
+
+
+
+<img src="image-20191014162511259-1041511.png" loading="lazy">如上图， 那么 二叉树的访问顺序是：GDHBAEICF<h4 id="后序遍历">后序遍历</h4>
+判断二叉树是否为空， 如果是空， 那么空操作返回，否则的话， 从左到 右通过先叶子后结点的方式遍历访问左右子树<img src="/2019/10/03/数据结构：树/image-20191014163237408.png">
+
+
+
+<img src="image-20191014163237408-1041957.png" loading="lazy">使用后序遍历的方法来访问二叉树的顺序是：GHDBIEFCA<h3 id="二叉树的创建">二叉树的创建</h3>
+二叉树的创建可以像二叉树创建方法中传入一串树来实现，通过一定的二叉树的遍历顺序来依次创建结点， 对于空结点， 二叉树中的字符串可以为 ‘#’按照前序遍历创建的二叉树的方法如下:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建二叉树</span></span><br><span class="line"><span class="comment">// treeStr: 树的字符串， 空结点 ‘#’</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createTree</span>(<span class="params">treeStr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> tree = &#123;&#125;;</span><br><span class="line">  <span class="comment">// 创建树节点</span></span><br><span class="line">  <span class="keyword">let</span> treeStack = treeStr.split(<span class="string">''</span>);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">createNode</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> nodeData = treeStack.shift();</span><br><span class="line">    <span class="keyword">if</span> (!nodeData) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (nodeData !== <span class="string">'#'</span>) &#123;</span><br><span class="line">      node.data = nodeData;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当父节点没有左结点的时候， 创建左结点</span></span><br><span class="line">    <span class="keyword">if</span> (!node.lChild || !node.lChild.hasOwnProperty(<span class="string">'data'</span>)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (treeStack.length &gt;= <span class="number">1</span>) node.lChild = &#123;&#125;;</span><br><span class="line">      <span class="keyword">if</span> (createNode(node.lChild)) <span class="keyword">delete</span> node.lChild;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!node.rChild || !node.rChild.hasOwnProperty(<span class="string">'data'</span>)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (treeStack.length &gt;= <span class="number">1</span>) node.rChild = &#123;&#125;;</span><br><span class="line">      <span class="keyword">if</span> (createNode(node.rChild)) <span class="keyword">delete</span> node.rChild;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  createNode(tree);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+对于树的创建和访问一样， 也是进行依次遍历， 使用递归进行遍历访问， 需要注意的是：要存在相应的条件， 使得能够跳出递归。对于递归而言， 注意递归循环的跳出是比较重要的。同样，也可以按照中序遍历和后序遍历的次序来创建树， 只是递归的顺序不同而已。另外， 判断对象中某个属性是否存在， 最好不要用直接访问属性的方式进行判断， 因为不知道这个属性的值可能是 <code>undefined</code>,  或者 <code>0</code> 等导致属性访问后为 <code>false</code> 的值。可以使用 <code>hasOwnProperty</code> 的方式来判断属性是否在对象上面:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.hasOwnPropery(prop);</span><br></pre></td></tr></table></figure>
+
+注意： 这个方法只能够获取到该对象上面的自身属性， 不能获取到该对象原型上面的属性（for in 是可以获取到继承的属性的， 并且继承的属性是可枚举的）为了防止对象上面有 <code>hasOwnProperty</code> 属性覆盖掉从对象上面继承的， 我们需要通过 <code>Object</code> 来调用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.hasOwnProperty.call(obj, &apos;property&apos;);</span><br></pre></td></tr></table></figure>
+
 
       
     </div>

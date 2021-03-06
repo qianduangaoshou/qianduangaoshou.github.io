@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="单例模式（The Singleton Pattern）单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式； 例如下面的代码： 1234567891011121314151617let singleton = (function () &amp;#123;  let in">
+<meta name="description" content="单例模式（The Singleton Pattern） 单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；例如下面的代码：1234567891011121314151617let singleton = (function () &amp;#123;  let ins">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式：单例模式">
 <meta property="og:url" content="https://newpromise.github.io/2019/04/17/设计模式：单例模式/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="单例模式（The Singleton Pattern）单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式； 例如下面的代码： 1234567891011121314151617let singleton = (function () &amp;#123;  let in">
+<meta property="og:description" content="单例模式（The Singleton Pattern） 单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；例如下面的代码：1234567891011121314151617let singleton = (function () &amp;#123;  let ins">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:26.019Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式：单例模式">
-<meta name="twitter:description" content="单例模式（The Singleton Pattern）单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式； 例如下面的代码： 1234567891011121314151617let singleton = (function () &amp;#123;  let in">
+<meta name="twitter:description" content="单例模式（The Singleton Pattern） 单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；例如下面的代码：1234567891011121314151617let singleton = (function () &amp;#123;  let ins">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:26+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,29 +450,25 @@
       
 
       
-        <h3 id="单例模式（The-Singleton-Pattern）"><a href="#单例模式（The-Singleton-Pattern）" class="headerlink" title="单例模式（The Singleton Pattern）"></a>单例模式（The Singleton Pattern）</h3><p>单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；</p>
-<p>例如下面的代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> singleton = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> instance;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      publicName: name,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getInstance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (instance === <span class="literal">undefined</span>) &#123;</span><br><span class="line">        instance = init();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>当我们引用上面的实例时， 我们始终引用到的是一个实例：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">singleton.getInstance() === singleton.getInstance() <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>使用单例模式有什么好处呢？</p>
-<ol>
+        <h3 id="单例模式（the-singleton-pattern）">单例模式（The Singleton Pattern）</h3>
+单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；例如下面的代码：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> singleton = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> instance;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      publicName: name,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getInstance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (instance === <span class="literal">undefined</span>) &#123;</span><br><span class="line">        instance = init();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+当我们引用上面的实例时， 我们始终引用到的是一个实例：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">singleton.getInstance() === singleton.getInstance() <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+使用单例模式有什么好处呢？<ol>
 <li>当当前页面需要一个公共的对象或者全局缓存的时候， 我们需要使用单例模式， 实现例如全局变量存储，线程池之类的功能， 使用单例可以让多个引用的实例状态保持一致， 因此这些多次引用只是引用的同一个实例</li>
 <li>划分命名空间， 避免全局变量污染</li>
 <li>在使用的时候实例化对象， 可以防止如果引入大的资源的时候出现较大的内存占用， 特别当创建实例的 cost 较大的时候</li>
 </ol>
-<p>我们可以使用单例模式的情况：</p>
-<blockquote>
+我们可以使用单例模式的情况：<blockquote>
 <ul>
 <li>There must be exactly one instance of a class, and it must be accessible to clients from a well-known access point.</li>
 <li>When the sole instance should be extensible by subclassing, and clients should be able to use an extended instance without modifying their code.</li>
 </ul>
 </blockquote>
 <ul>
-<li><p>对于一个类而言， 必须有只有一个确定的实例， 而且对于使用者来说， 这个实例可以通过一个很明确的地方获取到, 比如上面的 <code>getInstance</code> 方法</p>
-</li>
-<li><p>通过添加子类， 这个唯一的实例应该能够是可扩展的， 使用者应该在不改变原来代码的情况下是使用扩展的实例， 例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">getInstance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (instance === <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="comment">// 通过 if 的方式切换应用的类</span></span><br><span class="line">  	<span class="keyword">if</span> (useClassA) &#123;</span><br><span class="line">      instance = <span class="keyword">new</span> classA();</span><br><span class="line">  	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      instance = init();</span><br><span class="line">  	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">	<span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>对于一个类而言， 必须有只有一个确定的实例， 而且对于使用者来说， 这个实例可以通过一个很明确的地方获取到, 比如上面的 <code>getInstance</code> 方法</li>
+<li>通过添加子类， 这个唯一的实例应该能够是可扩展的， 使用者应该在不改变原来代码的情况下是使用扩展的实例， 例如：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">getInstance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (instance === <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="comment">// 通过 if 的方式切换应用的类</span></span><br><span class="line">  	<span class="keyword">if</span> (useClassA) &#123;</span><br><span class="line">      instance = <span class="keyword">new</span> classA();</span><br><span class="line">  	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      instance = init();</span><br><span class="line">  	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">	<span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -682,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式（The-Singleton-Pattern）"><span class="nav-number">1.</span> <span class="nav-text">单例模式（The Singleton Pattern）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式（the-singleton-pattern）"><span class="nav-number">1.</span> <span class="nav-text">单例模式（The Singleton Pattern）</span></a></li></ol></div>
             
 
           </div>

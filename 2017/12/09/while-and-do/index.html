@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="运算符优先级关于运算符的优先级，存在下面的优先级级别: (因此当我们在表达式中出现下面这些情况的时候, 我们注意符号的优先级)    . [ ] ( ) 提取属性与调用函数 （优先级  () &amp;gt; .）     delete   new   typeof  + -  ! 一元运算符   *  /  % 乘法， 除法, 求余   +  - 加法/ 连接  减法   &amp;gt;=  &amp;lt;=">
+<meta name="description" content="运算符优先级 关于运算符的优先级，存在下面的优先级级别:(因此当我们在表达式中出现下面这些情况的时候, 我们注意符号的优先级)   . [ ] ( ) 提取属性与调用函数 （优先级  () &amp;gt; .）    delete   new   typeof   +  -  ! 一元运算符   *  /  % 乘法， 除法, 求余   +  - 加法/ 连接  减法   &amp;gt;=  &amp;lt;=">
 <meta name="keywords" content="whileordo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="while and do">
 <meta property="og:url" content="https://newpromise.github.io/2017/12/09/while-and-do/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="运算符优先级关于运算符的优先级，存在下面的优先级级别: (因此当我们在表达式中出现下面这些情况的时候, 我们注意符号的优先级)    . [ ] ( ) 提取属性与调用函数 （优先级  () &amp;gt; .）     delete   new   typeof  + -  ! 一元运算符   *  /  % 乘法， 除法, 求余   +  - 加法/ 连接  减法   &amp;gt;=  &amp;lt;=">
+<meta property="og:description" content="运算符优先级 关于运算符的优先级，存在下面的优先级级别:(因此当我们在表达式中出现下面这些情况的时候, 我们注意符号的优先级)   . [ ] ( ) 提取属性与调用函数 （优先级  () &amp;gt; .）    delete   new   typeof   +  -  ! 一元运算符   *  /  % 乘法， 除法, 求余   +  - 加法/ 连接  减法   &amp;gt;=  &amp;lt;=">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.991Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="while and do">
-<meta name="twitter:description" content="运算符优先级关于运算符的优先级，存在下面的优先级级别: (因此当我们在表达式中出现下面这些情况的时候, 我们注意符号的优先级)    . [ ] ( ) 提取属性与调用函数 （优先级  () &amp;gt; .）     delete   new   typeof  + -  ! 一元运算符   *  /  % 乘法， 除法, 求余   +  - 加法/ 连接  减法   &amp;gt;=  &amp;lt;=">
+<meta name="twitter:description" content="运算符优先级 关于运算符的优先级，存在下面的优先级级别:(因此当我们在表达式中出现下面这些情况的时候, 我们注意符号的优先级)   . [ ] ( ) 提取属性与调用函数 （优先级  () &amp;gt; .）    delete   new   typeof   +  -  ! 一元运算符   *  /  % 乘法， 除法, 求余   +  - 加法/ 连接  减法   &amp;gt;=  &amp;lt;=">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  682字
+                  686字
                 </span>
               
 
@@ -450,87 +450,86 @@
       
 
       
-        <h4 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h4><p>关于运算符的优先级，存在下面的优先级级别:</p>
-<p>(因此当我们在表达式中出现下面这些情况的时候, 我们注意符号的优先级)</p>
-<table>
+        <h4 id="运算符优先级">运算符优先级</h4>
+关于运算符的优先级，存在下面的优先级级别:(因此当我们在表达式中出现下面这些情况的时候, 我们注意符号的优先级)<table>
 <thead>
 <tr>
-<th style="text-align:center">. [ ] ( )</th>
-<th style="text-align:center">提取属性与调用函数 （优先级  () &gt; .）</th>
+<th align="center">. [ ] ( )</th>
+<th align="center">提取属性与调用函数 （优先级  () &gt; .）</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>delete</code>   <code>new</code>   <code>typeof</code>  <code>+</code> <code>-</code>  <code>!</code></td>
-<td style="text-align:center">一元运算符</td>
+<tbody><tr>
+<td align="center"><code>delete</code>   <code>new</code>   <code>typeof </code>  <code>+</code> <code> -</code>  <code>!</code></td>
+<td align="center">一元运算符</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>*</code>  <code>/</code>  <code>%</code></td>
-<td style="text-align:center">乘法， 除法, 求余</td>
+<td align="center"><code>*</code>  <code>/</code>  <code>%</code></td>
+<td align="center">乘法， 除法, 求余</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>+</code>  <code>-</code></td>
-<td style="text-align:center">加法/ 连接  减法</td>
+<td align="center"><code>+</code>  <code>-</code></td>
+<td align="center">加法/ 连接  减法</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>&gt;=</code>  <code>&lt;=</code>   <code>&gt;</code>  <code>&lt;</code></td>
-<td style="text-align:center">不等式运算符</td>
+<td align="center"><code>&gt;=</code>  <code>&lt;=</code>   <code>&gt;</code>  <code>&lt;</code></td>
+<td align="center">不等式运算符</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>===</code>   <code>!==</code></td>
-<td style="text-align:center">等式运算符</td>
+<td align="center"><code>===</code>   <code>!==</code></td>
+<td align="center">等式运算符</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>&amp;&amp;</code></td>
-<td style="text-align:center">逻辑与</td>
+<td align="center"><code>&amp;&amp;</code></td>
+<td align="center">逻辑与</td>
 </tr>
 <tr>
-<td style="text-align:center">`</td>
-<td style="text-align:center"></td>
-<td>`</td>
-<td>逻辑或</td>
+<td align="center">`</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center"><code>?:</code></td>
-<td style="text-align:center">三元</td>
+<td align="center"><code>?:</code></td>
+<td align="center">三元</td>
 </tr>
-</tbody>
-</table>
-<p>使用运算符优先级中注意:  <code>&amp;&amp;</code> &gt; <code>||</code></p>
-<p>下面是一些使用运算符的一些例子:</p>
-<ol>
-<li><p>对于点号运算符以及加号运算符</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+<span class="string">"2.34567"</span>.toFixed(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 我们的本意是先想要将字符串 "2.34567" 转化为数字在利用 toFixed(2) 进行保留两位小数</span></span><br><span class="line"><span class="comment">// 但是返回错误 uncaught TypeError "2.34567".toFixed(2) is not a function</span></span><br></pre></td></tr></table></figure>
-<p>上面是因为使用上面的表达式的时候 . 号的操作符优先级要高于 +  所以先计算的是字符串的 <code>toFixed()</code> 函数， 当然会出现错误，</p>
-<p>解决办法， 添加 <code>()</code> 因为这时候括号的优先级要高于点号:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(+<span class="string">"2.34567"</span>).toFixed(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+</tbody></table>
+使用运算符优先级中注意:  <code>&amp;&amp;</code> &gt; <code>||</code>下面是一些使用运算符的一些例子:<ol>
+<li> 对于点号运算符以及加号运算符</li>
+</ol>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+<span class="string">"2.34567"</span>.toFixed(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 我们的本意是先想要将字符串 "2.34567" 转化为数字在利用 toFixed(2) 进行保留两位小数</span></span><br><span class="line"><span class="comment">// 但是返回错误 uncaught TypeError "2.34567".toFixed(2) is not a function</span></span><br></pre></td></tr></table></figure>
+
+   上面是因为使用上面的表达式的时候 . 号的操作符优先级要高于 +  所以先计算的是字符串的 <code>toFixed()</code> 函数， 当然会出现错误，   解决办法， 添加 <code>()</code> 因为这时候括号的优先级要高于点号:   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(+<span class="string">"2.34567"</span>).toFixed(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
-<li><p>逻辑与的操作符  <code>&amp;&amp;</code> 的操作符优先级要高于 <code>||</code> 的操作符优先级。</p>
-<p>例如对于下面的这个程序而言:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> || <span class="literal">false</span> &amp;&amp; <span class="literal">false</span></span><br><span class="line"><span class="comment">// 因为这里 &amp;&amp; 操作符的优先级要高于 || 因此这里会返回 true</span></span><br></pre></td></tr></table></figure>
-<p>注意: 这里对于 <code>||</code> 以及 <code>&amp;&amp;</code> 操作符的理解要正确:</p>
-<p>这两个操作符返回的都是值，而不是 <code>true</code> 或者 `false</p>
-</li>
-<li><p><code>[] == ![]</code></p>
-<p>上面这个等式是一个很有意思的等式， 理解这个等式有助于我们加深对于于运算符优先级的理解， 并且在上面的这个公式中还有涉及到了隐式转换的一些知识点。</p>
-<p>在上面这个过程中， 因为 <code>!</code> 的优先级要高于 <code>==</code>, 因此先执行 <code>!</code> 进行类型转换， 因为这里 <code>[]</code> 是真值，(只要不属于假值的都是真值，你别看我这里是一个空数组)</p>
-<blockquote>
-<p>通过使用布尔强制类型转换结果为 <code>false</code> 的被称作假值， 假值有下面几种：</p>
-<p><code>undefined</code>, <code>null</code>, <code>false</code>, <code>+0, -0 和 NaN</code>, “ “</p>
-<p>ps: 其他的类型不要进来 （<code>[], {}</code> : 你们看我干嘛？）</p>
-</blockquote>
-<p>首先执行下面的操作：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![] ===&gt; <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>这个时候等号右边的值变成了 <code>false</code>,这个时候使用 <code>==</code> 会进行强制类型转换，将布尔值转换为数字</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>) ===&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>这个时候 <code>==</code> 两边分别是 <code>object</code> 以及 <code>number</code> 类型的值， 这个时候需要将 <code>obejct</code> 转为数字：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>([].valueOf()) ===&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>因此， 上面的等式经过转换之后，变成了下面的这种：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> === <span class="number">0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>逻辑与的操作符  <code>&amp;&amp;</code> 的操作符优先级要高于 <code>||</code> 的操作符优先级。例如对于下面的这个程序而言:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> || <span class="literal">false</span> &amp;&amp; <span class="literal">false</span></span><br><span class="line"><span class="comment">// 因为这里 &amp;&amp; 操作符的优先级要高于 || 因此这里会返回 true</span></span><br></pre></td></tr></table></figure>
+
+注意: 这里对于 <code>||</code> 以及 <code>&amp;&amp;</code> 操作符的理解要正确:这两个操作符返回的都是值，而不是 <code>true</code> 或者 `false</li>
+<li> <code>[] == ![]</code></li>
 </ol>
-</li>
-</ol>
+<pre><code>  上面这个等式是一个很有意思的等式， 理解这个等式有助于我们加深对于于运算符优先级的理解， 并且在上面的这个公式中还有涉及到了隐式转换的一些知识点。
+
+  在上面这个过程中， 因为 `!` 的优先级要高于 `==`, 因此先执行 `!` 进行类型转换， 因为这里 `[]` 是真值，(只要不属于假值的都是真值，你别看我这里是一个空数组)
+
+  &gt;通过使用布尔强制类型转换结果为 `false` 的被称作假值， 假值有下面几种：
+  &gt;
+  &gt;`undefined`, `null`, `false`, `+0, -0 和 NaN`, &quot; &quot;
+  &gt;
+  &gt;ps: 其他的类型不要进来 （`[], {}` : 你们看我干嘛？）
+
+  首先执行下面的操作：
+
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![] ===&gt; <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+  这个时候等号右边的值变成了 `false`,这个时候使用 `==` 会进行强制类型转换，将布尔值转换为数字
+
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>) ===&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+  这个时候 `==` 两边分别是 `object` 以及 `number` 类型的值， 这个时候需要将 `obejct` 转为数字：
+
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>([].valueOf()) ===&gt; <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+  因此， 上面的等式经过转换之后，变成了下面的这种：
+
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> === <span class="number">0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</code></pre>
 
       
     </div>

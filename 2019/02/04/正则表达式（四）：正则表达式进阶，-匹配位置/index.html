@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="正则表达式中的位置匹配： 正则表达式是匹配模式， 要么匹配字符， 要么匹配位置 对于位置匹配， 这里的位置是字符之间的间隙， 进行位置匹配时， 使用正则表达式中存在下面几个‘锚’： ^   $  \b  \B    (?=p) (?!p)    字符 匹配含义     ^ 匹配字符串的开头   $ 匹配字符串的结尾   \b 单词边界， 具体就是 \w 与 \W 之间的位置, 以及字符串的开始位置">
+<meta name="description" content="正则表达式中的位置匹配：正则表达式是匹配模式， 要么匹配字符， 要么匹配位置对于位置匹配， 这里的位置是字符之间的间隙， 进行位置匹配时， 使用正则表达式中存在下面几个‘锚’：^     $  \b  \B    (?=p) (?!p)   字符 匹配含义    ^ 匹配字符串的开头   $ 匹配字符串的结尾   \b 单词边界， 具体就是 \w 与 \W 之间的位置, 以及字符串的开始位置和结尾">
 <meta name="keywords" content="正则表达式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式（四）：匹配">
 <meta property="og:url" content="https://newpromise.github.io/2019/02/04/正则表达式（四）：正则表达式进阶，-匹配位置/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="正则表达式中的位置匹配： 正则表达式是匹配模式， 要么匹配字符， 要么匹配位置 对于位置匹配， 这里的位置是字符之间的间隙， 进行位置匹配时， 使用正则表达式中存在下面几个‘锚’： ^   $  \b  \B    (?=p) (?!p)    字符 匹配含义     ^ 匹配字符串的开头   $ 匹配字符串的结尾   \b 单词边界， 具体就是 \w 与 \W 之间的位置, 以及字符串的开始位置">
+<meta property="og:description" content="正则表达式中的位置匹配：正则表达式是匹配模式， 要么匹配字符， 要么匹配位置对于位置匹配， 这里的位置是字符之间的间隙， 进行位置匹配时， 使用正则表达式中存在下面几个‘锚’：^     $  \b  \B    (?=p) (?!p)   字符 匹配含义    ^ 匹配字符串的开头   $ 匹配字符串的结尾   \b 单词边界， 具体就是 \w 与 \W 之间的位置, 以及字符串的开始位置和结尾">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:26.016Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式（四）：匹配">
-<meta name="twitter:description" content="正则表达式中的位置匹配： 正则表达式是匹配模式， 要么匹配字符， 要么匹配位置 对于位置匹配， 这里的位置是字符之间的间隙， 进行位置匹配时， 使用正则表达式中存在下面几个‘锚’： ^   $  \b  \B    (?=p) (?!p)    字符 匹配含义     ^ 匹配字符串的开头   $ 匹配字符串的结尾   \b 单词边界， 具体就是 \w 与 \W 之间的位置, 以及字符串的开始位置">
+<meta name="twitter:description" content="正则表达式中的位置匹配：正则表达式是匹配模式， 要么匹配字符， 要么匹配位置对于位置匹配， 这里的位置是字符之间的间隙， 进行位置匹配时， 使用正则表达式中存在下面几个‘锚’：^     $  \b  \B    (?=p) (?!p)   字符 匹配含义    ^ 匹配字符串的开头   $ 匹配字符串的结尾   \b 单词边界， 具体就是 \w 与 \W 之间的位置, 以及字符串的开始位置和结尾">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:26+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -450,81 +450,71 @@
       
 
       
-        <p>正则表达式中的位置匹配：</p>
-<p><strong>正则表达式是匹配模式， 要么匹配字符， 要么匹配位置</strong></p>
-<p>对于位置匹配， 这里的位置是字符之间的间隙， 进行位置匹配时， 使用正则表达式中存在下面几个‘锚’：</p>
-<p><code>^</code>   <code>$</code>  <code>\b</code>  <code>\B</code>    <code>(?=p)</code> <code>(?!p)</code></p>
-<table>
+        正则表达式中的位置匹配：<strong>正则表达式是匹配模式， 要么匹配字符， 要么匹配位置</strong>对于位置匹配， 这里的位置是字符之间的间隙， 进行位置匹配时， 使用正则表达式中存在下面几个‘锚’：<code>^  </code>   <code>$</code>  <code>\b</code>  <code>\B</code>    <code>(?=p)</code> <code>(?!p)</code><table>
 <thead>
 <tr>
-<th style="text-align:center">字符</th>
+<th align="center">字符</th>
 <th>匹配含义</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>^</code></td>
+<tbody><tr>
+<td align="center"><code>^</code></td>
 <td>匹配字符串的开头</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>$</code></td>
+<td align="center"><code>$</code></td>
 <td>匹配字符串的结尾</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>\b</code></td>
+<td align="center"><code>\b</code></td>
 <td>单词边界， 具体就是 <code>\w</code> 与 <code>\W</code> 之间的位置, 以及字符串的开始位置和结尾位置</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>\B</code></td>
+<td align="center"><code>\B</code></td>
 <td>是 <code>/b</code> 之外的位置</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>(?=P)</code></td>
+<td align="center"><code>(?=P)</code></td>
 <td><code>p</code> 是一个模式， 这个正则表达式匹配的是<code>P</code> 之前的位置， 或者当前位置之后的字符要匹配正则表达式 <code>P</code></td>
 </tr>
 <tr>
-<td style="text-align:center"><code>(?!P)</code></td>
+<td align="center"><code>(?!P)</code></td>
 <td>这个与 <code>(?=P)</code> 意思相反， 是除了 <code>(?=P)</code> 之外的位置</td>
 </tr>
-</tbody>
-</table>
-<h4 id="以及"><a href="#以及" class="headerlink" title="^ 以及 $"></a><code>^</code> 以及 <code>$</code></h4><p>用于匹配字符串开头或者字符串结尾的位置：</p>
-<p>如下例子：将字符的开头和结尾添加特定的字符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let str = &apos;hello&apos;;</span><br><span class="line">let regex = /^|$/g;</span><br><span class="line">let res = str.replace(regex, &apos;*&apos;);</span><br><span class="line">console.log(res); // &apos;*hello*&apos;</span><br></pre></td></tr></table></figure>
-<p>例如下面， 使用 <code>replace</code>  代替     <code>trim</code>  方法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'  hell o   '</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/^\s+|\s+$/g</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">''</span>);</span><br><span class="line"><span class="comment">// hell o</span></span><br></pre></td></tr></table></figure>
-<h4 id="b-以及-B"><a href="#b-以及-B" class="headerlink" title="\b 以及 \B"></a><code>\b</code> 以及 <code>\B</code></h4><p>使用 <code>\b</code> 的作用是匹配单词边界之间的位置， 具体而言是 <code>\w</code> 以及 <code>\W</code>   之间的位置：</p>
-<p><code>\w</code>: 匹配单词字符， 字符包括字母， 汉字， 下划线以及数字</p>
-<p>示例如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'hel lo'</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/\b/g</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">'#'</span>);</span><br><span class="line"><span class="comment">// #hel# #lo#</span></span><br></pre></td></tr></table></figure>
-<p>使用 <code>\B</code> 则和 <code>\b</code>  相反， 匹配的位置是单词字符内的位置：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">regex = <span class="regexp">/\B/g</span>;</span><br><span class="line">res = str.replace(regex, <span class="string">'#'</span>);</span><br><span class="line"><span class="comment">// h#e#l l#o;</span></span><br></pre></td></tr></table></figure>
-<h4 id="P-以及-P"><a href="#P-以及-P" class="headerlink" title="(?=P) 以及 (?!P)"></a><code>(?=P)</code> 以及 <code>(?!P)</code></h4><p>使用 <code>(?=P)</code> 用来匹配特定字符前的位置, <code>P</code> 是一个正则表达式；</p>
-<p>如下： 给单词中的 l 字符前面添加字符 <code>#</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">regex = <span class="regexp">/(?=l)/g</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">'#'</span>);</span><br><span class="line"><span class="comment">// he#l#lo</span></span><br></pre></td></tr></table></figure>
-<p>给每一个单词字符前面添加一个字符 <code>*</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">regex = /(?=\w)/g;</span><br><span class="line">str = &apos;hello&apos;;</span><br><span class="line">let res = str.replace(regex, &apos;*&apos;);</span><br><span class="line">// *h*e*l *l*o</span><br></pre></td></tr></table></figure>
-<p>使用 <code>(?!P)</code> 用来匹配除了匹配到的正则表达式 P 之前位置之外的其他位置：</p>
-<p>例如上面的例子， 我们使用 <code>(?!P)</code> 来代替 <code>(?=P)</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">regex = <span class="regexp">/(?!l)/</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">'*'</span>);</span><br><span class="line"><span class="comment">// *h*ell*o*</span></span><br><span class="line"><span class="comment">// 当我们仅仅想匹配到单词内部的时候</span></span><br><span class="line">regex = <span class="regexp">/(?!l)(?!^)(?!$)/</span>;</span><br><span class="line"><span class="comment">// h*ell*o</span></span><br></pre></td></tr></table></figure>
-<p>这里的 <code>(?!^)(?!$)</code> 是匹配除了单词开头和结尾的位置， 这里可以使用 <code>/B</code> 来进行代替;  </p>
-<p><code>regex = /(?!l)(\B)/</code> </p>
-<p>如下， 给一个数字添加千位分隔符 ‘,’  </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"12345678"</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/(?!^)(?=(\d&#123;3&#125;)+$))/g</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">','</span>); <span class="comment">// 12,345,678</span></span><br></pre></td></tr></table></figure>
-<p>分析：</p>
-<p>给一个数字添加一个千位字符的时候， 我们需要在字符尾部向前查找三位字符， 在三位字符前面的位置处添加分隔符 ‘ ,’;  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(\d&#123;<span class="number">3</span>&#125;)+$ <span class="comment">// 匹配结尾处向前 3 个或者多个 3 字符倍数的字符</span></span><br></pre></td></tr></table></figure>
+</tbody></table>
+<h4 id="-以及-"><code>^</code> 以及 <code>$</code></h4>
+用于匹配字符串开头或者字符串结尾的位置：如下例子：将字符的开头和结尾添加特定的字符：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let str = &apos;hello&apos;;</span><br><span class="line">let regex = /^|$/g;</span><br><span class="line">let res = str.replace(regex, &apos;*&apos;);</span><br><span class="line">console.log(res); // &apos;*hello*&apos;</span><br></pre></td></tr></table></figure>
+
+例如下面， 使用 <code>replace</code>  代替     <code>trim</code>  方法：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'  hell o   '</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/^\s+|\s+$/g</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">''</span>);</span><br><span class="line"><span class="comment">// hell o</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="b-以及-b"><code>\b</code> 以及 <code>\B</code></h4>
+使用 <code>\b</code> 的作用是匹配单词边界之间的位置， 具体而言是 <code>\w</code> 以及 <code>\W</code>   之间的位置：<code>\w</code>: 匹配单词字符， 字符包括字母， 汉字， 下划线以及数字示例如下：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'hel lo'</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/\b/g</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">'#'</span>);</span><br><span class="line"><span class="comment">// #hel# #lo#</span></span><br></pre></td></tr></table></figure>
+
+使用 <code>\B</code> 则和 <code>\b</code>  相反， 匹配的位置是单词字符内的位置：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">regex = <span class="regexp">/\B/g</span>;</span><br><span class="line">res = str.replace(regex, <span class="string">'#'</span>);</span><br><span class="line"><span class="comment">// h#e#l l#o;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="p-以及-p"><code>(?=P)</code> 以及 <code>(?!P)</code></h4>
+使用 <code>(?=P)</code> 用来匹配特定字符前的位置, <code>P</code> 是一个正则表达式；如下： 给单词中的 l 字符前面添加字符 <code>#</code>:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">regex = <span class="regexp">/(?=l)/g</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">'#'</span>);</span><br><span class="line"><span class="comment">// he#l#lo</span></span><br></pre></td></tr></table></figure>
+
+给每一个单词字符前面添加一个字符 <code>*</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">regex = /(?=\w)/g;</span><br><span class="line">str = &apos;hello&apos;;</span><br><span class="line">let res = str.replace(regex, &apos;*&apos;);</span><br><span class="line">// *h*e*l *l*o</span><br></pre></td></tr></table></figure>
+
+使用 <code>(?!P)</code> 用来匹配除了匹配到的正则表达式 P 之前位置之外的其他位置：例如上面的例子， 我们使用 <code>(?!P)</code> 来代替 <code>(?=P)</code>:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">regex = <span class="regexp">/(?!l)/</span>;</span><br><span class="line">str = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">'*'</span>);</span><br><span class="line"><span class="comment">// *h*ell*o*</span></span><br><span class="line"><span class="comment">// 当我们仅仅想匹配到单词内部的时候</span></span><br><span class="line">regex = <span class="regexp">/(?!l)(?!^)(?!$)/</span>;</span><br><span class="line"><span class="comment">// h*ell*o</span></span><br></pre></td></tr></table></figure>
+
+这里的 <code>(?!^)(?!$)</code> 是匹配除了单词开头和结尾的位置， 这里可以使用 <code>/B</code> 来进行代替;  <code>regex = /(?!l)(\B)/</code> 如下， 给一个数字添加千位分隔符 &#39;,&#39;  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"12345678"</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/(?!^)(?=(\d&#123;3&#125;)+$))/g</span>;</span><br><span class="line"><span class="keyword">let</span> res = str.replace(regex, <span class="string">','</span>); <span class="comment">// 12,345,678</span></span><br></pre></td></tr></table></figure>
+
+分析：给一个数字添加一个千位字符的时候， 我们需要在字符尾部向前查找三位字符， 在三位字符前面的位置处添加分隔符 &#39; ,&#39;;  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(\d&#123;<span class="number">3</span>&#125;)+$ <span class="comment">// 匹配结尾处向前 3 个或者多个 3 字符倍数的字符</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(?=(\d&#123;<span class="number">3</span>&#125;)+$) <span class="comment">// 匹配 3 个字符或者 3 个字符倍数的字符前面的位置</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(?!^) <span class="comment">// 匹配非开头的位置</span></span><br></pre></td></tr></table></figure>
-<p>如下， 给钱数添加人民币符号 <code>¥</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> number = <span class="string">'1234'</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/(?=^)/</span>;</span><br><span class="line"><span class="keyword">let</span> res = number.replace(regex, <span class="string">'¥ '</span>);</span><br><span class="line"><span class="comment">// ¥ 1234</span></span><br></pre></td></tr></table></figure>
-<p>如下： 判断一段字符中必须包含有数字：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'str123'</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/(?=.*[0-9])^/g</span>;</span><br><span class="line"><span class="comment">// 这里的 ^ 表示开头， 这个正则表达式表示开头的位置， 也就是开头之后的字符需要匹配 .*[0-9]</span></span><br><span class="line"><span class="comment">// .*[0-9] 表示任意字符长度后面都需要一个数字， 也就是需要匹配到的字符串必须包含有数字</span></span><br><span class="line"><span class="keyword">let</span> res = regex.test(str); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>如下： 判断字符中不能全部为数字,  可以使用 <code>?!P</code> 进行判断</p>
-<p>判断字符中不能全部为数字的反义为全部为数字：那么判断全部为数字的正则表达式为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 判断6位字符串中全部为数字</span><br><span class="line">let regex = /(?=[0-9]&#123;6&#125;)/</span><br></pre></td></tr></table></figure>
-<p>因为 <code>?!</code> 和 <code>?=</code> 互为反义， 因此， 判断不能全部为数字的正则如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/(?![0-9]&#123;6&#125;)/</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'123456'</span>;</span><br><span class="line">regex.test(str); <span class="comment">// false</span></span><br><span class="line">str = <span class="string">'a23456'</span>;</span><br><span class="line">regex.test(str); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+如下， 给钱数添加人民币符号 <code>¥</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> number = <span class="string">'1234'</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/(?=^)/</span>;</span><br><span class="line"><span class="keyword">let</span> res = number.replace(regex, <span class="string">'¥ '</span>);</span><br><span class="line"><span class="comment">// ¥ 1234</span></span><br></pre></td></tr></table></figure>
+
+如下： 判断一段字符中必须包含有数字：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'str123'</span>;</span><br><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/(?=.*[0-9])^/g</span>;</span><br><span class="line"><span class="comment">// 这里的 ^ 表示开头， 这个正则表达式表示开头的位置， 也就是开头之后的字符需要匹配 .*[0-9]</span></span><br><span class="line"><span class="comment">// .*[0-9] 表示任意字符长度后面都需要一个数字， 也就是需要匹配到的字符串必须包含有数字</span></span><br><span class="line"><span class="keyword">let</span> res = regex.test(str); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+如下： 判断字符中不能全部为数字,  可以使用 <code>?!P</code> 进行判断判断字符中不能全部为数字的反义为全部为数字：那么判断全部为数字的正则表达式为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 判断6位字符串中全部为数字</span><br><span class="line">let regex = /(?=[0-9]&#123;6&#125;)/</span><br></pre></td></tr></table></figure>
+
+因为 <code>?!</code> 和 <code>?=</code> 互为反义， 因此， 判断不能全部为数字的正则如下：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> regex = <span class="regexp">/(?![0-9]&#123;6&#125;)/</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'123456'</span>;</span><br><span class="line">regex.test(str); <span class="comment">// false</span></span><br><span class="line">str = <span class="string">'a23456'</span>;</span><br><span class="line">regex.test(str); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -733,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#以及"><span class="nav-number">1.</span> <span class="nav-text">^ 以及 $</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-以及-B"><span class="nav-number">2.</span> <span class="nav-text">\b 以及 \B</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#P-以及-P"><span class="nav-number">3.</span> <span class="nav-text">(?=P) 以及 (?!P)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#-以及-"><span class="nav-number">1.</span> <span class="nav-text">^ 以及 $</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-以及-b"><span class="nav-number">2.</span> <span class="nav-text">\b 以及 \B</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-以及-p"><span class="nav-number">3.</span> <span class="nav-text">(?=P) 以及 (?!P)</span></a></li></ol></div>
             
 
           </div>

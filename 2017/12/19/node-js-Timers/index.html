@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="TimersAPISsetImmediate(callback, args)callback : 在 node.js 事件循环之后被调用的函数。   args: 当 callback 函数被调用的时候传递的参数。  在 I / O 事件回调时间之后立即执行 callback 回调函数的执行。 如果 callback 不是一个 function , 会抛出一个 TypeError 错误。 12345">
+<meta name="description" content="Timers APIS setImmediate(callback, args) callback : 在 node.js 事件循环之后被调用的函数。  args: 当 callback 函数被调用的时候传递的参数。 在 I / O 事件回调时间之后立即执行 callback 回调函数的执行。如果 callback 不是一个 function , 会抛出一个 TypeError 错误。123456">
 <meta name="keywords" content="Timers">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node.js Timers">
 <meta property="og:url" content="https://newpromise.github.io/2017/12/19/node-js-Timers/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="TimersAPISsetImmediate(callback, args)callback : 在 node.js 事件循环之后被调用的函数。   args: 当 callback 函数被调用的时候传递的参数。  在 I / O 事件回调时间之后立即执行 callback 回调函数的执行。 如果 callback 不是一个 function , 会抛出一个 TypeError 错误。 12345">
+<meta property="og:description" content="Timers APIS setImmediate(callback, args) callback : 在 node.js 事件循环之后被调用的函数。  args: 当 callback 函数被调用的时候传递的参数。 在 I / O 事件回调时间之后立即执行 callback 回调函数的执行。如果 callback 不是一个 function , 会抛出一个 TypeError 错误。123456">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.979Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js Timers">
-<meta name="twitter:description" content="TimersAPISsetImmediate(callback, args)callback : 在 node.js 事件循环之后被调用的函数。   args: 当 callback 函数被调用的时候传递的参数。  在 I / O 事件回调时间之后立即执行 callback 回调函数的执行。 如果 callback 不是一个 function , 会抛出一个 TypeError 错误。 12345">
+<meta name="twitter:description" content="Timers APIS setImmediate(callback, args) callback : 在 node.js 事件循环之后被调用的函数。  args: 当 callback 函数被调用的时候传递的参数。 在 I / O 事件回调时间之后立即执行 callback 回调函数的执行。如果 callback 不是一个 function , 会抛出一个 TypeError 错误。123456">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  304字
+                  306字
                 </span>
               
 
@@ -450,17 +450,17 @@
       
 
       
-        <h3 id="Timers"><a href="#Timers" class="headerlink" title="Timers"></a><code>Timers</code></h3><h4 id="APIS"><a href="#APIS" class="headerlink" title="APIS"></a><code>APIS</code></h4><h5 id="setImmediate-callback-args"><a href="#setImmediate-callback-args" class="headerlink" title="setImmediate(callback, args)"></a><code>setImmediate(callback, args)</code></h5><p><code>callback</code> : 在 <code>node.js</code> 事件循环之后被调用的函数。  </p>
-<p><code>args</code>: 当 <code>callback</code> 函数被调用的时候传递的参数。 </p>
-<p>在 <code>I / O</code> 事件回调时间之后立即执行 <code>callback</code> 回调函数的执行。</p>
-<p>如果 <code>callback</code> 不是一个 <code>function</code> , 会抛出一个 <code>TypeError</code> 错误。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setImmediate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'事件稍后被执行'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'事件立即被执行'</span>);</span><br><span class="line"><span class="comment">// 事件立即被执行</span></span><br><span class="line"><span class="comment">// 事件稍后被执行</span></span><br></pre></td></tr></table></figure>
-<h5 id="setInterval-callback-delay-args"><a href="#setInterval-callback-delay-args" class="headerlink" title="setInterval(callback, delay, args)"></a><code>setInterval(callback, delay, args)</code></h5><p>使用 <code>setInterval</code> 类似于使用 <code>setInterval</code> 方法, 在一定的时间间隔 <code>delay</code> 之后执行 <code>callback</code> 函数。  </p>
-<p>在官方给的例子中存在使用 <code>util.promisly()</code> 的一个变体。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"><span class="keyword">const</span> setTimeoutPromise = util.promisify(setTimeout);</span><br><span class="line">setTimeoutPromise(<span class="number">4000</span>, <span class="string">'foobar'</span>).then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// after delay print 'foobar'</span></span><br></pre></td></tr></table></figure>
-<h4 id="canceling-Timers"><a href="#canceling-Timers" class="headerlink" title="canceling Timers"></a><code>canceling Timers</code></h4><p>使用 <code>setImmediate</code> <code>setInterval</code>  以及 <code>setTimeout</code> 每一个方法都会返回一个代表排列事件的对象, 这些能够用来取消 <code>timer</code> 防止被触发的操作。  </p>
-<p><code>clearImmediate</code>,  <code>clearInterval</code>,  <code>clearTimeout</code>  用来清除通过使用 <code>setImmedidate</code>  <code>setInterval</code> 以及 <code>setTimeout</code> 创建的定时器。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> immidate = setImmediate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'事件之后被调用'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">clearImmediate(immidate);</span><br><span class="line"><span class="comment">// 清除事件， 事件之后不会调用</span></span><br><span class="line"></span><br><span class="line">clearInterval();</span><br><span class="line"><span class="comment">// 清除间隔时间后的调用</span></span><br><span class="line">clearTimeout();</span><br><span class="line"><span class="comment">// 清除一段时间之后的调用</span></span><br></pre></td></tr></table></figure>
+        <h3 id="timers"><code>Timers</code></h3>
+<h4 id="apis"><code>APIS</code></h4>
+<h5 id="setimmediatecallback-args"><code>setImmediate(callback, args)</code></h5>
+<code>callback</code> : 在 <code>node.js</code> 事件循环之后被调用的函数。  <code>args</code>: 当 <code>callback</code> 函数被调用的时候传递的参数。 在 <code>I / O</code> 事件回调时间之后立即执行 <code>callback</code> 回调函数的执行。如果 <code>callback</code> 不是一个 <code>function</code> , 会抛出一个 <code>TypeError</code> 错误。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setImmediate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'事件稍后被执行'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'事件立即被执行'</span>);</span><br><span class="line"><span class="comment">// 事件立即被执行</span></span><br><span class="line"><span class="comment">// 事件稍后被执行</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="setintervalcallback-delay-args"><code>setInterval(callback, delay, args)</code></h5>
+使用 <code>setInterval</code> 类似于使用 <code>setInterval</code> 方法, 在一定的时间间隔 <code>delay</code> 之后执行 <code>callback</code> 函数。  在官方给的例子中存在使用 <code>util.promisly()</code> 的一个变体。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"><span class="keyword">const</span> setTimeoutPromise = util.promisify(setTimeout);</span><br><span class="line">setTimeoutPromise(<span class="number">4000</span>, <span class="string">'foobar'</span>).then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// after delay print 'foobar'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="canceling-timers"><code>canceling Timers</code></h4>
+使用 <code>setImmediate</code> <code>setInterval</code>  以及 <code>setTimeout</code> 每一个方法都会返回一个代表排列事件的对象, 这些能够用来取消 <code>timer</code> 防止被触发的操作。  <code>clearImmediate</code>,  <code>clearInterval</code>,  <code>clearTimeout</code>  用来清除通过使用 <code>setImmedidate</code>  <code>setInterval</code> 以及 <code>setTimeout</code> 创建的定时器。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> immidate = setImmediate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'事件之后被调用'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">clearImmediate(immidate);</span><br><span class="line"><span class="comment">// 清除事件， 事件之后不会调用</span></span><br><span class="line"></span><br><span class="line">clearInterval();</span><br><span class="line"><span class="comment">// 清除间隔时间后的调用</span></span><br><span class="line">clearTimeout();</span><br><span class="line"><span class="comment">// 清除一段时间之后的调用</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -669,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timers"><span class="nav-number">1.</span> <span class="nav-text">Timers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#APIS"><span class="nav-number">1.1.</span> <span class="nav-text">APIS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#setImmediate-callback-args"><span class="nav-number">1.1.1.</span> <span class="nav-text">setImmediate(callback, args)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#setInterval-callback-delay-args"><span class="nav-number">1.1.2.</span> <span class="nav-text">setInterval(callback, delay, args)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canceling-Timers"><span class="nav-number">1.2.</span> <span class="nav-text">canceling Timers</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#timers"><span class="nav-number">1.</span> <span class="nav-text">Timers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#apis"><span class="nav-number">1.1.</span> <span class="nav-text">APIS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#setimmediatecallback-args"><span class="nav-number">1.1.1.</span> <span class="nav-text">setImmediate(callback, args)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#setintervalcallback-delay-args"><span class="nav-number">1.1.2.</span> <span class="nav-text">setInterval(callback, delay, args)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canceling-timers"><span class="nav-number">1.2.</span> <span class="nav-text">canceling Timers</span></a></li></ol></li></ol></div>
             
 
           </div>

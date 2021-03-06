@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="Vue的响应原理 上面这张图表示的就是 vue 的响应原理: 当我们将数据添加入 vue 实例中的 data 选项中的时候, vue 将遍历data 中数据的所有属性，并且调用 Object.defineProperty 方法将属性记录为依赖。当数据发生改变的时候,就会调用 object.defineProperty 中的 setter 方法, 在组件实例中存在一个 watcher 对象，这个对象">
+<meta name="description" content="Vue的响应原理 上面这张图表示的就是 vue 的响应原理:当我们将数据添加入 vue 实例中的 data 选项中的时候, vue 将遍历data 中数据的所有属性，并且调用 Object.defineProperty 方法将属性记录为依赖。当数据发生改变的时候,就会调用 object.defineProperty 中的 setter 方法,在组件实例中存在一个 watcher 对象，这个对象的目">
 <meta name="keywords" content="vue 响应原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue.js学习（一）">
 <meta property="og:url" content="https://newpromise.github.io/2017/09/09/Vue响应原理/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="Vue的响应原理 上面这张图表示的就是 vue 的响应原理: 当我们将数据添加入 vue 实例中的 data 选项中的时候, vue 将遍历data 中数据的所有属性，并且调用 Object.defineProperty 方法将属性记录为依赖。当数据发生改变的时候,就会调用 object.defineProperty 中的 setter 方法, 在组件实例中存在一个 watcher 对象，这个对象">
+<meta property="og:description" content="Vue的响应原理 上面这张图表示的就是 vue 的响应原理:当我们将数据添加入 vue 实例中的 data 选项中的时候, vue 将遍历data 中数据的所有属性，并且调用 Object.defineProperty 方法将属性记录为依赖。当数据发生改变的时候,就会调用 object.defineProperty 中的 setter 方法,在组件实例中存在一个 watcher 对象，这个对象的目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cn.vuejs.org/images/data.png">
-<meta property="og:updated_time" content="2020-09-14T06:36:25.965Z">
+<meta property="og:image" content="https://newpromise.github.io/2017/09/09/Vue响应原理/data.png">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue.js学习（一）">
-<meta name="twitter:description" content="Vue的响应原理 上面这张图表示的就是 vue 的响应原理: 当我们将数据添加入 vue 实例中的 data 选项中的时候, vue 将遍历data 中数据的所有属性，并且调用 Object.defineProperty 方法将属性记录为依赖。当数据发生改变的时候,就会调用 object.defineProperty 中的 setter 方法, 在组件实例中存在一个 watcher 对象，这个对象">
-<meta name="twitter:image" content="https://cn.vuejs.org/images/data.png">
+<meta name="twitter:description" content="Vue的响应原理 上面这张图表示的就是 vue 的响应原理:当我们将数据添加入 vue 实例中的 data 选项中的时候, vue 将遍历data 中数据的所有属性，并且调用 Object.defineProperty 方法将属性记录为依赖。当数据发生改变的时候,就会调用 object.defineProperty 中的 setter 方法,在组件实例中存在一个 watcher 对象，这个对象的目">
+<meta name="twitter:image" content="https://newpromise.github.io/2017/09/09/Vue响应原理/data.png">
 
 
 
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-14T06:36:25+00:00">
-                2020-09-14
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  240字
+                  241字
                 </span>
               
 
@@ -452,14 +452,12 @@
       
 
       
-        <h3 id="Vue的响应原理"><a href="#Vue的响应原理" class="headerlink" title="Vue的响应原理"></a>Vue的响应原理</h3><p><img src="https://cn.vuejs.org/images/data.png" alt></p>
-<p>上面这张图表示的就是 vue 的响应原理:</p>
-<p>当我们将数据添加入 vue 实例中的 <code>data</code> 选项中的时候, vue 将遍历data 中数据的所有属性，并且调用 <code>Object.defineProperty</code> 方法将属性记录为依赖。当数据发生改变的时候,就会调用 <code>object.defineProperty</code> 中的 <code>setter</code> 方法,</p>
-<p>在组件实例中存在一个 <code>watcher</code> 对象，这个对象的目的是：当被记录的依赖被调用的时候,也就是属性的 <code>setter</code> 被调用的时候，会通知<code>watcher</code> 对象进行重新渲染组件</p>
-<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(Object, property, &#123;</span><br><span class="line">  get () &#123;</span><br><span class="line">  	// 读取对象Object 的属性 property 的时候调用的函数</span><br><span class="line">  &#125;,</span><br><span class="line">  set (newVal) &#123;</span><br><span class="line">   // 设置对象 Object 的属性 property 的时候调用的函数</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>通过使用这种方法，调用 <code>getter</code> 和 <code>setter</code> 可以实现追踪对象属性的变化  </p>
-<h3 id="vue-js-中的-生命周期"><a href="#vue-js-中的-生命周期" class="headerlink" title="vue.js 中的 生命周期"></a><code>vue.js</code> 中的 生命周期</h3><p>在 <code>vue.js</code> 中</p>
+        <h3 id="vue的响应原理">Vue的响应原理</h3>
+<img src="data.png" loading="lazy">上面这张图表示的就是 vue 的响应原理:当我们将数据添加入 vue 实例中的 <code>data</code> 选项中的时候, vue 将遍历data 中数据的所有属性，并且调用 <code>Object.defineProperty</code> 方法将属性记录为依赖。当数据发生改变的时候,就会调用 <code>object.defineProperty</code> 中的 <code>setter</code> 方法,在组件实例中存在一个 <code>watcher</code> 对象，这个对象的目的是：当被记录的依赖被调用的时候,也就是属性的 <code>setter</code> 被调用的时候，会通知<code>watcher</code> 对象进行重新渲染组件<h3 id="objectdefineproperty">Object.defineProperty</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(Object, property, &#123;</span><br><span class="line">  get () &#123;</span><br><span class="line">  	// 读取对象Object 的属性 property 的时候调用的函数</span><br><span class="line">  &#125;,</span><br><span class="line">  set (newVal) &#123;</span><br><span class="line">   // 设置对象 Object 的属性 property 的时候调用的函数</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+通过使用这种方法，调用 <code>getter</code> 和 <code>setter</code> 可以实现追踪对象属性的变化  <h3 id="vuejs-中的-生命周期"><code>vue.js</code> 中的 生命周期</h3>
+在 <code>vue.js</code> 中
       
     </div>
     
@@ -667,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue的响应原理"><span class="nav-number">1.</span> <span class="nav-text">Vue的响应原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-defineProperty"><span class="nav-number">2.</span> <span class="nav-text">Object.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-js-中的-生命周期"><span class="nav-number">3.</span> <span class="nav-text">vue.js 中的 生命周期</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的响应原理"><span class="nav-number">1.</span> <span class="nav-text">Vue的响应原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#objectdefineproperty"><span class="nav-number">2.</span> <span class="nav-text">Object.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vuejs-中的-生命周期"><span class="nav-number">3.</span> <span class="nav-text">vue.js 中的 生命周期</span></a></li></ol></div>
             
 
           </div>
