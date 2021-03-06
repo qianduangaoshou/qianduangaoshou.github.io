@@ -90,7 +90,7 @@
 <meta property="og:description" content="this.nextTick 的作用 在 Vue.js 的官方文档中是这样描述 this.nextTick 的: 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用. 在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newpromise.github.io/2018/01/21/this-nextTick-in-vue-js/lifecycle.png">
-<meta property="og:updated_time" content="2021-03-03T10:09:11.250Z">
+<meta property="og:updated_time" content="2021-03-06T14:32:34.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this.nextTick in vue.js">
 <meta name="twitter:description" content="this.nextTick 的作用 在 Vue.js 的官方文档中是这样描述 this.nextTick 的: 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用. 在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
@@ -328,7 +328,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T09:50:07+00:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T17:50:07+00:00">
                 2018-01-21
               </time>
             
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
-                2021-03-03
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
+                2021-03-06
               </time>
             
           </span>
@@ -462,7 +462,7 @@ Vue <strong>异步</strong>执行 DOM 更新。只要观察到数据变化，Vue
 <li> 在 <code>created</code> 阶段的时候， 这个时候 <code>DOM</code> 元素尚未挂载, 在这个钩子函数内操作 <code>DOM</code> 是无法找到 <code>DOM</code> 元素的， 这个时候使用 <code>this.nextTick</code> 类似于使用 <code>mounted</code> 的钩子函数， 这个时候所有的 <code>DOM</code> 元素挂载和渲染均已经完成，这个时候可以执行对于 <code>DOM</code> 元素的操作。</li>
 <li> 当我们想要对于数据发生变化之后的 <code>DOM</code> 元素之后执行一些操作的时候， 我们可以使用 <code>this.nextTick(callback)</code> 那么 <code>callback</code> 回调函数就会当 <code>DOM</code> 元素被更新之后被触发。</li>
 </ol>
-   ​   <img src="lifecycle.png" loading="lazy"> 上图是 <code>vue</code> 实例的生命周期图。
+   ​   <img src="lifecycle.png" loading="lazy" style="border: none;"> 上图是 <code>vue</code> 实例的生命周期图。
       
     </div>
     
@@ -502,7 +502,7 @@ Vue <strong>异步</strong>执行 DOM 更新。只要观察到数据变化，Vue
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/12/浏览器渲染过程/" rel="prev" title="浏览器渲染过程">
+              <a href="/2018/03/13/浏览器渲染过程/" rel="prev" title="浏览器渲染过程">
                 浏览器渲染过程 <i class="fa fa-chevron-right"></i>
               </a>
             

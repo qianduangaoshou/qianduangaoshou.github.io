@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="toolTip,">
+  <meta name="keywords" content="js运行机制，线程,">
 
 
 
@@ -81,18 +81,20 @@
 
 
 
-<meta name="description" content="在业务上实现了一个类似于 el-tooltip 的方法，类似于下面这种情况：业务需求是对于弹窗的文字标签字段， 如果文字标签说明太长的时候， 而这个时候文字标签说明又有宽度限制， 这个时候需要实现一个类似于 el-tooltip 的实现方法，但是对于每一个标签上都添加上 el-tooltip 是不现实的，因此想要通过使用指令的方法，对于表单中的标签字段进行动态添加，实现这个指令的 toolTip.">
-<meta name="keywords" content="toolTip">
+<meta name="description" content="存在下面一段代码：1234567891011setTimeout(function() &amp;#123; console.log(1) &amp;#125;, 0);new Promise(function(resolve)&amp;#123;    console.log(2);    for(var i = 0; i &amp;lt; 10000; i++) &amp;#123;        i === 9999 &amp;amp;&amp;">
+<meta name="keywords" content="js运行机制，线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tooltip 的实现">
-<meta property="og:url" content="https://newpromise.github.io/2018/05/08/tooltip-的实现/index.html">
+<meta property="og:title" content="详解js中的线程，进程, eventLoop">
+<meta property="og:url" content="https://newpromise.github.io/2018/06/21/详解js中的线程，进程/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="在业务上实现了一个类似于 el-tooltip 的方法，类似于下面这种情况：业务需求是对于弹窗的文字标签字段， 如果文字标签说明太长的时候， 而这个时候文字标签说明又有宽度限制， 这个时候需要实现一个类似于 el-tooltip 的实现方法，但是对于每一个标签上都添加上 el-tooltip 是不现实的，因此想要通过使用指令的方法，对于表单中的标签字段进行动态添加，实现这个指令的 toolTip.">
+<meta property="og:description" content="存在下面一段代码：1234567891011setTimeout(function() &amp;#123; console.log(1) &amp;#125;, 0);new Promise(function(resolve)&amp;#123;    console.log(2);    for(var i = 0; i &amp;lt; 10000; i++) &amp;#123;        i === 9999 &amp;amp;&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-03T10:09:11.250Z">
+<meta property="og:image" content="https://newpromise.github.io/2018/06/21/详解js中的线程，进程/800">
+<meta property="og:updated_time" content="2021-03-06T14:32:34.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tooltip 的实现">
-<meta name="twitter:description" content="在业务上实现了一个类似于 el-tooltip 的方法，类似于下面这种情况：业务需求是对于弹窗的文字标签字段， 如果文字标签说明太长的时候， 而这个时候文字标签说明又有宽度限制， 这个时候需要实现一个类似于 el-tooltip 的实现方法，但是对于每一个标签上都添加上 el-tooltip 是不现实的，因此想要通过使用指令的方法，对于表单中的标签字段进行动态添加，实现这个指令的 toolTip.">
+<meta name="twitter:title" content="详解js中的线程，进程, eventLoop">
+<meta name="twitter:description" content="存在下面一段代码：1234567891011setTimeout(function() &amp;#123; console.log(1) &amp;#125;, 0);new Promise(function(resolve)&amp;#123;    console.log(2);    for(var i = 0; i &amp;lt; 10000; i++) &amp;#123;        i === 9999 &amp;amp;&amp;">
+<meta name="twitter:image" content="https://newpromise.github.io/2018/06/21/详解js中的线程，进程/800">
 
 
 
@@ -122,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://newpromise.github.io/2018/05/08/tooltip-的实现/">
+  <link rel="canonical" href="https://newpromise.github.io/2018/06/21/详解js中的线程，进程/">
 
 
 
 
 
-  <title>tooltip 的实现 | 上善若水</title>
+  <title>详解js中的线程，进程, eventLoop | 上善若水</title>
   
 
 
@@ -297,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2018/05/08/tooltip-的实现/">
+    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2018/06/21/详解js中的线程，进程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="上善若水">
@@ -314,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">tooltip 的实现</h1>
+          <h1 class="post-title" itemprop="name headline">详解js中的线程，进程, eventLoop</h1>
         
 
         <div class="post-meta">
@@ -326,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T16:45:46+00:00">
-                2018-05-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-21T00:08:26+00:00">
+                2018-06-21
               </time>
             
 
@@ -342,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
-                2021-03-03
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
+                2021-03-06
               </time>
             
           </span>
@@ -361,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/代码集/" itemprop="url" rel="index">
-                    <span itemprop="name">代码集</span>
+                  <a href="/categories/js理论基础/" itemprop="url" rel="index">
+                    <span itemprop="name">js理论基础</span>
                   </a>
                 </span>
 
@@ -379,8 +381,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/08/tooltip-的实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/08/tooltip-的实现/" itemprop="commentCount"></span>
+                <a href="/2018/06/21/详解js中的线程，进程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/21/详解js中的线程，进程/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,7 +390,7 @@
 
           
           
-             <span id="/2018/05/08/tooltip-的实现/" class="leancloud_visitors" data-flag-title="tooltip 的实现">
+             <span id="/2018/06/21/详解js中的线程，进程/" class="leancloud_visitors" data-flag-title="详解js中的线程，进程, eventLoop">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -413,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k字
+                  1.5k字
                 </span>
               
 
@@ -450,15 +452,56 @@
       
 
       
-        在业务上实现了一个类似于 <code>el-tooltip</code> 的方法，类似于下面这种情况：业务需求是对于弹窗的文字标签字段， 如果文字标签说明太长的时候， 而这个时候文字标签说明又有宽度限制， 这个时候需要实现一个类似于 <code>el-tooltip</code> 的实现方法，但是对于每一个标签上都添加上 <code>el-tooltip</code> 是不现实的，因此想要通过使用指令的方法，对于表单中的标签字段进行动态添加，实现这个指令的 <code>toolTip.js</code> 的具体代码如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于出现dialog 的情况， 都是在 el-dialog__wrapper 上进行滚动的</span></span><br><span class="line"><span class="keyword">import</span> Util <span class="keyword">from</span> <span class="string">"./util"</span>;</span><br><span class="line"><span class="keyword">const</span> getScrollRoot = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.documentElement.querySelector(<span class="string">".el-dialog__wrapper"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> instancePool = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 tip instance 方法</span></span><br><span class="line"><span class="keyword">const</span> instanceAction = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> push = <span class="function">(<span class="params">instance</span>) =&gt;</span> &#123;</span><br><span class="line">        instancePool.push(instance);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        pushInstance: push</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 获取到绑定元素在当前页面上距离左边的距离</span></span><br><span class="line"><span class="keyword">const</span> getElementViewLeft = <span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> actualLeft = element.offsetLeft;</span><br><span class="line">    <span class="keyword">let</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">        actualLeft += current.offsetLeft;</span><br><span class="line">        current = current.offsetParent;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> actualLeft;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取到绑定元素在当前页面上位置高度</span></span><br><span class="line"><span class="keyword">const</span> getElementViewTop = <span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> actualTop = element.offsetTop;</span><br><span class="line">    <span class="keyword">let</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">        actualTop += current.offsetTop;</span><br><span class="line">        current = current.offsetParent;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> actualTop;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tooltip</span>(<span class="params">el, opt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> items = el.querySelectorAll(<span class="string">".el-form-item"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> items) &#123;</span><br><span class="line">        <span class="keyword">const</span> target = item.firstChild;</span><br><span class="line">        <span class="comment">// 如果定义了一个 label 为空的时候的 form-item， label 部分为 before 元素， 但是还是可以这个时候 			className 为 null</span></span><br><span class="line">        <span class="keyword">if</span> (target.className) &#123;</span><br><span class="line">            <span class="comment">// 将每一个需要显示标签的实例信息压入</span></span><br><span class="line">            instanceAction().pushInstance(&#123; <span class="attr">tip</span>: <span class="literal">null</span>, target, <span class="attr">message</span>: target.innerText, <span class="attr">offset</span>: <span class="number">0</span>, <span class="attr">class</span>: <span class="string">"vk-tooltip"</span> &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.scrollListener = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.mouseenterListener = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.mouseleaveListener = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.init();</span><br><span class="line">    <span class="comment">// target：传入的DOM</span></span><br><span class="line">    <span class="comment">// this.target = el;</span></span><br><span class="line">    <span class="comment">// tip：用来放初始化创建的tip元素</span></span><br><span class="line">    <span class="comment">// this.tip = null;</span></span><br><span class="line">    <span class="comment">// this.message = (opt &amp;&amp; opt.msg) || this.target.innerText;</span></span><br><span class="line">    <span class="comment">// this.offset = (opt &amp;&amp; +opt.offset) || 0;</span></span><br><span class="line">    <span class="comment">// this.class = "vk-tooltip";</span></span><br><span class="line">    <span class="comment">// instanceAction.push();</span></span><br><span class="line">    <span class="comment">// this.init();</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tooltip.prototype = &#123;</span><br><span class="line">    <span class="comment">// 初始化tip，添加事件监听</span></span><br><span class="line">    init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> me = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">const</span> root = getScrollRoot();</span><br><span class="line">        <span class="comment">// 鼠标进入才创建标签</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> instance <span class="keyword">of</span> instancePool) &#123;</span><br><span class="line">            <span class="keyword">const</span> &#123; target, tip, message, offset &#125; = instance;</span><br><span class="line">            <span class="comment">// 滚动监听事件</span></span><br><span class="line">            <span class="comment">// 鼠标移入监听事件</span></span><br><span class="line">            <span class="comment">// 鼠标移除监听事件</span></span><br><span class="line">            <span class="keyword">if</span> (message.length &lt; <span class="number">6</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">this</span>.mouseenterListener = Util.listener(target, <span class="string">"mouseenter"</span>, () =&gt; &#123;</span><br><span class="line">                instance = me.createTip(instance);</span><br><span class="line">                instance.tip.style.opacity = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">this</span>.scrollListener = Util.listener(root, <span class="string">"scroll"</span>, () =&gt; &#123;</span><br><span class="line">                    me.setTipPlace(instance.tip, instance.target, instance.offset);</span><br><span class="line">                    instance.tip.style.opacity = <span class="number">0</span>;</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">this</span>.scrollListener.listen();</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">this</span>.mouseenterListener.listen();</span><br><span class="line">            <span class="keyword">this</span>.mouseleaveListener = Util.listener(target, <span class="string">"mouseleave"</span>, () =&gt; &#123;</span><br><span class="line">                instance.tip.style.opacity = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">this</span>.scrollListener.remove();</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">this</span>.mouseleaveListener.listen();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    createTip(instance) &#123;</span><br><span class="line">        <span class="keyword">const</span> me = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">const</span> poppup = <span class="string">"&lt;div class='triangle-down'&gt;&lt;/div&gt;"</span>;</span><br><span class="line">        <span class="keyword">const</span> cache = <span class="built_in">document</span>.getElementsByClassName(instance.class);</span><br><span class="line">        <span class="comment">// 如果存在一个tip标签则使用该标签</span></span><br><span class="line">        instance.tip = cache.length ? cache[<span class="number">0</span>] : <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">        instance.tip.className = instance.class;</span><br><span class="line">        instance.tip.innerHTML = <span class="string">`<span class="subst">$&#123;instance.message&#125;</span><span class="subst">$&#123;poppup&#125;</span>`</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(instance.tip);</span><br><span class="line">        <span class="keyword">if</span> (!me.tip) &#123;</span><br><span class="line">            me.tip = instance.tip;</span><br><span class="line">        &#125;</span><br><span class="line">        me.setTipPlace(instance.tip, instance.target, instance.offset);</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置tip显示的位置</span></span><br><span class="line">    setTipPlace: <span class="function"><span class="keyword">function</span> (<span class="params">tip, target, offset</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> root = getScrollRoot();</span><br><span class="line">        <span class="keyword">const</span> distance = (tip.clientWidth - target.clientWidth) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">const</span> pageX = <span class="string">`<span class="subst">$&#123;getElementViewLeft(target) - root.scrollLeft - distance + offset&#125;</span>px`</span>;</span><br><span class="line">        <span class="keyword">const</span> pageY = <span class="string">`<span class="subst">$&#123;getElementViewTop(target) - target.clientHeight - root.scrollTop&#125;</span>px`</span>;</span><br><span class="line">        tip.style.left = pageX;</span><br><span class="line">        tip.style.top = pageY;</span><br><span class="line">    &#125;,</span><br><span class="line">    clear: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        instancePool = [];</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.tip) &#123;</span><br><span class="line">            <span class="keyword">this</span>.tip.parentNode.removeChild(<span class="keyword">this</span>.tip);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.mouseenterListener.remove();</span><br><span class="line">        <span class="keyword">this</span>.mouseleaveListener.remove();</span><br><span class="line">        <span class="keyword">this</span>.mouseenterListener = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.mouseleaveListener = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.scrollListener = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> tooltip;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// /**</span></span><br><span class="line"><span class="comment">//  * @description 因为el的tooltip展示需要用到组件，这里用指令进行tooltip展示</span></span><br><span class="line"><span class="comment">//  * @example &lt;div v-tips&gt;此处为被缩略的文本内容&lt;/div&gt;</span></span><br><span class="line"><span class="comment">//  * @param opt v-tips="opt" 可以传入配置对象, msg 展示信息, offset X轴偏移量</span></span><br><span class="line"><span class="comment">//  * 在元素插入DOM时，创建tooltip实例。</span></span><br><span class="line"><span class="comment">//  */</span></span><br><span class="line"><span class="comment">// Vue.directive("tips", &#123;</span></span><br><span class="line"><span class="comment">//     bind: (el) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//         console.log(el);</span></span><br><span class="line"><span class="comment">//     &#125;,</span></span><br><span class="line"><span class="comment">//     // 当绑定元素插入到 DOM 中。</span></span><br><span class="line"><span class="comment">//     inserted: (el, &#123; value &#125;) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//         // 暂时针对el-form的label标签，所以指定firsChild</span></span><br><span class="line"><span class="comment">//         this.instance = new VkTooltip(el.firstChild, value);</span></span><br><span class="line"><span class="comment">//     &#125;,</span></span><br><span class="line"><span class="comment">//     // 解除绑定的时候清除实例以及标签,清除事件监听</span></span><br><span class="line"><span class="comment">//     unbind: (el) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//         this.instance.clear();</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"><span class="comment">// Util listen 函数</span></span><br><span class="line">Util.listen = <span class="function">(<span class="params">target, eventType, callback</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (target.addEventListener) &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">          listen: &#123;</span><br><span class="line">            target.addEventListener(eventType, callback, <span class="literal">false</span>);</span><br><span class="line">          &#125;,</span><br><span class="line">          remove: &#123;</span><br><span class="line">            target.removeEventListener(eventType, callback, <span class="literal">false</span>);</span><br><span class="line">      	  &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target.attachEvent) &#123;</span><br><span class="line">      listen: &#123;</span><br><span class="line">          target.attachEvent(<span class="string">'on'</span> + eventType, callback);</span><br><span class="line">      &#125;,</span><br><span class="line">      remove: &#123;</span><br><span class="line">          target.detachEvent(<span class="string">'on'</span> + eventType, callback);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        存在下面一段代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">1</span>) &#125;, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">        i === <span class="number">9999</span> &amp;&amp; resolve()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
 
-使用的时候， 这个函数被作为指令在 <code>main.js</code> 中引入：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VKTooltip <span class="keyword">from</span> <span class="string">"@/assets/js/tooltip"</span>;</span><br><span class="line">Vue.directive(<span class="string">"tips"</span>, &#123;</span><br><span class="line">  bind: <span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  inserted: <span class="function">(<span class="params">el, &#123; value &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.instance = <span class="keyword">new</span> VKTooltip(el, value);</span><br><span class="line">  &#125;,</span><br><span class="line">  unbind: <span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>. instance.clear();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-关于在 <code>vue.js</code> 中自定义指令的使用， 可以查看<code>vue.js</code> 官网， <a href="https://cn.vuejs.org/v2/guide/custom-directive.html#ad" target="_blank" rel="noopener">自定义指令</a>需要注意的知识点：<ol>
-<li>对于页面元素各个位置的理解</li>
-<li>js 基础一定要熟悉</li>
+上面的代码的执行顺序， 依次输出内容分别是什么？
+正确的答案是： 2， 3， 5 ，4， 1；
+在上面的代码中， 执行的代码顺序如下：<ol>
+<li>执行 <code>promise</code> 实例内部的代码， 输出 <code>2</code>;</li>
+<li>顺序执行后面的代码 <code>console.log(3)</code>, 输出 <code>3</code>;</li>
+<li>执行 <code>console.log(5)</code>， 代码输出 <code>5</code>;</li>
+<li>执行 <code>resolve</code> 函数， 执行 <code>resolve</code> 函数中的代码  <code>console.log(4)</code>, 输出 <code>4</code>;</li>
+<li>最后执行 <code>setTimeout</code> 中的代码， 代码执行 <code>console.log(1)</code> ， 输出 <code>1</code>;
+为什么会按照上面的顺序执行代码， 下面将要进行详细的讲解：  </li>
 </ol>
+<h3 id="js-中的线程">js 中的线程</h3>
+在 js 中的线程和浏览器中的线程是不同的， 在 js 中是单线程， 在浏览器是多线程的。js 的单线程是指所有的 js 代码都是在 js 引擎上面的一个主线程上面运行的，js  同时只能执行一个任务， 其他的任务则会排队进行等待执行。这些任务被放在一个任务队列中等待执行。在浏览器中， 包括下面这些线程：<ul>
+<li>js 引擎线程（例如 v8 引擎）</li>
+<li>UI 渲染线程</li>
+<li>浏览器事件触发线程</li>
+<li>定时触发器线程</li>
+<li>http 请求线程</li>
+</ul>
+<strong>这些线程的作用分别是这样的：</strong><ul>
+<li>UI渲染线程用于渲染页面、解析 HTMl CSS， 创建 DOM 树。当页面元素发生重构或者回流的时候， 这个线程就会执行， 重新渲染页面。</li>
+<li>js引擎用于执行 js 脚本代码，等待任务队列中的任务到来， 并且加以处理</li>
+<li>浏览器事件触发线程用于控制用户， 响应交互，当 js 引擎执行代码遇到相关事件的时候， 会将对应的任务添加到事件线程中， 当任务符合触发条件被触发的时候， 触发的任务会被添加到任务队列的队尾， 等待 js 引擎执行完成主线程上面的任务之后执行。</li>
+<li>定时触发器线程用于对于 <code>setTimeout</code> 或者 <code>setInterval</code> 进行计数, 因为 js引擎是单线程的， 所以自然计数的任务就不能有 js 引擎来完成， 而是由浏览器单独开出一个定时触发器线程用于计数， 当计数完毕之后， 会将计数完成之后的函数添加到任务队列尾部， 等待 js引擎执行完成主线程上面的任务之后执行。<blockquote>
+这里也就是说有个常见的问题： setTimeout(() =&gt; {}, 0);回调是立即执行的吗？并不是， 因为， 需要js 引擎执行完主线程上面的任务之后， 才会执行 任务列表中的任务。</blockquote>
+</li>
+<li>http 请求线程， ajax 是委托给浏览器新开一个 http 线程</li>
+</ul>
+在上面的这些线程中， js 引擎的线程和UI渲染的线程是互斥的， 因此， 当js执行代码的时候会出现阻塞页面渲染的情况， 这也就是许多前端性能优化中都有提到的将js代码在html代码尾部加载的原因， 同时， 在 js 中操作dom会引发页面的重构或者回流， 这个时候UI渲染线程就会开始工作， 重新渲染页面， js 引擎的主线程就会被挂起，暂停代码执行， 从而影响页面性能， 这也是前端性能优化的一种方式：尽量减少js中直接对于dom的操作。<h3 id="settimeout"><code>setTimeout</code></h3>
+<code>setTimeout</code> 在 js 中的作用是用来延迟代码执行， 规定代码在延迟多少时间之后执行回调函数代码，在上面关于线程的讲解中， 我们知道浏览器的定时触发器线程会在延迟时间达到之后将回调事件添加到js引擎中的任务队列中， 而在 js 引擎中， 引擎会在执行完成主线程上面的任务之后执行任务队列中的事件， 因此，当代码中存在 <code>setTimeout</code> 的时候， 内部的回调函数会在其他代码执行完毕之后才执行，  尽管我们将延迟时间设为0的情况也是如此：有如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="number">2</span>) &#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
+执行结果： 1， 2上面 <code>setTimeout</code> 中的函数会等到 <code>console.log(1)</code> 执行完成之后执行结果。<h3 id="js-中的事件运行机制">js 中的事件运行机制</h3>
+我们知道js是单线程运行的， 那么具体的运行机制是如何的？我们需要知道下面这些概念：<ul>
+<li>js 中分为同步任务和异步任务</li>
+<li>同步任务都是在主线程上面执行， 形成一个执行栈</li>
+<li>在主线程之外， 事件触发线程管理着一个任务队列， 当异步任务有了运行结果时， 就在任务队列中添加一个事件</li>
+<li>当执行栈中的所有的同步任务执行完毕之后， 任务队列中的任务将会添加到执行栈中， 开始执行  </li>
+</ul>
+事件运行机制的详细图解如下：<img src="800" loading="lazy" style="border: none;"><h3 id="js-中的-macrotask-与-microtask">js 中的 <code>macrotask</code> 与 <code>microtask</code></h3>
+在 js 中， 存在两种任务类型： <code>macrotask</code>(宏任务) 和 <code>microtash</code> (微任务)， 这两种任务类型的区别在于执行任务的时机是不同的。<ul>
+<li><code>macrotask</code>: 宏任务可以理解为执行栈中执行的任务， 在执行任务期间不会中断任务， 浏览器为了能够使 js 内部task与 dom 能够有序的执行， 在执行完成任务之后会进行渲染，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">task ---&gt; 渲染 ---&gt; task</span><br></pre></td></tr></table></figure></li>
+<li><code>microtask</code>微任务会在宏任务执行完毕之后， 进行渲染之前执行  </li>
+</ul>
+<code>macrotask</code> 与 <code>microtask</code> 中分别包含的几种任务类型：<ul>
+<li><code>macrotask</code> : 代码块， <code>setTimeout</code>, <code>setInterval</code> 等</li>
+<li><code>microtask</code>: <code>Promise</code>  </li>
+</ul>
+<h3 id="参考链接">参考链接</h3>
+<a href="https://funteas.com/topic/5a64e9482630e6f31583701d" target="_blank" rel="noopener">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">JavaScript 运行机制详解：再谈Event Loop</a>
       
     </div>
     
@@ -475,7 +518,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/toolTip/" rel="tag"># toolTip</a>
+            <a href="/tags/js运行机制，线程/" rel="tag"># js运行机制，线程</a>
           
         </div>
       
@@ -488,8 +531,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/06/事件监听代码/" rel="next" title="事件监听代码">
-                <i class="fa fa-chevron-left"></i> 事件监听代码
+              <a href="/2018/06/16/JavaScript-中的函数式编程（译）/" rel="next" title="JavaScript 中的函数式编程（译）">
+                <i class="fa fa-chevron-left"></i> JavaScript 中的函数式编程（译）
               </a>
             
           </div>
@@ -498,8 +541,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/15/聊聊js中的类/" rel="prev" title="聊聊js中的类">
-                聊聊js中的类 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/18/grid-布局（一）/" rel="prev" title="grid 布局（一）">
+                grid 布局（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,8 +598,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -647,6 +699,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js-中的线程"><span class="nav-number">1.</span> <span class="nav-text">js 中的线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#settimeout"><span class="nav-number">2.</span> <span class="nav-text">setTimeout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js-中的事件运行机制"><span class="nav-number">3.</span> <span class="nav-text">js 中的事件运行机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js-中的-macrotask-与-microtask"><span class="nav-number">4.</span> <span class="nav-text">js 中的 macrotask 与 microtask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

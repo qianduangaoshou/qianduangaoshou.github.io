@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git,">
+  <meta name="keywords" content="toolTip,">
 
 
 
@@ -81,30 +81,18 @@
 
 
 
-<meta name="description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
-<meta name="keywords" content="git">
+<meta name="description" content="在业务上实现了一个类似于 el-tooltip 的方法，类似于下面这种情况：业务需求是对于弹窗的文字标签字段， 如果文字标签说明太长的时候， 而这个时候文字标签说明又有宽度限制， 这个时候需要实现一个类似于 el-tooltip 的实现方法，但是对于每一个标签上都添加上 el-tooltip 是不现实的，因此想要通过使用指令的方法，对于表单中的标签字段进行动态添加，实现这个指令的 toolTip.">
+<meta name="keywords" content="toolTip">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 中的数据存储">
-<meta property="og:url" content="https://newpromise.github.io/2021/03/04/git 中的数据存储/index.html">
+<meta property="og:title" content="tooltip 的实现">
+<meta property="og:url" content="https://newpromise.github.io/2018/05/09/tooltip-的实现/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
+<meta property="og:description" content="在业务上实现了一个类似于 el-tooltip 的方法，类似于下面这种情况：业务需求是对于弹窗的文字标签字段， 如果文字标签说明太长的时候， 而这个时候文字标签说明又有宽度限制， 这个时候需要实现一个类似于 el-tooltip 的实现方法，但是对于每一个标签上都添加上 el-tooltip 是不现实的，因此想要通过使用指令的方法，对于表单中的标签字段进行动态添加，实现这个指令的 toolTip.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303164432105.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303164241534.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303164846117.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303165312098.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303165323101.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303170500072.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303170606368.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303170851619.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303171533671.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303171612008.png">
-<meta property="og:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303171943546.png">
-<meta property="og:updated_time" content="2021-03-04T09:42:33.886Z">
+<meta property="og:updated_time" content="2021-03-06T14:32:34.015Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 中的数据存储">
-<meta name="twitter:description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
-<meta name="twitter:image" content="https://newpromise.github.io/2021/03/04/git%20中的数据存储/image-20210303164432105.png">
+<meta name="twitter:title" content="tooltip 的实现">
+<meta name="twitter:description" content="在业务上实现了一个类似于 el-tooltip 的方法，类似于下面这种情况：业务需求是对于弹窗的文字标签字段， 如果文字标签说明太长的时候， 而这个时候文字标签说明又有宽度限制， 这个时候需要实现一个类似于 el-tooltip 的实现方法，但是对于每一个标签上都添加上 el-tooltip 是不现实的，因此想要通过使用指令的方法，对于表单中的标签字段进行动态添加，实现这个指令的 toolTip.">
 
 
 
@@ -134,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://newpromise.github.io/2021/03/04/git 中的数据存储/">
+  <link rel="canonical" href="https://newpromise.github.io/2018/05/09/tooltip-的实现/">
 
 
 
 
 
-  <title>git 中的数据存储 | 上善若水</title>
+  <title>tooltip 的实现 | 上善若水</title>
   
 
 
@@ -309,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2021/03/04/git 中的数据存储/">
+    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2018/05/09/tooltip-的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="上善若水">
@@ -326,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git 中的数据存储</h1>
+          <h1 class="post-title" itemprop="name headline">tooltip 的实现</h1>
         
 
         <div class="post-meta">
@@ -338,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-04T09:42:33+00:00">
-                2021-03-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T00:45:46+00:00">
+                2018-05-09
               </time>
             
 
@@ -354,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-04T09:42:33+00:00">
-                2021-03-04
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
+                2021-03-06
               </time>
             
           </span>
@@ -373,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/代码集/" itemprop="url" rel="index">
+                    <span itemprop="name">代码集</span>
                   </a>
                 </span>
 
@@ -391,8 +379,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/03/04/git 中的数据存储/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2021/03/04/git 中的数据存储/" itemprop="commentCount"></span>
+                <a href="/2018/05/09/tooltip-的实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/09/tooltip-的实现/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,7 +388,7 @@
 
           
           
-             <span id="/2021/03/04/git 中的数据存储/" class="leancloud_visitors" data-flag-title="git 中的数据存储">
+             <span id="/2018/05/09/tooltip-的实现/" class="leancloud_visitors" data-flag-title="tooltip 的实现">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -425,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k字
+                  1.1k字
                 </span>
               
 
@@ -441,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  5分钟
                 </span>
               
             </div>
@@ -462,68 +450,14 @@
       
 
       
-        <h3 id="版本控制系统">版本控制系统</h3>
-代码版本控制系统大致可以分为三代：<h4 id="本地版本控制系统">本地版本控制系统</h4>
-代码存储在本地，无法实现多人协作的需求<h4 id="集中化的版本控制系统">集中化的版本控制系统</h4>
-解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码<h4 id="分布式的版本控制系统">分布式的版本控制系统</h4>
-这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支<h3 id="git-中文件夹-git">Git 中文件夹 .git</h3>
-当我们使用 <code>git init </code> 初始化<code>git</code> 仓库的时候，当前文件夹下出生成一个 <code>.git</code>  的隐藏文件夹，这个文件夹内存储着我们进行 git 操作的一些数据：<ul>
-<li>存储当前的分支（<code>HEAD</code>）</li>
-<li>存储当前所有的分支信息（<code>config</code>）</li>
-<li>存储提交的文件快照数据（<code>objects</code>）</li>
-<li>....</li>
-</ul>
-<h3 id="三种基本文件">三种基本文件</h3>
-当我们输入一些git命令的时候，git 根据的输入的命令会生成一些文件，有的文件用来存储当前提交的文件内容，有的文件用来存储我们当前提交的信息，这些文件都被存储在 <code>objects</code> 这个文件夹之内，有三种基本文件在我们使用 git 进行数据存储时是息息相关的：<ul>
-<li><code>blob</code> 文件</li>
-<li><code>tree</code> 文件</li>
-<li><code>commit</code> 文件</li>
-</ul>
-<h4 id="blob-文件"><code>blob</code> 文件</h4>
-blob 文件用来存储我们提交代码的文件快照，这种文件存储的是压缩后的文件内容代码实践下 blob 文件是如何生成的：<ol>
-<li>git 初始化：</li>
+        在业务上实现了一个类似于 <code>el-tooltip</code> 的方法，类似于下面这种情况：业务需求是对于弹窗的文字标签字段， 如果文字标签说明太长的时候， 而这个时候文字标签说明又有宽度限制， 这个时候需要实现一个类似于 <code>el-tooltip</code> 的实现方法，但是对于每一个标签上都添加上 <code>el-tooltip</code> 是不现实的，因此想要通过使用指令的方法，对于表单中的标签字段进行动态添加，实现这个指令的 <code>toolTip.js</code> 的具体代码如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于出现dialog 的情况， 都是在 el-dialog__wrapper 上进行滚动的</span></span><br><span class="line"><span class="keyword">import</span> Util <span class="keyword">from</span> <span class="string">"./util"</span>;</span><br><span class="line"><span class="keyword">const</span> getScrollRoot = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.documentElement.querySelector(<span class="string">".el-dialog__wrapper"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> instancePool = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义 tip instance 方法</span></span><br><span class="line"><span class="keyword">const</span> instanceAction = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> push = <span class="function">(<span class="params">instance</span>) =&gt;</span> &#123;</span><br><span class="line">        instancePool.push(instance);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        pushInstance: push</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 获取到绑定元素在当前页面上距离左边的距离</span></span><br><span class="line"><span class="keyword">const</span> getElementViewLeft = <span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> actualLeft = element.offsetLeft;</span><br><span class="line">    <span class="keyword">let</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">        actualLeft += current.offsetLeft;</span><br><span class="line">        current = current.offsetParent;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> actualLeft;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取到绑定元素在当前页面上位置高度</span></span><br><span class="line"><span class="keyword">const</span> getElementViewTop = <span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> actualTop = element.offsetTop;</span><br><span class="line">    <span class="keyword">let</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">        actualTop += current.offsetTop;</span><br><span class="line">        current = current.offsetParent;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> actualTop;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tooltip</span>(<span class="params">el, opt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> items = el.querySelectorAll(<span class="string">".el-form-item"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> items) &#123;</span><br><span class="line">        <span class="keyword">const</span> target = item.firstChild;</span><br><span class="line">        <span class="comment">// 如果定义了一个 label 为空的时候的 form-item， label 部分为 before 元素， 但是还是可以这个时候 			className 为 null</span></span><br><span class="line">        <span class="keyword">if</span> (target.className) &#123;</span><br><span class="line">            <span class="comment">// 将每一个需要显示标签的实例信息压入</span></span><br><span class="line">            instanceAction().pushInstance(&#123; <span class="attr">tip</span>: <span class="literal">null</span>, target, <span class="attr">message</span>: target.innerText, <span class="attr">offset</span>: <span class="number">0</span>, <span class="attr">class</span>: <span class="string">"vk-tooltip"</span> &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.scrollListener = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.mouseenterListener = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.mouseleaveListener = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.init();</span><br><span class="line">    <span class="comment">// target：传入的DOM</span></span><br><span class="line">    <span class="comment">// this.target = el;</span></span><br><span class="line">    <span class="comment">// tip：用来放初始化创建的tip元素</span></span><br><span class="line">    <span class="comment">// this.tip = null;</span></span><br><span class="line">    <span class="comment">// this.message = (opt &amp;&amp; opt.msg) || this.target.innerText;</span></span><br><span class="line">    <span class="comment">// this.offset = (opt &amp;&amp; +opt.offset) || 0;</span></span><br><span class="line">    <span class="comment">// this.class = "vk-tooltip";</span></span><br><span class="line">    <span class="comment">// instanceAction.push();</span></span><br><span class="line">    <span class="comment">// this.init();</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tooltip.prototype = &#123;</span><br><span class="line">    <span class="comment">// 初始化tip，添加事件监听</span></span><br><span class="line">    init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> me = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">const</span> root = getScrollRoot();</span><br><span class="line">        <span class="comment">// 鼠标进入才创建标签</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> instance <span class="keyword">of</span> instancePool) &#123;</span><br><span class="line">            <span class="keyword">const</span> &#123; target, tip, message, offset &#125; = instance;</span><br><span class="line">            <span class="comment">// 滚动监听事件</span></span><br><span class="line">            <span class="comment">// 鼠标移入监听事件</span></span><br><span class="line">            <span class="comment">// 鼠标移除监听事件</span></span><br><span class="line">            <span class="keyword">if</span> (message.length &lt; <span class="number">6</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">this</span>.mouseenterListener = Util.listener(target, <span class="string">"mouseenter"</span>, () =&gt; &#123;</span><br><span class="line">                instance = me.createTip(instance);</span><br><span class="line">                instance.tip.style.opacity = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">this</span>.scrollListener = Util.listener(root, <span class="string">"scroll"</span>, () =&gt; &#123;</span><br><span class="line">                    me.setTipPlace(instance.tip, instance.target, instance.offset);</span><br><span class="line">                    instance.tip.style.opacity = <span class="number">0</span>;</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">this</span>.scrollListener.listen();</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">this</span>.mouseenterListener.listen();</span><br><span class="line">            <span class="keyword">this</span>.mouseleaveListener = Util.listener(target, <span class="string">"mouseleave"</span>, () =&gt; &#123;</span><br><span class="line">                instance.tip.style.opacity = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">this</span>.scrollListener.remove();</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">this</span>.mouseleaveListener.listen();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    createTip(instance) &#123;</span><br><span class="line">        <span class="keyword">const</span> me = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">const</span> poppup = <span class="string">"&lt;div class='triangle-down'&gt;&lt;/div&gt;"</span>;</span><br><span class="line">        <span class="keyword">const</span> cache = <span class="built_in">document</span>.getElementsByClassName(instance.class);</span><br><span class="line">        <span class="comment">// 如果存在一个tip标签则使用该标签</span></span><br><span class="line">        instance.tip = cache.length ? cache[<span class="number">0</span>] : <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">        instance.tip.className = instance.class;</span><br><span class="line">        instance.tip.innerHTML = <span class="string">`<span class="subst">$&#123;instance.message&#125;</span><span class="subst">$&#123;poppup&#125;</span>`</span>;</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(instance.tip);</span><br><span class="line">        <span class="keyword">if</span> (!me.tip) &#123;</span><br><span class="line">            me.tip = instance.tip;</span><br><span class="line">        &#125;</span><br><span class="line">        me.setTipPlace(instance.tip, instance.target, instance.offset);</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置tip显示的位置</span></span><br><span class="line">    setTipPlace: <span class="function"><span class="keyword">function</span> (<span class="params">tip, target, offset</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> root = getScrollRoot();</span><br><span class="line">        <span class="keyword">const</span> distance = (tip.clientWidth - target.clientWidth) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">const</span> pageX = <span class="string">`<span class="subst">$&#123;getElementViewLeft(target) - root.scrollLeft - distance + offset&#125;</span>px`</span>;</span><br><span class="line">        <span class="keyword">const</span> pageY = <span class="string">`<span class="subst">$&#123;getElementViewTop(target) - target.clientHeight - root.scrollTop&#125;</span>px`</span>;</span><br><span class="line">        tip.style.left = pageX;</span><br><span class="line">        tip.style.top = pageY;</span><br><span class="line">    &#125;,</span><br><span class="line">    clear: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        instancePool = [];</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.tip) &#123;</span><br><span class="line">            <span class="keyword">this</span>.tip.parentNode.removeChild(<span class="keyword">this</span>.tip);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.mouseenterListener.remove();</span><br><span class="line">        <span class="keyword">this</span>.mouseleaveListener.remove();</span><br><span class="line">        <span class="keyword">this</span>.mouseenterListener = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.mouseleaveListener = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.scrollListener = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> tooltip;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// /**</span></span><br><span class="line"><span class="comment">//  * @description 因为el的tooltip展示需要用到组件，这里用指令进行tooltip展示</span></span><br><span class="line"><span class="comment">//  * @example &lt;div v-tips&gt;此处为被缩略的文本内容&lt;/div&gt;</span></span><br><span class="line"><span class="comment">//  * @param opt v-tips="opt" 可以传入配置对象, msg 展示信息, offset X轴偏移量</span></span><br><span class="line"><span class="comment">//  * 在元素插入DOM时，创建tooltip实例。</span></span><br><span class="line"><span class="comment">//  */</span></span><br><span class="line"><span class="comment">// Vue.directive("tips", &#123;</span></span><br><span class="line"><span class="comment">//     bind: (el) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//         console.log(el);</span></span><br><span class="line"><span class="comment">//     &#125;,</span></span><br><span class="line"><span class="comment">//     // 当绑定元素插入到 DOM 中。</span></span><br><span class="line"><span class="comment">//     inserted: (el, &#123; value &#125;) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//         // 暂时针对el-form的label标签，所以指定firsChild</span></span><br><span class="line"><span class="comment">//         this.instance = new VkTooltip(el.firstChild, value);</span></span><br><span class="line"><span class="comment">//     &#125;,</span></span><br><span class="line"><span class="comment">//     // 解除绑定的时候清除实例以及标签,清除事件监听</span></span><br><span class="line"><span class="comment">//     unbind: (el) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//         this.instance.clear();</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"><span class="comment">// Util listen 函数</span></span><br><span class="line">Util.listen = <span class="function">(<span class="params">target, eventType, callback</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (target.addEventListener) &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">          listen: &#123;</span><br><span class="line">            target.addEventListener(eventType, callback, <span class="literal">false</span>);</span><br><span class="line">          &#125;,</span><br><span class="line">          remove: &#123;</span><br><span class="line">            target.removeEventListener(eventType, callback, <span class="literal">false</span>);</span><br><span class="line">      	  &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target.attachEvent) &#123;</span><br><span class="line">      listen: &#123;</span><br><span class="line">          target.attachEvent(<span class="string">'on'</span> + eventType, callback);</span><br><span class="line">      &#125;,</span><br><span class="line">      remove: &#123;</span><br><span class="line">          target.detachEvent(<span class="string">'on'</span> + eventType, callback);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+使用的时候， 这个函数被作为指令在 <code>main.js</code> 中引入：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VKTooltip <span class="keyword">from</span> <span class="string">"@/assets/js/tooltip"</span>;</span><br><span class="line">Vue.directive(<span class="string">"tips"</span>, &#123;</span><br><span class="line">  bind: <span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  inserted: <span class="function">(<span class="params">el, &#123; value &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.instance = <span class="keyword">new</span> VKTooltip(el, value);</span><br><span class="line">  &#125;,</span><br><span class="line">  unbind: <span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>. instance.clear();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+关于在 <code>vue.js</code> 中自定义指令的使用， 可以查看<code>vue.js</code> 官网， <a href="https://cn.vuejs.org/v2/guide/custom-directive.html#ad" target="_blank" rel="noopener">自定义指令</a>需要注意的知识点：<ol>
+<li>对于页面元素各个位置的理解</li>
+<li>js 基础一定要熟悉</li>
 </ol>
-<img src="image-20210303164432105.png" loading="lazy" alt="image-20210303164432105" style="zoom:50%;">
-
-<ol start="2">
-<li>初始化的 git 仓库内创建两个文件: <code>1.txt</code> 与 <code>2.txt</code>, 内容分别是 1 和 2</li>
-<li>执行 <code>git add</code>：</li>
-</ol>
-<img src="image-20210303164241534.png" loading="lazy" alt="image-20210303164241534" style="zoom:50%;">
-
-<ol start="4">
-<li>查看出现的 <code>d8</code> 和 <code>56</code> 这两个文件夹</li>
-</ol>
-<img src="image-20210303164846117.png" loading="lazy" alt="image-20210303164846117" style="zoom:50%;">
-
-​     如图，发现是乱码的形式，这是因为 Git 将信息压缩成了二进制，对于这种文件，使用 <code>git cat-file [-t][-p]</code> 来查看文件类型或者    文件内容<img src="image-20210303165312098.png" loading="lazy" alt="image-20210303165312098" style="zoom:50%;">
-
-​    <img src="image-20210303165323101.png" loading="lazy" alt="image-20210303165323101" style="zoom:50%;">
-
-可以看到，使用 <code>git add</code> 命令生成的 <code>56</code> 和 <code>d8</code> 文件都是 <code>blob</code> 类型文件，并且存储的是文件的内容<h4 id="tree-文件"><code>tree</code> 文件</h4>
-继续上面的操作，这次执行 <code>git commit </code> 命令：<img src="image-20210303170500072.png" loading="lazy" alt="image-20210303170500072" style="zoom:50%;">
-
-查看 <code>objects</code> 文件：<img src="image-20210303170606368.png" loading="lazy" alt="image-20210303170606368" style="zoom:50%;">
-
-相比之前多出了两个文件夹：<code>3c</code> 和 <code>96</code> 查看 <code>3c</code> 文件夹​                                                        <img src="image-20210303170851619.png" loading="lazy" alt="image-20210303170851619" style="zoom:50%;">
-​    可以看到， 3c 文件夹下的文件存储的内容为我们这次 commit 修改的两个文件 1.txt 和 2.txt ，除了文件名之外，还保存有此次修改的blob文件的文件名以及文件类型3c文件夹下的文件类型为 tree, 这种文件存储的信息是当前提交的文件目录<h4 id="commit-文件"><code>commit</code> 文件</h4>
-查看生成的 <code>96</code> 文件夹，我们可以看到如下内容：<img src="image-20210303171533671.png" loading="lazy" alt="image-20210303171533671" style="zoom:50%;">
-
-
-
-<img src="image-20210303171612008.png" loading="lazy" alt="image-20210303171612008" style="zoom:50%;">
-
-96 文件夹下的文件类型为 commit 文件， 存储的内容是本次 commit 的信息: 提交人，提交信息（git test）等，其中还存储了 tree 文件的文件名，除了这些信息之外， 还存储有上一次提交的 commit 文件（父点），因为我们这里是初次提交，没有上一次提交，因此没有父节点<h4 id="三种文件之间的关系">三种文件之间的关系</h4>
-综上所述，三种类型的文件的主要作用是：blob：存储提交文件的快照
-tree：存储提交文件的文件目录以及文件名，blob 文件地址等信息
-commit： 存储提交信息，提交生成的 tree 文件用一张图可以说明三种类型文件之间的关系：<img src="image-20210303171943546.png" loading="lazy" alt="image-20210303171943546" style="zoom:33%;">
-
-<h4 id="总结">总结</h4>
-<ul>
-<li> 使用 <code>git add .</code> 命令时，将变动内容的文件保存生成 blob 文件</li>
-<li>使用 <code>git commit</code> 命令时， 生成 tree 文件与 commit 文件</li>
-<li>当前分支的指针指向新的 commit 节点，节点中存在 parent 字段，表明上一次提交 commit 文件，逐级向上，一直到第一次提交，这些 commit 连接成为提交记录（<code>git log</code>）</li>
-</ul>
 
       
     </div>
@@ -541,7 +475,7 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/toolTip/" rel="tag"># toolTip</a>
           
         </div>
       
@@ -554,8 +488,8 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/03/深拷贝/" rel="next" title="深拷贝">
-                <i class="fa fa-chevron-left"></i> 深拷贝
+              <a href="/2018/05/06/事件监听代码/" rel="next" title="事件监听代码">
+                <i class="fa fa-chevron-left"></i> 事件监听代码
               </a>
             
           </div>
@@ -564,8 +498,8 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/03/06/git 中的合并策略/" rel="prev" title="git 中的合并策略">
-                git 中的合并策略 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/15/聊聊js中的类/" rel="prev" title="聊聊js中的类">
+                聊聊js中的类 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -621,17 +555,8 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -722,22 +647,6 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本控制系统"><span class="nav-number">1.</span> <span class="nav-text">版本控制系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地版本控制系统"><span class="nav-number">1.1.</span> <span class="nav-text">本地版本控制系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集中化的版本控制系统"><span class="nav-number">1.2.</span> <span class="nav-text">集中化的版本控制系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式的版本控制系统"><span class="nav-number">1.3.</span> <span class="nav-text">分布式的版本控制系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-中文件夹-git"><span class="nav-number">2.</span> <span class="nav-text">Git 中文件夹 .git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三种基本文件"><span class="nav-number">3.</span> <span class="nav-text">三种基本文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#blob-文件"><span class="nav-number">3.1.</span> <span class="nav-text">blob 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tree-文件"><span class="nav-number">3.2.</span> <span class="nav-text">tree 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#commit-文件"><span class="nav-number">3.3.</span> <span class="nav-text">commit 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种文件之间的关系"><span class="nav-number">3.4.</span> <span class="nav-text">三种文件之间的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="underscore.js源码,">
+  <meta name="keywords" content="git,">
 
 
 
@@ -81,18 +81,30 @@
 
 
 
-<meta name="description" content="underscore.js 源码解析（五） sample toArray  size  partition_.sample _.sample(list, [n])用于产生一个随机样本, 传递的参数 n 表示从 list 中返回 n 个随机元素。源码分析 12345678910_.sample = function(obj, n, guard) &amp;#123;    if (n == null ||">
-<meta name="keywords" content="underscore.js源码">
+<meta name="description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="underscore.js 源码分析(五)">
-<meta property="og:url" content="https://newpromise.github.io/2017/11/25/underscore-js-源码分析-五/index.html">
+<meta property="og:title" content="git 中的数据存储">
+<meta property="og:url" content="https://newpromise.github.io/2021/03/06/git 中的数据存储/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="underscore.js 源码解析（五） sample toArray  size  partition_.sample _.sample(list, [n])用于产生一个随机样本, 传递的参数 n 表示从 list 中返回 n 个随机元素。源码分析 12345678910_.sample = function(obj, n, guard) &amp;#123;    if (n == null ||">
+<meta property="og:description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-03T10:09:11.250Z">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303164432105.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303164241534.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303164846117.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303165312098.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303165323101.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303170500072.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303170606368.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303170851619.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303171533671.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303171612008.png">
+<meta property="og:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303171943546.png">
+<meta property="og:updated_time" content="2021-03-06T14:32:34.011Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="underscore.js 源码分析(五)">
-<meta name="twitter:description" content="underscore.js 源码解析（五） sample toArray  size  partition_.sample _.sample(list, [n])用于产生一个随机样本, 传递的参数 n 表示从 list 中返回 n 个随机元素。源码分析 12345678910_.sample = function(obj, n, guard) &amp;#123;    if (n == null ||">
+<meta name="twitter:title" content="git 中的数据存储">
+<meta name="twitter:description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
+<meta name="twitter:image" content="https://newpromise.github.io/2021/03/06/git%20中的数据存储/image-20210303164432105.png">
 
 
 
@@ -122,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://newpromise.github.io/2017/11/25/underscore-js-源码分析-五/">
+  <link rel="canonical" href="https://newpromise.github.io/2021/03/06/git 中的数据存储/">
 
 
 
 
 
-  <title>underscore.js 源码分析(五) | 上善若水</title>
+  <title>git 中的数据存储 | 上善若水</title>
   
 
 
@@ -297,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2017/11/25/underscore-js-源码分析-五/">
+    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2021/03/06/git 中的数据存储/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="上善若水">
@@ -314,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">underscore.js 源码分析(五)</h1>
+          <h1 class="post-title" itemprop="name headline">git 中的数据存储</h1>
         
 
         <div class="post-meta">
@@ -326,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T16:33:53+00:00">
-                2017-11-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-06T14:32:34+00:00">
+                2021-03-06
               </time>
             
 
@@ -342,8 +354,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
-                2021-03-03
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
+                2021-03-06
               </time>
             
           </span>
@@ -361,8 +373,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/underscore-js-源码分析/" itemprop="url" rel="index">
-                    <span itemprop="name">underscore.js 源码分析</span>
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -379,8 +391,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/25/underscore-js-源码分析-五/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/25/underscore-js-源码分析-五/" itemprop="commentCount"></span>
+                <a href="/2021/03/06/git 中的数据存储/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/03/06/git 中的数据存储/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,7 +400,7 @@
 
           
           
-             <span id="/2017/11/25/underscore-js-源码分析-五/" class="leancloud_visitors" data-flag-title="underscore.js 源码分析(五)">
+             <span id="/2021/03/06/git 中的数据存储/" class="leancloud_visitors" data-flag-title="git 中的数据存储">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -413,7 +425,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  866字
+                  1k字
                 </span>
               
 
@@ -450,41 +462,68 @@
       
 
       
-        <h3 id="underscorejs-源码解析（五）">underscore.js 源码解析（五）</h3>
-<code>sample</code> <code>toArray</code>  <code>size</code>  <code>partition</code><h4 id="_sample"><code>_.sample</code></h4>
-<code>_.sample(list, [n])</code>用于产生一个随机样本, 传递的参数 n 表示从 <code>list</code> 中返回 <code>n</code> 个随机元素。<h4 id="源码分析">源码分析</h4>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">_.sample = <span class="function"><span class="keyword">function</span>(<span class="params">obj, n, guard</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="literal">null</span> || guard) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.length !== +obj.length) obj = _.values(obj);</span><br><span class="line">      <span class="comment">// 返回使用 _.random 获得的随机数</span></span><br><span class="line">      <span class="keyword">return</span> obj[_.random(obj.length - <span class="number">1</span>)];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 使用 slice 用来分割数组</span></span><br><span class="line">    <span class="comment">// 使用 Math.max() 用来返回最大值</span></span><br><span class="line">    <span class="keyword">return</span> _.shuffle(obj).slice(<span class="number">0</span>, <span class="built_in">Math</span>.max(<span class="number">0</span>, n));</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>通过使用 <code>Math.max()</code> 用来获得一组数中的最大值。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max(value1, value2, value3, value4...)</span><br><span class="line"><span class="comment">// 获取到 value1, value2, value3, value4... 等一组数中的最大值</span></span><br><span class="line"><span class="built_in">Math</span>.min(value1, value2, value3, value4...)</span><br><span class="line"><span class="comment">// 获取到 value1, value1.. 中的最小值</span></span><br></pre></td></tr></table></figure></li>
-<li>使用 <code>Array.slice</code> 用来进行分割数组<code>Array.slice(start, end)</code> 分割的数组中包括 <code>start</code> 不包括 <code>end</code> </li>
+        <h3 id="版本控制系统">版本控制系统</h3>
+代码版本控制系统大致可以分为三代：<h4 id="本地版本控制系统">本地版本控制系统</h4>
+代码存储在本地，无法实现多人协作的需求<h4 id="集中化的版本控制系统">集中化的版本控制系统</h4>
+解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码<h4 id="分布式的版本控制系统">分布式的版本控制系统</h4>
+这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支<h3 id="git-中文件夹-git">Git 中文件夹 .git</h3>
+当我们使用 <code>git init </code> 初始化<code>git</code> 仓库的时候，当前文件夹下出生成一个 <code>.git</code>  的隐藏文件夹，这个文件夹内存储着我们进行 git 操作的一些数据：<ul>
+<li>存储当前的分支（<code>HEAD</code>）</li>
+<li>存储当前所有的分支信息（<code>config</code>）</li>
+<li>存储提交的文件快照数据（<code>objects</code>）</li>
+<li>....</li>
+</ul>
+<h3 id="三种基本文件">三种基本文件</h3>
+当我们输入一些git命令的时候，git 根据的输入的命令会生成一些文件，有的文件用来存储当前提交的文件内容，有的文件用来存储我们当前提交的信息，这些文件都被存储在 <code>objects</code> 这个文件夹之内，有三种基本文件在我们使用 git 进行数据存储时是息息相关的：<ul>
+<li><code>blob</code> 文件</li>
+<li><code>tree</code> 文件</li>
+<li><code>commit</code> 文件</li>
+</ul>
+<h4 id="blob-文件"><code>blob</code> 文件</h4>
+blob 文件用来存储我们提交代码的文件快照，这种文件存储的是压缩后的文件内容代码实践下 blob 文件是如何生成的：<ol>
+<li>git 初始化：</li>
 </ol>
-<h4 id="toarray"><code>toArray</code></h4>
-<h5 id="实例">实例</h5>
-<code>_.toArray(list)</code>如果 <code>list</code> 是一个可以迭代的对象, 可以将 <code>list</code> 转化为一个数组。<h5 id="源码分析-1">源码分析</h5>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">_.toArray = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 如果 obj 不存在, 返回一个空的数组</span></span><br><span class="line">    <span class="keyword">if</span> (!obj) <span class="keyword">return</span> [];</span><br><span class="line">    <span class="comment">// 如果 obj 是一个真正的数组, 返回 slice.call(obj),</span></span><br><span class="line">    <span class="comment">// Object.prototype.slice</span></span><br><span class="line">    <span class="keyword">if</span> (_.isArray(obj)) <span class="keyword">return</span> slice.call(obj);</span><br><span class="line">    <span class="comment">// 如果 obj 是一个类数组对象</span></span><br><span class="line">    <span class="comment">// 类数组对象属于对象，但是有 length</span></span><br><span class="line">    <span class="keyword">if</span> (obj.length === +obj.length) <span class="keyword">return</span> _.map(obj, _.identity);</span><br><span class="line">    <span class="comment">// 返回 obj 是一个对象</span></span><br><span class="line">    <span class="keyword">return</span> _.values(obj);</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<img src="image-20210303164432105.png" loading="lazy" alt="image-20210303164432105" style="border: none;zoom:50%;">
 
-当我们判断一个对象是否是数组或者对象的时候我们要分为几种情况:使用 <code>obj.length</code> 进行判断的时候:<ol>
-<li>对象是数组:使用 <code>Array.isArray</code> 进行判断，当 这个判断不支持的时候，使用 <code>Object.prototype.toString</code> 进行判断。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(obj) || <span class="built_in">Object</span>.prototype.toString.call(obj) ==== <span class="string">'[object Array]'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>对象是类数组对象对于类数组对象也有 <code>length</code> 属性，因此当我们判断类数组对象不是数组的时候，接下来进行判断:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (obj.length === +obj.length) &#123;</span><br><span class="line">  <span class="comment">// 判断得到是类数组对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li> 当得到的类型是对象的时候</li>
+<ol start="2">
+<li>初始化的 git 仓库内创建两个文件: <code>1.txt</code> 与 <code>2.txt</code>, 内容分别是 1 和 2</li>
+<li>执行 <code>git add</code>：</li>
 </ol>
-   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于对象而言: obj.length: undefined</span></span><br><span class="line"><span class="comment">// +obj.length: NaN</span></span><br><span class="line"><span class="keyword">if</span> (obj.length !== +obj.length) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="image-20210303164241534.png" loading="lazy" alt="image-20210303164241534" style="border: none;zoom:50%;">
 
-<h4 id="size"><code>size</code></h4>
-<code>_.size(list)</code>用于返回 <code>list</code> 的长度当 <code>list</code> 是数组的时候，返回的是数组的长度，当 <code>list</code> 是对象的时候，返回的是对象的长度。<h5 id="实例-1">实例</h5>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  name: <span class="string">'张宁宁'</span>,</span><br><span class="line">  age: <span class="number">23</span>,</span><br><span class="line">  sex: <span class="string">'female'</span></span><br><span class="line">&#125;;</span><br><span class="line">_.size(person) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>查看出现的 <code>d8</code> 和 <code>56</code> 这两个文件夹</li>
+</ol>
+<img src="image-20210303164846117.png" loading="lazy" alt="image-20210303164846117" style="border: none;zoom:50%;">
 
-<h4 id="源码分析-2">源码分析</h4>
-使用<code>_.size</code> 进行判断的数组数量的方法十分简单，判断传入的是对象或者是数组，对象的话返回的是键的值，对于数组返回的是数组的长度。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">size</span>(<span class="params">list</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (list == <span class="literal">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 判断 list 是否是对象或者数组</span></span><br><span class="line">  <span class="comment">// list 是数组，返回 list 的length</span></span><br><span class="line">  <span class="comment">// list 是对象, 返回的是 Object.keys(list) 的长度</span></span><br><span class="line">  <span class="keyword">return</span> list.length === +list.length ? list.length : <span class="built_in">Object</span>.keys(list).length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+​     如图，发现是乱码的形式，这是因为 Git 将信息压缩成了二进制，对于这种文件，使用 <code>git cat-file [-t][-p]</code> 来查看文件类型或者    文件内容<img src="image-20210303165312098.png" loading="lazy" alt="image-20210303165312098" style="border: none;zoom:50%;">
 
-<h4 id="partition"><code>partition</code></h4>
-<code>_.partition(array, predicate)</code><h5 id="实例-2">实例</h5>
-使用 <code>partition</code> 的目的在于拆分一个数组为两个数组，拆分之后的数组中第一个数组是满足 <code>predicate</code> 函数的数组，拆分之后的第二个数组是不满足 <code>predicate</code> 函数的数组。<blockquote>
-<code>predicate</code> : 断言，断定，宣布，宣讲，使基于</blockquote>
-<h5 id="源码分析-3">源码分析</h5>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">_.partition = <span class="function"><span class="keyword">function</span>(<span class="params">obj, predicate, context</span>) </span>&#123;</span><br><span class="line">  predicate = cb(predicate, context);</span><br><span class="line">  <span class="comment">// 定义两个数组，分别用来存放成功的数组和失败的数组</span></span><br><span class="line">  <span class="keyword">var</span> pass = [], fail = [];</span><br><span class="line">  _.each(obj, <span class="function"><span class="keyword">function</span>(<span class="params">value, key, object</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// predicate 返回 true : pass.push(obj)</span></span><br><span class="line">    <span class="comment">// predicate 返回 false : fail.push(obj)</span></span><br><span class="line">    (predicate(value, key, object) ? pass : fail).push(obj);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// 返回一个二维数组</span></span><br><span class="line">  <span class="keyword">return</span> [[pass], [fail]];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+​    <img src="image-20210303165323101.png" loading="lazy" alt="image-20210303165323101" style="border: none;zoom:50%;">
 
+可以看到，使用 <code>git add</code> 命令生成的 <code>56</code> 和 <code>d8</code> 文件都是 <code>blob</code> 类型文件，并且存储的是文件的内容<h4 id="tree-文件"><code>tree</code> 文件</h4>
+继续上面的操作，这次执行 <code>git commit </code> 命令：<img src="image-20210303170500072.png" loading="lazy" alt="image-20210303170500072" style="border: none;zoom:50%;">
+
+查看 <code>objects</code> 文件：<img src="image-20210303170606368.png" loading="lazy" alt="image-20210303170606368" style="border: none;zoom:50%;">
+
+相比之前多出了两个文件夹：<code>3c</code> 和 <code>96</code> 查看 <code>3c</code> 文件夹​                                                        <img src="image-20210303170851619.png" loading="lazy" alt="image-20210303170851619" style="border: none;zoom:50%;">
+​    可以看到， 3c 文件夹下的文件存储的内容为我们这次 commit 修改的两个文件 1.txt 和 2.txt ，除了文件名之外，还保存有此次修改的blob文件的文件名以及文件类型3c文件夹下的文件类型为 tree, 这种文件存储的信息是当前提交的文件目录<h4 id="commit-文件"><code>commit</code> 文件</h4>
+查看生成的 <code>96</code> 文件夹，我们可以看到如下内容：<img src="image-20210303171533671.png" loading="lazy" alt="image-20210303171533671" style="border: none;zoom:50%;">
+
+
+
+<img src="image-20210303171612008.png" loading="lazy" alt="image-20210303171612008" style="border: none;zoom:50%;">
+
+96 文件夹下的文件类型为 commit 文件， 存储的内容是本次 commit 的信息: 提交人，提交信息（git test）等，其中还存储了 tree 文件的文件名，除了这些信息之外， 还存储有上一次提交的 commit 文件（父点），因为我们这里是初次提交，没有上一次提交，因此没有父节点<h4 id="三种文件之间的关系">三种文件之间的关系</h4>
+综上所述，三种类型的文件的主要作用是：blob：存储提交文件的快照
+tree：存储提交文件的文件目录以及文件名，blob 文件地址等信息
+commit： 存储提交信息，提交生成的 tree 文件用一张图可以说明三种类型文件之间的关系：<img src="image-20210303171943546.png" loading="lazy" alt="image-20210303171943546" style="border: none;zoom:33%;">
+
+<h4 id="总结">总结</h4>
+<ul>
+<li> 使用 <code>git add .</code> 命令时，将变动内容的文件保存生成 blob 文件</li>
+<li>使用 <code>git commit</code> 命令时， 生成 tree 文件与 commit 文件</li>
+<li>当前分支的指针指向新的 commit 节点，节点中存在 parent 字段，表明上一次提交 commit 文件，逐级向上，一直到第一次提交，这些 commit 连接成为提交记录（<code>git log</code>）</li>
+</ul>
 
       
     </div>
@@ -502,7 +541,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/underscore-js源码/" rel="tag"># underscore.js源码</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -515,8 +554,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/23/underscore-js源码分析-四/" rel="next" title="underscore.js源码分析(四)">
-                <i class="fa fa-chevron-left"></i> underscore.js源码分析(四)
+              <a href="/2021/03/06/git 中的合并策略/" rel="next" title="git 中的合并策略">
+                <i class="fa fa-chevron-left"></i> git 中的合并策略
               </a>
             
           </div>
@@ -525,8 +564,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/27/underscore-js-源码解析-六/" rel="prev" title="underscore.js 源码解析(六)">
-                underscore.js 源码解析(六) <i class="fa fa-chevron-right"></i>
+              <a href="/2021/03/06/深拷贝/" rel="prev" title="深拷贝">
+                深拷贝 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -693,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#underscorejs-源码解析（五）"><span class="nav-number">1.</span> <span class="nav-text">underscore.js 源码解析（五）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#_sample"><span class="nav-number">1.1.</span> <span class="nav-text">_.sample</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码分析"><span class="nav-number">1.2.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toarray"><span class="nav-number">1.3.</span> <span class="nav-text">toArray</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例"><span class="nav-number">1.3.1.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#size"><span class="nav-number">1.4.</span> <span class="nav-text">size</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码分析-2"><span class="nav-number">1.5.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#partition"><span class="nav-number">1.6.</span> <span class="nav-text">partition</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例-2"><span class="nav-number">1.6.1.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析-3"><span class="nav-number">1.6.2.</span> <span class="nav-text">源码分析</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本控制系统"><span class="nav-number">1.</span> <span class="nav-text">版本控制系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地版本控制系统"><span class="nav-number">1.1.</span> <span class="nav-text">本地版本控制系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集中化的版本控制系统"><span class="nav-number">1.2.</span> <span class="nav-text">集中化的版本控制系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式的版本控制系统"><span class="nav-number">1.3.</span> <span class="nav-text">分布式的版本控制系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-中文件夹-git"><span class="nav-number">2.</span> <span class="nav-text">Git 中文件夹 .git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三种基本文件"><span class="nav-number">3.</span> <span class="nav-text">三种基本文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#blob-文件"><span class="nav-number">3.1.</span> <span class="nav-text">blob 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tree-文件"><span class="nav-number">3.2.</span> <span class="nav-text">tree 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#commit-文件"><span class="nav-number">3.3.</span> <span class="nav-text">commit 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种文件之间的关系"><span class="nav-number">3.4.</span> <span class="nav-text">三种文件之间的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
