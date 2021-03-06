@@ -20,10 +20,10 @@ const markedRenderer = {
       return `<img src="${imgName}"  loading="lazy">`
     },
     paragraph(text) {
-      const markdownImage = /^!\[(.*?)\]\((.*?)\)$/;
+      const markdownImage = /!\[(.*?)\]\((.*?)\)/g;
       const isMatch = text.match(markdownImage)
       if (isMatch) {
-        return this.image(RegExp.$2, RegExp.$1)
+        text = '<p>' + text.replace(markdownImage, this.image(RegExp.$2, RegExp.$1)) + '</p>'
       }
       return text
     }
