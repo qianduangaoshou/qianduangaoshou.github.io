@@ -5,7 +5,7 @@ tags: git
 categories: git
 ---
 
-当我们合并两个分支的时候，Git 会帮我们自动挑选合适的合并策略，常见的 git 合并策略有 `Fast-forward、Recursive 、Ours、Theirs、Octopus` 几种，不同的合并策略适用于不同的合并场景，如果想要强制指定一种合并策略，使用 `git merge -s <策略名字>` 命令
+当我们合并两个分支的时候，Git 会帮我们自动挑选合适的合并策略，常见的 git 合并策略有 `Fast-forward、Recursive 、Ours、Theirs` 几种，不同的合并策略适用于不同的合并场景，如果想要强制指定一种合并策略，使用 `git merge -s <策略名字>` 命令
 
 #### `Fast-forward`: 
 
@@ -66,3 +66,45 @@ so，什么是三向合并就是我们了解这个合并策略最需要知道的
 
 
 这个时候就需要我们解决冲突才能进行合并
+
+##### 寻找 base 节点
+
+在了解了三向合并的合并策略之后，接下来我们需要关心的是：如何查找 base 节点
+
+像recursive 合并算法中描述的： **递归**寻找**路径最短**的的**唯一共同**祖先节点
+
+如下图：
+
+> 下面的 Git 流程图中每一个圆圈表示一次提交，圆圈里面的文字表这次提交的文件内容，如果两个圆圈内文件的内容一致，则表示两次提交文件的内容没有被修改
+
+我们想要合并中间的两个节点  A 和 B，找到它们共同的祖先节点 A， 以它为base节点进行三向合并得到最右边的 B 节点
+
+<img src="/Users/zhangningning/Desktop/个人文件/个人项目/blog/source/_posts/git 中的合并策略/v2-ab724ead18c6fc8ada3c10257fabf84a_b.png" style="zoom:80%;" />
+
+
+
+实际情况可能比较复杂，如下图所示情况：
+
+<img src="/Users/zhangningning/Desktop/个人文件/个人项目/blog/source/_posts/git 中的合并策略/v2-794b86a469a9acb9770b59f7551cc9dc_1440w.jpg" style="zoom:60%;" />
+
+我们想要合并两个节点， B 和 C，查找到 B， C 的节点发现有两个共同的祖先节点： A 和 B，这种情况下我们应该以谁作为祖先节点呢 ？
+
+在这种情况下， git 会继续递归查找，寻找 A 和 B 的共同祖先节点，将这个共同的祖先节点为base节点和 A，B进行合并， 
+
+<img src="/Users/zhangningning/Desktop/个人文件/个人项目/blog/source/_posts/git 中的合并策略/Xnip2021-03-06_15-06-03.jpg" alt="image-20210306150442907" style="zoom:40%;" />
+
+如上图所示，首先找到了一个合并之后的节点 `4/B`, 在根据这个节点作为 base 节点，和 节点 B C 进行三向合并
+
+
+
+#### Ours & Theirs
+
+使用 Ours 和 Theirs 这两种合并策略的目的是： 我们希望保留两个分支的历史记录，但是忽略掉一方的代码变更
+
+使用 Ours 和 Theirs 应用的场景相似，假如有两个分支，在这两个分支上对于同一功能进行了不同的代码实现，如果我们想要采用其中一种，但是希望另外一种代码实现也能出现在提交记录中的时候，可以执行 `git merge -s ours/theirs` 命令来实现
+
+
+
+<img src="/Users/zhangningning/Desktop/个人文件/个人项目/blog/source/_posts/git 中的合并策略/Xnip2021-03-06_15-35-10.jpg" style="zoom:40%;" />
+
+如上图所示，最终只会保留 master 分支上的代码
