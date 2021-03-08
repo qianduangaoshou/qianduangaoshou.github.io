@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="单例模式（The Singleton Pattern） 单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；例如下面的代码：1234567891011121314151617let singleton = (function () &amp;#123;  let ins">
+<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式：单例模式">
 <meta property="og:url" content="https://newpromise.github.io/2019/04/17/设计模式：单例模式/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="单例模式（The Singleton Pattern） 单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；例如下面的代码：1234567891011121314151617let singleton = (function () &amp;#123;  let ins">
+<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-06T14:32:34.035Z">
+<meta property="og:updated_time" content="2021-03-08T09:56:52.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式：单例模式">
-<meta name="twitter:description" content="单例模式（The Singleton Pattern） 单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；例如下面的代码：1234567891011121314151617let singleton = (function () &amp;#123;  let ins">
+<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  516字
+                  572字
                 </span>
               
 
@@ -450,7 +450,32 @@
       
 
       
-        <h3 id="单例模式（the-singleton-pattern）">单例模式（The Singleton Pattern）</h3>
+        <script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script><h3 id="单例模式（the-singleton-pattern）">单例模式（The Singleton Pattern）</h3>
 单例模式的特征是限制创建的类的实例为一个单独的对象， 比较典型的例子是： 如果实例不存在， 那么通过方法创建类的实例， 否则， 返回这个实例， 单例模式的实例仅有一个， 因此被称作单例模式；例如下面的代码：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> singleton = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> instance;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      publicName: name,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getInstance: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (instance === <span class="literal">undefined</span>) &#123;</span><br><span class="line">        instance = init();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 
 当我们引用上面的实例时， 我们始终引用到的是一个实例：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">singleton.getInstance() === singleton.getInstance() <span class="comment">// true</span></span><br></pre></td></tr></table></figure>

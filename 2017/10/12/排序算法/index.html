@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="补充关于空间复制度和时间复杂度的概念。冒泡排序 使用 冒泡排序最重要的思想是: 将一个数和数组中右边的数依次进行比较，如果找到了有左边的数大于右边的数，进行互换，最终一次循环之后，放在左边的数是右边中的最小值，这样依次进行排列，最后得到的左边的数组是已经被排好序之后的数组。12345678910111213141516function bubbleSort (arr) &amp;#123;  let l">
+<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法">
 <meta property="og:url" content="https://newpromise.github.io/2017/10/12/排序算法/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="补充关于空间复制度和时间复杂度的概念。冒泡排序 使用 冒泡排序最重要的思想是: 将一个数和数组中右边的数依次进行比较，如果找到了有左边的数大于右边的数，进行互换，最终一次循环之后，放在左边的数是右边中的最小值，这样依次进行排列，最后得到的左边的数组是已经被排好序之后的数组。12345678910111213141516function bubbleSort (arr) &amp;#123;  let l">
+<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-06T14:32:34.019Z">
+<meta property="og:updated_time" content="2021-03-08T09:56:52.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="补充关于空间复制度和时间复杂度的概念。冒泡排序 使用 冒泡排序最重要的思想是: 将一个数和数组中右边的数依次进行比较，如果找到了有左边的数大于右边的数，进行互换，最终一次循环之后，放在左边的数是右边中的最小值，这样依次进行排列，最后得到的左边的数组是已经被排好序之后的数组。12345678910111213141516function bubbleSort (arr) &amp;#123;  let l">
+<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  670字
+                  726字
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  3分钟
                 </span>
               
             </div>
@@ -450,7 +450,32 @@
       
 
       
-        <hr>
+        <script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script><hr>
 补充关于空间复制度和时间复杂度的概念。<h3 id="冒泡排序">冒泡排序</h3>
 使用 冒泡排序最重要的思想是: 将一个数和数组中右边的数依次进行比较，如果找到了有左边的数大于右边的数，进行互换，最终一次循环之后，放在左边的数是右边中的最小值，这样依次进行排列，最后得到的左边的数组是已经被排好序之后的数组。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = arr.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="comment">// 保证一轮循环之后 arr[i] 是 i 之后数组的最小值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">    <span class="comment">// 比较相邻两个的大小, 将较大的那个排到后面去</span></span><br><span class="line">    <span class="comment">// 始终保证</span></span><br><span class="line">      <span class="keyword">if</span> (arr[j] &lt; arr[i]) &#123;</span><br><span class="line">        <span class="comment">// 使用 es6 结构赋值进行交换</span></span><br><span class="line">		<span class="keyword">let</span> t = arr[j];</span><br><span class="line">		arr[j] = arr[i];</span><br><span class="line">		arr[i] = t;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

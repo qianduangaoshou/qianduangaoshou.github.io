@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="underscore.js 源码分析(十一) throttle  debounce  once after beforethrottle 函数节流_.throttle(function, wait, [options])使用 throttle 函数用于节流操作, 目的是对于重复执行的函数，最多每隔 wait 毫秒调用一次这个函数。源码分析 12345678910111213141516171819">
+<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta name="keywords" content="underscore.js源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="underscore.js源码分析(十一)">
 <meta property="og:url" content="https://newpromise.github.io/2017/12/07/underscore-js源码分析-十一/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="underscore.js 源码分析(十一) throttle  debounce  once after beforethrottle 函数节流_.throttle(function, wait, [options])使用 throttle 函数用于节流操作, 目的是对于重复执行的函数，最多每隔 wait 毫秒调用一次这个函数。源码分析 12345678910111213141516171819">
+<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-06T14:32:34.019Z">
+<meta property="og:updated_time" content="2021-03-08T09:56:52.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="underscore.js源码分析(十一)">
-<meta name="twitter:description" content="underscore.js 源码分析(十一) throttle  debounce  once after beforethrottle 函数节流_.throttle(function, wait, [options])使用 throttle 函数用于节流操作, 目的是对于重复执行的函数，最多每隔 wait 毫秒调用一次这个函数。源码分析 12345678910111213141516171819">
+<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -450,7 +450,32 @@
       
 
       
-        <h3 id="underscorejs-源码分析十一">underscore.js 源码分析(十一)</h3>
+        <script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script><h3 id="underscorejs-源码分析十一">underscore.js 源码分析(十一)</h3>
 <code>throttle</code>  <code>debounce</code>  <code>once</code> <code>after</code> <code>before</code><h4 id="throttle"><code>throttle</code></h4>
 函数节流<code>_.throttle(function, wait, [options])</code>使用 <code>throttle</code> 函数用于节流操作, 目的是对于重复执行的函数，最多每隔 <code>wait</code> 毫秒调用一次这个函数。<h5 id="源码分析">源码分析</h5>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* @description throttle 用于函数节流</span></span><br><span class="line"><span class="comment">* @param func 运行的函数</span></span><br><span class="line"><span class="comment">* @param wait 等待的毫秒数</span></span><br><span class="line"><span class="comment">* @param options</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// previous 这里的意思的记录下上次记录下上次的时间</span></span><br><span class="line">_.throttle = <span class="function"><span class="keyword">function</span>(<span class="params">func, wait, options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> context, args, result;</span><br><span class="line">    <span class="keyword">var</span> timeout = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">var</span> previous = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (!options) options = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> later = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这里 previous 的作用</span></span><br><span class="line">      previous = options.leading === <span class="literal">false</span> ? <span class="number">0</span> : _.now();</span><br><span class="line">      timeout = <span class="literal">null</span>;</span><br><span class="line">      result = func.apply(context, args);</span><br><span class="line">      <span class="keyword">if</span> (!timeout) context = args = <span class="literal">null</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> now = _.now();</span><br><span class="line">      <span class="comment">// 记录下被调用的时刻</span></span><br><span class="line">      <span class="keyword">if</span> (!previous &amp;&amp; options.leading === <span class="literal">false</span>) previous = now;</span><br><span class="line">      <span class="comment">// 当 previous 等于 now 的时候 remaining = wait</span></span><br><span class="line">      <span class="comment">// 记录下等待的时间和 now - previous 的差值</span></span><br><span class="line">      <span class="comment">// 不会执行下面的 if else 函数</span></span><br><span class="line">      <span class="keyword">var</span> remaining = wait - (now - previous);</span><br><span class="line">      context = <span class="keyword">this</span>;</span><br><span class="line">      args = <span class="built_in">arguments</span>;</span><br><span class="line">      <span class="comment">// 如果 remaining &lt;= 0</span></span><br><span class="line">      <span class="comment">// 第一次函数执行的时候被调用，因为这个时候 now &gt;&gt; wait remaining &lt;= 0</span></span><br><span class="line">      <span class="keyword">if</span> (remaining &lt;= <span class="number">0</span> || remaining &gt; wait) &#123;</span><br><span class="line">        <span class="comment">// 当超出等待时间之后调用的时候</span></span><br><span class="line">        <span class="comment">// 返回调用的结果，清除 timeout</span></span><br><span class="line">        <span class="keyword">if</span> (timeout) &#123;</span><br><span class="line">          clearTimeout(timeout);</span><br><span class="line">          timeout = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        previous = now;</span><br><span class="line">        <span class="comment">// 获取到 func 执行之后的结果</span></span><br><span class="line">        result = func.apply(context, args);</span><br><span class="line">        <span class="keyword">if</span> (!timeout) context = args = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">// 如果 timeout 为 null</span></span><br><span class="line">        <span class="comment">// 开启一个新的队列等待</span></span><br><span class="line">        <span class="comment">// 如果 options.trailing === false, 表示禁用最后一次执行</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!timeout &amp;&amp; options.trailing !== <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果没有超过等待时间</span></span><br><span class="line">        <span class="comment">// remaining 时间之后调用 later函数</span></span><br><span class="line">        <span class="comment">// 对于在一段时间内应用同一个函数的时候，只是改变的later 函数</span></span><br><span class="line">        timeout = setTimeout(later, remaining);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>

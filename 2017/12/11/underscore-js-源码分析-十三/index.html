@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="underscore.js 源码分析(十三) keys  values  pairs  invert functions  mapObject findKeykeys(Object) 使用 keys(Object) 用于获得 Object 的所有属性名称。 与 es6 中  Object.keys() 功能相同，不同的是做了兼容性处理。12345678910111213function keys">
+<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta name="keywords" content="underscore.js源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="underscore.js 源码分析(十三)">
 <meta property="og:url" content="https://newpromise.github.io/2017/12/11/underscore-js-源码分析-十三/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="underscore.js 源码分析(十三) keys  values  pairs  invert functions  mapObject findKeykeys(Object) 使用 keys(Object) 用于获得 Object 的所有属性名称。 与 es6 中  Object.keys() 功能相同，不同的是做了兼容性处理。12345678910111213function keys">
+<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-06T14:32:34.015Z">
+<meta property="og:updated_time" content="2021-03-08T09:56:52.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="underscore.js 源码分析(十三)">
-<meta name="twitter:description" content="underscore.js 源码分析(十三) keys  values  pairs  invert functions  mapObject findKeykeys(Object) 使用 keys(Object) 用于获得 Object 的所有属性名称。 与 es6 中  Object.keys() 功能相同，不同的是做了兼容性处理。12345678910111213function keys">
+<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  628字
+                  684字
                 </span>
               
 
@@ -450,7 +450,32 @@
       
 
       
-        <h3 id="underscorejs-源码分析十三">underscore.js 源码分析(十三)</h3>
+        <script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script><h3 id="underscorejs-源码分析十三">underscore.js 源码分析(十三)</h3>
 <code>keys</code>  <code>values</code>  <code>pairs</code>  <code>invert</code> <code>functions</code>  <code>mapObject</code> <code>findKey</code><h4 id="keysobject"><code>keys(Object)</code></h4>
 使用 <code>keys(Object)</code> 用于获得 <code>Object</code> 的所有属性名称。 与 <code>es6</code> 中  <code>Object.keys()</code> 功能相同，不同的是做了兼容性处理。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">keys</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 obj 不存在?</span></span><br><span class="line">  <span class="keyword">if</span> (!obj || <span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span> [];</span><br><span class="line">  <span class="comment">// 如果支持 Object.keys 方法, 返回 Object.keys(obj)</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.keys) <span class="keyword">return</span> <span class="built_in">Object</span>.keys(obj);</span><br><span class="line">  <span class="comment">// else 使用 for in 进行属性获取</span></span><br><span class="line">  <span class="keyword">let</span> keys = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    keys.push(key);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 返回属性数组</span></span><br><span class="line">  <span class="keyword">return</span> keys;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

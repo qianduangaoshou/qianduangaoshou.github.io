@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="在项目开发中，发现对于 vue 的使用还有一些新的认识，在这段时间中使用到的知识点做一个总结：计算属性和侦听器 在  vue.js 中，通过使用 watch 以及 computed 这两个方法来进行侦听数据的变化，但是这两种方式对于数据侦听的处理是不同的，应用的场景也是不同的， 之前应用的时候总是习惯性的时候用 watch, 但是在一些情况下，使用 comnputed 要更好一些，这里先简单的介绍">
+<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta name="keywords" content="vue 知识总结（一）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue 知识总结">
 <meta property="og:url" content="https://newpromise.github.io/2018/04/29/vue 知识总结/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="在项目开发中，发现对于 vue 的使用还有一些新的认识，在这段时间中使用到的知识点做一个总结：计算属性和侦听器 在  vue.js 中，通过使用 watch 以及 computed 这两个方法来进行侦听数据的变化，但是这两种方式对于数据侦听的处理是不同的，应用的场景也是不同的， 之前应用的时候总是习惯性的时候用 watch, 但是在一些情况下，使用 comnputed 要更好一些，这里先简单的介绍">
+<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-06T14:32:34.019Z">
+<meta property="og:updated_time" content="2021-03-08T09:56:52.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue 知识总结">
-<meta name="twitter:description" content="在项目开发中，发现对于 vue 的使用还有一些新的认识，在这段时间中使用到的知识点做一个总结：计算属性和侦听器 在  vue.js 中，通过使用 watch 以及 computed 这两个方法来进行侦听数据的变化，但是这两种方式对于数据侦听的处理是不同的，应用的场景也是不同的， 之前应用的时候总是习惯性的时候用 watch, 但是在一些情况下，使用 comnputed 要更好一些，这里先简单的介绍">
+<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  677字
+                  733字
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  3分钟
                 </span>
               
             </div>
@@ -450,7 +450,32 @@
       
 
       
-        在项目开发中，发现对于 <code>vue</code> 的使用还有一些新的认识，在这段时间中使用到的知识点做一个总结：<h3 id="计算属性和侦听器">计算属性和侦听器</h3>
+        <script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script>在项目开发中，发现对于 <code>vue</code> 的使用还有一些新的认识，在这段时间中使用到的知识点做一个总结：<h3 id="计算属性和侦听器">计算属性和侦听器</h3>
 在  <code>vue.js</code> 中，通过使用 <code>watch</code> 以及 <code>computed</code> 这两个方法来进行侦听数据的变化，但是这两种方式对于数据侦听的处理是不同的，应用的场景也是不同的， 之前应用的时候总是习惯性的时候用 <code>watch</code>, 但是在一些情况下，使用 <code>comnputed</code> 要更好一些，这里先简单的介绍这两种方法的使用， 具体可见 <code>vue.js</code> 官方文档：<a href="https://cn.vuejs.org/v2/guide/computed.html#%E4%BE%A6%E5%90%AC%E5%99%A8" target="_blank" rel="noopener">计算属性和侦听器</a> <code>watch</code>:<code>watch</code>侦听器相对于 <code>computed</code> 而言更为通用，使用 <code>watch</code> 用来监听数据的变化， 定义在数据变化之后的行为，基本使用用法如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听某一个数据</span></span><br><span class="line">watch: &#123;</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// some action</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 监听对象中的某一个属性</span></span><br><span class="line">watch: &#123;</span><br><span class="line">    <span class="string">"object.value"</span>： <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// some action</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 注意： 使用 <code>watch</code> 不能监听到对象的变化， 如果想要对于对象进行监听， 可以使用 <code>deep: true</code>:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  object: &#123;</span><br><span class="line">      handler: <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</span><br><span class="line">          <span class="comment">// somn action</span></span><br><span class="line">      &#125;,</span><br><span class="line">      deep: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

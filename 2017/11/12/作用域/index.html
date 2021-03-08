@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。词法作用域 对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。代码如下:123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo();&amp;">
+<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta name="keywords" content="作用域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="作用域 与 this 值">
 <meta property="og:url" content="https://newpromise.github.io/2017/11/12/作用域/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。词法作用域 对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。代码如下:123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo();&amp;">
+<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-06T14:32:34.019Z">
+<meta property="og:updated_time" content="2021-03-08T09:56:52.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作用域 与 this 值">
-<meta name="twitter:description" content="对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。词法作用域 对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。代码如下:123456789function foo() &amp;#123;  console.log(a) // 2&amp;#125;function bar() &amp;#123;  var a = 3;  foo();&amp;">
+<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  270字
+                  326字
                 </span>
               
 
@@ -450,7 +450,32 @@
       
 
       
-        对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。<h3 id="词法作用域">词法作用域</h3>
+        <script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script>对于作用域而言，可以将作用域分为动态作用域和词法作用域。js 中的作用域属于词法作用域。<h3 id="词法作用域">词法作用域</h3>
 对于使用词法作用域而言，词法作用域最重要的规则在于词法作用域的定义过程发生在代码的书写阶段。代码如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  console.log(a) // 2</span><br><span class="line">&#125;</span><br><span class="line">function bar() &#123;</span><br><span class="line">  var a = 3;</span><br><span class="line">  foo();</span><br><span class="line">&#125;</span><br><span class="line">var a = 2;</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
 
 因为这里面的 <code>foo</code> 函数书写在全局的作用域中，因此会被输出 <code>2</code><h3 id="动态作用域">动态作用域</h3>

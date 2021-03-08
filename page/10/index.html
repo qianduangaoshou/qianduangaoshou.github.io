@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  806字
+                  862字
                 </span>
               
 
@@ -430,7 +430,32 @@
 
       
         
-          <h4 id="touch事件">touch事件</h4>
+          <script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script><h4 id="touch事件">touch事件</h4>
 当我们手指触摸屏幕的时候，touch事件有这几个事件:touchstart : 当手指触摸手机屏幕的时候触发  touchmove : 当手指当手机屏幕上移动的时候触发  touchend: 当手指移开手机屏幕的时候触发  ，事件方法应该在 <code>touchend</code> 中定义调用。touchcancel: 这个事件在 uc 浏览器上，当我们在页面上进行左右滑动的时候会被触发  ,用于防止误操作
           <!--noindex-->
           <div class="post-button text-center">
@@ -532,8 +557,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -581,7 +606,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  130字
+                  186字
                 </span>
               
 
@@ -620,8 +645,11 @@
       
         
           
-          这是我的第一篇博客:
-折腾来折腾去终于搭建起来github博客，还好中间没有遇到太大的问题，搭建过程也还算顺利。  为什么要写博客？为了记录下自己前端学习中的一些知识点，在写代码的过程中，总结经验，提高自己的编程水平，写下自己在编程中遇到的问题，思考，以及是如何解决的，不断提高自己。千里之行，始于足
+          
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top  img.dataset.type ===
           ...
           <!--noindex-->
           <div class="post-button text-center">

@@ -81,21 +81,21 @@
 
 
 
-<meta name="description" content="Base64 作为一种编码方式， 可以将对于一些数据使用Base64 编码， 那么， 为什么使用 Base64 编码， 使用 Base64 编码的原理是什么以及 Base64 编码在前端的应用，下面的文章将会涉及这些内容：what is Base64? 在计算机中， 一个字节通常有8位字符， 这些字符使用二进制表示共有 256 种组合， 这些组合形成了 ascii（American Standar">
+<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta name="keywords" content="Base64">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Base64 基础知识">
 <meta property="og:url" content="https://newpromise.github.io/2019/09/13/base64/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="Base64 作为一种编码方式， 可以将对于一些数据使用Base64 编码， 那么， 为什么使用 Base64 编码， 使用 Base64 编码的原理是什么以及 Base64 编码在前端的应用，下面的文章将会涉及这些内容：what is Base64? 在计算机中， 一个字节通常有8位字符， 这些字符使用二进制表示共有 256 种组合， 这些组合形成了 ascii（American Standar">
+<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newpromise.github.io/2019/09/13/base64/ascii.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/09/13/base64/base64.jpg">
 <meta property="og:image" content="https://newpromise.github.io/2019/09/13/base64/image-20190914095537734.png">
-<meta property="og:updated_time" content="2021-03-06T14:32:34.003Z">
+<meta property="og:updated_time" content="2021-03-08T09:56:52.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Base64 基础知识">
-<meta name="twitter:description" content="Base64 作为一种编码方式， 可以将对于一些数据使用Base64 编码， 那么， 为什么使用 Base64 编码， 使用 Base64 编码的原理是什么以及 Base64 编码在前端的应用，下面的文章将会涉及这些内容：what is Base64? 在计算机中， 一个字节通常有8位字符， 这些字符使用二进制表示共有 256 种组合， 这些组合形成了 ascii（American Standar">
+<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
 <meta name="twitter:image" content="https://newpromise.github.io/2019/09/13/base64/ascii.png">
 
 
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-06T14:32:34+00:00">
-                2021-03-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
+                2021-03-08
               </time>
             
           </span>
@@ -454,7 +454,32 @@
       
 
       
-        Base64 作为一种编码方式， 可以将对于一些数据使用Base64 编码， 那么， 为什么使用 Base64 编码， 使用 Base64 编码的原理是什么以及 Base64 编码在前端的应用，下面的文章将会涉及这些内容：<h2 id="what-is-base64">what is Base64?</h2>
+        <script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script>Base64 作为一种编码方式， 可以将对于一些数据使用Base64 编码， 那么， 为什么使用 Base64 编码， 使用 Base64 编码的原理是什么以及 Base64 编码在前端的应用，下面的文章将会涉及这些内容：<h2 id="what-is-base64">what is Base64?</h2>
 在计算机中， 一个字节通常有8位字符， 这些字符使用二进制表示共有 256 种组合， 这些组合形成了 ascii（American Standard Code for Information Interchange，美国信息交换标准代码） 码：一种字节组合和字符的对应表,  基础的 ascii 码共有 128 种组合， 因为不同国家语言字符的需要， 现在很多是扩展的 ascii码，但不同的 扩展ascii 码的前 127 位是基本相同的， 这一部分称为基础 ascii 码： <img src="/2019/09/13/base64/ascii.png">
 
 假如我们不通过 Base64 编码， 而是直接向不同设备传输二进制数据，因为一些老旧设备或者软件对于某些二进制值字符的处理方式可能不同， 因就有可能被错误处理，为了解决这种问题， 我们使用Base64 编码将数据统一编码为可见字符，而可见字符在大多设备上的表现行为是一致的，这样就使得数据在不同设备之间的处理出错的可能被降低了。Base64 码共用 64 种对应字符， 对应字符如下:<img src="/2019/09/13/base64/base64.jpg">
