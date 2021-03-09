@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="在 css 模块化的解决方案中， 存在两种解决方案， 一种是放弃使用 css, 使用 js 或者 json 的形式来重写 css, 这样写的好处在于方便利用 js 的模块化管理，缺点在于缺少 css 预处理器例如 less sass 等的支持，例如 react-style 属于这种解决方案。另外一种是依旧采用 css 的原生态写法， 但是通过 js 来进行管理依赖， 下面我们介绍的 css-mod">
 <meta name="keywords" content="css modules">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css modules: 前端模块化">
 <meta property="og:url" content="https://newpromise.github.io/2018/09/09/css-modules-前端模块化/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="在 css 模块化的解决方案中， 存在两种解决方案， 一种是放弃使用 css, 使用 js 或者 json 的形式来重写 css, 这样写的好处在于方便利用 js 的模块化管理，缺点在于缺少 css 预处理器例如 less sass 等的支持，例如 react-style 属于这种解决方案。另外一种是依旧采用 css 的原生态写法， 但是通过 js 来进行管理依赖， 下面我们介绍的 css-mod">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.245Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css modules: 前端模块化">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="在 css 模块化的解决方案中， 存在两种解决方案， 一种是放弃使用 css, 使用 js 或者 json 的形式来重写 css, 这样写的好处在于方便利用 js 的模块化管理，缺点在于缺少 css 预处理器例如 less sass 等的支持，例如 react-style 属于这种解决方案。另外一种是依旧采用 css 的原生态写法， 但是通过 js 来进行管理依赖， 下面我们介绍的 css-mod">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k字
+                  1.2k字
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5分钟
+                  4分钟
                 </span>
               
             </div>
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>在 <code>css</code> 模块化的解决方案中， 存在两种解决方案， 一种是放弃使用 css, 使用 <code>js</code> 或者 <code>json</code> 的形式来重写 <code>css</code>, 这样写的好处在于方便利用 <code>js</code> 的模块化管理，缺点在于缺少 <code>css</code> 预处理器例如 less sass 等的支持，例如 <code>react-style</code> 属于这种解决方案。另外一种是依旧采用 <code>css</code> 的原生态写法， 但是通过 <code>js</code> 来进行管理依赖， 下面我们介绍的 <code>css-modules</code> 属于这种的写法。<h3 id="css-模块化中的一些问题">css 模块化中的一些问题</h3>
+        在 <code>css</code> 模块化的解决方案中， 存在两种解决方案， 一种是放弃使用 css, 使用 <code>js</code> 或者 <code>json</code> 的形式来重写 <code>css</code>, 这样写的好处在于方便利用 <code>js</code> 的模块化管理，缺点在于缺少 <code>css</code> 预处理器例如 less sass 等的支持，例如 <code>react-style</code> 属于这种解决方案。另外一种是依旧采用 <code>css</code> 的原生态写法， 但是通过 <code>js</code> 来进行管理依赖， 下面我们介绍的 <code>css-modules</code> 属于这种的写法。<h3 id="css-模块化中的一些问题">css 模块化中的一些问题</h3>
 在 <code>css</code> 的模块化的过程中， 下面几种问题是需要解决的：<h4 id="全局污染">全局污染</h4>
 在 css 中， 样式 <code>style</code> 是属于全局范围内的， 因此当我们在全局范围内w为某一元素标签添加样式的时候， 这一样式会被应用到全局的所有的该标签下的元素上面，为了减少掉全局变量的污染，我们会采用提高元素优先级的方法进行样式覆盖， 例如添加 <code>!important</code> ，获取通过复杂选择器增大元素的权重值以及行内样式，这种通过提高元素优先级的方法实现的元素样式覆盖导致了无法重写元素样式， 丧失了l灵活性。<h4 id="命名混乱">命名混乱</h4>
 混乱的命名方式会导致开发过程中的样式冲突， 样式混乱， 为后续开发带来了困难， 在这个问题上面， 有一种解决方式， 就是采用  <code>BEM</code> 的命名方式；<h4 id="依赖管理不彻底">依赖管理不彻底</h4>

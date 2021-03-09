@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="What is the worker 浏览器是多线程的， 在浏览器中，存在下面几个线程： 浏览器事件触发线程 UI 渲染线程 JS 引擎线程 定时触发器线程 http 请求线程  js 语言的一个重要特征是单线程，因为在js 中会设计到一些页面交互的逻辑， 比如操作 dom 树， css 样式树等， 单线程的设计避免了复杂的同步问题。因为在 js 中我们是可以进行 dom 操作的， 因此 UI 渲">
 <meta name="keywords" content="Worker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js-Worker">
 <meta property="og:url" content="https://newpromise.github.io/2019/10/27/js-Worker/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="What is the worker 浏览器是多线程的， 在浏览器中，存在下面几个线程： 浏览器事件触发线程 UI 渲染线程 JS 引擎线程 定时触发器线程 http 请求线程  js 语言的一个重要特征是单线程，因为在js 中会设计到一些页面交互的逻辑， 比如操作 dom 树， css 样式树等， 单线程的设计避免了复杂的同步问题。因为在 js 中我们是可以进行 dom 操作的， 因此 UI 渲">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newpromise.github.io/2019/10/27/js-Worker/v2-5887674cb213a45bef388a2f580da222_hd.jpg">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.253Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js-Worker">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="What is the worker 浏览器是多线程的， 在浏览器中，存在下面几个线程： 浏览器事件触发线程 UI 渲染线程 JS 引擎线程 定时触发器线程 http 请求线程  js 语言的一个重要特征是单线程，因为在js 中会设计到一些页面交互的逻辑， 比如操作 dom 树， css 样式树等， 单线程的设计避免了复杂的同步问题。因为在 js 中我们是可以进行 dom 操作的， 因此 UI 渲">
 <meta name="twitter:image" content="https://newpromise.github.io/2019/10/27/js-Worker/v2-5887674cb213a45bef388a2f580da222_hd.jpg">
 
 
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k字
+                  1k字
                 </span>
               
 
@@ -452,32 +452,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script><h2 id="what-is-the-worker">What is the worker</h2>
+        <h2 id="what-is-the-worker">What is the worker</h2>
 浏览器是多线程的， 在浏览器中，存在下面几个线程：<ul>
 <li>浏览器事件触发线程</li>
 <li>UI 渲染线程</li>

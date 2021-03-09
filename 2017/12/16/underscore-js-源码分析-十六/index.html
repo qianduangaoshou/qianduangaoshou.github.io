@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="underscore.js 源码分析(十六) isEmpty isEmpty(object)   isElement  ``如果 object 是一个空对象， 或者 object 是一个字符串或者数组, 并且字符串或者数组的 length  为 0; 返回 true,否则, 返回 false.示例 12_.isEmpty(&amp;#123;&amp;#125;); // true_.isEmpty(&amp;#123;">
 <meta name="keywords" content="underscore.js源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="underscore.js 源码分析(十六)">
 <meta property="og:url" content="https://newpromise.github.io/2017/12/16/underscore-js-源码分析-十六/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="underscore.js 源码分析(十六) isEmpty isEmpty(object)   isElement  ``如果 object 是一个空对象， 或者 object 是一个字符串或者数组, 并且字符串或者数组的 length  为 0; 返回 true,否则, 返回 false.示例 12_.isEmpty(&amp;#123;&amp;#125;); // true_.isEmpty(&amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.253Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="underscore.js 源码分析(十六)">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="underscore.js 源码分析(十六) isEmpty isEmpty(object)   isElement  ``如果 object 是一个空对象， 或者 object 是一个字符串或者数组, 并且字符串或者数组的 length  为 0; 返回 true,否则, 返回 false.示例 12_.isEmpty(&amp;#123;&amp;#125;); // true_.isEmpty(&amp;#123;">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  517字
+                  461字
                 </span>
               
 
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script><h3 id="underscorejs-源码分析十六">underscore.js 源码分析(十六)</h3>
+        <h3 id="underscorejs-源码分析十六">underscore.js 源码分析(十六)</h3>
 <h4 id="isempty"><code>isEmpty</code></h4>
 <code>isEmpty(object)</code>   <code>isElement</code>  ``如果 <code>object</code> 是一个空对象， 或者 <code>object</code> 是一个字符串或者数组, 并且字符串或者数组的 <code>length</code>  为 <code>0</code>; 返回 <code>true</code>,否则, 返回 <code>false</code>.<h5 id="示例">示例</h5>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.isEmpty(&#123;&#125;); <span class="comment">// true</span></span><br><span class="line">_.isEmpty(&#123; <span class="attr">name</span>: <span class="string">'张宁宁'</span> &#125;); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>

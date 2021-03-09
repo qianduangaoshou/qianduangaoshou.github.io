@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="有如下题目：根据指定元素，在数组里面找出类数组。比如数组 [2, 3, 5, 7] ，指定元素 5，则类数组是 [2,, 3] 和 [5]，因为上面两个数组的元素之和相加为5。自己想了一下， 实现方法如下：1234567891011121314151617181920212223242526/**** description 得到** arr 传入的数组** value 得到的类数组的值** ma">
 <meta name="keywords" content="数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="获取数组中特定值的数组">
 <meta property="og:url" content="https://newpromise.github.io/2018/06/11/获取数组中特定值的数组/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="有如下题目：根据指定元素，在数组里面找出类数组。比如数组 [2, 3, 5, 7] ，指定元素 5，则类数组是 [2,, 3] 和 [5]，因为上面两个数组的元素之和相加为5。自己想了一下， 实现方法如下：1234567891011121314151617181920212223242526/**** description 得到** arr 传入的数组** value 得到的类数组的值** ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.269Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="获取数组中特定值的数组">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="有如下题目：根据指定元素，在数组里面找出类数组。比如数组 [2, 3, 5, 7] ，指定元素 5，则类数组是 [2,, 3] 和 [5]，因为上面两个数组的元素之和相加为5。自己想了一下， 实现方法如下：1234567891011121314151617181920212223242526/**** description 得到** arr 传入的数组** value 得到的类数组的值** ma">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  256字
+                  200字
                 </span>
               
 
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>有如下题目：根据指定元素，在数组里面找出类数组。比如数组 [2, 3, 5, 7] ，指定元素 5，则类数组是 [2,, 3] 和 [5]，因为上面两个数组的元素之和相加为5。自己想了一下， 实现方法如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">** description 得到</span></span><br><span class="line"><span class="comment">** arr 传入的数组</span></span><br><span class="line"><span class="comment">** value 得到的类数组的值</span></span><br><span class="line"><span class="comment">** maxLen 类数组的最大长度</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">arr, value, maxLen = arr.length</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!arr.length || !value) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="keyword">let</span> tempArr = [];</span><br><span class="line">    <span class="keyword">const</span> len = arr.length;</span><br><span class="line">    <span class="keyword">let</span> nowIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (nowIndex &lt; len) &#123;</span><br><span class="line">        <span class="keyword">if</span> (tempArr.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> temp = [];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> tempArr) &#123;</span><br><span class="line">                temp.push([...item, arr[nowIndex]]);</span><br><span class="line">            &#125;</span><br><span class="line">            tempArr = [...tempArr, ...temp];</span><br><span class="line">        &#125;</span><br><span class="line">        tempArr.push([arr[nowIndex]]);</span><br><span class="line">        nowIndex++;</span><br><span class="line">    &#125;</span><br><span class="line">    result = tempArr.filter(<span class="function"><span class="params">arr</span> =&gt;</span> (arr.reduce(<span class="function">(<span class="params">pev, now</span>) =&gt;</span> (pev = pev + now) &amp;&amp; pev, <span class="number">0</span>) === value) &amp;&amp; (arr.length &lt;= maxLen) );</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        有如下题目：根据指定元素，在数组里面找出类数组。比如数组 [2, 3, 5, 7] ，指定元素 5，则类数组是 [2,, 3] 和 [5]，因为上面两个数组的元素之和相加为5。自己想了一下， 实现方法如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">** description 得到</span></span><br><span class="line"><span class="comment">** arr 传入的数组</span></span><br><span class="line"><span class="comment">** value 得到的类数组的值</span></span><br><span class="line"><span class="comment">** maxLen 类数组的最大长度</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">arr, value, maxLen = arr.length</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!arr.length || !value) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="keyword">let</span> tempArr = [];</span><br><span class="line">    <span class="keyword">const</span> len = arr.length;</span><br><span class="line">    <span class="keyword">let</span> nowIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (nowIndex &lt; len) &#123;</span><br><span class="line">        <span class="keyword">if</span> (tempArr.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> temp = [];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> tempArr) &#123;</span><br><span class="line">                temp.push([...item, arr[nowIndex]]);</span><br><span class="line">            &#125;</span><br><span class="line">            tempArr = [...tempArr, ...temp];</span><br><span class="line">        &#125;</span><br><span class="line">        tempArr.push([arr[nowIndex]]);</span><br><span class="line">        nowIndex++;</span><br><span class="line">    &#125;</span><br><span class="line">    result = tempArr.filter(<span class="function"><span class="params">arr</span> =&gt;</span> (arr.reduce(<span class="function">(<span class="params">pev, now</span>) =&gt;</span> (pev = pev + now) &amp;&amp; pev, <span class="number">0</span>) === value) &amp;&amp; (arr.length &lt;= maxLen) );</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 实现的效果如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">5</span>)  <span class="comment">// [2, 3]</span></span><br></pre></td></tr></table></figure>
 

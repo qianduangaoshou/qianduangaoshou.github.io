@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="underscore.js 源码分析(十二) wrap negate composewrap 实例 _.wrap(function, wrapper)使用 wrap 的目的在于将函数 function 作为第一个参数传递进入 wrapper 之中, 从而在 wrapper 中在不同的事件，不同的代码，根据不同的条件执行 function 函数。实例:1234567function hello(na">
 <meta name="keywords" content="underscore.js源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="underscore.js源码分析(十二)">
 <meta property="og:url" content="https://newpromise.github.io/2017/12/10/underscore-js源码分析-十二/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="underscore.js 源码分析(十二) wrap negate composewrap 实例 _.wrap(function, wrapper)使用 wrap 的目的在于将函数 function 作为第一个参数传递进入 wrapper 之中, 从而在 wrapper 中在不同的事件，不同的代码，根据不同的条件执行 function 函数。实例:1234567function hello(na">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.253Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="underscore.js源码分析(十二)">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="underscore.js 源码分析(十二) wrap negate composewrap 实例 _.wrap(function, wrapper)使用 wrap 的目的在于将函数 function 作为第一个参数传递进入 wrapper 之中, 从而在 wrapper 中在不同的事件，不同的代码，根据不同的条件执行 function 函数。实例:1234567function hello(na">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  401字
+                  345字
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  1分钟
                 </span>
               
             </div>
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script><h3 id="underscorejs-源码分析十二">underscore.js 源码分析(十二)</h3>
+        <h3 id="underscorejs-源码分析十二">underscore.js 源码分析(十二)</h3>
 <code>wrap</code> <code>negate</code> <code>compose</code><h4 id="wrap"><code>wrap</code></h4>
 <h5 id="实例">实例</h5>
 <code>_.wrap(function, wrapper)</code>使用 <code>wrap</code> 的目的在于将函数 <code>function</code> 作为第一个参数传递进入 <code>wrapper</code> 之中, 从而在 <code>wrapper</code> 中在不同的事件，不同的代码，根据不同的条件执行 <code>function</code> 函数。实例:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`hello my name is <span class="subst">$&#123;name&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> sayHello = _.wrap(hello, <span class="function"><span class="keyword">function</span> (<span class="params">func</span>) </span>&#123;</span><br><span class="line">  func(<span class="string">'张宁宁'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">sayHello(); <span class="comment">// hello my name is 张宁宁</span></span><br></pre></td></tr></table></figure>

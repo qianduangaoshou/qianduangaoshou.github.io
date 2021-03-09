@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="函数节流 代码如下:123456789101112131415var processor = &amp;#123;  timeoutId: null,  preformProcessing: function () &amp;#123;    //实际上要进行执行的代码  &amp;#125;，  process: function () &amp;#123;    clearTimeout(this.timeoutId);">
 <meta name="keywords" content="节流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数节流">
 <meta property="og:url" content="https://newpromise.github.io/2017/08/26/函数节流/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="函数节流 代码如下:123456789101112131415var processor = &amp;#123;  timeoutId: null,  preformProcessing: function () &amp;#123;    //实际上要进行执行的代码  &amp;#125;，  process: function () &amp;#123;    clearTimeout(this.timeoutId);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.257Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数节流">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="函数节流 代码如下:123456789101112131415var processor = &amp;#123;  timeoutId: null,  preformProcessing: function () &amp;#123;    //实际上要进行执行的代码  &amp;#125;，  process: function () &amp;#123;    clearTimeout(this.timeoutId);">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  408字
+                  352字
                 </span>
               
 
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script><h4 id="函数节流">函数节流</h4>
+        <h4 id="函数节流">函数节流</h4>
 代码如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var processor = &#123;</span><br><span class="line">  timeoutId: null,</span><br><span class="line">  preformProcessing: function () &#123;</span><br><span class="line">    //实际上要进行执行的代码</span><br><span class="line">  &#125;，</span><br><span class="line">  process: function () &#123;</span><br><span class="line">    clearTimeout(this.timeoutId);</span><br><span class="line">    var that = this;</span><br><span class="line">    // 在 setTimeout 函数内部是一个匿名函数，匿名函数的 this 指向值指向了全局作用域 </span><br><span class="line">    this.timeoutId = setTimeout(function () &#123;</span><br><span class="line">      that.preformProcessing();</span><br><span class="line">    &#125;, 100)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">processor.process() // 开始执行函数</span><br></pre></td></tr></table></figure>
 
 使用函数节流的思想是：假如有一个提交按钮，点击按钮执行提交操作，设置了一个延时器，在点击按钮一段时间之后执行函数，如果在这段时间内，按钮又被点击操作，<code>process</code> 函数会首先清除延时器，重新开始进行延时操作，为了防止用户在点击按钮进行操作的时候，触发多次提交操作，下面是一个节流函数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function throttle (method, context) &#123;</span><br><span class="line">  clearTimeout(method.tId);</span><br><span class="line">  method.tId = setTimeout(function () &#123;</span><br><span class="line">  		method.call(context)</span><br><span class="line">  &#125;,100)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

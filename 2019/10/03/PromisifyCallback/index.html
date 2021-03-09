@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="将一个回调函数转换为 promise 类函数，在  promisify 化的函数的 then 方法里面执行回调函数， 避免回调地狱。这样相当于我们日常代码开发中，对于某个函数返回一个 promise, 以期在函数的 then 方法里面处理数据的方法的一个封装。123456789101112function process() &amp;#123;  return new Promise((resolve,">
 <meta name="keywords" content="promisify">
 <meta property="og:type" content="article">
 <meta property="og:title" content="promisify callback-style function">
 <meta property="og:url" content="https://newpromise.github.io/2019/10/03/PromisifyCallback/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="将一个回调函数转换为 promise 类函数，在  promisify 化的函数的 then 方法里面执行回调函数， 避免回调地狱。这样相当于我们日常代码开发中，对于某个函数返回一个 promise, 以期在函数的 then 方法里面处理数据的方法的一个封装。123456789101112function process() &amp;#123;  return new Promise((resolve,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.241Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="promisify callback-style function">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="将一个回调函数转换为 promise 类函数，在  promisify 化的函数的 then 方法里面执行回调函数， 避免回调地狱。这样相当于我们日常代码开发中，对于某个函数返回一个 promise, 以期在函数的 then 方法里面处理数据的方法的一个封装。123456789101112function process() &amp;#123;  return new Promise((resolve,">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>将一个回调函数转换为 <code>promise</code> 类函数，在  <code>promisify</code> 化的函数的 <code>then</code> 方法里面执行回调函数， 避免回调地狱。这样相当于我们日常代码开发中，对于某个函数返回一个 <code>promise</code>, 以期在函数的 <code>then</code> 方法里面处理数据的方法的一个封装。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// some data process code...</span></span><br><span class="line">    <span class="keyword">try</span> () &#123;</span><br><span class="line">      resolve(data);      </span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">      reject(err);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process().then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;...&#125;);</span><br></pre></td></tr></table></figure>
+        将一个回调函数转换为 <code>promise</code> 类函数，在  <code>promisify</code> 化的函数的 <code>then</code> 方法里面执行回调函数， 避免回调地狱。这样相当于我们日常代码开发中，对于某个函数返回一个 <code>promise</code>, 以期在函数的 <code>then</code> 方法里面处理数据的方法的一个封装。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// some data process code...</span></span><br><span class="line">    <span class="keyword">try</span> () &#123;</span><br><span class="line">      resolve(data);      </span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">      reject(err);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process().then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;...&#125;);</span><br></pre></td></tr></table></figure>
 
 在 node.js 中， 存在一个工具方法为 <code>utils.promisfy</code> 的工具方法， 这个方法将回调转换为 <code>promise</code> 类方法：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// error-first 类型回调</span></span><br><span class="line"><span class="comment">// 回调cb 的第一个参数为 error， 如果没有传 false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">cb</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> cb(<span class="literal">false</span>, <span class="string">'hello'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> utils = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> promiseFn = utils.promisify(fn);</span><br><span class="line"></span><br><span class="line">promiseFn().then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 使用这个方法， 可以将 node 中的一些异步的回调</span></span><br><span class="line"><span class="comment">// 比如： readFile 等</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> promiseReadFile = utils.promisify(fs.readFile);</span><br><span class="line"></span><br><span class="line">promiseReadFile(<span class="string">'./.gitignore'</span>, <span class="string">'utf-8'</span>).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">fs.readFile(<span class="string">'./.gitignore'</span>, <span class="string">'utf-8'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 

@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="缓存是指代理服务器或者客户端本地磁盘内保存的资源副本。使用缓存可以减少对于源服务器的访问，从而节省通信流量和通信时间。在服务器与客户端的通信过程中，对于数据的缓存方式可以分为 强缓存 和 协商缓存 两种，通过http请求头中的 Cache-Control 可以决定是否采用上面两种方式缓存涉及到的相关字段有：Cache-Control  Expires  Last-Modified If-Modif">
 <meta name="keywords" content="缓存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="协商缓存和强缓存">
 <meta property="og:url" content="https://newpromise.github.io/2020/09/26/协商缓存和强缓存/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="缓存是指代理服务器或者客户端本地磁盘内保存的资源副本。使用缓存可以减少对于源服务器的访问，从而节省通信流量和通信时间。在服务器与客户端的通信过程中，对于数据的缓存方式可以分为 强缓存 和 协商缓存 两种，通过http请求头中的 Cache-Control 可以决定是否采用上面两种方式缓存涉及到的相关字段有：Cache-Control  Expires  Last-Modified If-Modif">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newpromise.github.io/2020/09/26/协商缓存和强缓存/1.png">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.257Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="协商缓存和强缓存">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="缓存是指代理服务器或者客户端本地磁盘内保存的资源副本。使用缓存可以减少对于源服务器的访问，从而节省通信流量和通信时间。在服务器与客户端的通信过程中，对于数据的缓存方式可以分为 强缓存 和 协商缓存 两种，通过http请求头中的 Cache-Control 可以决定是否采用上面两种方式缓存涉及到的相关字段有：Cache-Control  Expires  Last-Modified If-Modif">
 <meta name="twitter:image" content="https://newpromise.github.io/2020/09/26/协商缓存和强缓存/1.png">
 
 
@@ -344,8 +344,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -452,32 +452,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>缓存是指代理服务器或者客户端本地磁盘内保存的资源副本。使用缓存可以减少对于源服务器的访问，从而节省通信流量和通信时间。在服务器与客户端的通信过程中，对于数据的缓存方式可以分为 <strong>强缓存</strong> 和 <strong>协商缓存</strong> 两种，通过http请求头中的 <code>Cache-Control</code> 可以决定是否采用上面两种方式缓存涉及到的相关字段有：<code>Cache-Control</code>  <code>Expires</code>  <code>Last-Modified</code> <code>If-Modified-Since</code> <code>Etag</code>  <code>If-None-Match</code><h3 id="强缓存">强缓存</h3>
+        缓存是指代理服务器或者客户端本地磁盘内保存的资源副本。使用缓存可以减少对于源服务器的访问，从而节省通信流量和通信时间。在服务器与客户端的通信过程中，对于数据的缓存方式可以分为 <strong>强缓存</strong> 和 <strong>协商缓存</strong> 两种，通过http请求头中的 <code>Cache-Control</code> 可以决定是否采用上面两种方式缓存涉及到的相关字段有：<code>Cache-Control</code>  <code>Expires</code>  <code>Last-Modified</code> <code>If-Modified-Since</code> <code>Etag</code>  <code>If-None-Match</code><h3 id="强缓存">强缓存</h3>
 强缓存就是当客户端发起请求之前，首先检查浏览器缓存中是否有要请求的内容，并且根据结果的缓存规则来判断是否实际向服务器发起请求客户端发起请求时，会有下面三种结果：<ol>
 <li>没有缓存结果，那么需要向服务器请求内容</li>
 <li>存在缓存结果，并且缓存规则未失效，那么直接使用缓存的内容</li>
@@ -540,7 +515,7 @@ window.onload = window.onscroll = function () {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/03/08/git 中的合并策略/" rel="prev" title="git 中的合并策略">
+              <a href="/2021/03/09/git 中的合并策略/" rel="prev" title="git 中的合并策略">
                 git 中的合并策略 <i class="fa fa-chevron-right"></i>
               </a>
             

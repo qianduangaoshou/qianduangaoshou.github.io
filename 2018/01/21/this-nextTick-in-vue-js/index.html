@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="this.nextTick 的作用 在 Vue.js 的官方文档中是这样描述 this.nextTick 的: 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用. 在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
 <meta name="keywords" content="this.nextTick">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this.nextTick in vue.js">
 <meta property="og:url" content="https://newpromise.github.io/2018/01/21/this-nextTick-in-vue-js/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="this.nextTick 的作用 在 Vue.js 的官方文档中是这样描述 this.nextTick 的: 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用. 在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.253Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this.nextTick in vue.js">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="this.nextTick 的作用 在 Vue.js 的官方文档中是这样描述 this.nextTick 的: 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用. 在 vue.js 中, 使用 this.nextTick 的作用是更新 dom , 在 涉及关于在 vue.js">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  528字
+                  472字
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  1分钟
                 </span>
               
             </div>
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script><h3 id="thisnexttick-的作用"><code>this.nextTick</code> 的作用</h3>
+        <h3 id="thisnexttick-的作用"><code>this.nextTick</code> 的作用</h3>
 在 <code>Vue.js</code> 的官方文档中是这样描述 <code>this.nextTick</code> 的:<blockquote>
 为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 <code>Vue.nextTick(callback)</code> 。这样回调函数在 DOM 更新完成后就会调用.</blockquote>
 在 <code>vue.js</code> 中, 使用 <code>this.nextTick</code> 的作用是更新 <code>dom</code> , 在 涉及关于在 <code>vue.js</code> 中 <code>Dom</code> 的操作中, 当我们想要操作被更新后的 <code>DOM</code>的时候，可以使用 <code>this.nextTick</code> 进行操作。<h3 id="为什么采用---thisnexttick">为什么采用   <code>this.nextTick</code></h3>

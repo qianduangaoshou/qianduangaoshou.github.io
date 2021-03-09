@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="BFC 的概念 bfc 被称作: 块状格式化上下文，通过创建 bfc 可以创建出一块独立的渲染区域，在这个区域内，bfc 仅仅对于 blcok-level 块状水平的 box 起作用，bfc 上下文规定了内部的块状水平 box 如何起作用，并且创建了块状格式化上下文的容器，内部元素的布局方式不会影响到外部的区域，因此，我们可以使用 bfc 的概念实现对于浮动的清除。BFC 的创建 创建块状格式化上">
 <meta name="keywords" content="bfc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS块状格式化上下文(BFC)">
 <meta property="og:url" content="https://newpromise.github.io/2017/09/17/BFC/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="BFC 的概念 bfc 被称作: 块状格式化上下文，通过创建 bfc 可以创建出一块独立的渲染区域，在这个区域内，bfc 仅仅对于 blcok-level 块状水平的 box 起作用，bfc 上下文规定了内部的块状水平 box 如何起作用，并且创建了块状格式化上下文的容器，内部元素的布局方式不会影响到外部的区域，因此，我们可以使用 bfc 的概念实现对于浮动的清除。BFC 的创建 创建块状格式化上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.241Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS块状格式化上下文(BFC)">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="BFC 的概念 bfc 被称作: 块状格式化上下文，通过创建 bfc 可以创建出一块独立的渲染区域，在这个区域内，bfc 仅仅对于 blcok-level 块状水平的 box 起作用，bfc 上下文规定了内部的块状水平 box 如何起作用，并且创建了块状格式化上下文的容器，内部元素的布局方式不会影响到外部的区域，因此，我们可以使用 bfc 的概念实现对于浮动的清除。BFC 的创建 创建块状格式化上">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7分钟
+                  6分钟
                 </span>
               
             </div>
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script><h3 id="bfc-的概念">BFC 的概念</h3>
+        <h3 id="bfc-的概念">BFC 的概念</h3>
 bfc 被称作: 块状格式化上下文，通过创建 bfc 可以创建出一块独立的渲染区域，在这个区域内，bfc 仅仅对于 <code>blcok-level</code> 块状水平的 <code>box</code> 起作用，bfc 上下文规定了内部的块状水平 box 如何起作用，并且创建了块状格式化上下文的容器，内部元素的布局方式不会影响到外部的区域，因此，我们可以使用 bfc 的概念实现对于浮动的清除。<h3 id="bfc-的创建">BFC 的创建</h3>
 创建块状格式化上下文的方式有以下几种:<ul>
 <li><code>float</code> 的值不为 <code>none</code></li>

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="在上一篇文章中，我们了解了关于纯函数的概念， 纯函数的好处体现了函数式编程的一大优点： 没有副作用， 那么什么是函数式编程， 与命令式编程有什么不同， 函数式编程有什么优点，这篇文章想要深入了解下函数式编程的基本概念以及特点；基本概念 在 Wikipedia 上面， 这样解释函数式编程：  In computer science, functional programming is a progr">
 <meta name="keywords" content="函数式编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阅读函数式编程（二）">
 <meta property="og:url" content="https://newpromise.github.io/2018/05/23/阅读函数式编程（二）/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="在上一篇文章中，我们了解了关于纯函数的概念， 纯函数的好处体现了函数式编程的一大优点： 没有副作用， 那么什么是函数式编程， 与命令式编程有什么不同， 函数式编程有什么优点，这篇文章想要深入了解下函数式编程的基本概念以及特点；基本概念 在 Wikipedia 上面， 这样解释函数式编程：  In computer science, functional programming is a progr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.273Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阅读函数式编程（二）">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="在上一篇文章中，我们了解了关于纯函数的概念， 纯函数的好处体现了函数式编程的一大优点： 没有副作用， 那么什么是函数式编程， 与命令式编程有什么不同， 函数式编程有什么优点，这篇文章想要深入了解下函数式编程的基本概念以及特点；基本概念 在 Wikipedia 上面， 这样解释函数式编程：  In computer science, functional programming is a progr">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6分钟
+                  5分钟
                 </span>
               
             </div>
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>在上一篇文章中，我们了解了关于纯函数的概念， 纯函数的好处体现了函数式编程的一大优点： 没有副作用， 那么什么是函数式编程， 与命令式编程有什么不同， 函数式编程有什么优点，这篇文章想要深入了解下函数式编程的基本概念以及特点；<h3 id="基本概念">基本概念</h3>
+        在上一篇文章中，我们了解了关于纯函数的概念， 纯函数的好处体现了函数式编程的一大优点： 没有副作用， 那么什么是函数式编程， 与命令式编程有什么不同， 函数式编程有什么优点，这篇文章想要深入了解下函数式编程的基本概念以及特点；<h3 id="基本概念">基本概念</h3>
 在 <code>Wikipedia</code> 上面， 这样解释函数式编程：<blockquote>
 <ul>
 <li>In computer science, functional programming is a programming paradigm or pattern (a style of building the structure and elements of computer programs)</li>

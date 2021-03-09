@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="这是我的第一篇博客: 折腾来折腾去终于搭建起来github博客，还好中间没有遇到太大的问题，搭建过程也还算顺利。  为什么要写博客？为了记录下自己前端学习中的一些知识点，在写代码的过程中，总结经验，提高自己的编程水平，写下自己在编程中遇到的问题，思考，以及是如何解决的，不断提高自己。千里之行，始于足下 12">
 <meta name="keywords" content="0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="my first blog">
 <meta property="og:url" content="https://newpromise.github.io/2017/08/18/my-first-blog/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="这是我的第一篇博客: 折腾来折腾去终于搭建起来github博客，还好中间没有遇到太大的问题，搭建过程也还算顺利。  为什么要写博客？为了记录下自己前端学习中的一些知识点，在写代码的过程中，总结经验，提高自己的编程水平，写下自己在编程中遇到的问题，思考，以及是如何解决的，不断提高自己。千里之行，始于足下 12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.253Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my first blog">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="这是我的第一篇博客: 折腾来折腾去终于搭建起来github博客，还好中间没有遇到太大的问题，搭建过程也还算顺利。  为什么要写博客？为了记录下自己前端学习中的一些知识点，在写代码的过程中，总结经验，提高自己的编程水平，写下自己在编程中遇到的问题，思考，以及是如何解决的，不断提高自己。千里之行，始于足下 12">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -391,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  186字
+                  130字
                 </span>
               
 
@@ -428,32 +428,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>这是我的第一篇博客:
+        这是我的第一篇博客:
 折腾来折腾去终于搭建起来github博客，还好中间没有遇到太大的问题，搭建过程也还算顺利。  为什么要写博客？为了记录下自己前端学习中的一些知识点，在写代码的过程中，总结经验，提高自己的编程水平，写下自己在编程中遇到的问题，思考，以及是如何解决的，不断提高自己。千里之行，始于足下 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>

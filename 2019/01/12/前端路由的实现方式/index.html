@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="前端路由的两种实现方式 路由是什么？ 路由一种根据请求的内容来匹配相应执行代码的一种机制， 在前端应用上面来说， 就是通过不同的路径来请求不同的资源。对于前端应用， 路由可以分为前端路由以及后端路由两种类型。后端路由： 在spa单页面应用出来之前， 最常用的一种渲染方式是服务端渲染（SSR）， 主要的方式是通过服务器返回页面上需要呈现的内容， 因此， 需要页面呈现什么的内容， 如何根据请求的不同路">
 <meta name="keywords" content="route">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端路由的实现">
 <meta property="og:url" content="https://newpromise.github.io/2019/01/12/前端路由的实现方式/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="前端路由的两种实现方式 路由是什么？ 路由一种根据请求的内容来匹配相应执行代码的一种机制， 在前端应用上面来说， 就是通过不同的路径来请求不同的资源。对于前端应用， 路由可以分为前端路由以及后端路由两种类型。后端路由： 在spa单页面应用出来之前， 最常用的一种渲染方式是服务端渲染（SSR）， 主要的方式是通过服务器返回页面上需要呈现的内容， 因此， 需要页面呈现什么的内容， 如何根据请求的不同路">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.257Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端路由的实现">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="前端路由的两种实现方式 路由是什么？ 路由一种根据请求的内容来匹配相应执行代码的一种机制， 在前端应用上面来说， 就是通过不同的路径来请求不同的资源。对于前端应用， 路由可以分为前端路由以及后端路由两种类型。后端路由： 在spa单页面应用出来之前， 最常用的一种渲染方式是服务端渲染（SSR）， 主要的方式是通过服务器返回页面上需要呈现的内容， 因此， 需要页面呈现什么的内容， 如何根据请求的不同路">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k字
+                  1.5k字
                 </span>
               
 
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script><h2 id="前端路由的两种实现方式">前端路由的两种实现方式</h2>
+        <h2 id="前端路由的两种实现方式">前端路由的两种实现方式</h2>
 <h3 id="路由是什么？">路由是什么？</h3>
 路由一种根据请求的内容来匹配相应执行代码的一种机制， 在前端应用上面来说， 就是通过不同的路径来请求不同的资源。对于前端应用， 路由可以分为前端路由以及后端路由两种类型。<h4 id="后端路由：">后端路由：</h4>
 在spa单页面应用出来之前， 最常用的一种渲染方式是服务端渲染（SSR）， 主要的方式是通过服务器返回页面上需要呈现的内容， 因此， 需要页面呈现什么的内容， 如何根据请求的不同路径返回不同的资源是由服务器端进行配置的，使用服务器端进行渲染有如下几个优缺点：优点：<ul>

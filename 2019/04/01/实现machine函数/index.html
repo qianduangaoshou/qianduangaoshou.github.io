@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="机器可以按照一定的顺序对于零件进行加工， 在程序中， 我们也可以实现一个机器函数， 这个函数可以按照我们调用函数的顺序进行执行。  实现一个类似于 machine 的函数：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616">
 <meta name="keywords" content="machine 函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现machine函数">
 <meta property="og:url" content="https://newpromise.github.io/2019/04/01/实现machine函数/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="机器可以按照一定的顺序对于零件进行加工， 在程序中， 我们也可以实现一个机器函数， 这个函数可以按照我们调用函数的顺序进行执行。  实现一个类似于 machine 的函数：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newpromise.github.io/2019/04/01/实现machine函数/mechine.png">
 <meta property="og:image" content="https://newpromise.github.io/2019/04/01/实现machine函数/imageconsole.png">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.257Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现machine函数">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="机器可以按照一定的顺序对于零件进行加工， 在程序中， 我们也可以实现一个机器函数， 这个函数可以按照我们调用函数的顺序进行执行。  实现一个类似于 machine 的函数：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616">
 <meta name="twitter:image" content="https://newpromise.github.io/2019/04/01/实现machine函数/mechine.png">
 
 
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  753字
+                  697字
                 </span>
               
 
@@ -453,32 +453,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>机器可以按照一定的顺序对于零件进行加工， 在程序中， 我们也可以实现一个机器函数， 这个函数可以按照我们调用函数的顺序进行执行。<img src="/2019/04/01/实现machine函数/mechine.png">
+        机器可以按照一定的顺序对于零件进行加工， 在程序中， 我们也可以实现一个机器函数， 这个函数可以按照我们调用函数的顺序进行执行。<img src="/2019/04/01/实现machine函数/mechine.png">
 
 实现一个类似于 <code>machine</code> 的函数：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * @param &#123;String&#125; machineName 机器名称</span></span><br><span class="line"><span class="comment"> * @description 机器函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">machine</span>(<span class="params">machineName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> fnList = [];</span><br><span class="line">  fnList.push(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`start <span class="subst">$&#123;machineName&#125;</span>`</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">const</span> doFnMap = &#123;</span><br><span class="line">    <span class="keyword">do</span>(doName) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`do <span class="subst">$&#123;doName&#125;</span>`</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 执行机器函数</span></span><br><span class="line">    execute() &#123;</span><br><span class="line">      <span class="keyword">const</span> handleFn = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (fnList.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">const</span> fnNow = fnList.shift();</span><br><span class="line">          <span class="keyword">const</span> fnVal = fnNow();</span><br><span class="line">          <span class="keyword">if</span> (fnVal <span class="keyword">instanceof</span> <span class="built_in">Promise</span>) &#123;</span><br><span class="line">            fnVal.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              handleFn();</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            handleFn();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">`end <span class="subst">$&#123;machineName&#125;</span>`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      handleFn();</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 执行机器前等待时间</span></span><br><span class="line">    waitFirst(time) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">`wait first <span class="subst">$&#123;time&#125;</span>s`</span>);</span><br><span class="line">          resolve();</span><br><span class="line">        &#125;, time * <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    waitEnd(time) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">`wait end <span class="subst">$&#123;time&#125;</span>s`</span>);</span><br><span class="line">          resolve();</span><br><span class="line">        &#125;, time * <span class="number">1000</span>);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 执行过程中等待时间</span></span><br><span class="line">    wait: <span class="function">(<span class="params">time</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">`wait <span class="subst">$&#123;time&#125;</span>s`</span>);</span><br><span class="line">          resolve();</span><br><span class="line">        &#125;, time * <span class="number">1000</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">let</span> proxy;</span><br><span class="line">  <span class="comment">// proxy 代理拦截</span></span><br><span class="line">  <span class="comment">// 获取到需要执行的函数名之后，将其放入执行函数队列数组</span></span><br><span class="line">  proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(doFnMap, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params">target, property</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (property !== <span class="string">'execute'</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (property === <span class="string">'waitFirst'</span>) &#123;</span><br><span class="line">            fnList.unshift(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              <span class="keyword">return</span> target.waitFirst(args);</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            fnList.push(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              <span class="keyword">return</span> target[property](args);</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> proxy;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> doFnMap.execute();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> proxy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

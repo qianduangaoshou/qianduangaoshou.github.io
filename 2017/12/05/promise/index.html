@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="使用 promise 构建异步请求在 es6-promise 中已经说过了，下面这章想要探究一下使用 promise  的原理。使用 promise   的实例如下:new Promise(function (resolve, reject) {....})对于 promise 的执行过程是这样的: executor 执行器:executor 是一个带有  resolve 和 reject 两个参">
 <meta name="keywords" content="promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="promise 原理">
 <meta property="og:url" content="https://newpromise.github.io/2017/12/05/promise/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="使用 promise 构建异步请求在 es6-promise 中已经说过了，下面这章想要探究一下使用 promise  的原理。使用 promise   的实例如下:new Promise(function (resolve, reject) {....})对于 promise 的执行过程是这样的: executor 执行器:executor 是一个带有  resolve 和 reject 两个参">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.253Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="promise 原理">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="使用 promise 构建异步请求在 es6-promise 中已经说过了，下面这章想要探究一下使用 promise  的原理。使用 promise   的实例如下:new Promise(function (resolve, reject) {....})对于 promise 的执行过程是这样的: executor 执行器:executor 是一个带有  resolve 和 reject 两个参">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k字
+                  1.3k字
                 </span>
               
 
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>使用 <code>promise</code> 构建异步请求在 <code>es6-promise</code> 中已经说过了，下面这章想要探究一下使用 <code>promise </code> 的原理。使用 <code>promise </code>  的实例如下:<code>new Promise(function (resolve, reject) {....})</code>对于 <code>promise</code> 的执行过程是这样的:<blockquote>
+        使用 <code>promise</code> 构建异步请求在 <code>es6-promise</code> 中已经说过了，下面这章想要探究一下使用 <code>promise </code> 的原理。使用 <code>promise </code>  的实例如下:<code>new Promise(function (resolve, reject) {....})</code>对于 <code>promise</code> 的执行过程是这样的:<blockquote>
 executor 执行器:executor 是一个带有  <code>resolve</code> 和 <code>reject</code> 两个参数的函数, <code>executor</code> 函数 <code>promise</code> 构造函数执行的时候同步执行， 被传递 <code>resolve</code> 以及 <code>reject</code> 函数，<code>executor</code> 函数在 <code>Promise</code> 构造函数返回新建对象前被调用, <code>resolve</code> 和 <code>reject</code> 函数被调用的时候，分别将 <code>promise</code> 的状态改为 <code>fullfilled(完成)</code> 和 <code>rejected(完成)</code> <code>executor</code> 函数内部会执行异步操作，操作完成成功之后将 <code>promise</code> 状态改为 <code>fullfiled</code> 或者将发生错误的时候, 将  状态变为 <code>rejected</code></blockquote>
 对于一个 <code>promise </code> 对象具有下面三种状态:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pending: 初始状态，不是成功就是失败 <span class="comment">// pending 英文: 等待，表示处于等待异步处理结果的状态</span></span><br><span class="line">fufilled 等待结果操作成功完成</span><br><span class="line">rejected 表示等待操作结果失败</span><br></pre></td></tr></table></figure>
 

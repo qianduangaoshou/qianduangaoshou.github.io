@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。层叠上下文 普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。在上面的这">
 <meta name="keywords" content="CSS层叠">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS层叠上下文">
 <meta property="og:url" content="https://newpromise.github.io/2017/08/22/CSS层叠上下文/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta property="og:description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。层叠上下文 普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。在上面的这">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-08T09:56:52.241Z">
+<meta property="og:updated_time" content="2021-03-09T03:30:36.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS层叠上下文">
-<meta name="twitter:description" content="function isIn(el) {     let bound = el.getBoundingClientRect();     let clientHeight = window.innerHeight;     return bound.top  img.dataset.type === &apos;post-pic&apos;).forEach(img =&amp;gt; {        if (isIn(img)">
+<meta name="twitter:description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。层叠上下文 普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。在上面的这">
 
 
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-08T09:56:52+00:00">
-                2021-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T03:30:36+00:00">
+                2021-03-09
               </time>
             
           </span>
@@ -450,32 +450,7 @@
       
 
       
-        <script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。<h3 id="层叠上下文">层叠上下文</h3>
+        ​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。<h3 id="层叠上下文">层叠上下文</h3>
 普通元素使用css的特殊属性可以创建层叠上下文，<del>创建层叠上下文的元素的层级会高于普通的元素</del> ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。在上面的这段话中，自己的理解是不正确的，创建了层叠上下文的元素只是有了层次，但是，并不能说，层叠上下文元素就一定到天然高于普通的元素。关于比较，还是要看 层叠顺序来的。<h3 id="层叠水平">层叠水平</h3>
 层叠水平类似 &#39;level&#39; , 层叠水平的大小决定了同一层叠上下文元素下元素在 z 轴上的显示顺序，所有的元素都有层叠水平都有层叠水平，但是对于普通元素，讨论其层叠水平是没有意义的。普通元素的层叠水平优先由层叠上下文来决定，层叠水平的比较仅在层叠上下文中比较才有意义。<h3 id="层叠顺序">层叠顺序</h3>
 层叠顺序定义的是在相同的层叠上下文中  <strong>元素发生层叠的时候</strong> ，特定的显示顺序, 层叠顺序图表引入顺序如下:<img data-src="%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99.png" data-type="post-pic" loading="lazy" style="border: none;"> <blockquote>
