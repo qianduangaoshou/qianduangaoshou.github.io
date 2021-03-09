@@ -90,7 +90,7 @@
 <meta property="og:description" content="watch 方法 vue 的 watch 方法用来监听 vue 中 data 的变动, 可以接受一个函数， 对象， 字符串， 或者数组。watch 方法接受两个参数： deep  &amp;amp; immediate,  immediate  表明是否立即进行函数调用， deep 表示是否监听更深一级的对象；例如在vue 组件中：12345678910111213141516new Vue(&amp;#123;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://newpromise.github.io/2019/05/13/watch%20in%20vue/image-20190514150916088.png">
-<meta property="og:updated_time" content="2021-03-09T05:06:27.859Z">
+<meta property="og:updated_time" content="2021-03-09T06:28:11.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="watch in vue.js">
 <meta name="twitter:description" content="watch 方法 vue 的 watch 方法用来监听 vue 中 data 的变动, 可以接受一个函数， 对象， 字符串， 或者数组。watch 方法接受两个参数： deep  &amp;amp; immediate,  immediate  表明是否立即进行函数调用， deep 表示是否监听更深一级的对象；例如在vue 组件中：12345678910111213141516new Vue(&amp;#123;">
@@ -344,7 +344,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -1352,5 +1352,30 @@ vue 的 watch 方法用来监听 vue 中 data 的变动, 可以接受一个函�
 
   
 
-</body>
+</body><script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script>
 </html>

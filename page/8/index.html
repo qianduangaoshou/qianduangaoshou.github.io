@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -558,7 +558,7 @@ _.filter(list, predicate, [context])遍历 list 值, 返回通过 predicate 函�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -773,7 +773,7 @@ _.each(list, iteratee, [context])这个方法用于循环遍历, 用于循环 li
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -986,7 +986,7 @@ _.each(list, iteratee, [context])这个方法用于循环遍历, 用于循环 li
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -1199,7 +1199,7 @@ _.each(list, iteratee, [context])这个方法用于循环遍历, 用于循环 li
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -1412,7 +1412,7 @@ _.each(list, iteratee, [context])这个方法用于循环遍历, 用于循环 li
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -1625,7 +1625,7 @@ _.each(list, iteratee, [context])这个方法用于循环遍历, 用于循环 li
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -1839,7 +1839,7 @@ _.each(list, iteratee, [context])这个方法用于循环遍历, 用于循环 li
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -2053,7 +2053,7 @@ Set 数据结构类似于数组， 不同于数组的是， Set 数据结构中�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -2270,7 +2270,7 @@ es6 中
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T05:06:27+00:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:28:11+00:00">
                 2021-03-09
               </time>
             
@@ -3190,5 +3190,30 @@ bfc 被称作: 块状格式化上下文，通过创建 bfc 可以创建出一块
 
   
 
-</body>
+</body><script>
+function isIn(el) {
+    let bound = el.getBoundingClientRect();
+    let clientHeight = window.innerHeight;
+    return bound.top <= clientHeight;
+}
+
+function loadImg() {
+   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
+       if (isIn(img)) {
+        replaceSrc(img)
+       }
+   })
+}
+
+function replaceSrc(el) {
+  if (el.dataset.isLoaded !== 'true') {
+      el.src = el.dataset.src
+      el.setAttribute('data-loaded', 'true')
+      el.parentNode.href = el.dataset.src
+  }
+}
+
+window.onload = window.onscroll = function () {
+    loadImg()
+}</script>
 </html>
