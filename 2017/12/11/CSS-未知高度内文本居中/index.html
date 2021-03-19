@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="上善若水">
 <meta property="og:description" content="在项目中遇到过单行文本出现垂直居中的问题， 对于已知高度使用 line-height = height 可以解决问题，对于未知高度，下面有几种方法。例如下面的 HTML 以及 CSS 如下:1234&amp;lt;div class=&amp;quot;wrapper&amp;quot;&amp;gt;  &amp;lt;span class=&amp;quot;first&amp;quot;&amp;gt;我是第一个需要居中的文字&amp;lt;/span&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-09T06:32:27.300Z">
+<meta property="og:updated_time" content="2021-03-19T03:47:43.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS: 未知高度内文本居中">
 <meta name="twitter:description" content="在项目中遇到过单行文本出现垂直居中的问题， 对于已知高度使用 line-height = height 可以解决问题，对于未知高度，下面有几种方法。例如下面的 HTML 以及 CSS 如下:1234&amp;lt;div class=&amp;quot;wrapper&amp;quot;&amp;gt;  &amp;lt;span class=&amp;quot;first&amp;quot;&amp;gt;我是第一个需要居中的文字&amp;lt;/span&amp;gt;">
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T06:32:27+00:00">
-                2021-03-09
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-19T03:47:43+00:00">
+                2021-03-19
               </time>
             
           </span>
@@ -1293,30 +1293,5 @@
 
   
 
-</body><script>
-function isIn(el) {
-    let bound = el.getBoundingClientRect();
-    let clientHeight = window.innerHeight;
-    return bound.top <= clientHeight;
-}
-
-function loadImg() {
-   [...document.querySelectorAll('img')].filter(img => img.dataset.type === 'post-pic').forEach(img => {
-       if (isIn(img)) {
-        replaceSrc(img)
-       }
-   })
-}
-
-function replaceSrc(el) {
-  if (el.dataset.isLoaded !== 'true') {
-      el.src = el.dataset.src
-      el.setAttribute('data-loaded', 'true')
-      el.parentNode.href = el.dataset.src
-  }
-}
-
-window.onload = window.onscroll = function () {
-    loadImg()
-}</script>
+</body>
 </html>
