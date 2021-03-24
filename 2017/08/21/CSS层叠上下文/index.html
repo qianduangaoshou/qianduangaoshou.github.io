@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git,">
+  <meta name="keywords" content="CSS层叠,">
 
 
 
@@ -81,18 +81,27 @@
 
 
 
-<meta name="description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
-<meta name="keywords" content="git">
+<meta name="description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。层叠上下文 普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。在上面的这">
+<meta name="keywords" content="CSS层叠">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 中的数据存储">
-<meta property="og:url" content="https://newpromise.github.io/2021/03/19/git 中的数据存储/index.html">
+<meta property="og:title" content="CSS层叠上下文">
+<meta property="og:url" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
+<meta property="og:description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。层叠上下文 普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。在上面的这">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-19T03:47:43.607Z">
+<meta property="og:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99.png">
+<meta property="og:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/Snipaste_2017-08-22_23-40-52.png">
+<meta property="og:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/%E5%B1%82%E5%8F%A0%EF%BC%881%EF%BC%89_2017-08-24_00-08-06.png">
+<meta property="og:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/%E5%B1%82%E5%8F%A0%EF%BC%882%EF%BC%89_2017-08-24_00-10-54.png">
+<meta property="og:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/flex-z-index%20%20magic%20%202017-08-24_22-33-25.png">
+<meta property="og:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/opacityCENGDIE%202017-08-25_23-16-27.png">
+<meta property="og:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/opacity%20Mag%202017-08-25_23-27-13.png">
+<meta property="og:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/Snipaste_2017-08-26_00-24-17.png">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.235Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 中的数据存储">
-<meta name="twitter:description" content="版本控制系统 代码版本控制系统大致可以分为三代：本地版本控制系统 代码存储在本地，无法实现多人协作的需求集中化的版本控制系统 解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码分布式的版本控制系统 这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支Git 中文件夹 .git 当">
+<meta name="twitter:title" content="CSS层叠上下文">
+<meta name="twitter:description" content="​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。层叠上下文 普通元素使用css的特殊属性可以创建层叠上下文，创建层叠上下文的元素的层级会高于普通的元素 ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。在上面的这">
+<meta name="twitter:image" content="https://newpromise.github.io/2017/08/21/CSS层叠上下文/%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99.png">
 
 
 
@@ -122,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://newpromise.github.io/2021/03/19/git 中的数据存储/">
+  <link rel="canonical" href="https://newpromise.github.io/2017/08/21/CSS层叠上下文/">
 
 
 
 
 
-  <title>git 中的数据存储 | 上善若水</title>
+  <title>CSS层叠上下文 | 上善若水</title>
   
 
 
@@ -297,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2021/03/19/git 中的数据存储/">
+    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2017/08/21/CSS层叠上下文/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="上善若水">
@@ -314,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git 中的数据存储</h1>
+          <h1 class="post-title" itemprop="name headline">CSS层叠上下文</h1>
         
 
         <div class="post-meta">
@@ -326,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-19T03:47:43+00:00">
-                2021-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T16:19:29+00:00">
+                2017-08-21
               </time>
             
 
@@ -342,8 +351,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-19T03:47:43+00:00">
-                2021-03-19
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -361,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -379,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/03/19/git 中的数据存储/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2021/03/19/git 中的数据存储/" itemprop="commentCount"></span>
+                <a href="/2017/08/21/CSS层叠上下文/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/08/21/CSS层叠上下文/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,7 +397,7 @@
 
           
           
-             <span id="/2021/03/19/git 中的数据存储/" class="leancloud_visitors" data-flag-title="git 中的数据存储">
+             <span id="/2017/08/21/CSS层叠上下文/" class="leancloud_visitors" data-flag-title="CSS层叠上下文">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -413,7 +422,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k字
+                  2.6k字
                 </span>
               
 
@@ -429,7 +438,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  10分钟
                 </span>
               
             </div>
@@ -450,68 +459,45 @@
       
 
       
-        <h3 id="版本控制系统">版本控制系统</h3>
-代码版本控制系统大致可以分为三代：<h4 id="本地版本控制系统">本地版本控制系统</h4>
-代码存储在本地，无法实现多人协作的需求<h4 id="集中化的版本控制系统">集中化的版本控制系统</h4>
-解决了多人协作的问题，但是因为代码都是统一存储在服务器上，当无法连接服务器上的时候，无法查看日志和提交比较代码<h4 id="分布式的版本控制系统">分布式的版本控制系统</h4>
-这种控制系统的特点是，任何人都可以复制一份和服务上相同的代码，当无法连接服务器的时候，仍然可以提交代码，创建分支<h3 id="git-中文件夹-git">Git 中文件夹 .git</h3>
-当我们使用 <code>git init </code> 初始化<code>git</code> 仓库的时候，当前文件夹下出生成一个 <code>.git</code>  的隐藏文件夹，这个文件夹内存储着我们进行 git 操作的一些数据：<ul>
-<li>存储当前的分支（<code>HEAD</code>）</li>
-<li>存储当前所有的分支信息（<code>config</code>）</li>
-<li>存储提交的文件快照数据（<code>objects</code>）</li>
-<li>....</li>
+        ​    最近看到张鑫旭大神的关于css元素层叠显示的文章，感到收获了很多，对于css元素堆叠有了深入的理解，下面是我做的写笔记。<h3 id="层叠上下文">层叠上下文</h3>
+普通元素使用css的特殊属性可以创建层叠上下文，<del>创建层叠上下文的元素的层级会高于普通的元素</del> ，这就好像，当我们眼睛看电脑的时候，创建了层叠上下文的元素离我们的眼睛更近了。当层叠上下文与普通元素叠加在一起的时候，层叠上下文元素会叠放在普通元素的上面。在上面的这段话中，自己的理解是不正确的，创建了层叠上下文的元素只是有了层次，但是，并不能说，层叠上下文元素就一定到天然高于普通的元素。关于比较，还是要看 层叠顺序来的。<h3 id="层叠水平">层叠水平</h3>
+层叠水平类似 &#39;level&#39; , 层叠水平的大小决定了同一层叠上下文元素下元素在 z 轴上的显示顺序，所有的元素都有层叠水平都有层叠水平，但是对于普通元素，讨论其层叠水平是没有意义的。普通元素的层叠水平优先由层叠上下文来决定，层叠水平的比较仅在层叠上下文中比较才有意义。<h3 id="层叠顺序">层叠顺序</h3>
+层叠顺序定义的是在相同的层叠上下文中  <strong>元素发生层叠的时候</strong> ，特定的显示顺序, 层叠顺序图表引入顺序如下:<img src="%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99.png" loading="lazy"> <blockquote>
+注意: 上面有句话 “当元素发生层叠的时候‘ ，如果元素没有创建层叠上下文，没有发生层叠的现象，下面的层叠顺序是不起作用的，但是，使用 <code>dispplay: inline-block</code> 是个例外，我想是因为在 CSS 中 <code>内容主要，样式次之</code>的原因吧， <code>inline-block</code>  会被认为是内容 ， <code>block</code> 会被认为属于布局的样式</blockquote>
+如下代码所示:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;con&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;block2&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;block1&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">   .block1 &#123;</span><br><span class="line">       width: 200px;</span><br><span class="line">       height: 200px;</span><br><span class="line">       background-color: blue;</span><br><span class="line">   &#125;</span><br><span class="line">    .block2 &#123;</span><br><span class="line">        display: inline-block;</span><br><span class="line">        margin-bottom: -100px;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+效果如下:<img src="Snipaste_2017-08-22_23-40-52.png" loading="lazy">如果正常情况下，因为在 DOM 文档中，block1 元素位于 block2 元素下面，因此block 1 应该遮挡住 block2 才是，但是为什么会出现这种情况呢？因为我们给 block2元素添加了 <code>display: inline-block</code> 属性，根据上面的层叠规则图我们可以知道，应用到的 inline-block元素层叠水平上要高于 block 元素，因此 block2 元素会覆盖掉 block1 元素，这就是 使用层叠顺序的作用，用于比较同一层叠水平下的元素顺序。<blockquote>
+下面是两条非常重要的层叠准则如下 :1.谁大谁上，当两个元素位于同一层叠上下文中的时候，按照层叠顺序，层叠水平大的要覆盖掉层叠水平小的元素。（要注意这里面当元素位于同一个层叠上下文的时候，才会按照层叠顺序来创建）2.后来居上，当两个元素的层叠水平一致的时候，并且层叠顺序一致的时候，在DOM流中 后面的元素会覆盖掉前面的元素</blockquote>
+<h3 id="创建层叠上下文">创建层叠上下文</h3>
+如何创建层叠上下文呢？这里有三种途径：1.页面的根元素( html )本身带有层叠上下文对于页面的根元素 <code> html</code> 本身具有层叠上下文的2.对于包含有 <code>position: absolute</code>  <code>position: relative </code> 的定位元素，当 z-index 不是auto 的时候，会创建层叠上下文。(注意这里，z-index 不能是 auto, 否则不能创建层叠上下文)例如代码如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;con&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;block1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;block2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">   .block1 &#123;</span><br><span class="line">       width: 200px;</span><br><span class="line">       height: 200px;</span><br><span class="line">       background-color: blue;</span><br><span class="line">   &#125;</span><br><span class="line">   .block2 &#123;</span><br><span class="line">        margin-top: -100px;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: red;</span><br><span class="line">   &#125;</span><br><span class="line">   // 第一种情况</span><br><span class="line">   .block1 &#123;</span><br><span class="line">      z-index: 2;</span><br><span class="line">   &#125; </span><br><span class="line">   .blcok2 &#123;</span><br><span class="line">      z-index: 1;</span><br><span class="line">   &#125;</span><br><span class="line">   // 第二种情况</span><br><span class="line">   .block1 &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      z-index: 0;</span><br><span class="line">   &#125; </span><br><span class="line">   .blcok2 &#123;</span><br><span class="line">      z-index: 1000;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+我们通过对于css样式的改变出现下面的这几种情况：第一种情况:这种情况下，实际上 z-index 没有起作用，因为这里面的两个元素都是普通元素，没有创建层叠上下文的元素因此 这里使用 <code>z-index</code> 进行比较没有起作用   <strong>使用 <code>z-index</code>只对于层叠上下文的元素起作用</strong><img src="%E5%B1%82%E5%8F%A0%EF%BC%881%EF%BC%89_2017-08-24_00-08-06.png" loading="lazy">第二种情况：使用 <code>position: relative</code>  和 <code>z-index</code> 创建了层叠上下文， <del>在层次上，层叠上下文的要高于普通元素</del>，因为使用 <code>z-index: 0</code> 的层叠水平会高于 display:block  元素，因此会出现下面的效果<img src="%E5%B1%82%E5%8F%A0%EF%BC%882%EF%BC%89_2017-08-24_00-10-54.png" loading="lazy">3.使用其他特殊的 css3  属性创建的层叠上下文。使用一些特殊的层叠CSS3属性也会创建层叠上下文：有这么几个:1.当一个元素的 <strong>父元素</strong> 声明 <code>display: flex | display: inline-flex</code> 的时候，并且该元素的 <code>z-index</code> 不是 <code>auto</code> 而是数数值的时候，该元素变为层叠上下文元素；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;con&quot;&gt;</span><br><span class="line">   &lt;div class=&quot;block1&quot;&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;block2&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .con &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">    &#125;</span><br><span class="line">    .block1 &#123;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: blue;</span><br><span class="line">    &#125;</span><br><span class="line">    .block2 &#123;</span><br><span class="line">        margin-left: -100px;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">     .block2 &#123;</span><br><span class="line">       &#125;</span><br><span class="line">     .block1 &#123;</span><br><span class="line">         z-index: 1;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+正常情况下，block2 元素 应该在block元素上面，因为dom流中 block元素位于 后面但是，当我们给 block1 添加了一个 <code>z-index</code>  不为 auto的值的时候，情况发生变化了, Magic !如下：<img src="flex-z-index%20%20magic%20%202017-08-24_22-33-25.png" loading="lazy">这是因为添加了 <code>z-index</code> 元素就变成了层叠上下文了，在层叠顺序表中， z-index 大于 0 的层叠上下文在 层次上要高于 <code>display: block</code> 的普通元素，如果 <code>z-index</code> 为 -1 的时候，其实情况又不一样了。因为 z-index 为负值的时候是会小于 <code>display: block</code> 元素的。<ol start="2">
+<li>使用 CSS 中的 <code>opacity</code> 创建的层叠上下文元素:我们有时候会出现想让 不透明元素内的元素显示正常，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&apos;con&apos;&gt;</span><br><span class="line">	&lt;div class= &apos;text&apos;&gt;我是一段文字&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;sytle&gt;</span><br><span class="line">.con&#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background-color: blue;</span><br><span class="line">  opacity: 0.5;</span><br><span class="line">&#125;</span><br><span class="line">.text &#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background-color: red;</span><br><span class="line">  position: relative;</span><br><span class="line">  z-index: -1;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+在实际上，元素内的文字也会被透明度影响，这被认为是 使用 <code>opacity</code> 创建了层叠上下文元素因为，在没有使用 <code>opacity</code> 的时候， 没有创建层叠上下文， 这时候 .text 元素是创建了层叠上下文的，因为 <code>z-index</code> 小于零，在层叠规则上小于 <code>block</code> 元素，所以会被遮盖掉。当我们对于 <code>class=&#39;con&#39;</code> 的元素没有设置 <code>opacity</code>的时候，效果如下：<img src="opacityCENGDIE%202017-08-25_23-16-27.png" loading="lazy">这样效果的原因是因为：使用了 <code>position: relative</code> 和 <code>z-index: -1</code> 形成的层叠上下文，在层叠规则上要低于 其他的<code>block</code> 元素，因此图片中的红色方块就被遮挡住了；然而，当我们对元素应用 <code>opacity</code> 当 <code>opacity</code> 是不为 1 的数字的时候，我们发现层叠顺序发生了改变：  <img src="opacity%20Mag%202017-08-25_23-27-13.png" loading="lazy">Magic!如上,因为我们对于 <code>class = &#39;con&#39;</code> 设置了 <code>opacity: 0.7</code> 创建了层叠上下文，其子元素 <code>class =&#39;text&#39; </code> 虽然也是创建了层叠上下文，但是根据层叠上下文的规则，如果父元素也是创建了层叠上下文，那么子元素创建的层叠上下文要受到父元素的层叠上下文的制约；<blockquote>
+上面对于使用 <code>opacity</code> 创建的层叠上下文，来解释子元素会受到父元素 <code>opacity</code> 的影响，实际上，我们也可以认为属性 <code>opacity</code> 具有继承性，子元素会继承父元素的 <code>opacity</code> 属性</blockquote>
+对于使用  <code>opacity</code> 会影响到子元素的效果，如果我们想让子元素不受到父元素  <code>opacity</code> 的影响， 解决办法有下面的几种方法：<blockquote>
+借用 <code>background: rgba()</code> 了来实现</blockquote>
+使用 这个属性可以避免 后代子元素使用 <code>opacity</code> 造成的干扰效果，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(R,G,B,A)</span><br><span class="line">// R: 代表红色取值</span><br><span class="line">// G: 代表绿色取值</span><br><span class="line">// B: 代表蓝色取值</span><br><span class="line">// A: 代表透明度</span><br><span class="line">// R G B 代表 三原色, 数值为 0 - 255 使用这三种颜色的组合可以实现任何其他的颜色</span><br></pre></td></tr></table></figure>
+
+因此，上面的问题，我们使用 <code>rgba</code> 来解决：<code>background: rgba(0,0,255,0.5)</code> <blockquote>
+还有一种方法，是让被 <code>opacity</code> 不作用在父元素上</blockquote>
+html: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&apos;con&apos;&gt;</span><br><span class="line">	&lt;div class=&apos;text&apos;&gt;</span><br><span class="line">		&lt;p&gt;我是要进行显示的元素&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div class=&apos;back&apos;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+CSS:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.blo &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 100px;</span><br><span class="line">    &#125;</span><br><span class="line">.back &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top: 0;</span><br><span class="line">        left: 0;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 100%;</span><br><span class="line">        background-color: blue;</span><br><span class="line">        opacity: 0.2;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+​ 效果如下:<img src="Snipaste_2017-08-26_00-24-17.png" loading="lazy"><h4 id="层叠上下文的特性：">层叠上下文的特性：</h4>
+层叠上下文元素有如下特性：<ul>
+<li>层叠上下文的层叠水平要比普通元素高；</li>
+<li>层叠上下文可以阻断元素的混合模式；</li>
+<li>层叠上下文可以嵌套，内部层叠上下文及其所有子元素均受制于外部的层叠上下文。</li>
+<li>每个层叠上下文和兄弟元素独立，也就是当进行层叠变化或渲染的时候，只需要考虑后代元素。</li>
+<li>每个层叠上下文是自成体系的，当元素发生层叠的时候，整个元素被认为是在父层叠上下文的层叠顺序中。 </li>
 </ul>
-<h3 id="三种基本文件">三种基本文件</h3>
-当我们输入一些git命令的时候，git 根据的输入的命令会生成一些文件，有的文件用来存储当前提交的文件内容，有的文件用来存储我们当前提交的信息，这些文件都被存储在 <code>objects</code> 这个文件夹之内，有三种基本文件在我们使用 git 进行数据存储时是息息相关的：<ul>
-<li><code>blob</code> 文件</li>
-<li><code>tree</code> 文件</li>
-<li><code>commit</code> 文件</li>
-</ul>
-<h4 id="blob-文件"><code>blob</code> 文件</h4>
-blob 文件用来存储我们提交代码的文件快照，这种文件存储的是压缩后的文件内容代码实践下 blob 文件是如何生成的：<ol>
-<li>git 初始化：</li>
+</li>
 </ol>
-<img data-src="image-20210303164432105.png" data-type="post-pic" loading="lazy" alt="image-20210303164432105" style="border: none;zoom:50%;">
-
-<ol start="2">
-<li>初始化的 git 仓库内创建两个文件: <code>1.txt</code> 与 <code>2.txt</code>, 内容分别是 1 和 2</li>
-<li>执行 <code>git add</code>：</li>
-</ol>
-<img data-src="image-20210303164241534.png" data-type="post-pic" loading="lazy" alt="image-20210303164241534" style="border: none;zoom:50%;">
-
-<ol start="4">
-<li>查看出现的 <code>d8</code> 和 <code>56</code> 这两个文件夹</li>
-</ol>
-<img data-src="image-20210303164846117.png" data-type="post-pic" loading="lazy" alt="image-20210303164846117" style="border: none;zoom:50%;">
-
-​     如图，发现是乱码的形式，这是因为 Git 将信息压缩成了二进制，对于这种文件，使用 <code>git cat-file [-t][-p]</code> 来查看文件类型或者    文件内容<img data-src="image-20210303165312098.png" data-type="post-pic" loading="lazy" alt="image-20210303165312098" style="border: none;zoom:50%;">
-
-​    <img data-src="image-20210303165323101.png" data-type="post-pic" loading="lazy" alt="image-20210303165323101" style="border: none;zoom:50%;">
-
-可以看到，使用 <code>git add</code> 命令生成的 <code>56</code> 和 <code>d8</code> 文件都是 <code>blob</code> 类型文件，并且存储的是文件的内容<h4 id="tree-文件"><code>tree</code> 文件</h4>
-继续上面的操作，这次执行 <code>git commit </code> 命令：<img data-src="image-20210303170500072.png" data-type="post-pic" loading="lazy" alt="image-20210303170500072" style="border: none;zoom:50%;">
-
-查看 <code>objects</code> 文件：<img data-src="image-20210303170606368.png" data-type="post-pic" loading="lazy" alt="image-20210303170606368" style="border: none;zoom:50%;">
-
-相比之前多出了两个文件夹：<code>3c</code> 和 <code>96</code> 查看 <code>3c</code> 文件夹​                                                        <img data-src="image-20210303170851619.png" data-type="post-pic" loading="lazy" alt="image-20210303170851619" style="border: none;zoom:50%;">
-​    可以看到， 3c 文件夹下的文件存储的内容为我们这次 commit 修改的两个文件 1.txt 和 2.txt ，除了文件名之外，还保存有此次修改的blob文件的文件名以及文件类型3c文件夹下的文件类型为 tree, 这种文件存储的信息是当前提交的文件目录<h4 id="commit-文件"><code>commit</code> 文件</h4>
-查看生成的 <code>96</code> 文件夹，我们可以看到如下内容：<img data-src="image-20210303171533671.png" data-type="post-pic" loading="lazy" alt="image-20210303171533671" style="border: none;zoom:50%;">
-
-
-
-<img data-src="image-20210303171612008.png" data-type="post-pic" loading="lazy" alt="image-20210303171612008" style="border: none;zoom:50%;">
-
-96 文件夹下的文件类型为 commit 文件， 存储的内容是本次 commit 的信息: 提交人，提交信息（git test）等，其中还存储了 tree 文件的文件名，除了这些信息之外， 还存储有上一次提交的 commit 文件（父点），因为我们这里是初次提交，没有上一次提交，因此没有父节点<h4 id="三种文件之间的关系">三种文件之间的关系</h4>
-综上所述，三种类型的文件的主要作用是：blob：存储提交文件的快照
-tree：存储提交文件的文件目录以及文件名，blob 文件地址等信息
-commit： 存储提交信息，提交生成的 tree 文件用一张图可以说明三种类型文件之间的关系：<img data-src="image-20210303171943546.png" data-type="post-pic" loading="lazy" alt="image-20210303171943546" style="border: none;zoom:33%;">
-
-<h4 id="总结">总结</h4>
-<ul>
-<li> 使用 <code>git add .</code> 命令时，将变动内容的文件保存生成 blob 文件</li>
-<li>使用 <code>git commit</code> 命令时， 生成 tree 文件与 commit 文件</li>
-<li>当前分支的指针指向新的 commit 节点，节点中存在 parent 字段，表明上一次提交 commit 文件，逐级向上，一直到第一次提交，这些 commit 连接成为提交记录（<code>git log</code>）</li>
-</ul>
 
       
     </div>
@@ -529,7 +515,7 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/CSS层叠/" rel="tag"># CSS层叠</a>
           
         </div>
       
@@ -542,8 +528,8 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/19/git 中的合并策略/" rel="next" title="git 中的合并策略">
-                <i class="fa fa-chevron-left"></i> git 中的合并策略
+              <a href="/2017/08/20/作用域：函数作用域和块作用域/" rel="next" title="作用域：函数作用域和块作用域">
+                <i class="fa fa-chevron-left"></i> 作用域：函数作用域和块作用域
               </a>
             
           </div>
@@ -552,8 +538,8 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/03/19/深拷贝/" rel="prev" title="深拷贝">
-                深拷贝 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/26/函数节流/" rel="prev" title="函数节流">
+                函数节流 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -720,7 +706,7 @@ commit： 存储提交信息，提交生成的 tree 文件用一张图可以说�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本控制系统"><span class="nav-number">1.</span> <span class="nav-text">版本控制系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地版本控制系统"><span class="nav-number">1.1.</span> <span class="nav-text">本地版本控制系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集中化的版本控制系统"><span class="nav-number">1.2.</span> <span class="nav-text">集中化的版本控制系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式的版本控制系统"><span class="nav-number">1.3.</span> <span class="nav-text">分布式的版本控制系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-中文件夹-git"><span class="nav-number">2.</span> <span class="nav-text">Git 中文件夹 .git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三种基本文件"><span class="nav-number">3.</span> <span class="nav-text">三种基本文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#blob-文件"><span class="nav-number">3.1.</span> <span class="nav-text">blob 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tree-文件"><span class="nav-number">3.2.</span> <span class="nav-text">tree 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#commit-文件"><span class="nav-number">3.3.</span> <span class="nav-text">commit 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种文件之间的关系"><span class="nav-number">3.4.</span> <span class="nav-text">三种文件之间的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠上下文"><span class="nav-number">1.</span> <span class="nav-text">层叠上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠水平"><span class="nav-number">2.</span> <span class="nav-text">层叠水平</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层叠顺序"><span class="nav-number">3.</span> <span class="nav-text">层叠顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建层叠上下文"><span class="nav-number">4.</span> <span class="nav-text">创建层叠上下文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#层叠上下文的特性："><span class="nav-number">4.1.</span> <span class="nav-text">层叠上下文的特性：</span></a></li></ol></li></ol></div>
             
 
           </div>

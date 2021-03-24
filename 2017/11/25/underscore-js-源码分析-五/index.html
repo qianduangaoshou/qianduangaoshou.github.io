@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git,">
+  <meta name="keywords" content="underscore.js源码,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="当我们合并两个分支的时候，Git 会帮我们自动挑选合适的合并策略，常见的 git 合并策略有 Fast-forward、Recursive 、Ours、Theirs 几种，不同的合并策略适用于不同的合并场景，如果想要强制指定一种合并策略，使用 git merge -s &amp;lt;策略名字&amp;gt; 命令Fast-forward: 这种合并策略是最简单的一种，适用的场景是：合并两个没有分叉的分支，入下图">
-<meta name="keywords" content="git">
+<meta name="description" content="underscore.js 源码解析（五） sample toArray  size  partition_.sample _.sample(list, [n])用于产生一个随机样本, 传递的参数 n 表示从 list 中返回 n 个随机元素。源码分析 12345678910_.sample = function(obj, n, guard) &amp;#123;    if (n == null ||">
+<meta name="keywords" content="underscore.js源码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 中的合并策略">
-<meta property="og:url" content="https://newpromise.github.io/2021/03/19/git 中的合并策略/index.html">
+<meta property="og:title" content="underscore.js 源码分析(五)">
+<meta property="og:url" content="https://newpromise.github.io/2017/11/25/underscore-js-源码分析-五/index.html">
 <meta property="og:site_name" content="上善若水">
-<meta property="og:description" content="当我们合并两个分支的时候，Git 会帮我们自动挑选合适的合并策略，常见的 git 合并策略有 Fast-forward、Recursive 、Ours、Theirs 几种，不同的合并策略适用于不同的合并场景，如果想要强制指定一种合并策略，使用 git merge -s &amp;lt;策略名字&amp;gt; 命令Fast-forward: 这种合并策略是最简单的一种，适用的场景是：合并两个没有分叉的分支，入下图">
+<meta property="og:description" content="underscore.js 源码解析（五） sample toArray  size  partition_.sample _.sample(list, [n])用于产生一个随机样本, 传递的参数 n 表示从 list 中返回 n 个随机元素。源码分析 12345678910_.sample = function(obj, n, guard) &amp;#123;    if (n == null ||">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-19T03:47:43.603Z">
+<meta property="og:updated_time" content="2021-03-03T10:09:11.250Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 中的合并策略">
-<meta name="twitter:description" content="当我们合并两个分支的时候，Git 会帮我们自动挑选合适的合并策略，常见的 git 合并策略有 Fast-forward、Recursive 、Ours、Theirs 几种，不同的合并策略适用于不同的合并场景，如果想要强制指定一种合并策略，使用 git merge -s &amp;lt;策略名字&amp;gt; 命令Fast-forward: 这种合并策略是最简单的一种，适用的场景是：合并两个没有分叉的分支，入下图">
+<meta name="twitter:title" content="underscore.js 源码分析(五)">
+<meta name="twitter:description" content="underscore.js 源码解析（五） sample toArray  size  partition_.sample _.sample(list, [n])用于产生一个随机样本, 传递的参数 n 表示从 list 中返回 n 个随机元素。源码分析 12345678910_.sample = function(obj, n, guard) &amp;#123;    if (n == null ||">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://newpromise.github.io/2021/03/19/git 中的合并策略/">
+  <link rel="canonical" href="https://newpromise.github.io/2017/11/25/underscore-js-源码分析-五/">
 
 
 
 
 
-  <title>git 中的合并策略 | 上善若水</title>
+  <title>underscore.js 源码分析(五) | 上善若水</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2021/03/19/git 中的合并策略/">
+    <link itemprop="mainEntityOfPage" href="https://newpromise.github.io/2017/11/25/underscore-js-源码分析-五/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="上善若水">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git 中的合并策略</h1>
+          <h1 class="post-title" itemprop="name headline">underscore.js 源码分析(五)</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-19T03:47:43+00:00">
-                2021-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T16:33:53+00:00">
+                2017-11-25
               </time>
             
 
@@ -342,8 +342,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-19T03:47:43+00:00">
-                2021-03-19
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-03T10:09:11+00:00">
+                2021-03-03
               </time>
             
           </span>
@@ -361,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/underscore-js-源码分析/" itemprop="url" rel="index">
+                    <span itemprop="name">underscore.js 源码分析</span>
                   </a>
                 </span>
 
@@ -379,8 +379,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2021/03/19/git 中的合并策略/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2021/03/19/git 中的合并策略/" itemprop="commentCount"></span>
+                <a href="/2017/11/25/underscore-js-源码分析-五/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/25/underscore-js-源码分析-五/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,7 +388,7 @@
 
           
           
-             <span id="/2021/03/19/git 中的合并策略/" class="leancloud_visitors" data-flag-title="git 中的合并策略">
+             <span id="/2017/11/25/underscore-js-源码分析-五/" class="leancloud_visitors" data-flag-title="underscore.js 源码分析(五)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k字
+                  866字
                 </span>
               
 
@@ -450,36 +450,42 @@
       
 
       
-        当我们合并两个分支的时候，Git 会帮我们自动挑选合适的合并策略，常见的 git 合并策略有 <code>Fast-forward、Recursive 、Ours、Theirs</code> 几种，不同的合并策略适用于不同的合并场景，如果想要强制指定一种合并策略，使用 <code>git merge -s &lt;策略名字&gt;</code> 命令<h4 id="fast-forward"><code>Fast-forward</code>:</h4>
-这种合并策略是最简单的一种，适用的场景是：合并两个没有分叉的分支，入下图所示，这个时候只是将 master 分支移动到最新的节点就好<img data-src="v2-e881bee3a250dd0aca96b6a11241ab78_b.jpg" data-type="post-pic" loading="lazy" style="border: none;zoom:80%;">
+        <h3 id="underscorejs-源码解析（五）">underscore.js 源码解析（五）</h3>
+<code>sample</code> <code>toArray</code>  <code>size</code>  <code>partition</code><h4 id="_sample"><code>_.sample</code></h4>
+<code>_.sample(list, [n])</code>用于产生一个随机样本, 传递的参数 n 表示从 <code>list</code> 中返回 <code>n</code> 个随机元素。<h4 id="源码分析">源码分析</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">_.sample = <span class="function"><span class="keyword">function</span>(<span class="params">obj, n, guard</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="literal">null</span> || guard) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.length !== +obj.length) obj = _.values(obj);</span><br><span class="line">      <span class="comment">// 返回使用 _.random 获得的随机数</span></span><br><span class="line">      <span class="keyword">return</span> obj[_.random(obj.length - <span class="number">1</span>)];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 使用 slice 用来分割数组</span></span><br><span class="line">    <span class="comment">// 使用 Math.max() 用来返回最大值</span></span><br><span class="line">    <span class="keyword">return</span> _.shuffle(obj).slice(<span class="number">0</span>, <span class="built_in">Math</span>.max(<span class="number">0</span>, n));</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>通过使用 <code>Math.max()</code> 用来获得一组数中的最大值。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max(value1, value2, value3, value4...)</span><br><span class="line"><span class="comment">// 获取到 value1, value2, value3, value4... 等一组数中的最大值</span></span><br><span class="line"><span class="built_in">Math</span>.min(value1, value2, value3, value4...)</span><br><span class="line"><span class="comment">// 获取到 value1, value1.. 中的最小值</span></span><br></pre></td></tr></table></figure></li>
+<li>使用 <code>Array.slice</code> 用来进行分割数组<code>Array.slice(start, end)</code> 分割的数组中包括 <code>start</code> 不包括 <code>end</code> </li>
+</ol>
+<h4 id="toarray"><code>toArray</code></h4>
+<h5 id="实例">实例</h5>
+<code>_.toArray(list)</code>如果 <code>list</code> 是一个可以迭代的对象, 可以将 <code>list</code> 转化为一个数组。<h5 id="源码分析-1">源码分析</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">_.toArray = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 如果 obj 不存在, 返回一个空的数组</span></span><br><span class="line">    <span class="keyword">if</span> (!obj) <span class="keyword">return</span> [];</span><br><span class="line">    <span class="comment">// 如果 obj 是一个真正的数组, 返回 slice.call(obj),</span></span><br><span class="line">    <span class="comment">// Object.prototype.slice</span></span><br><span class="line">    <span class="keyword">if</span> (_.isArray(obj)) <span class="keyword">return</span> slice.call(obj);</span><br><span class="line">    <span class="comment">// 如果 obj 是一个类数组对象</span></span><br><span class="line">    <span class="comment">// 类数组对象属于对象，但是有 length</span></span><br><span class="line">    <span class="keyword">if</span> (obj.length === +obj.length) <span class="keyword">return</span> _.map(obj, _.identity);</span><br><span class="line">    <span class="comment">// 返回 obj 是一个对象</span></span><br><span class="line">    <span class="keyword">return</span> _.values(obj);</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+当我们判断一个对象是否是数组或者对象的时候我们要分为几种情况:使用 <code>obj.length</code> 进行判断的时候:<ol>
+<li>对象是数组:使用 <code>Array.isArray</code> 进行判断，当 这个判断不支持的时候，使用 <code>Object.prototype.toString</code> 进行判断。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(obj) || <span class="built_in">Object</span>.prototype.toString.call(obj) ==== <span class="string">'[object Array]'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>对象是类数组对象对于类数组对象也有 <code>length</code> 属性，因此当我们判断类数组对象不是数组的时候，接下来进行判断:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (obj.length === +obj.length) &#123;</span><br><span class="line">  <span class="comment">// 判断得到是类数组对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li> 当得到的类型是对象的时候</li>
+</ol>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于对象而言: obj.length: undefined</span></span><br><span class="line"><span class="comment">// +obj.length: NaN</span></span><br><span class="line"><span class="keyword">if</span> (obj.length !== +obj.length) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="size"><code>size</code></h4>
+<code>_.size(list)</code>用于返回 <code>list</code> 的长度当 <code>list</code> 是数组的时候，返回的是数组的长度，当 <code>list</code> 是对象的时候，返回的是对象的长度。<h5 id="实例-1">实例</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  name: <span class="string">'张宁宁'</span>,</span><br><span class="line">  age: <span class="number">23</span>,</span><br><span class="line">  sex: <span class="string">'female'</span></span><br><span class="line">&#125;;</span><br><span class="line">_.size(person) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="源码分析-2">源码分析</h4>
+使用<code>_.size</code> 进行判断的数组数量的方法十分简单，判断传入的是对象或者是数组，对象的话返回的是键的值，对于数组返回的是数组的长度。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">size</span>(<span class="params">list</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (list == <span class="literal">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 判断 list 是否是对象或者数组</span></span><br><span class="line">  <span class="comment">// list 是数组，返回 list 的length</span></span><br><span class="line">  <span class="comment">// list 是对象, 返回的是 Object.keys(list) 的长度</span></span><br><span class="line">  <span class="keyword">return</span> list.length === +list.length ? list.length : <span class="built_in">Object</span>.keys(list).length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="partition"><code>partition</code></h4>
+<code>_.partition(array, predicate)</code><h5 id="实例-2">实例</h5>
+使用 <code>partition</code> 的目的在于拆分一个数组为两个数组，拆分之后的数组中第一个数组是满足 <code>predicate</code> 函数的数组，拆分之后的第二个数组是不满足 <code>predicate</code> 函数的数组。<blockquote>
+<code>predicate</code> : 断言，断定，宣布，宣讲，使基于</blockquote>
+<h5 id="源码分析-3">源码分析</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">_.partition = <span class="function"><span class="keyword">function</span>(<span class="params">obj, predicate, context</span>) </span>&#123;</span><br><span class="line">  predicate = cb(predicate, context);</span><br><span class="line">  <span class="comment">// 定义两个数组，分别用来存放成功的数组和失败的数组</span></span><br><span class="line">  <span class="keyword">var</span> pass = [], fail = [];</span><br><span class="line">  _.each(obj, <span class="function"><span class="keyword">function</span>(<span class="params">value, key, object</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// predicate 返回 true : pass.push(obj)</span></span><br><span class="line">    <span class="comment">// predicate 返回 false : fail.push(obj)</span></span><br><span class="line">    (predicate(value, key, object) ? pass : fail).push(obj);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// 返回一个二维数组</span></span><br><span class="line">  <span class="keyword">return</span> [[pass], [fail]];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
-
-<h4 id="recursive：">Recursive：</h4>
-使用  recursive 进行合并的场景是合并两个有分叉的分支，这是经常使用到的一种合并策略<img data-src="v2-ab724ead18c6fc8ada3c10257fabf84a_b.png" data-type="post-pic" loading="lazy" style="border: none;zoom:80%;">
-
-
-
-如上图所示，使用 Recursive 的合并过程是：合并中间两个节点 A， B 的时候，先找到它们两个节点的共同祖先节点，最左边的 A，然后这三个节点进行三向合并，最终得到最右边的节点 B‘Recursive 合并策略的合并算法可以总结为：<strong>递归寻找路径最短的唯一共同祖先节点，然后以其为 base 节点进行递归三向合并</strong>so，什么是三向合并就是我们了解这个合并策略最需要知道的内容<h5 id="三向合并">三向合并</h5>
-假如我们在两个分支上，分别修改了同一个文件，如下图所示， 当对于这两个分支进行合并的时候，那么能否合并成功呢？<img data-src="v2-8308f536b1986fd877fd360cbd6e9ed9_b.png" data-type="post-pic" loading="lazy" style="border: none;zoom:80%;">
-
-
-
-很显然是不能的，因为 git 无法判断合并之后的文件是采用哪一个文件的代码为了判断合并之后的文件采用哪一个分支修改的代码，我们除了上面的两个文件之外，还需要一个  <code>base</code> 节点的文件，这个节点的作用是作为对比分别和两个文件进行比较：<p><img data-src="v2-c8ad9474d401b2f1128980911ad3d9b0_b.jpg" data-type="post-pic" loading="lazy" style="border: none;"></p>如上图所示，我们通过三个文件进行对比可以得知，在 <code>Yours</code> 分支上的代码修改了文件，因此合并之后的文件中的内容采用这个分支上修改的内容。会不会出现三个文件上相同的文件修改的内容都不相同的情况呢 ？ 会的，这种情况的出现就是我们合并中会遇到的 <strong>冲突</strong><p><img data-src="v2-763962194d688dad1a479d505f1d8485_b.png" data-type="post-pic" loading="lazy" style="border: none;"></p>这个时候就需要我们解决冲突才能进行合并<h5 id="寻找-base-节点">寻找 base 节点</h5>
-在了解了三向合并的合并策略之后，接下来我们需要关心的是：如何查找 base 节点像recursive 合并算法中描述的： <strong>递归</strong>寻找<strong>路径最短</strong>的的<strong>唯一共同</strong>祖先节点如下图：<blockquote>
-下面的 Git 流程图中每一个圆圈表示一次提交，圆圈里面的文字表这次提交的文件内容，如果两个圆圈内文件的内容一致，则表示两次提交文件的内容没有被修改</blockquote>
-我们想要合并中间的两个节点  A 和 B，找到它们共同的祖先节点 A， 以它为base节点进行三向合并得到最右边的 B 节点<img data-src="v2-ab724ead18c6fc8ada3c10257fabf84a_b.png" data-type="post-pic" loading="lazy" style="border: none;zoom:80%;">
-
-
-
-实际情况可能比较复杂，如下图所示情况：<img data-src="v2-794b86a469a9acb9770b59f7551cc9dc_1440w.jpg" data-type="post-pic" loading="lazy" style="border: none;zoom:60%;">
-
-我们想要合并两个节点， B 和 C，查找到 B， C 的节点发现有两个共同的祖先节点： A 和 B，这种情况下我们应该以谁作为祖先节点呢 ？在这种情况下， git 会继续递归查找，寻找 A 和 B 的共同祖先节点，将这个共同的祖先节点为base节点和 A，B进行合并， <img data-src="Xnip2021-03-06_15-06-03.jpg" data-type="post-pic" loading="lazy" alt="image-20210306150442907" style="border: none;zoom:40%;">
-
-如上图所示，首先找到了一个合并之后的节点 <code>4/B</code>, 在根据这个节点作为 base 节点，和 节点 B C 进行三向合并<h4 id="ours--theirs">Ours &amp; Theirs</h4>
-使用 Ours 和 Theirs 这两种合并策略的目的是： 我们希望保留两个分支的历史记录，但是忽略掉一方的代码变更使用 Ours 和 Theirs 应用的场景相似，假如有两个分支，在这两个分支上对于同一功能进行了不同的代码实现，如果我们想要采用其中一种，但是希望另外一种代码实现也能出现在提交记录中的时候，可以执行 <code>git merge -s ours/theirs</code> 命令来实现<img data-src="Xnip2021-03-06_15-35-10.jpg" data-type="post-pic" loading="lazy" style="border: none;zoom:40%;">
-
-如上图所示，最终只会保留 master 分支上的代码
       
     </div>
     
@@ -496,7 +502,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/underscore-js源码/" rel="tag"># underscore.js源码</a>
           
         </div>
       
@@ -509,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/26/协商缓存和强缓存/" rel="next" title="协商缓存和强缓存">
-                <i class="fa fa-chevron-left"></i> 协商缓存和强缓存
+              <a href="/2017/11/23/underscore-js源码分析-四/" rel="next" title="underscore.js源码分析(四)">
+                <i class="fa fa-chevron-left"></i> underscore.js源码分析(四)
               </a>
             
           </div>
@@ -519,8 +525,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/03/19/git 中的数据存储/" rel="prev" title="git 中的数据存储">
-                git 中的数据存储 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/27/underscore-js-源码解析-六/" rel="prev" title="underscore.js 源码解析(六)">
+                underscore.js 源码解析(六) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -687,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#fast-forward"><span class="nav-number">1.</span> <span class="nav-text">Fast-forward:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#recursive："><span class="nav-number">2.</span> <span class="nav-text">Recursive：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三向合并"><span class="nav-number">2.1.</span> <span class="nav-text">三向合并</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寻找-base-节点"><span class="nav-number">2.2.</span> <span class="nav-text">寻找 base 节点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ours--theirs"><span class="nav-number">3.</span> <span class="nav-text">Ours &amp; Theirs</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#underscorejs-源码解析（五）"><span class="nav-number">1.</span> <span class="nav-text">underscore.js 源码解析（五）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#_sample"><span class="nav-number">1.1.</span> <span class="nav-text">_.sample</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码分析"><span class="nav-number">1.2.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toarray"><span class="nav-number">1.3.</span> <span class="nav-text">toArray</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例"><span class="nav-number">1.3.1.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">源码分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#size"><span class="nav-number">1.4.</span> <span class="nav-text">size</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码分析-2"><span class="nav-number">1.5.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#partition"><span class="nav-number">1.6.</span> <span class="nav-text">partition</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实例-2"><span class="nav-number">1.6.1.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源码分析-3"><span class="nav-number">1.6.2.</span> <span class="nav-text">源码分析</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
